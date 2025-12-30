@@ -1,224 +1,194 @@
-body{
-    margin:0;
-     font-family: sans-serif;
-     background-color:#222;
-     color:#000;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROGRAMA DE DIGNIFICACIÓN DE EQUIPAMIENTO INSTITUCIONAL 2026</title>
+    <!-- <style>
+            <?!= include("styles"); ?> 
+    </style>
+    -->
 
-     /* background:linear-gradient(to bottom,#fff,#9d2449);*/
-    /* background-color: #98989A;
-     background-color: #BABABC;
-    */
-     background-color: #DCDCDE;
+      <link rel="stylesheet" href="styles.css"> 
 
-}
-h1{
-    text-align: center;
-    margin-top: 10px;
-    margin:0;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    color:#000;
-}
-form{
-    background-color:transparent;
-    padding: 20px 0;
-    width: 100%;
-    margin:auto;
-/*    box-shadow: 0px 0px 55px #9d2449;
-*/
-    margin-top: 50px;
-/*    text-shadow: 0 0 0  #fff;*/
-    border-radius: 8px;
-    color:#fff;
-}
-
-/*padding:6px 20px;*/
-
-
-
-.form_input{
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    align-items: center;
-    margin-bottom: 3px;
-    gap: 10px;
-}
-/*width: 100%;
-  box-sizing: border-box;
-  padding: 6px 12px;
-*/
-input,textarea, select{
-
-    width:100%;
-    box-sizing:border-box;
-    padding:6px 6px;
-    margin-bottom: 10px;*/
-    border:none;
-   /* border-left: 2px solid #f00;*/
-/*    box-shadow:2px 3px 15px #9d2449;*/
-    background-color: #fff;
-/*    text-shadow: #eee;*/
-    color:#000;
-}
-textarea{
-    width: 100%;   
-    resize:none;
-   /* min-height: 20px;*/
-    font-family: sans-serif;
-    border:none;
-}
-.checkbox{
-    width:auto;
-    height:10px;
-}
-option{
-    background-color:#fff;
-}
-/*
-fieldset{
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 5px;
-   border:1px solid #f04d69;
-    padding:10px 10px 20px 20px;
-    margin:20px;
-    background-color: #eee;
-    color:#000;
-}*/
-fieldset{
-    box-sizing: border-box;
-    border-radius: 5px;
-    border:1px solid #f04d69;
-    background-color: #eee;
-    color:#000;
-    width: 100%;
-    margin: 0;
-}
-
-
-
-legend{
-    padding: 0 6px;
-    background-color: #611232;
-    color:#fff;
-}
-a{
-    color:#69f;
-    text-decoration: none;
-}
-.input_tabla{
-    width:100%; 
-    /*width:114.28px;*/
-}
-
-label{
-    width:100%;
-    background-color: #611232;
-    padding: 6px 2px;
-/*    text-align: right;      /* 👈 alineación */
-   /* white-space: nowrap;
-    border-left: 2px solid #f00;
-    box-shadow:2px 3px 15px #fff;
-    */
-    color:#fff;
+</head>
+<body>
+    <div class="imagenes">
+  <img src="IzquierdaEncabezado.jpg" alt="IPN" title="Izq">
+  <img src="CentroEncabezado.png" alt="IPN" title="Cent">
+  <img src="DerechaEncabezado.jpg" alt="IPN" title="Izq">
+</div>
+<form id="miFormulario">
+   <h1>PROGRAMA DE DIGNIFICACIÓN DE EQUIPAMIENTO INSTITUCIONAL 2026 (PDEI 2026)</h1>
+<div class="datos">
+   <fieldset>
+    <legend>Información General Test 5.35</legend>
     
-}
+    <div class="form_input">
+      <label for="secretaria">Secretaría</label>
+      <select id="secretaria" name="secretaria" placeholder="   ">
+                   <option value="">-- Selecciona un nivel--</option>
+                   <option value="SG">Secretaría General</option>
+                   <option value="DG">Dirección General</option>
+                   <option value="AG">Oficina del Abogado General</option>
+                   <option value="PD">Presidencia del Decanato</option>
+                   <option value="SACAD">Secretaría Académica</option>
+                   <option value="SADMIN">Secretaría de Administración</option>
+                   <option value="SIIS">Secretaría de Innovación e Integración Social</option>
+                   <option value="SIP">Secretaría de Investigación y Posgrado</option>
+                   <option value="SSE">Secretaría de Servicios Educativos</option>
+                   </select>
+      
+    </div>
 
-.auto-expand {
-  width: 100%;
-  min-height: 40px;
-  resize: none;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-/*.form_input{
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
-}
-*/
-.cantidadCol{
-    width:10px;
-}
-.fijasCol{
-    width:60px;
-}
-img{
-    height:100px;
-    width:100%;
-}
-.imagenes{
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 0px;
-}
-th{
-    background-color:#9d2449;
-}
-td{
-    padding:0;
-    background-color:#fff;
-    color:#000;
-}
-/*.datos{
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 5px;
-}*/
+    <div class="form_input">
+         <label for="direccion">Dirección</label>   
+             <select id="direccion" name="direccion" disabled>
+             <option value="">-- Selecciona un dirección--</option>
+             </select>
+    </div>
+     
+    <div class="form_input">
+          <label for="nivel">Nivel/Área/otro</label>   
+             <select id="nivel" name="nivel" disabled>
+             <option value="">-- Selecciona un nivel--</option>
+             </select>
+            </div>
+    <div class="form_input">    
+             <label for="dependencia">Dependencia</label>
+             <select name="dependencia" id="dependencia" disabled>
+               <option value="">-- Selecciona primero una categoría --</option>
+             </select>
+    </div> 
 
-/*.datos{
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 10px;
-}*/
-.datos{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
+  </fieldset>
 
-@media (min-width: 900px){
-  .datos{
-    grid-template-columns: 1fr 1fr;
-  }
-}
+<fieldset>
 
-fieldset{
-    width: 100%;
-    margin: 0;
-}
-.input_tabla{
-    border:none;
-}
-.input_tabla:focus{
-    outline: none;
-    border:none;
-}
+  <legend>Información de Contacto </legend>
 
-.tabla_style{
-     width: 95%;
-     margin: 20px auto; /* centra horizontalmente
-     border-collapse: collapse;    */
-     margin-top: 60px;
-}
-button{
-    width:800px;
-    display: block;
-    margin: 20px auto;
-}
-p{
-       margin: 0 25% ;
-       color :#000;
-}
 
-td .input_tabla{
-    width: 100%;
-    height: 100%;
-    display: block;
-    box-sizing: border-box;
-    padding: 8px;
-    border: none;
-    margin: 0;
-}
+<div class="form_input">
+      <label for="ubicacion">Ubicación(Domicilio)</label>
+      <input id="ubicacion" name="ubicacion" placeholder="Lugia_Djokovic@hotmail.com">
+    </div>
+
+    <div class="form_input">
+      <label for="titular">Titular</label>
+      <input id="titular" name="titular" placeholder="Titular ">
+    </div>
+
+    <div class="form_input">
+      <label for="telefonoTitular">Teléfono Titular</label>
+      <input id="telefonoTitular" name="telefonoTitular" placeholder="telefono del Titular ">
+    </div>
+
+    <div class="form_input">
+      <label for="correoTitular">Correo Titular</label>
+      <input id="correoTitular" name="correoTitular" placeholder="correo del Titular ">
+    </div>
+    
+    <div class="form_input">
+      <label for="responsable">Responsable de llenado(Capítulo 5000)</label>
+      <input id="responsable" name="responsable" placeholder="responsable ">
+    </div>
+
+
+    <div class="form_input">
+      <label for="telefonoResponsable">Teléfono Responsable</label>
+      <input id="telefonoResponsable" name="telefonoResponsable" placeholder="telefono del Responsable ">
+    </div>
+
+    <div class="form_input">
+      <label for="correoResponsable">Correo Responsable</label>
+      <input id="correoResponsable" name="correoResponsable" placeholder="correo del Responsable ">
+    </div>
+  
+</fieldset>
+</div>
+<div class="botones">
+  <button type="submit">Enviar</button>
+   <button type="button" onclick="agregarFila()">➕ Añadir fila</button>
+</div>
+  <p id="aviso"></p>
+
+<table class="tabla_style">
+  <thead>
+                               <tr>
+                                    <th>
+                                         Nivel/Área/otro  
+                                    </th>
+                
+                                    <th>
+                                         Dependencia
+                                    </th>   
+
+                                    <th>
+                                         Nombre del Equipo
+                                    </th>
+                                    <th class="cantidadCol">
+                                        Cantidad
+                                    </th>
+                                    <th>
+                                        Marca/Modelo
+                                    </th>
+
+                                    <th>
+                                        Clave CUCOP
+                                    </th>
+
+                                    <th>
+                                        Especificaciones Tecnicas
+                                    </th> 
+                                    
+                                    <th>
+                                        Justificación (Equipo no Existente, Sustitución o Complemento)
+                                    </th>
+
+                                    <th>
+                                         Precio de referencia
+                                    </th>
+                     
+                                    <th>
+                                        Prioridad (Baja, Media, Alta, Urgente)
+                                    </th>
+
+                               </tr>
+                        </thead>
+
+                        <tbody id="tablaBody">
+                                
+
+
+                              
+                        </tbody>     
+</table>
+
+
+
+    
+</form>
+
+</body>
+
+<script src="Codigo.js"></script>   
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
