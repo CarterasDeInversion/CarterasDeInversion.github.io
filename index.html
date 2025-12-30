@@ -1,396 +1,224 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dpo/Carteras de Inversion/ConcentradovsEjecutado</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h2>Concentrado de Carteras de Inversion</h2>
-       
-              <form>
-              <div class="form_input">
-                    <textarea readonly class="ClavedeCartera Encabezado">Clave de Cartera</textarea>
-                    <textarea readonly class="Nombre Encabezado">Nombre</textarea>
-                    <textarea readonly  class="UnidadAcademica Encabezado" >Unidad académica</textarea>
-                    <textarea readonly  class="Nivel Encabezado">Nivel</textarea>
-                    <textarea readonly  class="BienesSolicitados Encabezado">Bienes Solicitados</textarea>
-                    <textarea readonly  class="BienesAdjudicados Encabezado">Bienes Adjudicados</textarea>
-                    <textarea readonly class="Espacio Encabezado">Espacio</textarea>
-                    <textarea readonly  class="ProgramaAcademico Encabezado">Programa Académico</textarea>
-                    <textarea readonly  class="InversionEspacio Encabezado">Inversión por Espacio</textarea>
-                    <textarea readonly  class="InversionUA Encabezado">Inversión por Unidad Académica</textarea>
-                    <textarea readonly  class="InversionTotal Encabezado">Inversión Total 2024</textarea>
-                    <textarea readonly  class="Links Encabezado">Links</textarea> 
-                </div>
-                <div class="form_input">
-                    <textarea readonly class="ClavedeCartera Datos R1">
-                        
-                        
-                        
+body{
+    margin:0;
+     font-family: sans-serif;
+     background-color:#222;
+     color:#000;
 
-2211B000009</textarea>
-                    <textarea readonly class="Nombre Datos R1">Programa de equipamiento de bienes de TIC´s para aulas y laboratorios de la Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)</textarea>
-                    <textarea readonly  class="UnidadAcademica Datos R1" >
-                        
-                        
-                        
-                        
-UPIIP</textarea>
-                    <textarea readonly  class="Nivel Datos R1">
-                        
-                        
-                        
-                        
-NS</textarea>
-                    <textarea readonly  class="BienesSolicitados Datos R1">328
-328
-4
-5
-7
-16
-1
-164
-82</textarea>
-                    <textarea readonly  class="BienesAdjudicados Datos R1">328
-328
-4
-5
-7
-16
-0
-0
-0</textarea>
-                    <textarea readonly class="Espacio Datos R1">Laboratorios de cómputo 1-8 primer nivel
-Laboratorios de cómputo 1-8 segundo nivel
-Laboratorios de cómputo 1-4 primer nivel
-Laboratorios planta baja
-Aulas planta baja
-Laboratorios de cómputo primer y segundo nivel
-Laboratorios de cómputo 1-4 primer nivel
-Laboratorios de cómputo 1-4 primer nivel
-Laboratorios de cómputo 5-6 primer nivel</textarea>
-                    <textarea readonly  class="ProgramaAcademico Datos R1">
-                        
-                        
-                        
-                        
-Todos los programas académicos (4)
-                    </textarea>
-                    <textarea readonly  class="InversionEspacio Datos R1">$16,389,176.00 
-$16,389,176.00 
-$167,968.00 
-$313,200.00 
-$438,480.00 
-$1,002,240.00 
-$-   
-$-   
-$-</textarea>
-                    <textarea readonly  class="InversionUA Datos R1">
-                        
-                        
-                        
-                        
-$34,700,240 
-                    </textarea>
-                    <textarea readonly  class="InversionTotal Datos R1">
-                        
-                        
-                        
-                        
-$34,700,240 
-                    </textarea>
-                    <a href="2211B000009_ActaFallo_AdjDir_UPIIP.pdf" target="_blank">2211B000009_ActaFallo_AdjDir</a> 
-                </div>
-              
+     /* background:linear-gradient(to bottom,#fff,#9d2449);*/
+    /* background-color: #98989A;
+     background-color: #BABABC;
+    */
+     background-color: #DCDCDE;
+
+}
+h1{
+    text-align: center;
+    margin-top: 10px;
+    margin:0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color:#000;
+}
+form{
+    background-color:transparent;
+    padding: 20px 0;
+    width: 100%;
+    margin:auto;
+/*    box-shadow: 0px 0px 55px #9d2449;
+*/
+    margin-top: 50px;
+/*    text-shadow: 0 0 0  #fff;*/
+    border-radius: 8px;
+    color:#fff;
+}
+
+/*padding:6px 20px;*/
 
 
 
+.form_input{
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    align-items: center;
+    margin-bottom: 3px;
+    gap: 10px;
+}
+/*width: 100%;
+  box-sizing: border-box;
+  padding: 6px 12px;
+*/
+input,textarea, select{
 
-                <div class="form_input">
-                    <textarea readonly class="ClavedeCartera Datos R2">
-                        
-                        
-                        
-
-2211B000010</textarea>
-                    <textarea readonly class="Nombre Datos R2">Programa de equipamiento de bienes de TIC´s para aulas y laboratorios de la Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)</textarea>
-                    <textarea readonly  class="UnidadAcademica Datos R2" >
-                        
-                        
-                        
-                        
-UPIIP</textarea>
-                    <textarea readonly  class="Nivel Datos R2">
-                        
-                        
-                        
-                        
-NS</textarea>
-                    <textarea readonly  class="BienesSolicitados Datos R2">7
-36
-36
-28
-</textarea>
-                    <textarea readonly  class="BienesAdjudicados Datos R2">2
-26
-26
-1
-</textarea>
-                    <textarea readonly class="Espacio Datos R2">Edificio de laboratorios Ligeros (planta baja)
-Edificio de laboratorios Ligeros (primer nivel)
-Edificio de laboratorios Ligeros (segundo nivel)
-Edificio de aulas (planta baja)
-</textarea>
-                    <textarea readonly  class="ProgramaAcademico Datos R2">
-                        
-                        
-                        
-                        
-Todos los programas académicos (4)
-                    </textarea>
-                    <textarea readonly  class="InversionEspacio Datos R2"> $41,675.32 
-$7,166,904.79 
-$7,166,904.79 
-$20,837.66 
-</textarea>
-                    <textarea readonly  class="InversionUA Datos R2">
-                        
-                        
-                        
-$14,396,323  
-                    </textarea>
-                    <textarea readonly  class="InversionTotal Datos R2">
-                        
-                        
-                        
-$14,396,323 
-                    </textarea>
-                    <a href="2211B000010 y 2311B000001_ActaFallo_UPIIP.pdf" target="_blank">2211B000010_ActaFallo_UPIIP</a> 
-                </div>
+    width:100%;
+    box-sizing:border-box;
+    padding:6px 6px;
+    margin-bottom: 10px;*/
+    border:none;
+   /* border-left: 2px solid #f00;*/
+/*    box-shadow:2px 3px 15px #9d2449;*/
+    background-color: #fff;
+/*    text-shadow: #eee;*/
+    color:#000;
+}
+textarea{
+    width: 100%;   
+    resize:none;
+   /* min-height: 20px;*/
+    font-family: sans-serif;
+    border:none;
+}
+.checkbox{
+    width:auto;
+    height:10px;
+}
+option{
+    background-color:#fff;
+}
+/*
+fieldset{
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+   border:1px solid #f04d69;
+    padding:10px 10px 20px 20px;
+    margin:20px;
+    background-color: #eee;
+    color:#000;
+}*/
+fieldset{
+    box-sizing: border-box;
+    border-radius: 5px;
+    border:1px solid #f04d69;
+    background-color: #eee;
+    color:#000;
+    width: 100%;
+    margin: 0;
+}
 
 
 
+legend{
+    padding: 0 6px;
+    background-color: #611232;
+    color:#fff;
+}
+a{
+    color:#69f;
+    text-decoration: none;
+}
+.input_tabla{
+    width:100%; 
+    /*width:114.28px;*/
+}
 
-                <div class="form_input">
-                    <textarea readonly class="ClavedeCartera Datos R3">
-                        
-                        
-                        
-2311B000001</textarea>
-                    <textarea readonly class="Nombre Datos R3">Programa de equipamiento de mobiliario para la Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)</textarea>
-                    <textarea readonly  class="UnidadAcademica Datos R3" >
-                        
-                        
-                        
-                        
-UPIIP</textarea>
-                    <textarea readonly  class="Nivel Datos R3">
-                        
-                        
-                        
-                        
-NS</textarea>
-                    <textarea readonly  class="BienesSolicitados Datos R3">903
-69
-72
-57
-71
-72
-94
-536
-134
-134
-132
-134
-34
-45
-56
-3</textarea>
-                    <textarea readonly  class="BienesAdjudicados Datos R3">811
-56
-59
-56
-68
-71
-85
-424
-134
-134
-132
-134
-31
-43
-44
-2</textarea>
-                    <textarea readonly class="Espacio Datos R3">Aulas A
-Laboratorio de Biotecnología Industrial
-Laboratorio de Electricidad y Electromagnetismo
-Laboratorio de Electrónica
-Laboratorio de Física Básica
-Laboratorio de Microbiología, Biología Molecular E Inmunología
-Laboratorio de Química Básica
-Laboratorio de Computo I de 40+1 para  Idioma Ingles
-Laboratorio de Computo II de 40+1 para  Ferroviaria
-Laboratorio de Computo III de 40+1 para  Biotecnologia
-Laboratorio de Computo IV de 40+1 para  Turismo
-Laboratorio de Computo V de 40+1 para  Civil
-Área de apoyo académico
-Área de apoyo administrativo
-Área de servicios generales
-Servicio Médico</textarea>
-                    <textarea readonly  class="ProgramaAcademico Datos R3">Todos los programas académicos (4)
-Ingeniería Biotecnológica
-Ingeniería Ferroviaria
-Ingeniería Ferroviaria
-"Ingeniería Civil Ingeniería Ferroviaria"
-"Ingeniería Civil Ingeniería Biotecnológica"
-"Ingeniería Biotecnológica Ingeniería Civil Ingeniería Ferroviaria"
-Todos los programas académicos (4)
-Ingeniería Ferroviaria
-Ingeniería Biotecnológica
-Licenciatura en Turismo Sustentable
-Ingeniería Civil
-No aplica
-No aplica
-No aplica
-No aplica</textarea>
-                    <textarea readonly  class="InversionEspacio Datos R3">$3,424,923.20 
-$870,786.33 
-$1,570,801.13 
-$334,289.68 
-$1,483,144.56 
-$1,834,692.59 
-$2,694,814.10 
-$2,487,297.06 
-$856,535.25 
-$856,535.25 
-$757,863.26 
-$856,535.25 
-$746,808.00 
-$876,554.00 
-$807,899.18 
-$313,191.30</textarea>
-                    <textarea readonly  class="InversionUA Datos R3">
-                        
-                        
-                        
-                        $20,772,670</textarea>
-                    <textarea readonly  class="InversionTotal Datos R3">
-                        
-                        
-                        
-$20,772,670 
-                    </textarea>
-                    <a href="2211B000010 y 2311B000001_ActaFallo_UPIIP.pdf" target="_blank">2211B000010</a> 
-                </div>
+label{
+    width:100%;
+    background-color: #611232;
+    padding: 6px 2px;
+/*    text-align: right;      /* 👈 alineación */
+   /* white-space: nowrap;
+    border-left: 2px solid #f00;
+    box-shadow:2px 3px 15px #fff;
+    */
+    color:#fff;
+    
+}
 
+.auto-expand {
+  width: 100%;
+  min-height: 40px;
+  resize: none;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+/*.form_input{
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+*/
+.cantidadCol{
+    width:10px;
+}
+.fijasCol{
+    width:60px;
+}
+img{
+    height:100px;
+    width:100%;
+}
+.imagenes{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 0px;
+}
+th{
+    background-color:#9d2449;
+}
+td{
+    padding:0;
+    background-color:#fff;
+    color:#000;
+}
+/*.datos{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 5px;
+}*/
 
+/*.datos{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+}*/
+.datos{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
 
+@media (min-width: 900px){
+  .datos{
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
+fieldset{
+    width: 100%;
+    margin: 0;
+}
+.input_tabla{
+    border:none;
+}
+.input_tabla:focus{
+    outline: none;
+    border:none;
+}
 
+.tabla_style{
+     width: 95%;
+     margin: 20px auto; /* centra horizontalmente
+     border-collapse: collapse;    */
+     margin-top: 60px;
+}
+button{
+    width:800px;
+    display: block;
+    margin: 20px auto;
+}
+p{
+       margin: 0 25% ;
+       color :#000;
+}
 
-
-
-                <div class="form_input">
-                    <textarea readonly class="ClavedeCartera Datos R4">
-                        
-                        
-                        
-2411B000001</textarea>
-                    <textarea readonly class="Nombre Datos R4">Programa de equipamiento para los laboratorios de enseñanza de la Escuela Nacional de Medicina y Homeopatía del IPN</textarea>
-                    <textarea readonly  class="UnidadAcademica Datos R4" >
-                        
-                        
-                        
-                        
-ENMH</textarea>
-                    <textarea readonly  class="Nivel Datos R4">
-                        
-                        
-                        
-                        
-NS</textarea>
-                    <textarea readonly  class="BienesSolicitados Datos R4">294
-5
-4
-2
-8
-10
-42
-54
-4
-9
-168</textarea>
-                    <textarea readonly  class="BienesAdjudicados Datos R4">251
-4
-4
-2
-7
-10
-38
-54
-4
-9
-163</textarea>
-                    <textarea readonly class="Espacio Datos R4">Unidad Médica Homeopática
-Clínica de Acupuntura Humana
-Laboratorio de Anfiteatro
-Laboratorio de Homeopatía
-Laboratorio de Investigación Homeopática
-Laboratorio 1 de Biomedicina Molecular
-Laboratorio de Seguridad e Higiene Industrial
-Laboratorio Anatomía
-Unidad de Simulación Quirúrgica
-Laboratorio de Habilidades Clínicas
-Laboratorios Interdisciplinarios I, II y III</textarea>
-                    <textarea readonly  class="ProgramaAcademico Datos R4">
-"Médico Cirujano y Homeópata, Médico Cirujano y Partero, Especialidad en homeopatía"
-Especialidad en Acupuntura Humana
-"Médico Cirujano y Homeópata, Médico Cirujano y Partero"
-Médico Cirujano y Homeópata
-Médico Cirujano y Homeópata
-"Maestría en Ciencias en Biomedicina Molecular, Doctorado en Ciencias en Biotecnología"
-Maestría en Ciencias en Salud Ocupacional, Seguridad e Higiene
-Médico Cirujano y Homeópata
-"Médico Cirujano y Homeópata, Médico Cirujano y Partero"
-"Médico Cirujano y Homeópata, Médico Cirujano y Partero"
-"Médico Cirujano y Homeópata, Médico Cirujano y Partero"</textarea>
-                    <textarea readonly  class="InversionEspacio Datos R4"> $5,288,379.01 
-$4,383,024.27 
-$1,141,983.14 
-$13,536.78 
-$1,148,043.16 
-$6,291,932.28 
-$2,065,814.34 
-$26,610,774.95 
-$5,607,080.47 
-$4,403,648.02 
-$15,395,003.39</textarea>
-                    <textarea readonly  class="InversionUA Datos R4">
-                        
-                        
-                        
-$72,349,220
-                    </textarea>
-                    <textarea readonly  class="InversionTotal Datos R4">
-                        
-                        
-                        
-$72,349,220 
-                    </textarea>
-                    <a href="2411B000001_ActaFallo_ENMH(solo Fallos).pdf" target="_blank">2411B000001_ActaFallo_ENMH </a>
-                    <a href="2411B000001_Adj_ENMH.pdf" target="_blank">2411B000001_Adj_ENMH</a> 
-                </div>
-
-
-
-
-
-
-
-
-       </form>     
-</body>
-</html>
+td .input_tabla{
+    width: 100%;
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+    padding: 8px;
+    border: none;
+    margin: 0;
+}
