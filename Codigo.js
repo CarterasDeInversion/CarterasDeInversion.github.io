@@ -28,13 +28,10 @@ for (let i = 1; i <= 4; i++) {
 
     </td>
 
-    <td class="cantidadCol">
-      <textarea
-        name="cantidadR${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-      > </textarea>  
+      <td class="cantidadCol">
+
+      <input type="number" class="input_tabla" name="cantidadR${i}"> </input>  
+    
       </td>
 
     <td>
@@ -47,13 +44,11 @@ for (let i = 1; i <= 4; i++) {
       </td>
 
     <td>
-      <textarea
-        name="claveCUCOPR${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-      > </textarea>
-      </td>
+
+    <input type="number" class="input_tabla" name="claveCUCOPR${i}"> </input>
+
+
+    </td>
     
     <td>
       <textarea
@@ -74,13 +69,10 @@ for (let i = 1; i <= 4; i++) {
       >Justificacion</textarea>
     </td>
 
-    <td>
-      <textarea
-        name=precioR${i}
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-      > </textarea>
+      <td>
+      
+      <input type="number" name="precioR${i}" class="input_tabla"> </input>
+      
       </td>
 
     <td>
@@ -582,12 +574,9 @@ function agregarFila(){
     
 
     <td class="cantidadCol">
-      <textarea
-        name="cantidadR${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-      > </textarea>  
+
+      <input type="number" name="cantidadR${i}" class="input_tabla"> </input>  
+    
       </td>
 
     <td>
@@ -600,12 +589,9 @@ function agregarFila(){
       </td>
 
     <td>
-      <textarea
-        name="claveCUCOPR${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-      > </textarea>
+      
+      <input type="number" name="claveCUCOPR${i}" class="input_tabla"> </input>
+
       </td>
 
 
@@ -630,13 +616,10 @@ function agregarFila(){
 
     
     
-    <td>
-      <textarea
-        name=precioR${i}
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-      > </textarea>
+     <td>
+
+      <input type="number" name="precioR${i}" class="input_tabla"> </input>
+
       </td>
     
     <td>
@@ -647,7 +630,7 @@ function agregarFila(){
                    <option value="A">Alta</option>
       </select>
     </td>
-    
+
     `;
 
   tbody.appendChild(fila);
