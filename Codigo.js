@@ -1,7 +1,4 @@
-/*
--Crear el otro diseño con miras a agregar filas extras o cantidad de filas 
-
-*/
+/*Crear el otro diseño con miras a agregar filas extras o cantidad de filas */
 
 //Creacion de renglones de tablas 
 const tbody = document.getElementById("tablaBody");
@@ -78,9 +75,10 @@ for (let i = 1; i <= 4; i++) {
     <td>
       <select id="prioridadR${i}" name="prioridadR${i}" placeholder="   " class="tabla_select">
                    <option value="">-- Selecciona una prioridad--</option>
-                   <option value="B">Baja</option>
-                   <option value="M">Media</option>
-                   <option value="A">Alta</option>
+                   <option value="Baja">Baja</option>
+                   <option value="Media">Media</option>
+                   <option value="Alta">Alta</option>
+                   <option value="Urgente">Urgente</option>
       </select>
     </td>
   `;
@@ -625,9 +623,10 @@ function agregarFila(){
     <td>
       <select id="prioridadR${i}" name="prioridadR${i}" placeholder="   " class="tabla_select">
                    <option value="">-- Selecciona una prioridad--</option>
-                   <option value="B">Baja</option>
-                   <option value="M">Media</option>
-                   <option value="A">Alta</option>
+                   <option value="Baja">Baja</option>
+                   <option value="Media">Media</option>
+                   <option value="Alta">Alta</option>
+                   <option value="Urgente">Urgente</option> 
       </select>
     </td>
 
@@ -701,4 +700,5 @@ function activarAutoExpand(fila){
   })
   .catch(() => alert("Error al enviar"));
 });
+
 
