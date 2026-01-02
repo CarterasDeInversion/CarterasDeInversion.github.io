@@ -102,6 +102,7 @@ legend{
     padding: 0 6px;
     background-color: #611232;
     color:#fff;
+    border-radius: 20px;
 }
 a{
     color:#69f;
@@ -227,3 +228,4 @@ td .input_tabla{
     border: none;
     margin: 0;
 }
+
