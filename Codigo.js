@@ -1,6 +1,3 @@
-/*Crear el otro diseño con miras a agregar filas extras o cantidad de filas */
-
-//Creacion de renglones de tablas 
 const tbody = document.getElementById("tablaBody");
 
 for (let i = 1; i <= 4; i++) {
@@ -17,7 +14,7 @@ for (let i = 1; i <= 4; i++) {
     <td>
       <textarea
         name="nombredelEquipoR${i}"
-        class="auto-expand input_tabla"
+        class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
       > </textarea>
@@ -58,13 +55,14 @@ for (let i = 1; i <= 4; i++) {
 
 
     <td>
-      <textarea
-        name="justificacionR${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-      >Justificacion</textarea>
-    </td>
+      
+      <select id="justificacionR${i}" name="justificacionR${i}" class="tabla_select">
+                   <option value="">-- Selecciona una prioridad--</option>
+                   <option value="Baja">Equipo no Existente</option>
+                   <option value="Media">Sustitución</option>
+                   <option value="Alta">Complemento</option>
+      </select>
+      </td>
 
       <td>
       
@@ -547,7 +545,25 @@ nivelInput.addEventListener("change", () => {
   });
 });
 
+const disparadores = document.querySelectorAll(".obligatorio");
 
+  disparadores.forEach(input => {
+    input.addEventListener("input", function () {
+      const fila = this.closest("tr");
+      const camposFila = fila.querySelectorAll("input, textarea, select");
+    //  const camposFila = fila.querySelectorAll("input");
+
+      const tieneValor = this.value.trim() !== "";
+
+      camposFila.forEach(campo => {
+        if (tieneValor) {
+          campo.setAttribute("required", "required");
+        } else {
+          campo.removeAttribute("required");
+        }
+      });
+    });
+  });
 
 function agregarFila(){
   const tbody = document.getElementById("tablaBody");
@@ -563,7 +579,7 @@ function agregarFila(){
     <td>
       <textarea
         name="nombredelEquipoR${i}"
-        class="auto-expand input_tabla"
+        class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
       > </textarea>
@@ -573,7 +589,7 @@ function agregarFila(){
 
     <td class="cantidadCol">
 
-      <input type="number" name="cantidadR${i}" class="input_tabla"> </input>  
+      <input type="number" name="cantidadR${i}" class="input_tabla "> </input>  
     
       </td>
 
@@ -604,12 +620,12 @@ function agregarFila(){
     </td>
 
     <td>
-      <textarea
-        name="justificacionR${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-      >Justificacion</textarea>
+      <select id="justificacionR${i}" name="justificacionR${i}" class="tabla_select">
+                   <option value="">-- Selecciona una prioridad--</option>
+                   <option value="Baja">Equipo no Existente</option>
+                   <option value="Media">Sustitución</option>
+                   <option value="Alta">Complemento</option>
+      </select>
     </td>
 
     
@@ -651,7 +667,11 @@ function activarAutoExpand(fila){
   });
 }
 
-
+document.getElementById("miFormulario").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  });
 
 
 
@@ -700,5 +720,6 @@ function activarAutoExpand(fila){
   })
   .catch(() => alert("Error al enviar"));
 });
+
 
 
