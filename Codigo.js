@@ -58,9 +58,9 @@ for (let i = 1; i <= 4; i++) {
       
       <select id="justificacionR${i}" name="justificacionR${i}" class="tabla_select">
                    <option value="">-- Selecciona una prioridad--</option>
-                   <option value="Baja">Equipo no Existente</option>
-                   <option value="Media">Sustitución</option>
-                   <option value="Alta">Complemento</option>
+                   <option value="Equipo no Existente">Equipo no Existente</option>
+                   <option value="Sustitución">Sustitución</option>
+                   <option value="Complemento">Complemento</option>
       </select>
       </td>
 
@@ -622,9 +622,9 @@ function agregarFila(){
     <td>
       <select id="justificacionR${i}" name="justificacionR${i}" class="tabla_select">
                    <option value="">-- Selecciona una prioridad--</option>
-                   <option value="Baja">Equipo no Existente</option>
-                   <option value="Media">Sustitución</option>
-                   <option value="Alta">Complemento</option>
+                   <option value="Equipo no Existente">Equipo no Existente</option>
+                   <option value="Sustitución">Sustitución</option>
+                   <option value="Complemento">Complemento</option>
       </select>
     </td>
 
@@ -720,6 +720,7 @@ document.getElementById("miFormulario").addEventListener("keydown", function (e)
   })
   .catch(() => alert("Error al enviar"));
 });
+
 
 
 
