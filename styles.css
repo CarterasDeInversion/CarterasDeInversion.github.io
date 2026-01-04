@@ -257,7 +257,8 @@ fieldset{
      margin-top: 60px;
 }
 button{
-    width:800px;
+    width: 100%;
+    max-width: 800px;
     display: block;
     margin: 20px auto;
     border-radius: 35px;
@@ -290,3 +291,4 @@ td .input_tabla{
     width: 100%;
   }
 }
+
