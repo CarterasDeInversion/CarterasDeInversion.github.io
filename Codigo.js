@@ -66,8 +66,10 @@ for (let i = 1; i <= 4; i++) {
 
       <td>
       
-      <input type="number" name="precioR${i}" class="input_tabla"> </input>
-      
+      <input type="text"
+             name="precioR${i}"
+             class="input_tabla precio"
+             inputmode="decimal"> </input>
       </td>
 
     <td>
@@ -632,8 +634,10 @@ function agregarFila(){
     
      <td>
 
-      <input type="number" name="precioR${i}" class="input_tabla"> </input>
-
+      <input type="text"
+             name="precioR${i}"
+             class="input_tabla precio"
+             inputmode="decimal"> </input>
       </td>
     
     <td>
@@ -720,6 +724,7 @@ document.getElementById("miFormulario").addEventListener("keydown", function (e)
   })
   .catch(() => alert("Error al enviar"));
 });
+
 
 
 
