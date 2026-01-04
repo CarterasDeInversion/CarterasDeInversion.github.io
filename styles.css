@@ -94,17 +94,24 @@ textarea {
 }
 
 /* IMÁGENES ENCABEZADO */
+/* IMÁGENES ENCABEZADO */
 .imagenes {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    grid-template-columns: repeat(3, auto);
+    gap: 0px;
 }
 
 .imagenes img {
     width: 100%;
-    height: auto;
+    height: 80px;
 }
 
+@media (max-width: 768px) {
+    .imagenes img {
+    width: 100%;
+    height: 80px;
+}
+}
 /* TABLA 
 .tabla_style {
     width: 95%;
@@ -182,3 +189,4 @@ p {
     resize: none;
     overflow: hidden;
 }
+
