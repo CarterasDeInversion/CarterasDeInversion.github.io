@@ -12,7 +12,7 @@ body, html {
 body{
     margin:0;
      font-family: sans-serif;
-     background-color:#222;
+    /* background-color:#222;*/
      color:#000;
 
      /* background:linear-gradient(to bottom,#fff,#9d2449);*/
@@ -43,12 +43,14 @@ form {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 20px 40px;
     background-color: transparent;
     border-radius: 8px;
     color: #fff;
 }
-
+.numeracion{
+    padding-left: 20px;
+}
 /* FIELDSETS */
 fieldset {
     width: 100%;
@@ -56,8 +58,9 @@ fieldset {
     padding: 15px;
     border: 1px solid #f04d69;
     border-radius: 5px;
-    background-color: #eee;
+    background-color: #DCDCDE;
     color: #000;
+
 }
 
 legend {
@@ -178,7 +181,8 @@ button {
 
 /* PÁRRAFOS */
 p {
-    margin: 0 25%;
+    margin: 10px;
+    padding-left:50px;
 }
 
 
@@ -219,7 +223,8 @@ p {
     }
     fieldset {
         width: 100%;
-        margin-left: 10px; /* separa verticalmente */
+       /* margin-left: 10px; /* separa verticalmente 
+        margin-right:10px; /* separa verticalmente */
     }
     /*
     .fijasCol{
@@ -293,4 +298,21 @@ th {
   word-break: break-word;
   text-align: center;    /* opcional */
 }
-
+.datos td{
+     vertical-align: top;
+     background-color: #DCDCDE;
+     border:1px solid #DCDCDE;
+}
+.datos td:nth-child(1){
+    width: 40%;
+    min-width: 600px;
+    padding-left:10px;
+    padding-right:10px;
+    
+}
+.datos td:nth-child(2){
+    width: 40%;
+    min-width: 600px;
+    padding-left:10px;
+    padding-right:10px;
+}
