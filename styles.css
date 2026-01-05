@@ -241,55 +241,56 @@ p {
 .tabla_style th:nth-child(1),
 .tabla_style td:nth-child(1){
     width: 8%;
-    max-width: 96px;
+    min-width: 96px;
 }
 .tabla_style th:nth-child(2),
 .tabla_style td:nth-child(2){
     width: 8%;
-    max-width: 96px;
+    min-width: 96px;
 }
 .tabla_style th:nth-child(3),
 .tabla_style td:nth-child(3){
     width: 12.8%;
-    max-width: 154px;
+    min-width: 154px;
 }
 .tabla_style th:nth-child(4),
 .tabla_style td:nth-child(4){
     width: 8.2%;
-    max-width: 98px;
+    min-width: 98px;
 }
 .tabla_style th:nth-child(5),
 .tabla_style td:nth-child(5){
     width: 9%;
-    max-width: 108px;
+    min-width: 108px;
 }
 .tabla_style th:nth-child(6),
 .tabla_style td:nth-child(6){
     width: 8%;
-    max-width: 96px;
+    min-width: 96px;
 }
 .tabla_style th:nth-child(7),
 .tabla_style td:nth-child(7){
     width: 14%;
-    max-width: 168px;
+    min-width: 168px;
 }
 .tabla_style th:nth-child(8),
 .tabla_style td:nth-child(8){
     width: 12%;
-    max-width: 144px;
+    min-width: 144px;
 }
 .tabla_style th:nth-child(9),
 .tabla_style td:nth-child(9){
     width: 12%;
-    max-width: 144px;
+    min-width: 144px;
 }
 .tabla_style th:nth-child(10),
 .tabla_style td:nth-child(10){
     width: 8%;
-    max-width: 96px;
+    min-width: 96px;
 }
 th {
   white-space: normal;   /* permite saltos de línea */
   word-break: break-word;
   text-align: center;    /* opcional */
 }
+
