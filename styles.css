@@ -1,4 +1,3 @@
-/* GLOBAL */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,7 +22,6 @@ body{
      background-color: #DCDCDE;
 
 }
-
 
 /* ENCABEZADOS */
 h1 {
@@ -81,10 +79,13 @@ label {
 input, textarea, select {
     width: 100%;
     padding: 6px;
+    font-family: sans-serif;
     border-radius: 6px;
     background-color: #fff;
     color: #000;
-    border: 1px solid #ccc;
+    border:none;
+    border-bottom: 1px solid #ccc;
+     
 }
 
 textarea {
@@ -137,7 +138,7 @@ textarea {
 .tabla_style {
     width: 100%;       /* ocupa todo el ancho disponible del formulario */
     margin: 0;         /* sin márgenes extras */
-    border-collapse: collapse;
+    /*border-collapse: collapse;*/
 }
 
 th {
@@ -152,11 +153,14 @@ td {
     color: #000;
     border-radius: 8px;
     padding: 8px;
+    border: 1px solid #000;
 }
 
 .input_tabla {
     width: 100%;
-    border: none;
+    /*border: none;*/
+    border-bottom:1px solid #DDC9A3;
+    border-radius: 0;
 }
 
 .input_tabla:focus {
@@ -179,16 +183,33 @@ p {
 
 
 
-
 /* OTRAS CLASES */
 .checkbox {
     width: auto;
     height: 10px;
 }
+
+.auto-expand {
+    width: 100%;
+    min-height: 40px;
+    resize: none;
+    overflow: hidden;
+}
+/*
 .fijasCol{
     width:60px;
+/*   border:solid #ccc;*/
+/*
+    border-radius: 8px;
+    border-bottom: solid #ccc;
 }
-
+.cantidadCol{
+    width:10px;
+}
+.equipo{
+    width:150px;
+}
+*/
 @media (max-width: 768px) {
     p {
         margin: 0 10px;
@@ -200,16 +221,75 @@ p {
         width: 100%;
         margin-left: 10px; /* separa verticalmente */
     }
+    /*
     .fijasCol{
     width:10px;
-}
-    
-}
+    }
+    .cantidadCol{
+    width:5px;
+    }
+    .equipo{
+    width:120px;
+    }
+    */
 
-
-.auto-expand {
-    width: 100%;
-    min-height: 40px;
-    resize: none;
-    overflow: hidden;
+}
+/*input,textarea{
+    border:1px;
+}
+*/
+.tabla_style th:nth-child(1),
+.tabla_style td:nth-child(1){
+    width: 8%;
+    max-width: 96px;
+}
+.tabla_style th:nth-child(2),
+.tabla_style td:nth-child(2){
+    width: 8%;
+    max-width: 96px;
+}
+.tabla_style th:nth-child(3),
+.tabla_style td:nth-child(3){
+    width: 12.8%;
+    max-width: 154px;
+}
+.tabla_style th:nth-child(4),
+.tabla_style td:nth-child(4){
+    width: 8.2%;
+    max-width: 98px;
+}
+.tabla_style th:nth-child(5),
+.tabla_style td:nth-child(5){
+    width: 9%;
+    max-width: 108px;
+}
+.tabla_style th:nth-child(6),
+.tabla_style td:nth-child(6){
+    width: 8%;
+    max-width: 96px;
+}
+.tabla_style th:nth-child(7),
+.tabla_style td:nth-child(7){
+    width: 14%;
+    max-width: 168px;
+}
+.tabla_style th:nth-child(8),
+.tabla_style td:nth-child(8){
+    width: 12%;
+    max-width: 144px;
+}
+.tabla_style th:nth-child(9),
+.tabla_style td:nth-child(9){
+    width: 12%;
+    max-width: 144px;
+}
+.tabla_style th:nth-child(10),
+.tabla_style td:nth-child(10){
+    width: 8%;
+    max-width: 96px;
+}
+th {
+  white-space: normal;   /* permite saltos de línea */
+  word-break: break-word;
+  text-align: center;    /* opcional */
 }
