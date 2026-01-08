@@ -380,7 +380,8 @@ ADMIN_DEV_PD:["Dirección de Educación Virtual"],
 //Secretaria Academica
 NMS: ['CET 1 "WALTER CROSS BUCHANAN"',
 'CECYT 1 "GONZALO VÁZQUEZ VELA"',
-'CECYT 2 "MIGUEL BERNARD"','CENTRO DE ESTUDIOS CIENTÍFICOS Y TECNOLÓGICOS (CECYT 3) “ESTANISLAO RAMÍREZ RUIZ”',
+'CECYT 2 "MIGUEL BERNARD"',
+'CECYT 3 “ESTANISLAO RAMÍREZ RUIZ”',
 'CECYT 4 “LÁZARO CÁRDENAS”',
 'CECYT 5 “BENITO JUÁREZ”',
 'CECYT 6 “MIGUEL OTHÓN DE MENDIZÁBAL”',
@@ -761,6 +762,7 @@ document.getElementById("miFormulario").addEventListener("keydown", function (e)
   })
   .catch(() => alert("Error al enviar"));
 });
+
 
 
 
