@@ -90,23 +90,18 @@
   <legend>Información del Titular </legend>
 
 
-<div class="form_input">
-      <label for="ubicacion">Ubicación (Domicilio-Sede)</label>
-      <input id="ubicacion" name="ubicacion" placeholder="Domicilio de la Sede" required>
-    </div>
-
     <div class="form_input">
       <label for="titular">Titular</label>
-      <input id="titular" name="titular" placeholder="Titular " required>
+      <input id="titular" name="titular" placeholder="Nombre completo" required>
     </div>
 
     <div class="form_input">
-      <label for="telefonoTitular">Extensión Titular</label>
+      <label for="telefonoTitular">Extensión del Titular</label>
       <input id="telefonoTitular" name="telefonoTitular" placeholder="Extensión del Titular " type="tel" required>
     </div>
 
     <div class="form_input">
-      <label for="correoTitular">Correo Titular</label>
+      <label for="correoTitular">Correo del Titular</label>
       <input id="correoTitular" name="correoTitular" placeholder="correo del Titular " type="email" required>
     </div>
     
@@ -121,19 +116,19 @@
 
     
     <div class="form_input">
-      <label for="responsable">Nombre del Responsable (Capítulo 5000)</label>
-      <input id="responsable" name="responsable" placeholder="responsable " required>
+      <label for="responsable">Nombre del Responsable </label>
+      <input id="responsable" name="responsable" placeholder="Nombre commpleto " required>
     </div>
 
 
     <div class="form_input">
-      <label for="telefonoResponsable">Extensión Responsable</label>
+      <label for="telefonoResponsable">Extensión del Responsable</label>
       <input id="telefonoResponsable" name="telefonoResponsable" placeholder="Extensión del Responsable " type="tel" required>
     </div>
 
     <div class="form_input">
-      <label for="correoResponsable">Correo Responsable</label>
-      <input id="correoResponsable" name="correoResponsable" placeholder="correo del Responsable " type="email" required>
+      <label for="correoResponsable">Correo del Responsable</label>
+      <input id="correoResponsable" name="correoResponsable" placeholder="Correo del Responsable " type="email" required>
     </div>
   
 </fieldset>
@@ -147,9 +142,10 @@
 <div class="botones"> 
    <button type="button" onclick="agregarFila()">➕ Añadir fila</button>
 </div>
-  
-<table class="tabla_style">
-  <thead>
+<fieldset class="TablaFS"> 
+  <legend>Tabla de Registro de Necesidades</legend> 
+<table class="tabla_style" title="Tabla de Registro de Necesidades">
+<thead>
                                <tr>
                                     <th title="Nivel/Área/otro">
                                          Nivel/Área/otro  
@@ -181,8 +177,8 @@
                                          Precio unitario de referencia
                                     </th>
                      
-                                    <th title="Prioridad (Baja, Media, Alta, Urgente)">
-                                        Prioridad (Baja, Media, Alta, Urgente)
+                                    <th title="Prioridad (Baja, Media, Alta)">
+                                        Prioridad (Baja, Media, Alta)
                                     </th>
 
                                </tr>
@@ -195,7 +191,7 @@
                               
                         </tbody>     
 </table>
-
+</fieldset>
 <button type="submit">Enviar</button>
 
 <p id="aviso"></p>
@@ -212,6 +208,7 @@
 
 
 </html>
+
 
 
 
