@@ -340,3 +340,6 @@ th {
   padding-left: 20px; /* espacio para el $ */
 }
 
+.TablaFS{
+    border:1px solid #DCDCDE;
+}
