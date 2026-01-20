@@ -178,7 +178,13 @@ button {
     margin: 20px auto;
     border-radius: 35px;
 }
-
+.TablaLeg{
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 35px;
+}
 /* PÁRRAFOS */
 p {
     margin: 10px;
@@ -338,4 +344,5 @@ p {
 .TablaFS{
     border:1px solid #DCDCDE;
 }
+
 
