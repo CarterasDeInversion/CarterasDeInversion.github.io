@@ -37,12 +37,7 @@ for (let i = 1; i <= 10; i++) {
         > </textarea>
       </td>
 
-    <td>
-      
-      <input type="number" name="claveCUCOPR${i}" class="input_tabla" aria-label="Clave CUCOP"> </input>
-
-      </td>
-
+    
 
 
     <td>
@@ -86,7 +81,6 @@ for (let i = 1; i <= 10; i++) {
                    <option value="Baja">Baja</option>
                    <option value="Media">Media</option>
                    <option value="Alta">Alta</option>
-                   <option value="Urgente">Urgente</option> 
       </select>
     </td>
 
@@ -616,12 +610,6 @@ function agregarFila(){
         > </textarea>
       </td>
 
-    <td>
-      
-      <input type="number" name="claveCUCOPR${i}" class="input_tabla" aria-label="Clave CUCOP"> </input>
-
-      </td>
-
 
 
     <td>
@@ -665,7 +653,6 @@ function agregarFila(){
                    <option value="Baja">Baja</option>
                    <option value="Media">Media</option>
                    <option value="Alta">Alta</option>
-                   <option value="Urgente">Urgente</option> 
       </select>
     </td>
 
@@ -762,6 +749,7 @@ document.getElementById("miFormulario").addEventListener("keydown", function (e)
   })
   .catch(() => alert("Error al enviar"));
 });
+
 
 
 
