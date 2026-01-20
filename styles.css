@@ -304,14 +304,20 @@ th {
      border:1px solid #DCDCDE;
 }
 .datos td:nth-child(1){
-    width: 40%;
+    width: 25%;
     min-width: 600px;
     padding-left:10px;
     padding-right:10px;
     
 }
 .datos td:nth-child(2){
-    width: 40%;
+    width: 25%;
+    min-width: 600px;
+    padding-left:10px;
+    padding-right:10px;
+}
+.datos td:nth-child(3){
+    width: 25%;
     min-width: 600px;
     padding-left:10px;
     padding-right:10px;
@@ -333,3 +339,4 @@ th {
 .precio-wrapper input {
   padding-left: 20px; /* espacio para el $ */
 }
+
