@@ -187,7 +187,6 @@ button {
 }
 /* PÁRRAFOS */
 p {
-    margin: 10px;
     padding-left:50px;
 }
 
@@ -344,5 +343,6 @@ p {
 .TablaFS{
     border:1px solid #DCDCDE;
 }
+
 
 
