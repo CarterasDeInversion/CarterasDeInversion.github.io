@@ -362,7 +362,7 @@ legend{
   gap: 10px;
   max-width: 1200px;
   margin: 30px;
-  margin-left: 250px;  
+  margin-left: 150px;  
   align-items: center;
 }
 .Just{
@@ -381,5 +381,6 @@ legend{
 .bloque-inst {
   margin: 30px;
 }
+
 
 
