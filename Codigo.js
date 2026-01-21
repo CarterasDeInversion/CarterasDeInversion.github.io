@@ -847,14 +847,14 @@ setTimeout(() => {
       titular.value = data.titular;
       const telTitular = document.getElementById("telefonoTitular");   
       telTitular.value = data.telefonoTitular;
-      const CorreoTitular = document.getElementById("correoTitular");   
-      CorreoTitular.value = data.telefono;
+      const correoTitular = document.getElementById("correoTitular");   
+      correoTitular.value = data.correoTitular;
       const responsable = document.getElementById("responsable");   
       responsable.value = data.responsable;
       const telResponsable = document.getElementById("telefonoResponsable");   
       telResponsable.value = data.telefonoResponsable;
-      const CorreoResponsable = document.getElementById("correoResponsable");   
-      CorreoResponsable.value = data.correoResponsable;
+      const correoResponsable = document.getElementById("correoResponsable");   
+      correoResponsable.value = data.correoResponsable;
 
       
       // ⬇️ Ahora sí, restaurar la tabla
@@ -946,6 +946,7 @@ document.getElementById("nuevoRegistro").addEventListener("click", () => {
   })
   .catch(() => alert("Error al enviar"));
 });
+
 
 
 
