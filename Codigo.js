@@ -595,34 +595,12 @@ nivelInput.addEventListener("change", () => {
     dependenciaInput.appendChild(option);
   });
 });
-/*
-const disparadores = document.querySelectorAll(".obligatorio");
+function actualizarObligatoriedadFila(fila) {
+  const equipo = fila.querySelector(".obligatorio");
+  if (!equipo) return;
 
-  disparadores.forEach(input => {
-    input.addEventListener("input", function () {
-      const fila = this.closest("tr");
-      const camposFila = fila.querySelectorAll("input, textarea, select");
-    //  const camposFila = fila.querySelectorAll("input");
-
-      const tieneValor = this.value.trim() !== "";
-
-      camposFila.forEach(campo => {
-        if (tieneValor) {
-          campo.setAttribute("required", "required");
-        } else {
-          campo.removeAttribute("required");
-        }
-      });
-    });
-  });
-*/
-document.getElementById("tablaBody").addEventListener("input", function (e) {
-  if (!e.target.classList.contains("obligatorio")) return;
-
-  const fila = e.target.closest("tr");
+  const tieneEquipo = equipo.value.trim() !== "";
   const campos = fila.querySelectorAll("input, textarea, select");
-
-  const tieneEquipo = e.target.value.trim() !== "";
 
   campos.forEach(campo => {
     if (tieneEquipo) {
@@ -631,6 +609,15 @@ document.getElementById("tablaBody").addEventListener("input", function (e) {
       campo.removeAttribute("required");
     }
   });
+}
+
+
+
+document.getElementById("tablaBody").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
 });
 
 
@@ -877,40 +864,13 @@ setTimeout(() => {
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
+      document.querySelectorAll("#tablaBody tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
     }, 0);
   }, 0);
 }, 0);
   alert("📂 Borrador cargado correctamente");
-});
-
-/*      */ 
-
-
-
-
-
-
-
-
-
-
-
-document.getElementById("nuevoRegistro").addEventListener("click", () => {
-  if (!confirm("Se perderán los datos actuales. ¿Deseas continuar?")) return;
-
-  localStorage.removeItem("borradorFormulario");
-
-  const form = document.getElementById("miFormulario");
-  form.reset();
-
-  const tbody = document.getElementById("tablaBody");
-  tbody.innerHTML = "";
-
-  for (let i = 1; i <= 10; i++) {
-    agregarFila();
-  }
-
-  alert("🆕 Formulario listo para un nuevo registro");
 });
 
 
@@ -968,23 +928,6 @@ document.getElementById("nuevoRegistro").addEventListener("click", () => {
   })
   .catch(() => alert("Error al enviar"));
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
