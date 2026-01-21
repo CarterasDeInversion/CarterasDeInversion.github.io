@@ -595,7 +595,7 @@ nivelInput.addEventListener("change", () => {
     dependenciaInput.appendChild(option);
   });
 });
-
+´/*
 const disparadores = document.querySelectorAll(".obligatorio");
 
   disparadores.forEach(input => {
@@ -615,6 +615,26 @@ const disparadores = document.querySelectorAll(".obligatorio");
       });
     });
   });
+*/
+document.getElementById("tablaBody").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  const campos = fila.querySelectorAll("input, textarea, select");
+
+  const tieneEquipo = e.target.value.trim() !== "";
+
+  campos.forEach(campo => {
+    if (tieneEquipo) {
+      campo.setAttribute("required", "required");
+    } else {
+      campo.removeAttribute("required");
+    }
+  });
+});
+
+
+
 
 function agregarFila(){
   const tbody = document.getElementById("tablaBody");
@@ -907,6 +927,10 @@ document.getElementById("nuevoRegistro").addEventListener("click", () => {
  const aviso = document.getElementById("aviso");   
     document.getElementById("miFormulario").addEventListener("submit", function(e){
                 e.preventDefault();
+                if (!this.checkValidity()) {
+                    this.reportValidity(); // muestra mensajes
+                    return;  
+                }
                 const formData = new FormData(this);
                 const selectsTexto = [
                       "secretaria",
@@ -946,6 +970,7 @@ document.getElementById("nuevoRegistro").addEventListener("click", () => {
   })
   .catch(() => alert("Error al enviar"));
 });
+
 
 
 
