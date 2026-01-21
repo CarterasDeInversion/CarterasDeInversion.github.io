@@ -988,3 +988,4 @@ document.getElementById("nuevoRegistro").addEventListener("click", () => {
 
 
 
+
