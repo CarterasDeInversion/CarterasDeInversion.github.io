@@ -347,8 +347,20 @@ p {
     border:1px solid #DCDCDE;
 }
 
-.TablaLeg{    
+legend{    
     font-size:x-large ;
+}
+.bloque-info {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+.bloque-botones {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
 }
 
 
