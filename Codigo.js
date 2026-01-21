@@ -746,7 +746,12 @@ document.getElementById("miFormulario").addEventListener("keydown", function (e)
       e.preventDefault();
     }
   });
-document.getElementById("guardarBorrador").addEventListener("click", () => {
+
+
+/* REVISAR*/
+
+
+  document.getElementById("guardarBorrador").addEventListener("click", () => {
   const form = document.getElementById("miFormulario");
   const formData = new FormData(form);
 
@@ -892,6 +897,10 @@ document.getElementById("nuevoRegistro").addEventListener("click", () => {
 
 
 
+
+
+
+
 //Guardado de Datos    
     
  const form = document.getElementById("miFormulario");
@@ -937,6 +946,9 @@ document.getElementById("nuevoRegistro").addEventListener("click", () => {
   })
   .catch(() => alert("Error al enviar"));
 });
+
+
+
 
 
 
