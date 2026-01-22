@@ -163,7 +163,7 @@ td {
     width: 100%;
     /*border: none;*/
     border-bottom:1px solid #DDC9A3;
-    border-radius: 0;
+    border-radius: 10px;
 }
 
 .input_tabla:focus {
@@ -423,5 +423,6 @@ legend{
     font-size: x-large;
     text-align: center;
 }
+
 
 
