@@ -155,7 +155,17 @@ SG:[{text:"Unidad Politécnica de gestión con perspectiva de género (UPGPG)",v
         {text:"Coordinación Politécnica para la Sustentabilidad",value:"CPPS"}
         ],
     /*  YA---------------------------------------------- */
-    AG:[{text:"Oficina del Abogado General",value:"AG"}],
+    AG:[{text:"Oficina del Abogado General",value:"AG"},
+        {text:"Dirección de Asuntos Jurídicos",value:"DAJ"}, 
+        {text:"Dirección de Convenios y Trámite Registral",value:"DCTR"},  
+        {text:"Dirección de Legislación, Consulta y Transparencia",value:"DLCT"}],
+
+    DAJ:[{text:"Administrativo", value:"ADMIN_DAJ_AG"}],
+    
+    DCTR:[{text:"Administrativo", value:"ADMIN_DCTR_AG"}],
+    
+    DLCT:[{text:"Administrativo", value:"ADMIN_DLCT_AG"}],
+    
     /*  YA---------------------------------------------- */ 
     PD:[{text:"Presidencia del Decanato", value:"PD"}],
      /*  YA---------------------------------------------- */
@@ -203,7 +213,9 @@ SG:[{text:"Unidad Politécnica de gestión con perspectiva de género (UPGPG)",v
    /*  YA                 */ 
    CII:[{text:"Coordinación de Imagen Institucional", value:"CII"}],
    /* YA                  */
-   CENAC:[{text:"Centro Nacional de Cálculo (CENAC)", value:"CGCENAC"}],  
+   CENAC:[{text:"Centro Nacional de Cálculo (CENAC)", value:"CGCENAC"},
+          {text:"Dirección de cómputo y comunicaciones", value:"DCC"}, 
+          {text:"Dirección de sistemas informáticos", value:"DSI"}],  
    /*YA */   
     ER:[{text:"Estación de Radiodifusión XHIPN-FM 95.7 MHz", value:"ER"}]    
 }
@@ -236,7 +248,7 @@ secretariaInput.addEventListener("change", () => {
 
 
 const direcciones={
-           //Secretaria General
+                  //Secretaria General
     UPGPG:[{text:"Administrativo", value:"ADMIN_UPGPG"}],
 
     DDP:[{text:"Administrativo", value:"ADMIN_DDP"} ],
@@ -250,6 +262,13 @@ const direcciones={
     
 //Abogado General
     AG:[{text:"Administrativo", value:"ADMIN_AG_AG"}],
+
+    DAJ:[{text:"Administrativo", value:"ADMIN_DAJ_AG"}],
+    
+    DCTR:[{text:"Administrativo", value:"ADMIN_DCTR_AG"}],
+    
+    DLCT:[{text:"Administrativo", value:"ADMIN_DLCT_AG"}],
+  
 //Presidencia del Decanato
     PD:[{text:"Administrativo", value:"ADMIN_PD_PD"}],
 
@@ -343,6 +362,10 @@ const direcciones={
     //Centro Nacional de Calculo
 
     CGCENAC:[{text:"Administrativo", value:"ADMIN_CGCENAC_SA"}],
+  
+    DCC:[{text:"Administrativo", value:"ADMIN_DCC_CENAC"}],
+    
+    DSI:[{text:"Administrativo", value:"ADMIN_DSI_CENAC"}],
     
     //Estacion de Radio
     
@@ -389,30 +412,39 @@ ADMIN_CPPS:["Coordinación Politécnica para la Sustentabilidad"],
 
 //Abogado General
 ADMIN_AG_AG:["Oficina del Abogado General"],
+
+ADMIN_DAJ_AG :["Dirección de Asuntos Jurídicos"],
+  
+ADMIN_DCTR_AG:["Dirección de Convenios y Trámite Registral"],  
+
+ADMIN_DLCT_AG:["Dirección de Legislación, Consulta y Transparencia"],  
+
+  
 //Presidencia del decanato
 ADMIN_PD_PD:["Presidencia del Decanato"],
 
 //Secretaria Academica
-NMS: ['CET 1 "WALTER CROSS BUCHANAN"',
-      'CECYT 1 "GONZALO VÁZQUEZ VELA"',
-      'CECYT 2 "MIGUEL BERNARD"','CENTRO DE ESTUDIOS CIENTÍFICOS Y TECNOLÓGICOS (CECYT 3) “ESTANISLAO RAMÍREZ RUIZ”',
-      'CECYT 4 "LÁZARO CÁRDENAS"',
-      'CECYT 5 "BENITO JUÁREZ"',
-      'CECYT 6 "MIGUEL OTHÓN DE MENDIZÁBAL"',
-      'CECYT 7 "CUAUHTÉMOC"',
-      'CECYT 8 "NARCISO BASSOLS"',
-      'CECYT 9 "JUAN DE DIOS BÁTIZ"',
-      'CECYT 10  "CARLOS VALLEJO MÁRQUEZ"',
-      'CECYT 11  "WILFRIDO MASSIEU"',
-      'CECYT 12  "JOSÉ MARÍA MORELOS"',
-      'CECYT 13  "RICARDO FLORES MAGÓN"',
-      'CECYT 14  "LUIS ENRIQUE ERRO"',
-      'CECYT 15  "DIÓDORO ANTÚNEZ ECHEGARAY"',
-      'CECYT 16  "HIDALGO"',
-      'CECYT 17  "LEÓN, GUANAJUATO"',
-      'CECYT 18  "ZACATECAS"',
-      'CECYT 19  "LEONA VICARIO"',
-      'CECYT 20  "NATALIA SERDÁN ALATRISTE"' ],
+NMS: ['Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 1)  "Gonzalo Vázquez Vela"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 2)  "Miguel Bernard"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 3)  "Estanislao Ramírez Ruiz"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 4)  "Lázaro Cárdenas"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 5)  "Benito Juárez"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 6)  "Miguel Othón De Mendizábal"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 7)  "Cuauhtémoc"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 8)  "Narciso Bassols"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 9)  "Juan De Dios Bátiz"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"'],
 ADMIN_NMS:["Dirección de Educación Media Superior"],
 NS:["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco",
     "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán",
@@ -570,10 +602,11 @@ ADMIN_CII_DG:["Coordinación de Imagen Institucional"],
 
 //Centro Nacional de Calculo
 
-ADMIN_CGCENAC_SA:["Centro Nacional de Cálculo (CENAC)",
-                  "Dirección de cómputo y comunicaciones",
-                  "Dirección de sistemas informáticos"],
+ADMIN_CGCENAC_SA:["Centro Nacional de Cálculo (CENAC)"],
+ADMIN_DCC_CGCENAC:["Dirección de cómputo y comunicaciones"],                 
+ADMIN_DSI_CGCENAC:["Dirección de sistemas informáticos"],
 
+  
 //Estacion de Radio
 
 ADMIN_ER:["Estación de Radiodifusión Radio IPN XHIPN-FM 95.7 MHZ."]
@@ -928,6 +961,7 @@ setTimeout(() => {
   })
   .catch(() => alert("Error al enviar"));
 });
+
 
 
 
