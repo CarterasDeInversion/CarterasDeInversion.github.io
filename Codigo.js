@@ -603,8 +603,8 @@ ADMIN_CII_DG:["Coordinación de Imagen Institucional"],
 //Centro Nacional de Calculo
 
 ADMIN_CGCENAC_SA:["Centro Nacional de Cálculo (CENAC)"],
-ADMIN_DCC_CGCENAC:["Dirección de cómputo y comunicaciones"],                 
-ADMIN_DSI_CGCENAC:["Dirección de sistemas informáticos"],
+ADMIN_DCC_CENAC:["Dirección de cómputo y comunicaciones"],                 
+ADMIN_DSI_CENAC:["Dirección de sistemas informáticos"],
 
   
 //Estacion de Radio
@@ -961,6 +961,7 @@ setTimeout(() => {
   })
   .catch(() => alert("Error al enviar"));
 });
+
 
 
 
