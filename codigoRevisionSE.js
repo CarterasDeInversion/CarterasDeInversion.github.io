@@ -1950,38 +1950,7 @@ setTimeout(() => {
 
     setTimeout(() => {
       setSelectValue("dependencia", data.dependencia);
-data.secretaria = document.getElementById("secretaria").options[
-    document.getElementById("secretaria").selectedIndex
-].value;
-
-data.direccion = document.getElementById("direccion").options[
-    document.getElementById("direccion").selectedIndex
-].value;
-
-data.nivel = document.getElementById("nivel").options[
-    document.getElementById("nivel").selectedIndex
-].value;
-
-data.dependencia = document.getElementById("dependencia").options[
-    document.getElementById("dependencia").selectedIndex
-].value;
-
-
-data.secretariaT = document.getElementById("secretaria").options[
-    document.getElementById("secretaria").selectedIndex
-].text;
-
-data.direccionT = document.getElementById("direccion").options[
-    document.getElementById("direccion").selectedIndex
-].text;
-
-data.nivelT = document.getElementById("nivel").options[
-    document.getElementById("nivel").selectedIndex
-].text;
-
-data.dependenciaT = document.getElementById("dependencia").options[
-    document.getElementById("dependencia").selectedIndex
-].text;      Object.keys(data).forEach(name => {
+      Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
                           if (name.includes("R")) return; //quitamos los campos de la tabla
                           if(name.includes("secretaria")) return;
@@ -2110,20 +2079,8 @@ setTimeout(() => {
 
     setTimeout(() => {
       setSelectValue("dependencia", data.dependencia);
-/*
-      const titular = document.getElementById("titular");   
-      titular.value = data.titular;
-      const telTitular = document.getElementById("telefonoTitular");   
-      telTitular.value = data.telefonoTitular;
-      const CorreoTitular = document.getElementById("correoTitular");   
-      CorreoTitular.value = data.correoTitular;
-      const responsable = document.getElementById("responsable");   
-      responsable.value = data.responsable;
-      const telResponsable = document.getElementById("telefonoResponsable");   
-      telResponsable.value = data.telefonoResponsable;
-      const CorreoResponsable = document.getElementById("correoResponsable");   
-      CorreoResponsable.value = data.correoResponsable;
-*/
+
+      
       Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
                           if (name.includes("R")) return; //quitamos los campos de la tabla
@@ -2264,6 +2221,39 @@ const selectsTexto = [
     
 }
 
+
+data.secretaria = document.getElementById("secretaria").options[
+    document.getElementById("secretaria").selectedIndex
+].value;
+
+data.direccion = document.getElementById("direccion").options[
+    document.getElementById("direccion").selectedIndex
+].value;
+
+data.nivel = document.getElementById("nivel").options[
+    document.getElementById("nivel").selectedIndex
+].value;
+
+data.dependencia = document.getElementById("dependencia").options[
+    document.getElementById("dependencia").selectedIndex
+].value;
+
+
+data.secretariaT = document.getElementById("secretaria").options[
+    document.getElementById("secretaria").selectedIndex
+].text;
+
+data.direccionT = document.getElementById("direccion").options[
+    document.getElementById("direccion").selectedIndex
+].text;
+
+data.nivelT = document.getElementById("nivel").options[
+    document.getElementById("nivel").selectedIndex
+].text;
+
+data.dependenciaT = document.getElementById("dependencia").options[
+    document.getElementById("dependencia").selectedIndex
+].text;  
 /*
   formData.forEach((value, key) => {
        if (!(value instanceof File)) {
