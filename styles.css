@@ -814,13 +814,9 @@ th {
     cursor:pointer;
 }
 
-
-
-
 .paso{
   display:none;
 }
-
 .paso.activo{
   display:block;
 }
