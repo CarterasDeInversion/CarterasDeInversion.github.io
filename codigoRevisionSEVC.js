@@ -2676,3 +2676,22 @@ const res = await fetch(direccionEnlace, {
 }
 
 });
+
+
+ window.onload = async function () {
+
+const res = await fetch(direccionEnlace,{
+    method:"POST",
+    body: JSON.stringify({
+        action:"ObtenerConfiguracion"
+    })
+});
+
+const config = await res.json();
+    document.getElementById("UsuariosAnio1").textContent = config.encabezado1;
+    document.getElementById("UsuariosAnio2").textContent = config.encabezado2;
+    document.getElementById("UsuariosAnio3").textContent = config.encabezado3;
+    document.getElementById("UsuariosAnio4").textContent = config.encabezado4;
+    document.getElementById("UsuariosAnio5").textContent = config.encabezado5;
+    
+};
