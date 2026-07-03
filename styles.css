@@ -814,6 +814,25 @@ th {
     cursor:pointer;
 }
 
+.paso{
+  display:none;
+}
+
+.paso.activo{
+  display:block;
+}
+
+
+.pagina {
+    width: 100%;
+    max-width: 200px;
+    height:40px;
+    display: inline;
+    margin: 20px auto;
+    border-radius: 35px;
+    font-size: medium;
+}
+
 
 
 
