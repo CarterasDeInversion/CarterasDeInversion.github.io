@@ -6,7 +6,7 @@ const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
 const tbody6 = document.getElementById("tablaBody6");
 const tbody7 = document.getElementById("tablaBody7");
-let urlCotizacionesActuales={};
+
 //------------------------------------Construccion de tabla--------------------------
 
 
@@ -115,75 +115,57 @@ tr3.innerHTML = `
   `;
 
 trC.innerHTML = `
-     
+   
      <td>
-          <input 
-                name="nombreCotizacion_TCR${i}" 
-                id= "nombreCotizacion_TCR${i}"
-                class="input_tabla" 
-                aria-label="Nombre de la Cotizacion" 
-                readonly
-          > 
-          </input>
-     </td>
-     
-    
-    <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file"
-                       id= "CotizacionAdquisicionG1_TCR${i}"
-                       name="CotizacionAdquisicionG1_TCR${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
+      <textarea
+        name="nombreCotizacion_TCR${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Nombre de la Cotizacion"
+        > </textarea>
     </td>
+
     
-    
-    
+         <td>
+      <textarea
+        name="urlCotizacionAdquisicionG1_TCR${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Url de las Cotizaciones"
+        > </textarea>
+    </td>
+
 <td class="cantidadCol">
 
       <input type="number" name="anio_TCR${i}" class="input_tabla " aria-label="Año de la cotizacion"> </input>  
     
       </td>    
-
-               <td>
-      <input
-        id="nombreCotizacion2_TCR${i}"
+      
+    <td>
+      <textarea
         name="nombreCotizacion2_TCR${i}"
-        class="input_tabla"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
         aria-label="Nombre de la Cotizacion 2"
-        readonly
-        > </input>
+        > </textarea>
     </td>
 
-
-  <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file" 
-                       id="CotizacionAdquisicionG2_TCR${i}"
-                       name="CotizacionAdquisicionG2_TCR${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-</td>
+<td>
+      <textarea
+        name="urlCotizacionAdquisicionG2_TCR${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Url de las Cotizaciones"
+        > </textarea>
+    </td>
 <td>
       <input type="number" name="anioA2_TCR${i}" class="input_tabla " aria-label="Año de la cotizacion"> </input>  
     
       </td>
-
-     
-
-
 
 
 `;
@@ -277,31 +259,31 @@ tr4.innerHTML = `
       </div>
       </td>
     
-
-
-
-
     <td>
-      <select id="nombreCotizacion_T4R${i}" name="nombreCotizacion_T4R${i}" class="tabla_select" aria-label="Nombre del archivo donde esta la Cotizacion del Equipo" >
-                   <option value="">-- Selecciona una prioridad--</option>
-      </select>
+      <textarea
+        name="nombreCotizacion_T4R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Nombre del archivo donde esta la Cotizacion del Equipo"
+        > </textarea>
     </td>
-    
+
+
     
     
     <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file" 
-                       name="CotizacionAdquisicion_T4R${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
+      <textarea
+        name="urlCotizacionAdquisicion_T4R${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Url de las Cotizaciones"
+        > </textarea>
     </td>
+
+
+
 
 
   <td>
@@ -319,7 +301,7 @@ tr4.innerHTML = `
      
   <td>
       <textarea
-        name="nombreCotizacion2_T4R${i}"
+        name="nombreCotizacion_T4R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -328,19 +310,18 @@ tr4.innerHTML = `
     </td>
 
 
-  <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file" 
-                       name="CotizacionAdquisicion2_T4R${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-</td>
+
+
+<td>
+      <textarea
+        name="urlCotizacionAdquisicion2_T4R${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Url de las Cotizaciones"
+        > </textarea>
+    </td>
+
 
 `;
 
@@ -495,136 +476,6 @@ tr6.innerHTML = `
   tbody6.appendChild(tr6);
 
 }
-
-//-----------------------------Actualizacion de los nombres de los archivos----------------------------------------------------------
-tbodyC.addEventListener("change", e => {
-  if (!(e.target.name?.startsWith("CotizacionAdquisicionG1_TCR") ||e.target.name?.startsWith("CotizacionAdquisicionG2_TCR"))) return;
-      
-      const fila = e.target.closest("tr");
-
-      const numeroFila = Array.from(tbodyC.rows).indexOf(fila)+1;
-      const input = e.target;
-
-      if (input.files.length === 0) return;
-       
-      const archivo = input.files[0];
-      
-    if (e.target.name?.startsWith("CotizacionAdquisicionG1_TCR")){  
-             document.getElementById(`nombreCotizacion_TCR${numeroFila}`).value=archivo.name;
-  
-    }
-    if(e.target.name?.startsWith("CotizacionAdquisicionG2_TCR")){
-
-            document.getElementById(`nombreCotizacion2_TCR${numeroFila}`).value=archivo.name;
-    }
-});
-
-
-
-
-
-
-
-//---------------------------------------------------Actualizacion de los selects de nombres de archivos
-tbodyC.addEventListener("change", e => {
-  if (!(e.target.name?.startsWith("CotizacionAdquisicionG1_TCR") ||e.target.name?.startsWith("CotizacionAdquisicionG2_TCR"))) return;
-      
-      const fila = e.target.closest("tr");
-
-      const numeroFila = Array.from(tbodyC.rows).indexOf(fila)+1;
-      const input = e.target;
-
-      if (input.files.length === 0) return;
-       
-      const archivo = input.files[0];
-      
-    if (e.target.name?.startsWith("CotizacionAdquisicionG1_TCR")){  
-             document.getElementById(`nombreCotizacion_TCR${numeroFila}`).value=archivo.name;
-
-             for (const fila of tbody4.rows) {
-                        const select = fila.querySelector(
-                                        'select[name^="nombreCotizacion_T4R"]'
-                                       );
-
-                        const option = document.createElement("option");
-
-                        option.value = numeroFila;
-                        option.textContent = archivo.name;
-
-                        select.appendChild(option);
-             }
-  
-    }
-    if(e.target.name?.startsWith("CotizacionAdquisicionG2_TCR")){
-
-            document.getElementById(`nombreCotizacion2_TCR${numeroFila}`).value=archivo.name;
-    }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function actualizarSelectCotizaciones(select,opcion){
-
-    select.innerHTML =
-        '<option value="">-- Selecciona un archivo --</option>';
-if (opcion===1){
-    const archivos = document.querySelectorAll(
-        'input[name^="CotizacionAdquisicionG1_TCR"]'
-    );
-} 
-if(opcion===2){
-    const archivos = document.querySelectorAll(
-        'input[name^="CotizacionAdquisicionG2_TCR"]'
-    );
-}
-
-    archivos.forEach(input => {
-
-        if(input.files.length === 0) return;
-
-        const option = document.createElement("option");
-
-        option.value = input.files[0].name;
-        option.textContent = input.files[0].name;
-
-        select.appendChild(option);
-
-    });
-
-}
-document.addEventListener("input", e => {
-
-    if(e.target.name.startsWith("nombreCotizacion_TCR")){
-
-        actualizarTodosLosSelects();
-
-    }
-
-});
-
-
-
-
-
-
-
-
-
 
 
 //----------------------------------------Archivos y su mecanismo-----------------------------------------------------
@@ -1593,21 +1444,14 @@ fila.innerHTML = `
     </td>
 
      <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file" 
-                       name="CotizacionAdquisicionG1_TCR${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
+      <textarea
+        name="urlCotizacionAdquisicionG1_TCR${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Url de las Cotizaciones"
+        > </textarea>
     </td>
-
-
-
 
 <td class="cantidadCol">
 
@@ -1617,7 +1461,7 @@ fila.innerHTML = `
 
 
 
-               <td>
+            <td>
       <textarea
         name="nombreCotizacion2_TCR${i}"
         class="auto-expand input_tabla obligatorio"
@@ -1627,30 +1471,20 @@ fila.innerHTML = `
         > </textarea>
     </td>
 
+<td>
+      <textarea
+        name="urlCotizacionAdquisicionG2_TCR${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Url de las Cotizaciones"
+        > </textarea>
+    </td>
 
-  <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file" 
-                       name="CotizacionAdquisicionG2_TCR${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-</td>
      <td>
             <input type="number" name="anioA2_TCR${i}" class="input_tabla " aria-label="Año de la cotizacion"> </input>  
     
       </td>
-
-    
-
-
-
-
 
 
   `;
@@ -1765,18 +1599,17 @@ function agregarFila4(){
 
 
     <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file" 
-                       name="CotizacionAdquisicion_T4R${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
+      <textarea
+        name="urlCotizacionAdquisicion_T4R${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Url de las Cotizaciones"
+        > </textarea>
     </td>
+
+
+
 
 
   <td>
@@ -1791,7 +1624,7 @@ function agregarFila4(){
             </input>
       </div>
       </td>
-   
+     
   <td>
       <textarea
         name="nombreCotizacion_T4R${i}"
@@ -1803,19 +1636,17 @@ function agregarFila4(){
     </td>
 
 
-  <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file" 
-                       name="CotizacionAdquisicion2_T4R${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-</td>
+
+
+<td>
+      <textarea
+        name="urlCotizacionAdquisicion2_T4R${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Url de las Cotizaciones"
+        > </textarea>
+    </td>
  `;
 
   tbody.appendChild(fila);
@@ -2095,26 +1926,13 @@ const direccionEnlace="https://script.google.com/macros/s/AKfycby6l6JY_ZsTBX2NW-
 
 let folioActual=null;
 let edicionActual=null;
-let numerodeEnvio=0;
+let numerodeEnvio=1;
 let ExistenciaDeCotizaciones=false;
-
 let ExistenciaDeCotizaciones_T4=false;
 
-
 let ExistenciaDeCotizacionesA2=false;
-
-
-
 let ExistenciaDeCotizacionesA2_T4=false;
 
-
-
-/*
-CotizacionAdquisicionG1_TCR
-CotizacionAdquisicionG2_TCR
-CotizacionAdquisicion_T4R
-CotizacionAdquisicion2_T4R
-*/
 //---------------------------GuardarBorrador--------------------------------------------------
 
 
@@ -2157,14 +1975,6 @@ try {
       method: "POST",
       body: JSON.stringify({action: "guardarBorrador", data})
     });
-
- //   const res = await fetch(direccionEnlace, {
- //       method: "POST",
- //       body: formData
- //   });
-  //              localStorage.setItem("borradorFormulario", JSON.stringify(data));
-
-//  alert("✅ Borrador guardado correctamente");
 
   
 // ---------------Nuevo------------------------------------------- 
@@ -2235,6 +2045,7 @@ function restaurarTabla(data) {
   }
   for (let i = 1; i <= filas3; i++) {
     agregarFila3();
+
   }
   for (let i = 1; i <= filasC; i++) {
     agregarFilaC();
@@ -2253,8 +2064,12 @@ function restaurarTabla(data) {
   Object.keys(data).forEach(name => {
     if (name.includes("__filas")) return;
      if (!name.includes("R")) return; // solo campos de la tabla
-    const campo = document.querySelector(`[name="${name}"]`);
+    
+     const campo = document.querySelector(`[name="${name}"]`);
     if (!campo) return;
+   
+
+
     if (campo.type === "file") {
     console.log("Archivo omitido:", name);
     return;
@@ -2276,6 +2091,7 @@ function restaurarTabla(data) {
   });
   // generarNivel();
   // generarDependencia();
+  
 }
 
 
@@ -2519,12 +2335,12 @@ try {
 folioActual=folio;
 edicionActual=data.edicion;
 numerodeEnvio=data.numeroEnvio;
+alert("En la revision Existen cotizaciones Generales para la primera alternativa cargadas:"+ ExistenciaDeCotizaciones);
+alert("En la revision la existencia de cotizaciones Generales para la segunda alternativa cargadas:"+ ExistenciaDeCotizacionesA2);
+alert("En la revision Existen cotizaciones para la tabla 4 para la primera alternativa cargadas:"+ ExistenciaDeCotizaciones_T4);
+alert("En la revision Existen cotizaciones para la tabla 4 para la segunda alternativa cargadas:"+ ExistenciaDeCotizacionesA2_T4);
 
-alert("ExistenciaDeCotizaciones:"+ExistenciaDeCotizaciones);
-   alert("ExistenciaDeCotizaciones_T4:"+ExistenciaDeCotizaciones_T4);
-  
-   alert("ExistenciaDeCotizacionesA2 :"+ExistenciaDeCotizacionesA2);
-   alert("ExistenciaDeCotizacionesA2_T4 :"+ExistenciaDeCotizacionesA2_T4);
+
 
 // Restaurar selects encadenados
 setSelectValue("secretaria", data.secretaria);
@@ -2551,22 +2367,17 @@ setTimeout(() => {
       const CorreoResponsable = document.getElementById("correoResponsable");   
       CorreoResponsable.value = data.correoResponsable;
 */
-      Object.keys(data).forEach(name => {
+Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
-                          if(name.includes("url")){
-                                        urlCotizacionesActuales[name] = data[name];
-                                        //alert("data:"+data[name]);
-                                        //alert("urlcot"+urlCotizacionesActuales[name]);
-                          };
                           if (name.includes("R")) return; //quitamos los campos de la tabla
                           if(name.includes("secretaria")) return;
                           if(name.includes("direccion")) return; 
                           if(name.includes("nivel")) return; 
                           if(name.includes("dependencia")) return; 
                           const campo = document.querySelector(`[name="${name}"]`);
-                          if (!campo) return;
-                          
-    campo.value = data[name];
+                          if (!campo) return;                     
+
+                            campo.value = data[name];
 
     if (campo.tagName === "TEXTAREA") {
       campo.style.height = "auto";
@@ -2686,7 +2497,6 @@ const selectsTexto = [
         reader.onload = () => resolve(reader.result);
         reader.readAsDataURL(value);
     });
-    
 
 
     data[key] = {
@@ -2694,24 +2504,10 @@ const selectsTexto = [
         tipo: value.type,
         contenido: base64
     };
-    if((data[key]!="")&&(key.includes("CotizacionAdquisicionG1"))){
-            ExistenciaDeCotizaciones=true;
-           alert(data[key].nombre);     
-    }
-    if((data[key]!="")&&(key.includes("CotizacionAdquisicionG2"))){
-            ExistenciaDeCotizacionesA2=true;
-           alert(data[key].nombre);     
-    }
-    if((data[key]!="")&&(key.includes("CotizacionAdquisicion_T4R"))){
-            ExistenciaDeCotizaciones_T4=true;
-           alert(data[key].nombre);     
-    }
-    if((data[key]!="")&&(key.includes("CotizacionAdquisicion2_T4R"))){
-            ExistenciaDeCotizacionesA2_T4=true;
-           alert(data[key].nombre);     
-    }
-
+    
 }
+
+
 
 
 data.secretariaT = document.getElementById("secretaria").options[
@@ -2730,34 +2526,6 @@ data.dependenciaT = document.getElementById("dependencia").options[
     document.getElementById("dependencia").selectedIndex
 ].text;
 
-alert("ExistenciaDeCotizaciones: "+ExistenciaDeCotizaciones);
-
-
-alert("ExistenciaDeCotizacionesA2: "+ExistenciaDeCotizacionesA2);
-
-alert("ExistenciaDeCotizaciones_T4: "+ExistenciaDeCotizaciones_T4);
-alert("ExistenciaDeCotizacionesA2_T4: "+ExistenciaDeCotizacionesA2_T4);
-
-
-//------------------lleando de las url
-
-Object.keys(urlCotizacionesActuales).forEach(name => {
-             data[name] = urlCotizacionesActuales[name];
-/*             alert("data.envio:"+data.numeroEnvio);
-             alert("url de cotizaciones:"+urlCotizacionesActuales[name]);
-             alert("data: "+data[name]);
-  */     
-  });
-
-
-
-
-
-
-  //-------------------------------------------------------------------
-
-
-
   // Guardamos también el número de filas actuales
   data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
   data.__filas2 = document.querySelectorAll("#tablaBody2 tr").length;
@@ -2771,24 +2539,22 @@ Object.keys(urlCotizacionesActuales).forEach(name => {
       folioActual = generarFolio();
   }
   data.__folio = folioActual;
-  data.__envioDependencia = true;
-  data.edicion=edicionActual;
+  data.__envioDependencia = false;
+  data.edicion=true;
   data.numeroEnvio=numerodeEnvio+1;
   data.existenciaCotizaciones=ExistenciaDeCotizaciones;
   data.existenciaCotizaciones_T4=ExistenciaDeCotizaciones_T4;
+  
   data.existenciaCotizaciones2=ExistenciaDeCotizacionesA2;
   data.existenciaCotizaciones2_T4=ExistenciaDeCotizacionesA2_T4;
 
   
-alert("data.existenciaCotizaciones: "+data.existenciaCotizaciones);
-alert("data.existenciaCotizaciones_T4: "+data.existenciaCotizaciones_T4);
-alert("data.existenciaCotizaciones2: "+data.existenciaCotizaciones2);
-alert("data.existenciaCotizaciones2_T4: "+data.existenciaCotizaciones2_T4);
-
-
-
-
-
+   alert("Revision data.existenciaCotizaciones:"+data.existenciaCotizaciones);
+  alert("Revision data.existenciaCotizaciones_T4:"+data.existenciaCotizaciones_T4);
+  
+  alert("Revision data.existenciaCotizaciones2 :"+ data.existenciaCotizaciones2);
+  alert("Revision data.existenciaCotizaciones2_T4 :"+data.existenciaCotizaciones2_T4);
+ 
 formData.append(
     "payload",
     JSON.stringify({
@@ -2798,27 +2564,43 @@ formData.append(
 );  
 
 
+
+
+
+
+
+
+
 try {
+
 
 /*
     const res = await fetch(direccionEnlace, {
         method: "POST",
         body: formData
-    });
-
-  */  
+        */
 const res = await fetch(direccionEnlace, {
       method: "POST",
-      body: JSON.stringify({action: "EnviarFormulario", data})
- });
-  const json = await res.json();
+      body: JSON.stringify({action: "EnviarFormulario", data})   
+
+
+    });
+
+
+
+
+ 
+
+
+
+    const json = await res.json();
 
    
 
 
     if (json.success) {
 
-        alert(`✅ Registro de solicitud correctamente Enviada del formato de detección correctamente capturado. Tu folio es: ${folioActual}`);
+        alert(`✅ Registro de solicitud correctamente Enviada. Tu folio es: ${folioActual}`);
 
         aviso.textContent = "✅ Tu respuesta fue enviada correctamente";
         aviso.style.color = "green";
@@ -2841,20 +2623,56 @@ const res = await fetch(direccionEnlace, {
   });
 
 
- window.onload = async function () {
+  
 
-const res = await fetch(direccionEnlace,{
-    method:"POST",
-    body: JSON.stringify({
-        action:"ObtenerConfiguracion"
-    })
-});
+document.getElementById("cargarAnio").addEventListener("click", async () => {
+   
 
-const config = await res.json();
-    document.getElementById("UsuariosAnio1").textContent = config.encabezado1;
-    document.getElementById("UsuariosAnio2").textContent = config.encabezado2;
-    document.getElementById("UsuariosAnio3").textContent = config.encabezado3;
-    document.getElementById("UsuariosAnio4").textContent = config.encabezado4;
-    document.getElementById("UsuariosAnio5").textContent = config.encabezado5;
+  const data = {};
+
+
+
+
+
+data.anio = document.getElementById("encabezados").value;
+
+
+
+try {
+
+
+const res = await fetch(direccionEnlace, {
+      method: "POST",
+      body: JSON.stringify({action: "ActualizarAnio", data})   
+
+
+    });
+
+
+
+
+ 
+
+
+
+    const json = await res.json();
+
+
+        if (json.success) {
+            
+                           alert("✅ Año actualizado correctamente");
+
+        } else {
+           alert("⚠️ " + json.message);
+        
+        } 
+ 
+    } catch (e) {
+
+        console.error(e);
+        
+         alert("⚠️ Error de conexión: " + e.message);
     
-};
+}
+
+});
