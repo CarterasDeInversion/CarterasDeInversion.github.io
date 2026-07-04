@@ -1,4 +1,5 @@
 const tbody = document.getElementById("tablaBody");
+const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
 const tbody3 = document.getElementById("tablaBody3");
 const tbody4 = document.getElementById("tablaBody4");
@@ -12,6 +13,7 @@ const tbody7 = document.getElementById("tablaBody7");
 
 for (let i = 1; i <= 10; i++) {
   const tr = document.createElement("tr");
+  const tr1 = document.createElement("tr");
   const tr2 = document.createElement("tr");
   const tr3 = document.createElement("tr");
   const tr4 = document.createElement("tr");
@@ -46,9 +48,41 @@ for (let i = 1; i <= 10; i++) {
     <td>
     <input type="number" name="Usuarios5_T1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
     </td>
+    <td>
+    <input type="number" name="Usuarios6_T1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    </td>
   `;
                                     
 
+  tr1.innerHTML = `
+    <td>
+      <textarea
+        name="Programa_T1_1R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Programas académicos, servicios o actividades de la dependencia"
+        > </textarea>
+    </td>
+    <td>
+    <input type="number" name="Usuarios1_T1_1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios2_T1_1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+    </td>
+    <td> 
+    <input type="number" name="Usuarios3_T1_1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios4_T1_1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios5_T1_1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios6_T1_1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    </td>
+  `;
 
 
 
@@ -236,12 +270,11 @@ tr4.innerHTML = `
     </td>
 
     <td>
-      <select id="justificacion_T4R${i}" name="justificacion_T4R${i}" class="tabla_select" aria-label="Justificación">
-                   <option value="">-- Selecciona una prioridad--</option>
-                   <option value="Equipo no Existente">Equipo no Existente</option>
-                   <option value="Sustitución">Sustitución</option>
-                   <option value="Complemento">Complemento</option>
-      </select>
+      <textarea id="justificacion_T4R${i}" name="justificacion_T4R${i}"
+                   class="auto-expand input_tabla"
+                   rows="1"
+                   style="resize:none;"  aria-label="Justificación">  
+      </textarea>
     </td>
 
     
@@ -468,6 +501,7 @@ tr6.innerHTML = `
 
 
   tbody.appendChild(tr);
+  tbody1.appendChild(tr1);
   tbody2.appendChild(tr2);
   tbody3.appendChild(tr3);
   tbody4.appendChild(tr4);
@@ -476,6 +510,9 @@ tr6.innerHTML = `
   tbody6.appendChild(tr6);
 
 }
+
+
+
 
 
 //----------------------------------------Archivos y su mecanismo-----------------------------------------------------
@@ -1279,10 +1316,12 @@ document.getElementById("tablaBody6").addEventListener("input", function (e) {
 
 function agregarFila(){
   const tbody = document.getElementById("tablaBody");
+  const tbody1 = document.getElementById("tablaBody1");
   const i = obtenerNumeroFila1();
-
+  const j = obtenerNumeroFila1_1();
 
   const fila = document.createElement("tr");
+  const fila1 = document.createElement("tr");
   fila.innerHTML = `
     <td>
       <textarea
@@ -1313,13 +1352,51 @@ function agregarFila(){
     <td>
     <input type="number" name="Usuarios5_T1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
     </td>
+
+    <td>
+    <input type="number" name="Usuarios6_T1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    </td>
+
   `;
 
+  tr1.innerHTML = `
+    <td>
+      <textarea
+        name="Programa_T1_1R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Programas académicos, servicios o actividades de la dependencia"
+        > </textarea>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios1_T1_1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios2_T1_1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+    </td>
+    <td> 
+    <input type="number" name="Usuarios3_T1_1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
+     </td>
+    <td>
+    <input type="number" name="Usuarios4_T1_1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios5_T1_1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios6_T1_1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    </td>
+  `;
   tbody.appendChild(fila);
+   tbody1.appendChild(fila1);
 
  // generarNivel();
  // generarDependencia();
   activarAutoExpand(fila);
+  activarAutoExpand(fila1);
+
 }    
 
 
@@ -1564,12 +1641,12 @@ function agregarFila4(){
     </td>
 
     <td>
-      <select id="justificacion_T4R${i}" name="justificacion_T4R${i}" class="tabla_select" aria-label="Justificación">
-                   <option value="">-- Selecciona una prioridad--</option>
-                   <option value="Equipo no Existente">Equipo no Existente</option>
-                   <option value="Sustitución">Sustitución</option>
-                   <option value="Complemento">Complemento</option>
-      </select>
+      <textarea id="justificacion_T4R${i}" name="justificacion_T4R${i}"
+                   class="auto-expand input_tabla"
+                   rows="1"
+                   style="resize:none;"  aria-label="Justificación">
+                   
+      </textarea>
     </td>
 
     
@@ -1814,6 +1891,9 @@ function agregarFila6(){
 
 function obtenerNumeroFila1(){
   return document.querySelectorAll("#tablaBody tr").length + 1;
+}
+function obtenerNumeroFila1_1(){
+  return document.querySelectorAll("#tablaBody1.1 tr").length + 1;
 }
 function obtenerNumeroFila2(){
   return document.querySelectorAll("#tablaBody2 tr").length + 1;
@@ -2677,7 +2757,6 @@ const res = await fetch(direccionEnlace, {
 
 });
 
-
  window.onload = async function () {
 
 const res = await fetch(direccionEnlace,{
@@ -2687,11 +2766,19 @@ const res = await fetch(direccionEnlace,{
     })
 });
 
+
 const config = await res.json();
-    document.getElementById("UsuariosAnio1").textContent = config.encabezado1;
-    document.getElementById("UsuariosAnio2").textContent = config.encabezado2;
-    document.getElementById("UsuariosAnio3").textContent = config.encabezado3;
-    document.getElementById("UsuariosAnio4").textContent = config.encabezado4;
-    document.getElementById("UsuariosAnio5").textContent = config.encabezado5;
+    document.getElementById("UsuariosHAnio1").textContent = config.encabezado1;
+    document.getElementById("UsuariosMAnio1").textContent = config.encabezado2;
+    document.getElementById("UsuariosHAnio2").textContent = config.encabezado3;
+    document.getElementById("UsuariosMAnio2").textContent = config.encabezado4;
+    document.getElementById("UsuariosHAnio3").textContent = config.encabezado5;
+    document.getElementById("UsuariosMAnio3").textContent = config.encabezado6;
+    document.getElementById("UsuariosAHAnio1").textContent = config.encabezado7;
+    document.getElementById("UsuariosAMAnio1").textContent = config.encabezado8;
+    document.getElementById("UsuariosAHAnio2").textContent = config.encabezado9;
+    document.getElementById("UsuariosAMAnio2").textContent = config.encabezado10;
+    document.getElementById("UsuariosAHAnio3").textContent = config.encabezado11;
+    document.getElementById("UsuariosAMAnio3").textContent = config.encabezado12
     
 };
