@@ -1893,7 +1893,7 @@ function obtenerNumeroFila1(){
   return document.querySelectorAll("#tablaBody tr").length + 1;
 }
 function obtenerNumeroFila1_1(){
-  return document.querySelectorAll("#tablaBody1.1 tr").length + 1;
+  return document.querySelectorAll("#tablaBody1_1 tr").length + 1;
 }
 function obtenerNumeroFila2(){
   return document.querySelectorAll("#tablaBody2 tr").length + 1;
