@@ -1359,7 +1359,7 @@ function agregarFila(){
 
   `;
 
-  tr1.innerHTML = `
+  fila1.innerHTML = `
     <td>
       <textarea
         name="Programa_T1_1R${i}"
