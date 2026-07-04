@@ -1316,7 +1316,7 @@ document.getElementById("tablaBody6").addEventListener("input", function (e) {
 
 function agregarFila(){
   const tbody = document.getElementById("tablaBody");
-  const tbody1 = document.getElementById("tablaBody1");
+  const tbody1 = document.getElementById("tablaBody1_1");
   const i = obtenerNumeroFila1();
   const j = obtenerNumeroFila1_1();
 
