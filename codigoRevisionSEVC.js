@@ -1,13 +1,14 @@
-const tbody = document.getElementById("tablaBody");
+const tbody  = document.getElementById("tablaBody");
 const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
 const tbody3 = document.getElementById("tablaBody3");
 const tbody4 = document.getElementById("tablaBody4");
 const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
+/*
 const tbody6 = document.getElementById("tablaBody6");
+*/
 const tbody7 = document.getElementById("tablaBody7");
-
 
 //------------------------------------Construccion de tabla--------------------------
 
@@ -20,8 +21,11 @@ for (let i = 1; i <= 10; i++) {
   const tr4 = document.createElement("tr");
   const trC = document.createElement("tr");
   const tr5 = document.createElement("tr");
+  /*
   const tr6 = document.createElement("tr");
-  const tr7 = document.createElement("tr");
+  
+  */
+ const tr7 = document.createElement("tr");
  
   tr.innerHTML = `
     <td>
@@ -54,7 +58,6 @@ for (let i = 1; i <= 10; i++) {
     </td>
   `;
                                     
-
   tr1.innerHTML = `
     <td>
       <textarea
@@ -138,6 +141,10 @@ tr2.innerHTML = `
   `;
 
 
+
+
+
+
 tr3.innerHTML = `
     <td>
     <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
@@ -146,9 +153,18 @@ tr3.innerHTML = `
     <td>
     <input type="number" name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
     </td>
-
+    <td>
+                      <textarea 
+                       id= "urlPlanos_T3R${i}"
+                       name="urlPlanos_T3R${i}" 
+                       class="auto-expand input_tabla"
+                       rows="1"
+                       style="resize:none;"
+                       aria-label="Url de los planos recibidos" readonly>
+  
+                 </textarea>
+    </td>
   `;
-
 trC.innerHTML = `
    
      <td>
@@ -428,7 +444,7 @@ tr5.innerHTML = `
 
 
 
-
+/*
 
 
 tr6.innerHTML = `
@@ -494,7 +510,7 @@ tr6.innerHTML = `
 
 
 
-
+*/
 
 
 
@@ -508,8 +524,9 @@ tr6.innerHTML = `
   tbody4.appendChild(tr4);
   tbodyC.appendChild(trC);
   tbody5.appendChild(tr5);
+  /*
   tbody6.appendChild(tr6);
-
+*/
 }
 
 
@@ -574,9 +591,9 @@ document.addEventListener("click", (e) => {
 
 //---------------------------Definicion de variables para selects de D Generales-------------------------------
 
-const secretariaInput = document.getElementById("secretaria");
-const direccionInput = document.getElementById("direccion");
-const nivelInput = document.getElementById("nivel");
+//const secretariaInput = document.getElementById("secretaria");
+//const direccionInput = document.getElementById("direccion");
+//const nivelInput = document.getElementById("nivel");
 const dependenciaInput = document.getElementById("dependencia");
 
 //-----------------------------------Agregar fila cuando se agrega un equipo---------------------------------------
@@ -651,7 +668,7 @@ document.getElementById("tablaBody5").addEventListener("change", e => {
     agregarFila5();
   }
 });
-
+/*
 document.getElementById("tablaBody6").addEventListener("change", e => {
   if (!e.target.name?.startsWith("nombredelEquipo_T6R")) return;
 
@@ -662,13 +679,13 @@ document.getElementById("tablaBody6").addEventListener("change", e => {
     agregarFila6();
   }
 });
-
+*/
 
 
 //Recuerda agregar esta misma funcion para cada tabla en caso de que las 4 tablas queden en la misma pagina cosa que aun no decido
 //----------------------------------------rellenado automatico de Nivel y dependencia----------------------------------------------
-nivelInput.addEventListener("change", generarNivel);
-dependenciaInput.addEventListener("change", generarDependencia);
+//nivelInput.addEventListener("change", generarNivel);
+//dependenciaInput.addEventListener("change", generarDependencia);
 
 
 
@@ -683,7 +700,7 @@ dependenciaInput.addEventListener("change", generarDependencia);
 
 
 
-
+/*
 function generarNivel() {
   const select = nivelInput;
   const texto = select.options[select.selectedIndex].text;
@@ -693,7 +710,7 @@ function generarNivel() {
     celda.textContent = texto;
   });
 }
-
+*/
 
 function generarDependencia() {
   const valor = dependenciaInput.value.trim();
@@ -718,18 +735,16 @@ textareas.forEach(textarea => {
 });
 
 //------------------------------Listas desplegables que dependen de otros valores
-
+/*
 //--------------------------------1.-Secretarias-----------------------------------------------------------------
 const secretarias={
 
 SG:[{text:"Unidad Politécnica de gestión con perspectiva de género (UPGPG)",value:"UPGPG"},
         {text:"Secretaría General",value:"SG"},
         {text:"Defensoría de los Derechos Politécnicos",value:"DDP"}],
-    /*  YA---------------------------------------------- */
     DG:[{text:"Dirección General", value:"DG"},
         {text:"Coordinación Politécnica para la Sustentabilidad",value:"CPPS"}
         ],
-    /*  YA---------------------------------------------- */
     AG:[{text:"Oficina del Abogado General",value:"AG"},
         {text:"Dirección de Asuntos Jurídicos",value:"DAJ"}, 
         {text:"Dirección de Convenios y Trámite Registral",value:"DCTR"},  
@@ -741,9 +756,7 @@ SG:[{text:"Unidad Politécnica de gestión con perspectiva de género (UPGPG)",v
     
     DLCT:[{text:"Administrativo", value:"ADMIN_DLCT_AG"}],
     
-    /*  YA---------------------------------------------- */ 
     PD:[{text:"Presidencia del Decanato", value:"PD"}],
-     /*  YA---------------------------------------------- */
     SACAD:[{text:"Dirección de Educación Media Superior", value:"DEMS"},
         {text:"Dirección de Educación Superior", value:"DES"},
         {text:"Dirección de Formación en Lenguas Extranjeras", value:"DFLE_SA"},
@@ -752,7 +765,6 @@ SG:[{text:"Unidad Politécnica de gestión con perspectiva de género (UPGPG)",v
         {text:"Dirección de formación e innovación educativa", value:"DFIE"}],
         
 
-     /*  YA---------------------------------------------- */
     SADMIN:[{text:"Secretaría de Administración",value:"SA"},
         {text:"Dirección de Capital Humano", value:"DCH"},
         {text:"Dirección de Programación y Presupuesto", value:"DPP"},
@@ -760,7 +772,6 @@ SG:[{text:"Unidad Politécnica de gestión con perspectiva de género (UPGPG)",v
         {text:"Dirección de Recursos Materiales e Infraestructua", value:"DRMI"},
         {text:"Dirección de Servicios Generales", value:"DSG"},
         {text:"Coordinación de Centros de Desarrollo Infantil", value:"CCDI"}],
-     /*  YA---------------------------------------------- */
     SIIS:[{text:"Dirección de Vinculación y Desarrollo Regional", value:"DVDR"},
           {text:"Secretaría de Innovación e Integración Social", value:"SIIS"},
           {text:"Dirección de Egresados y Servicio Social", value:"DESS"},
@@ -768,7 +779,6 @@ SG:[{text:"Unidad Politécnica de gestión con perspectiva de género (UPGPG)",v
           {text:"Dirección de Servicios Empresariales y Transferencia Tecnológica", value:"DSETT"},
           {text:"Dirección de Incubación de Empresas Tecnológicas", value:"DIET"},
           {text:"Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli", value:"DPITT"}],
-    /*  YA---------------------------------------------- */
     SIP:[{text:"Dirección de Investigación", value:"DI"},
          {text:"Secretaría de Investigación y Posgrado", value:"SIP"},
          {text:"Dirección de Posgrado", value:"DP"},
@@ -781,21 +791,22 @@ SG:[{text:"Unidad Politécnica de gestión con perspectiva de género (UPGPG)",v
          {text:"Dirección de Actividades Deportivas", value:"DAD"},
          {text:"Dirección de Bibliotecas y Publicaciones", value:"DBP"},
          {text:"Dirección de Apoyos a Estudiantes", value:"DAE"}],
-   /*YA                    */
    CGPII:[{text:"Coordinación General de Planeación e Información Institucional", value:"CGPII"},
            {text:"Dirección de información institucional", value:"DII"},
            {text:"Dirección de Planeación y Organización", value:"DPO"}],         
-   /*  YA                 */ 
    CII:[{text:"Coordinación de Imagen Institucional", value:"CII"}],
-   /* YA                  */
    CENAC:[{text:"Centro Nacional de Cálculo (CENAC)", value:"CGCENAC"},
           {text:"Dirección de cómputo y comunicaciones", value:"DCC"}, 
           {text:"Dirección de sistemas informáticos", value:"DSI"}],  
-   /*YA */   
     ER:[{text:"Estación de Radiodifusión XHIPN-FM 95.7 MHz", value:"ER"}],    
     POI:[{text:"Patronato de Obras e Instalaciones  (POI)", value:"POI"}],
     COFAA:[{text:"Comisión de Operación y Fomento de Actividades Académicas (COFAA)", value:"COFAA"}],
 }
+
+
+
+
+
 
 
 
@@ -1219,6 +1230,236 @@ nivelInput.addEventListener("change", () => {
     dependenciaInput.appendChild(option);
   });
 });
+*/
+
+const opciones = ["Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)",
+                                                    "Defensoría de los Derechos Politécnicos",
+                                                    "Defensoría de los Derechos Politécnicos",
+"Secretaría General",
+
+//Direcion General
+
+"Dirección General",
+
+"Coordinación Politécnica para la Sustentabilidad",
+
+
+
+//Abogado General
+"Oficina del Abogado General",
+
+"Dirección de Asuntos Jurídicos",
+  
+"Dirección de Convenios y Trámite Registral",  
+
+"Dirección de Legislación, Consulta y Transparencia",  
+
+  
+//Presidencia del decanato
+"Presidencia del Decanato",
+
+//Secretaria Academica
+'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 1)  "Gonzalo Vázquez Vela"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 2)  "Miguel Bernard"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 3)  "Estanislao Ramírez Ruiz"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 4)  "Lázaro Cárdenas"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 5)  "Benito Juárez"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 6)  "Miguel Othón De Mendizábal"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 7)  "Cuauhtémoc"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 8)  "Narciso Bassols"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 9)  "Juan De Dios Bátiz"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"',
+       'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"',
+"Dirección de Educación Media Superior",
+"Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco",
+    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán",
+    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco",
+    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán",
+    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco",
+    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco", 
+    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán",
+    "Escuela Superior de Ingeniería Textil (ESIT)",
+    "Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)",
+    "Escuela Superior de Física y Matemáticas (ESFM)",
+    "Escuela Superior de Cómputo (ESCOM)",
+    "Escuela Nacional de Ciencias Biológicas (ENCB)",
+    "Escuela Superior de Medicina (ESM)",
+    "Escuela Nacional de Medicina y Homeopatía (ENMH)",
+    "Escuela Superior de Enfermería y Obstetricia (ESEO)",
+    "Centro Interdisciplinario de Ciencias de la Salud (CICS)Unidad Milpa Alta",
+    "Centro Interdisciplinario de Ciencias de la Salud (CICS) Unidad Santo Tomás",
+    "Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás",
+    "Escuela Superior de Comercio y Administración (ESCA) Unidad Tepepan",
+    "Escuela Superior de Economía (ESE)",
+    "Escuela Superior de Turismo (EST)",
+    "Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)",
+    "Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)",
+    "Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)",
+    "Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)",
+    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Hidalgo (UPIIH)",
+    "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)",
+    "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)",
+    "Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)",
+    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Palenque (UPIIP)",
+    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Coahuila (UPIIC)",
+    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Tlaxcala (UPIIT)",
+    'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+"Dirección de Educación Superior",
+    
+"Dirección de Educación Virtual",
+    
+"Dirección de Formación e Innovación Educativa",
+
+"Dirección de Formación en Lenguas Extranjeras",
+    
+"Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco",
+               "Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás",           
+    
+"Secretaría Académica",
+    
+    
+    
+
+    
+    
+    
+
+
+           
+                 
+//Secretaria Administrativa
+"Secretaría de Administración",
+"Dirección de Capital Humano",
+"Dirección de Programación y Presupuesto",
+"Dirección de Recursos Financieros",
+"Dirección de Recursos Materiales e Infraestructua",
+"Dirección de Servicios Generales",
+"Coordinación de Centros de Desarrollo Infantil",
+
+
+
+//Secretaria de Inovacion e Integracion Social
+
+"Centro de Vinculación y Desarrollo Regional (CVDR),Unidad Cajeme -Sonora",
+    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche",
+    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún",
+    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán",
+    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango",
+    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis",
+    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán",
+    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia",
+    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca",
+    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico",
+    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana",
+    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala", 
+    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua",
+    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz",
+    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla",
+"Dirección de Vinculación y Desarrollo Regional",
+"Secretaría de Innovación e Integración Social",
+"Dirección de Egresados y Servicio Social",
+"Dirección de Relaciones Internacionales",
+"Dirección de Servicios Empresariales y Transferencia Tecnológica",
+"Dirección de Incubación de Empresas Tecnológicas",
+"Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli",
+
+
+
+
+
+//Secretaria de Investigacion y Posgrado
+"Dirección de Investigación",
+"Secretaría de Investigación y Posgrado",
+"Dirección de Posgrado",
+"Dirección de Difusión de Ciencia y Tecnología",
+"Centro de Desarrollo Aeroespacial (CDA)",
+"Centro de Nanociencias y Micro y Nanotecnologías (CNMN)",
+"Centro Interdisciplinario de Ciencias Marinas (CICIMAR)",
+   "Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente Y Desarrollo (CIIEMAD)",
+   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango",
+   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa",
+   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Michoacán",
+   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca",
+   "Centro de Desarrollo de Productos Bióticos (CEPROBI)",
+   "Centro de Biotecnología Genómica (CBG)",
+   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría",
+   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira",
+   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro",
+   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada  (CICATA), Unidad Morelos",
+   "Centro de Investigación en Computación (CIC)",
+   "Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)",
+   "Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)",
+   "Centro de Investigación en Biotecnología Aplicada, IPN -Tlaxcala (CIBA)",
+   "Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)",
+   "Centro de Investigación e Innovación Tecnológica (CIITEC)",
+   "Centro Mexicano para la Producción Más Limpia (CMP+L)",
+
+
+
+
+
+
+
+
+
+"Secretaría de Servicios Educativos",
+"Dirección de Administración Escolar",
+"Dirección de Difusión Cultural",
+"Dirección de Actividades Deportivas",
+"Dirección de Bibliotecas y Publicaciones",
+"Dirección de Apoyos a Estudiantes",
+
+
+//Coordinacion General de Planeacion e Informacion Institucional
+
+"Coordinación General de Planeación e Información Institucional",
+
+"Dirección de Planeación y Organización",
+
+"Dirección de Información Institucional",
+
+
+
+// Coordinación de Imagen Institucional
+
+"Coordinación de Imagen Institucional",
+
+
+//Centro Nacional de Calculo
+
+"Centro Nacional de Cálculo (CENAC)",
+"Dirección de cómputo y comunicaciones",                 
+"Dirección de sistemas informáticos",
+
+  
+//Estacion de Radio
+
+"Estación de Radiodifusión Radio IPN XHIPN-FM 95.7 MHZ.",
+
+"Patronato de Obras e Instalaciones  (POI)",
+"Comisión de Operación y Fomento de Actividades Académicas (COFAA)"
+];
+
+
+
+  opciones.forEach(value => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    dependenciaInput.appendChild(option);
+  });
+
+
 
 
 
@@ -1299,7 +1540,7 @@ document.getElementById("tablaBody5").addEventListener("input", function (e) {
   actualizarObligatoriedadFila(fila);
 });
 
-
+/*
 
 document.getElementById("tablaBody6").addEventListener("input", function (e) {
   if (!e.target.classList.contains("obligatorio")) return;
@@ -1307,7 +1548,7 @@ document.getElementById("tablaBody6").addEventListener("input", function (e) {
   const fila = e.target.closest("tr");
   actualizarObligatoriedadFila(fila);
 });
-
+*/
 
 
 
@@ -1478,19 +1719,34 @@ function agregarFila3(){
 
 
   const fila = document.createElement("tr");
-  fila.innerHTML = `
+ 
+
+
+fila.innerHTML = `
     <td>
     <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
 
     <td>
-    <input name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
+    <input type="number" name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
     </td>
+    <td >
 
-     
-    
-
+                      <textarea 
+                       id= "urlPlanos_T3R${i}"
+                       name="urlPlanos_T3R${i}" 
+                       class="auto-expand input_tabla"
+                       rows="1"
+                       style="resize:none;"
+                       aria-label="Url de los planos recibidos" readonly>
+  
+                 </textarea>
+   
+    </td>
   `;
+
+
+
 
   tbody.appendChild(fila);
 
@@ -1810,7 +2066,7 @@ function agregarFila5(){
 //  generarDependencia();
   activarAutoExpand(fila);
 }
-
+/*
 function agregarFila6(){
   const tbody = document.getElementById("tablaBody6");
   const i = obtenerNumeroFila6();
@@ -1884,7 +2140,7 @@ function agregarFila6(){
   activarAutoExpand(fila);
 }
 
-
+*/
 
 
 
@@ -1915,9 +2171,11 @@ function obtenerNumeroFila4(){
 function obtenerNumeroFila5(){
   return document.querySelectorAll("#tablaBody5 tr").length + 1;
 }
+/*
 function obtenerNumeroFila6(){
   return document.querySelectorAll("#tablaBody6 tr").length + 1;
 }
+*/
 
 
 
@@ -2003,7 +2261,12 @@ function anterior(numero){
 
 
 
-const direccionEnlace="https://script.google.com/macros/s/AKfycbx1Nm-sOOH1HONP8WYkTxMubYvykUmJnvoIXaAImQPKB1VKBeEShKzU32Y-ymTurxq5/exec"
+dependencia.addEventListener("mousedown", e => {
+  e.preventDefault();
+});
+
+
+const direccionEnlace="https://script.google.com/macros/s/AKfycbwmLlYirlReeDyBZl4FBrwW-5ml2KpmodF-zKiGmcAWX45lYHUgqtRDt9RNo2AZMQxCSQ/exec"
 
 let folioActual=null;
 let edicionActual=null;
@@ -2034,8 +2297,9 @@ let ExistenciaDeCotizacionesA2_T4=false;
   data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
   data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
   data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
+/*
   data.__filas6 = document.querySelectorAll("#tablaBody6 tr").length;
-  
+ */ 
   if(folioActual==null){
              folioActual = generarFolio();
   }
@@ -2052,12 +2316,27 @@ let ExistenciaDeCotizacionesA2_T4=false;
 //);
 
 try {
+
+    const partes = dividirData(data);
+
+const res = await fetch(direccionEnlace, {
+    method: "POST",
+    body: JSON.stringify({
+        action: "EnviarFormulario",
+        json1: partes[0],
+           json2: partes[1],
+           json3: partes[2],
+           json4: partes[3]
+    })
+});
+
+/*
     const res = await fetch(direccionEnlace, {
       method: "POST",
       body: JSON.stringify({action: "guardarBorrador", data})
     });
 
-  
+*/  
 // ---------------Nuevo------------------------------------------- 
 
   const json = await res.json();
@@ -2098,26 +2377,31 @@ function restaurarTabla(data) {
   const filasC = data.__filasC || 10;
   const filas4 = data.__filas4 || 10;
   const filas5 = data.__filas5 || 10;
+  /*
   const filas6 = data.__filas6 || 10;
-  
+  */
   
   const tbody = document.getElementById("tablaBody");
+  const tbody1 = document.getElementById("tablaBody1_1"); 
   const tbody2 = document.getElementById("tablaBody2");
   const tbody3 = document.getElementById("tablaBody3");
   const tbodyC = document.getElementById("tablaCotizaciones"); 
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
+/*
   const tbody6 = document.getElementById("tablaBody6");
+ */
  
- 
-  tbody.innerHTML = "";
+  tbody.innerHTML  = "";
+  tbody1.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
+  /*
   tbody6.innerHTML = "";
-  
+  */
   for (let i = 1; i <= filas1; i++) {
     agregarFila();
   }
@@ -2137,10 +2421,11 @@ function restaurarTabla(data) {
   for (let i = 1; i <= filas5; i++) {
     agregarFila5();
   }
+  /*
   for (let i = 1; i <= filas6; i++) {
     agregarFila6();
   }
-
+*/
 
   Object.keys(data).forEach(name => {
     if (name.includes("__filas")) return;
@@ -2174,29 +2459,6 @@ function restaurarTabla(data) {
   // generarDependencia();
   
 }
-
-
-/*
-
-
-
-
-    formData.append(
-    "payload",
-    JSON.stringify({
-        action: "guardarBorrador",
-        data
-    })
-);
-
-try {
-    const res = await fetch(direccionEnlace, {
-        method: "POST",
-        body: formData
-    });
-
-    */
-
 
 
 
@@ -2254,15 +2516,19 @@ try {
   const tbodyC = document.getElementById("tablaCotizaciones");
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
+/*
   const tbody6 = document.getElementById("tablaBody6");
+*/
   tbody.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
-  tbody6.innerHTML = "";
-  // Reconstruir filas
+/*  tbody6.innerHTML = "";
+
+*/
+// Reconstruir filas
 //  const filas = data.__filas || 10;
 //  for (let i = 1; i <= filas; i++) {
 //    agregarFila();
@@ -2271,7 +2537,7 @@ try {
       folioActual = folio;
       edicionActual=data.edicion;
 // Restaurar selects encadenados
-setSelectValue("secretaria", data.secretaria);
+/*setSelectValue("secretaria", data.secretaria);
 
 setTimeout(() => {
   setSelectValue("direccion", data.direccion);
@@ -2280,28 +2546,18 @@ setTimeout(() => {
     setSelectValue("nivel", data.nivel);
 
     setTimeout(() => {
-      setSelectValue("dependencia", data.dependencia);
-/*
-      const titular = document.getElementById("titular");   
-      titular.value = data.titular;
-      const telTitular = document.getElementById("telefonoTitular");   
-      telTitular.value = data.telefonoTitular;
-      const CorreoTitular = document.getElementById("correoTitular");   
-      CorreoTitular.value = data.correoTitular;
-      const responsable = document.getElementById("responsable");   
-      responsable.value = data.responsable;
-      const telResponsable = document.getElementById("telefonoResponsable");   
-      telResponsable.value = data.telefonoResponsable;
-      const CorreoResponsable = document.getElementById("correoResponsable");   
-      CorreoResponsable.value = data.correoResponsable;
 */
-      Object.keys(data).forEach(name => {
+
+
+setSelectValue("dependencia", data.dependencia);
+
+Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
                           if (name.includes("R")) return; //quitamos los campos de la tabla
                           if(name.includes("secretaria")) return;
                           if(name.includes("direccion")) return; 
                           if(name.includes("nivel")) return; 
-                          if(name.includes("dependencia")) return; 
+                         // if(name.includes("dependencia")) return; 
                           const campo = document.querySelector(`[name="${name}"]`);
                           if (!campo) return;
                           
@@ -2334,13 +2590,14 @@ setTimeout(() => {
       document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
+/*
       document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
-
-    }, 0);
-  }, 0);
-}, 0);
+*/
+//    }, 0);
+//  }, 0);
+//  }, 0);
   alert("📂 Borrador cargado correctamente");
 } catch (e) {
     alert("⚠️ Error de conexión al cargar el borrador");
@@ -2399,14 +2656,18 @@ try {
   const tbodyC = document.getElementById("tablaCotizaciones");
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
+/*
   const tbody6 = document.getElementById("tablaBody6");
-  tbody.innerHTML = "";
+*/  
+tbody.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
+/*
   tbody6.innerHTML = "";
+*/
   // Reconstruir filas
 //  const filas = data.__filas || 10;
 //  for (let i = 1; i <= filas; i++) {
@@ -2416,15 +2677,17 @@ try {
 folioActual=folio;
 edicionActual=data.edicion;
 numerodeEnvio=data.numeroEnvio;
+/*
 alert("En la revision Existen cotizaciones Generales para la primera alternativa cargadas:"+ ExistenciaDeCotizaciones);
 alert("En la revision la existencia de cotizaciones Generales para la segunda alternativa cargadas:"+ ExistenciaDeCotizacionesA2);
 alert("En la revision Existen cotizaciones para la tabla 4 para la primera alternativa cargadas:"+ ExistenciaDeCotizaciones_T4);
 alert("En la revision Existen cotizaciones para la tabla 4 para la segunda alternativa cargadas:"+ ExistenciaDeCotizacionesA2_T4);
-
+*/
 
 
 // Restaurar selects encadenados
-setSelectValue("secretaria", data.secretaria);
+/* 
+  setSelectValue("secretaria", data.secretaria);
 
 setTimeout(() => {
   setSelectValue("direccion", data.direccion);
@@ -2433,28 +2696,16 @@ setTimeout(() => {
     setSelectValue("nivel", data.nivel);
 
     setTimeout(() => {
-      setSelectValue("dependencia", data.dependencia);
-/*
-      const titular = document.getElementById("titular");   
-      titular.value = data.titular;
-      const telTitular = document.getElementById("telefonoTitular");   
-      telTitular.value = data.telefonoTitular;
-      const CorreoTitular = document.getElementById("correoTitular");   
-      CorreoTitular.value = data.correoTitular;
-      const responsable = document.getElementById("responsable");   
-      responsable.value = data.responsable;
-      const telResponsable = document.getElementById("telefonoResponsable");   
-      telResponsable.value = data.telefonoResponsable;
-      const CorreoResponsable = document.getElementById("correoResponsable");   
-      CorreoResponsable.value = data.correoResponsable;
 */
+ //     setSelectValue("dependencia", data.dependencia);
+
 Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
                           if (name.includes("R")) return; //quitamos los campos de la tabla
                           if(name.includes("secretaria")) return;
                           if(name.includes("direccion")) return; 
                           if(name.includes("nivel")) return; 
-                          if(name.includes("dependencia")) return; 
+ //                         if(name.includes("dependencia")) return; 
                           const campo = document.querySelector(`[name="${name}"]`);
                           if (!campo) return;                     
 
@@ -2487,13 +2738,14 @@ Object.keys(data).forEach(name => {
       document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
+/*
       document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
-
-    }, 0);
-  }, 0);
-}, 0);
+*/
+//    }, 0);
+//  }, 0);
+// }, 0);
   alert("📂 Respuesta cargada correctamente");
 } catch (e) {
     alert("⚠️ Error de conexión al cargar la respuesta");
@@ -2519,10 +2771,10 @@ Object.keys(data).forEach(name => {
 
 
 
-document.getElementById("Enviar").addEventListener("click", async () => {
+document.getElementById("Enviar").addEventListener("click", async function(e) {
    
 //document.getElementById("Enviar").addEventListener("submit", function(e){
-                //e.preventDefault();
+                    e.preventDefault();
                 //if (!this.checkValidity()) {
                 //    this.reportValidity(); // muestra mensajes
                 //    return;  
@@ -2545,9 +2797,9 @@ const formData = new FormData(form);
   const data = {};
 
 const selectsTexto = [
-                      "secretaria",
-                      "direccion",
-                      "nivel",
+                    //  "secretaria",
+                    //  "direccion",
+                    //  "nivel",
                       "dependencia"
                 ];
                 selectsTexto.forEach(id => {
@@ -2559,7 +2811,6 @@ const selectsTexto = [
                 aviso.textContent = " ";
 
   
-
 
   for (const [key, value] of formData.entries()) {
      
@@ -2590,7 +2841,7 @@ const selectsTexto = [
 
 
 
-
+/*
 data.secretariaT = document.getElementById("secretaria").options[
     document.getElementById("secretaria").selectedIndex
 ].text;
@@ -2602,7 +2853,7 @@ data.direccionT = document.getElementById("direccion").options[
 data.nivelT = document.getElementById("nivel").options[
     document.getElementById("nivel").selectedIndex
 ].text;
-
+*/
 data.dependenciaT = document.getElementById("dependencia").options[
     document.getElementById("dependencia").selectedIndex
 ].text;
@@ -2614,8 +2865,9 @@ data.dependenciaT = document.getElementById("dependencia").options[
   data.__filasC = document.querySelectorAll("#tablaCotizaciones tr").length;
   data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
   data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
+/*
   data.__filas6 = document.querySelectorAll("#tablaBody6 tr").length;
-  
+  */
   if(folioActual==null){
       folioActual = generarFolio();
   }
@@ -2629,13 +2881,13 @@ data.dependenciaT = document.getElementById("dependencia").options[
   data.existenciaCotizaciones2=ExistenciaDeCotizacionesA2;
   data.existenciaCotizaciones2_T4=ExistenciaDeCotizacionesA2_T4;
 
-  
+  /*
    alert("Revision data.existenciaCotizaciones:"+data.existenciaCotizaciones);
   alert("Revision data.existenciaCotizaciones_T4:"+data.existenciaCotizaciones_T4);
   
   alert("Revision data.existenciaCotizaciones2 :"+ data.existenciaCotizaciones2);
   alert("Revision data.existenciaCotizaciones2_T4 :"+data.existenciaCotizaciones2_T4);
- 
+*/ 
 formData.append(
     "payload",
     JSON.stringify({
@@ -2660,13 +2912,27 @@ try {
         method: "POST",
         body: formData
         */
+
+const partes = dividirData(data);
+
+const res = await fetch(direccionEnlace, {
+    method: "POST",
+    body: JSON.stringify({
+        action: "EnviarFormulario",
+        json1: partes[0],
+           json2: partes[1],
+           json3: partes[2],
+           json4: partes[3]
+    })
+});
+/*
 const res = await fetch(direccionEnlace, {
       method: "POST",
       body: JSON.stringify({action: "EnviarFormulario", data})   
 
 
     });
-
+*/
 
 
 
@@ -2681,9 +2947,14 @@ const res = await fetch(direccionEnlace, {
 
     if (json.success) {
 
-        alert(`✅ Registro de solicitud correctamente Enviada. Tu folio es: ${folioActual}`);
+        if(numerodeEnvio==2){
+        alert(`✅ Tus observaciones han sido correctamente Enviadas. Tu folio es: ${folioActual}`);
 
-        aviso.textContent = "✅ Tu respuesta fue enviada correctamente";
+        }else{
+          alert(`✅ Las observaciones han sido actualizadas. Te recordamos que el folio es: ${folioActual}`);
+
+        }
+        aviso.textContent = "✅ La dependencia ya puede corregir el formato";
         aviso.style.color = "green";
 
         form.reset();
@@ -2783,3 +3054,52 @@ const config = await res.json();
     document.getElementById("UsuariosAMAnio3").textContent = config.encabezado12
     
 };
+
+function dividirData(data, partes = 4) {
+
+    const json = JSON.stringify(data);
+
+    const tam = Math.ceil(json.length / partes);
+
+    const resultado = [];
+
+    for (let i = 0; i < partes; i++) {
+        resultado.push(
+            json.substring(i * tam, (i + 1) * tam)
+        );
+    }
+
+    return resultado;
+}
+
+document.getElementById("convertirSolicitudes").addEventListener("click", async () => {
+
+    if (!confirm("¿Deseas convertir las solicitudes en borradores?")) {
+        return;
+    }
+
+    try {
+
+        const res = await fetch(direccionEnlace,{
+            method:"POST",
+            body: JSON.stringify({
+                action:"convertirSolicitudes"
+            })
+        });
+
+        const json = await res.json();
+
+        if(json.success){
+            alert("✅ " + json.message);
+        }else{
+            alert("⚠️ " + json.message);
+        }
+
+    }catch(e){
+
+        console.error(e);
+        alert("Error: "+e.message);
+
+    }
+
+});
