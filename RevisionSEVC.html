@@ -34,13 +34,25 @@
                         <h1>Formato de Revision de Observaciones(PIDN 2026)</h1>
                         <h2>CAPITULO 5000 Adquisición </h2>
                       <!--  <input id="folio" name="folio" placeholder="Folio" disabled> -->
-<button type="button" id="cargarAnio">Actualizar el año inicial para la tabla </button>   
-                         <input  id="encabezados" name="EdicionAnio" placeholder="año" >
-                       
+                         <div class="EdicionEncabezado">
+                         <button class="BotonChico"  type="button" id="cargarAnio">Actualizar el año inicial para la tabla </button>   
+                         <input class="EdicionAnio" id="encabezados" name="EdicionAnio" placeholder="año" >
+                           
+                        </div>
+
+
+                        
+
+                        
+                              
 <div class="paso activo" id="paso1">
                                                 
                                                  
                                                <h3>Datos Generales </h3>      
+                           
+                           
+                           
+                           <!--                   
                                                <div class="bloque-inst">    
                             <h4>Intrucciones</h4>
                             <div>
@@ -57,19 +69,22 @@
                               
                             </div>
                             </div> 
-                         
+                        -->
+
                              <!--<table class="datos">
                              <tbody>
                              <tr>
                              <td>-->
                            
                               
-                         <div class="bloque-DatosDep">  
-                        <fieldset title="Info Gral">
+      <div class="bloque-DatosDep">  
+<!--
+                            <fieldset title="Info Gral">
                                     <legend>Información General </legend>
                         
                         <div class="form_input IG">
-                          <label for="secretaria">Secretaría o Direccion General</label>
+                        
+                            <label for="secretaria">Secretaría o Direccion General</label>
                           <select id="secretaria" name="secretaria" placeholder="   " class="IGS" required>
                                        <option value="">-- Selecciona un nivel--</option>
                                       <option value="CII">Coordinación de Imagen Institucional</option>
@@ -105,35 +120,51 @@
                                  <option value="">-- Selecciona un nivel--</option>
                                  </select>
                                 </div>
-                        <div class="form_input IG">    
-                                 <label for="dependencia">Dependencia</label>
-                                 <select name="dependencia" id="dependencia" class="IGS" disabled required>
-                                   <option value="">-- Selecciona una dependencia --</option>
-                                 </select>
-                        </div> 
+                            
+                                
                     
                       </fieldset>
+                    -->
                       <!--  </td>
                            
                         <td>
                         -->
                           <fieldset title="Info titu">
                        <legend>Información del Titular </legend>
-                    
-                    
+                        
+                       
+                       <div class="form_input TIT">    
+                                 <label for="dependencia">Dependencia</label>
+                                 <select name="dependencia" id="dependencia" class="IGS" required readonly>
+                                   <option value="">-- Selecciona una dependencia --</option>
+                                                    
+                                </select>
+                        </div> 
+                        
+                          <!--
+                        <div class="form_input TIT">    
+                                 <label for="dependencia">Dependencia</label>
+                                 <input name="dependencia" id="dependencia" class="IGS" required readonly>
+                
+                        </input>
+                        </div>
+-->
+
+
+
                         <div class="form_input TIT">
                           <label for="titular">Titular</label>
-                          <input id="titular" name="titular" placeholder="Nombre completo" required>
+                          <input id="titular" name="titular" placeholder="Nombre completo" required readonly>
                         </div>
                     
                         <div class="form_input TIT">
                           <label for="telefonoTitular">Extensión</label>
-                          <input id="telefonoTitular" name="telefonoTitular" placeholder="Extensión" type="tel" required>
+                          <input id="telefonoTitular" name="telefonoTitular" placeholder="Extensión" type="tel" required readonly>
                         </div>
                     
                         <div class="form_input TIT">
                           <label for="correoTitular">Correo</label>
-                          <input id="correoTitular" name="correoTitular" placeholder="correo " type="email" required>
+                          <input id="correoTitular" name="correoTitular" placeholder="correo " type="email" required readonly>
                         </div>
                         
                                             
@@ -147,18 +178,18 @@
                         
                         <div class="form_input RES">
                           <label for="responsable" class="RESL">Responsable </label>
-                          <input id="responsable" name="responsable" placeholder="Nombre completo " required>
+                          <input id="responsable" name="responsable" placeholder="Nombre completo " required readonly>
                         </div>
                     
                     
                         <div class="form_input RES">
                           <label for="telefonoResponsable" class="RESL">Extensión</label>
-                          <input id="telefonoResponsable" name="telefonoResponsable" placeholder="Extensión " type="tel" required>
+                          <input id="telefonoResponsable" name="telefonoResponsable" placeholder="Extensión " type="tel" required readonly>
                         </div>
                     
                         <div class="form_input RES">
                           <label for="correoResponsable" class="RESL">Correo</label>
-                          <input id="correoResponsable" name="correoResponsable" placeholder="Correo " type="email" required>
+                          <input id="correoResponsable" name="correoResponsable" placeholder="Correo " type="email" required readonly>
                         </div>
                       
                     </fieldset>
@@ -341,7 +372,9 @@
                                                                  <th title="MetrosCuadrados">
                                                                       Metros Cuadrados 
                                                                  </th>   
-                                                                 
+                                                                 <th title ="Planos">
+                                                                        Planos
+                                                                 </th>
                                                             </tr>
                                                      </thead>
                              
@@ -503,7 +536,7 @@
       Tabla4
     </button>
 <button type="button" class="pagina" onclick="siguiente(7)">
-      Tabla6
+      Observaciones
     </button>                    
                                 <h3>Oferta </h3>            
                                 <fieldset class="TablaFS"> 
@@ -560,9 +593,11 @@
 <button type="button" class="pagina" onclick="anterior(8)">
       Tabla5
     </button>
-<button type="button" class="pagina" onclick="siguiente(8)">
+<!--
+    <button type="button" class="pagina" onclick="siguiente(8)">
      Observaciones y Dudas
-    </button>                    
+    </button>         
+               
                                 <h3>Oferta </h3>            
                                 <fieldset class="TablaFS"> 
                                 <legend class="TablaLeg" >Tabla  6. Inventario de la dependencia (Capitulo 5000)</legend>
@@ -614,7 +649,8 @@
 <button type="button" class="pagina" onclick="anterior(9)">
       Tabla6
     </button>
-                                <h3>Observaciones Generales </h3>
+-->
+                                    <h3>Observaciones Generales </h3>
                                 
                                 
 <!-- ------------------------------------------Tabla 1 Obs-->
@@ -1455,13 +1491,16 @@
     <!--    <button type="button" onclick="siguiente(4)">
       Tabla4
     </button>-->
-   <button type="submit" id="Enviar">Enviar</button>
+   <button class="BotonChico" type="submit" id="Enviar">Enviar</button>
 
 <p id="aviso" class="Aviso"></p>
 
 
 </div>
-
+<div class="EdicionEncabezado">
+                        <button type="button" id="convertirSolicitudes"> Convertir solicitudes a borradores
+                         </button>   
+                        </div>
 
 
 
@@ -1476,4 +1515,5 @@
 
 
 </html>
+
 
