@@ -56,7 +56,25 @@ for (let i = 1; i <= 10; i++) {
     <td>
     <input type="number" name="Usuarios6_T1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
     </td>
+    <td>
+    <input type="number" name="Usuarios7_T1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios8_T1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios9_T1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
+    </td>
+
+
+    <td>
+    <input type="number" name="Usuarios10_T1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
+    </td>
+
   `;
+
                                     
   tr1.innerHTML = `
     <td>
@@ -85,6 +103,21 @@ for (let i = 1; i <= 10; i++) {
     </td>
     <td>
     <input type="number" name="Usuarios6_T1_1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios7_T1_1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios8_T1_1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios9_T1_1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios10_T1_1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
     </td>
   `;
 
@@ -594,7 +627,45 @@ document.addEventListener("click", (e) => {
 //const secretariaInput = document.getElementById("secretaria");
 //const direccionInput = document.getElementById("direccion");
 //const nivelInput = document.getElementById("nivel");
+
+
+
+const tipoDeSolicitudInput = document.getElementById("tipoDeSolicitud");
+
 const dependenciaInput = document.getElementById("dependencia");
+ const dependenciaEncabezado = document.getElementById("dependenciaSolicitud");
+
+
+
+function actualizarEncabezado() {
+
+    const dependencia =
+        dependenciaInput.options[dependenciaInput.selectedIndex]?.value || "";
+
+    const tipoSolicitud =
+        tipoDeSolicitudInput.options[tipoDeSolicitudInput.selectedIndex]?.value || "";
+
+    dependenciaSolicitud.textContent =
+        dependencia + " - " + tipoSolicitud;
+}
+
+
+
+dependenciaInput.addEventListener("change", actualizarEncabezado);
+
+
+
+tipoDeSolicitudInput.addEventListener("change", actualizarEncabezado);
+
+
+
+
+
+
+
+
+
+
 
 //-----------------------------------Agregar fila cuando se agrega un equipo---------------------------------------
 document.getElementById("tablaBody").addEventListener("change", e => {
@@ -1599,6 +1670,23 @@ function agregarFila(){
     <input type="number" name="Usuarios6_T1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
     </td>
 
+    <td>
+    <input type="number" name="Usuarios7_T1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios8_T1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios9_T1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
+    </td>
+
+
+    <td>
+    <input type="number" name="Usuarios10_T1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
+    </td>
+
   `;
 
   fila1.innerHTML = `
@@ -1629,6 +1717,21 @@ function agregarFila(){
     </td>
     <td>
     <input type="number" name="Usuarios6_T1_1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios7_T1_1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios8_T1_1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios9_T1_1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios10_T1_1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
     </td>
   `;
   tbody.appendChild(fila);
@@ -2237,6 +2340,7 @@ function generarFolio() {
 
 
 //------------------------Separacion de tablas por ventana
+/*
 function siguiente(numero){
 
   document
@@ -2258,13 +2362,55 @@ function anterior(numero){
     .getElementById(`paso${numero-1}`)
     .classList.add("activo");
 }
+*/
+function siguiente(numero,numeroActivar){
+
+  document
+    .getElementById(`paso${numero}`)
+    .classList.remove("activo");
+
+  document
+    .getElementById(`paso${numeroActivar}`)
+    .classList.add("activo");
+}
+
+
+function anterior(numero){
+
+  document
+    .getElementById(`paso${numero}`)
+    .classList.remove("activo");
+
+  document
+    .getElementById(`paso${numero-1}`)
+    .classList.add("activo");
+}
+function soloActivar(numero){
+if(document
+    .getElementById(`paso${numero}`)
+    .classList.contains("activo")){
+         document
+    .getElementById(`paso${numero}`)
+    .classList.remove("activo");    
+    }else{
+
+  document
+    .getElementById(`paso${numero}`)
+    .classList.add("activo");
+  }
+}
 
 
 
-dependencia.addEventListener("mousedown", e => {
+
+
+
+
+
+/*dependencia.addEventListener("mousedown", e => {
   e.preventDefault();
 });
-
+*/
 
 const direccionEnlace="https://script.google.com/macros/s/AKfycbwmLlYirlReeDyBZl4FBrwW-5ml2KpmodF-zKiGmcAWX45lYHUgqtRDt9RNo2AZMQxCSQ/exec"
 
@@ -2610,15 +2756,29 @@ document.getElementById("cargarRespuesta").addEventListener("click", async () =>
 //-------------------------- Borrador con  folio (Backend)   
   
   const folio = document.getElementById("folioInput").value.trim();
+  
+  //-----------------------------nuevo----------------
+  const dependencia = document.getElementById("dependencia").value.trim();
+   
+  const tipoDeEquipamento = document.getElementById("tipoDeSolicitud").value.trim();
+
+
+  if (!dependencia) {
+    alert("⚠️ Ingresa una dependencia válida");
+    return;
+   }
+
+  //-------------------------------------------------------------
+  /*
   if (!folio) {
     alert("⚠️ Ingresa un folio válido");
     return;
   }
-
+*/
 try {
     const res = await fetch(direccionEnlace, {
       method: "POST",
-      body: JSON.stringify({action: "cargarRespuesta", folio})
+      body: JSON.stringify({action: "cargarRespuesta", dependencia,tipoDeEquipamento})
     });
 
 
@@ -3046,14 +3206,164 @@ const config = await res.json();
     document.getElementById("UsuariosMAnio2").textContent = config.encabezado4;
     document.getElementById("UsuariosHAnio3").textContent = config.encabezado5;
     document.getElementById("UsuariosMAnio3").textContent = config.encabezado6;
+document.getElementById("UsuariosHAnio1Obs").textContent = config.encabezado1;
+    document.getElementById("UsuariosMAnio1Obs").textContent = config.encabezado2;
+    document.getElementById("UsuariosHAnio2Obs").textContent = config.encabezado3;
+    document.getElementById("UsuariosMAnio2Obs").textContent = config.encabezado4;
+    document.getElementById("UsuariosHAnio3Obs").textContent = config.encabezado5;
+    document.getElementById("UsuariosMAnio3Obs").textContent = config.encabezado6;
+    
+
+
+    document.getElementById("UsuariosHAnio4").textContent = config.encabezado13;
+    document.getElementById("UsuariosMAnio4").textContent = config.encabezado14;
+    document.getElementById("UsuariosHAnio5").textContent = config.encabezado15;
+    document.getElementById("UsuariosMAnio5").textContent = config.encabezado16;
+    
+    document.getElementById("UsuariosHAnio4Obs").textContent = config.encabezado13;
+    document.getElementById("UsuariosMAnio4Obs").textContent = config.encabezado14;
+    document.getElementById("UsuariosHAnio5Obs").textContent = config.encabezado15;
+    document.getElementById("UsuariosMAnio5Obs").textContent = config.encabezado16;
+    
+
     document.getElementById("UsuariosAHAnio1").textContent = config.encabezado7;
     document.getElementById("UsuariosAMAnio1").textContent = config.encabezado8;
     document.getElementById("UsuariosAHAnio2").textContent = config.encabezado9;
     document.getElementById("UsuariosAMAnio2").textContent = config.encabezado10;
     document.getElementById("UsuariosAHAnio3").textContent = config.encabezado11;
-    document.getElementById("UsuariosAMAnio3").textContent = config.encabezado12
+    document.getElementById("UsuariosAMAnio3").textContent = config.encabezado12,
+    
+    document.getElementById("UsuariosAHAnio1Obs").textContent = config.encabezado7;
+    document.getElementById("UsuariosAMAnio1Obs").textContent = config.encabezado8;
+    document.getElementById("UsuariosAHAnio2Obs").textContent = config.encabezado9;
+    document.getElementById("UsuariosAMAnio2Obs").textContent = config.encabezado10;
+    document.getElementById("UsuariosAHAnio3Obs").textContent = config.encabezado11;
+    document.getElementById("UsuariosAMAnio3Obs").textContent = config.encabezado12;
+
+
+    document.getElementById("UsuariosAHAnio4").textContent = config.encabezado17;
+    document.getElementById("UsuariosAMAnio4").textContent = config.encabezado18;
+    document.getElementById("UsuariosAHAnio5").textContent = config.encabezado19;
+    document.getElementById("UsuariosAMAnio5").textContent = config.encabezado20;
+    
+    document.getElementById("UsuariosAHAnio4Obs").textContent = config.encabezado17;
+    document.getElementById("UsuariosAMAnio4Obs").textContent = config.encabezado18;
+    document.getElementById("UsuariosAHAnio5Obs").textContent = config.encabezado19;
+    document.getElementById("UsuariosAMAnio5Obs").textContent = config.encabezado20;
+
     
 };
+
+document.querySelectorAll("#miFormulario textarea").forEach(campo => {
+
+    campo.addEventListener("focus", function () {
+        this.classList.add("campo-ampliado");
+         let leyenda = document.querySelector(
+        `.leyenda-textarea[data-campo="${this.name}"]`
+    );
+
+    if (!leyenda) {
+
+        leyenda = document.createElement("div");
+
+        leyenda.className = "leyenda-textarea";
+        leyenda.dataset.campo = this.name;
+
+        leyenda.textContent =
+            this.getAttribute("aria-label") || "Campo";
+
+        document.body.appendChild(leyenda);
+    }
+
+    const rect = this.getBoundingClientRect();
+
+    leyenda.style.left = rect.left + "px";
+    leyenda.style.top = (rect.top - 32) + "px";
+    });
+
+
+
+
+
+   
+campo.addEventListener("blur", function () {
+    this.classList.remove("campo-ampliado");
+    const leyenda = document.querySelector(
+        `.leyenda-textarea[data-campo="${this.name}"]`
+    );
+
+    if (leyenda) {
+        leyenda.remove();
+    }
+
+    this.style.left = "";
+    this.style.top = "";
+
+    // Esperamos a que vuelva a su tamaño normal
+    requestAnimationFrame(() => {
+        this.style.height = "auto";
+        this.style.height = this.scrollHeight + "px";
+    });
+});
+
+
+
+
+    let moviendo = false;
+    let offsetX = 0;
+    let offsetY = 0;
+
+    campo.addEventListener("mousedown", function(e) {
+
+        if (!this.classList.contains("campo-ampliado")) return;
+
+        // Ctrl + clic para mover la ventana
+        if (!e.ctrlKey) return;
+
+        moviendo = true;
+
+        const rect = this.getBoundingClientRect();
+
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+
+        this.style.cursor = "grabbing";
+
+        e.preventDefault();
+    });
+
+    document.addEventListener("mousemove", function(e) {
+
+        if (!moviendo) return;
+
+    const left = e.clientX - offsetX;
+    const top = e.clientY - offsetY;
+
+    campo.style.left = left + "px";
+    campo.style.top = top + "px";
+
+    const leyenda = document.querySelector(
+        `.leyenda-textarea[data-campo="${campo.name}"]`
+    );
+
+    if (leyenda) {
+        leyenda.style.left = left + "px";
+        leyenda.style.top = (top - 32) + "px";
+    }
+
+    });
+
+    document.addEventListener("mouseup", function() {
+
+        if (!moviendo) return;
+
+        moviendo = false;
+        campo.style.cursor = "";
+
+    });
+
+});
+
 
 function dividirData(data, partes = 4) {
 
