@@ -312,7 +312,7 @@ tr4.innerHTML = `
     <td>
       <textarea
         name="especificaciones_T4R${i}"
-        class="auto-expand input_tabla"
+        class="auto-expand input_tabla expandible"
         rows="1"
         style="resize:none;"
         aria-label="Especificaciones"
@@ -321,7 +321,7 @@ tr4.innerHTML = `
 
     <td>
       <textarea id="justificacion_T4R${i}" name="justificacion_T4R${i}"
-                   class="auto-expand input_tabla"
+                   class="auto-expand input_tabla expandible"
                    rows="1"
                    style="resize:none;"  aria-label="Justificación">  
       </textarea>
@@ -1993,7 +1993,7 @@ function agregarFila4(){
     <td>
       <textarea
         name="especificaciones_T4R${i}"
-        class="auto-expand input_tabla"
+        class="auto-expand input_tabla expandible"
         rows="1"
         style="resize:none;"
         aria-label="Especificaciones"
@@ -2002,7 +2002,7 @@ function agregarFila4(){
 
     <td>
       <textarea id="justificacion_T4R${i}" name="justificacion_T4R${i}"
-                   class="auto-expand input_tabla"
+                   class="auto-expand input_tabla expandible"
                    rows="1"
                    style="resize:none;"  aria-label="Justificación">
                    
@@ -2615,16 +2615,33 @@ function restaurarTabla(data) {
 document.getElementById("cargarBorrador").addEventListener("click", async () => {
 //-------------------------- Borrador con  folio (Backend)   
   
+
+  const folio = document.getElementById("folioInput").value.trim();
+  //-----------------------------nuevo----------------
+  const dependencia = document.getElementById("dependencia").value.trim();
+   
+  const tipoDeEquipamento = document.getElementById("tipoDeSolicitud").value.trim();
+
+   if (!dependencia) {
+    alert("⚠️ Ingresa una dependencia válida");
+    return;
+   }
+
+
+
+
+
+/*
   const folio = document.getElementById("folioInput").value.trim();
   if (!folio) {
     alert("⚠️ Ingresa un folio válido");
     return;
   }
-
+*/
 try {
     const res = await fetch(direccionEnlace, {
       method: "POST",
-      body: JSON.stringify({action: "cargarBorrador", folio})
+      body: JSON.stringify({action: "cargarBorrador", dependencia, tipoDeEquipamento})
     });
 
 
@@ -3254,7 +3271,7 @@ document.getElementById("UsuariosHAnio1Obs").textContent = config.encabezado1;
     
 };
 
-document.querySelectorAll("#miFormulario textarea").forEach(campo => {
+document.querySelectorAll("#miFormulario .expandible").forEach(campo => {
 
     campo.addEventListener("focus", function () {
         this.classList.add("campo-ampliado");
