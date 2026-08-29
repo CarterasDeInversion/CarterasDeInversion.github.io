@@ -28,6 +28,11 @@ for (let i = 1; i <= 10; i++) {
  const tr7 = document.createElement("tr");
  
   tr.innerHTML = `
+
+    <td>
+      ${i}
+    </td>
+
     <td>
       <textarea
         name="Programa_T1R${i}"
@@ -77,6 +82,12 @@ for (let i = 1; i <= 10; i++) {
 
                                     
   tr1.innerHTML = `
+
+    
+    <td>
+      ${i}
+    </td>
+
     <td>
       <textarea
         name="Programa_T1_1R${i}"
@@ -125,6 +136,10 @@ for (let i = 1; i <= 10; i++) {
 
 
 tr2.innerHTML = `
+    <td>
+      ${i}
+    </td>
+
     <td>
     <input name="Edificio_T2R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
@@ -179,6 +194,11 @@ tr2.innerHTML = `
 
 
 tr3.innerHTML = `
+         
+     <td>
+      ${i}
+    </td>
+     
     <td>
     <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
@@ -199,6 +219,9 @@ tr3.innerHTML = `
     </td>
   `;
 trC.innerHTML = `
+     <td>
+      ${i}
+    </td>
    
      <td>
       <textarea
@@ -262,6 +285,9 @@ trC.innerHTML = `
 
 
 tr4.innerHTML = `
+    <td>
+      ${i}
+    </td>
     <td>
       <textarea
         name="ProgramaAcademico_T4R${i}"
@@ -355,7 +381,7 @@ tr4.innerHTML = `
 
     
     
-    <td>
+    <td class="paso">
       <textarea
         name="urlCotizacionAdquisicion_T4R${i}"
         class="auto-expand input_tabla"
@@ -395,7 +421,7 @@ tr4.innerHTML = `
 
 
 
-<td>
+<td class="paso">
       <textarea
         name="urlCotizacionAdquisicion2_T4R${i}"
         class="auto-expand input_tabla"
@@ -409,6 +435,9 @@ tr4.innerHTML = `
 `;
 
 tr5.innerHTML = `
+    <td>
+      ${i}
+    </td>
     <td>
       <textarea
         name="ProgramaAcademico_T5R${i}"
@@ -1304,226 +1333,418 @@ nivelInput.addEventListener("change", () => {
 */
 
 const opciones = ["Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)",
-                                                    "Defensoría de los Derechos Politécnicos",
-                                                    "Defensoría de los Derechos Politécnicos",
-"Secretaría General",
+                  "Defensoría de los Derechos Politécnicos",
+                  "Secretaría General",
+                  //Direcion General
+                  "Dirección General",
+                  "Coordinación Politécnica para la Sustentabilidad",
+                  //Abogado General
+                  "Oficina del Abogado General",
+                  "Dirección de Asuntos Jurídicos",
+                  "Dirección de Convenios y Trámite Registral",  
+                  "Dirección de Legislación, Consulta y Transparencia",    
+                  //Presidencia del decanato 
+                  "Presidencia del Decanato",
 
-//Direcion General
-
-"Dirección General",
-
-"Coordinación Politécnica para la Sustentabilidad",
-
-
-
-//Abogado General
-"Oficina del Abogado General",
-
-"Dirección de Asuntos Jurídicos",
-  
-"Dirección de Convenios y Trámite Registral",  
-
-"Dirección de Legislación, Consulta y Transparencia",  
-
-  
-//Presidencia del decanato
-"Presidencia del Decanato",
-
-//Secretaria Academica
-'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 1)  "Gonzalo Vázquez Vela"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 2)  "Miguel Bernard"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 3)  "Estanislao Ramírez Ruiz"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 4)  "Lázaro Cárdenas"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 5)  "Benito Juárez"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 6)  "Miguel Othón De Mendizábal"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 7)  "Cuauhtémoc"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 8)  "Narciso Bassols"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 9)  "Juan De Dios Bátiz"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"',
-"Dirección de Educación Media Superior",
-"Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco",
-    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán",
-    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco",
-    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán",
-    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco",
-    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco", 
-    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán",
-    "Escuela Superior de Ingeniería Textil (ESIT)",
-    "Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)",
-    "Escuela Superior de Física y Matemáticas (ESFM)",
-    "Escuela Superior de Cómputo (ESCOM)",
-    "Escuela Nacional de Ciencias Biológicas (ENCB)",
-    "Escuela Superior de Medicina (ESM)",
-    "Escuela Nacional de Medicina y Homeopatía (ENMH)",
-    "Escuela Superior de Enfermería y Obstetricia (ESEO)",
-    "Centro Interdisciplinario de Ciencias de la Salud (CICS)Unidad Milpa Alta",
-    "Centro Interdisciplinario de Ciencias de la Salud (CICS) Unidad Santo Tomás",
-    "Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás",
-    "Escuela Superior de Comercio y Administración (ESCA) Unidad Tepepan",
-    "Escuela Superior de Economía (ESE)",
-    "Escuela Superior de Turismo (EST)",
-    "Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)",
-    "Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)",
-    "Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Hidalgo (UPIIH)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)",
-    "Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Palenque (UPIIP)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Coahuila (UPIIC)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Tlaxcala (UPIIT)",
-    'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
-"Dirección de Educación Superior",
-    
-"Dirección de Educación Virtual",
-    
-"Dirección de Formación e Innovación Educativa",
-
-"Dirección de Formación en Lenguas Extranjeras",
-    
-"Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco",
-               "Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás",           
-    
-"Secretaría Académica",
-    
-    
-    
-
-    
-    
-    
-
-
-           
+                  //Secretaria Academica
+                 'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 1)  "Gonzalo Vázquez Vela"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 2)  "Miguel Bernard"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 3)  "Estanislao Ramírez Ruiz"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 4)  "Lázaro Cárdenas"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 5)  "Benito Juárez"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 6)  "Miguel Othón De Mendizábal"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 7)  "Cuauhtémoc"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 8)  "Narciso Bassols"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 9)  "Juan De Dios Bátiz"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"',
+                 "Dirección de Educación Media Superior",
+                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco",
+                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán",
+                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco",
+                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán",
+                 "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco",
+                 "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco", 
+                 "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán",
+                 "Escuela Superior de Ingeniería Textil (ESIT)",
+                 "Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)",
+                 "Escuela Superior de Física y Matemáticas (ESFM)",
+                 "Escuela Superior de Cómputo (ESCOM)",
+                 "Escuela Nacional de Ciencias Biológicas (ENCB)",
+                 "Escuela Superior de Medicina (ESM)",
+                 "Escuela Nacional de Medicina y Homeopatía (ENMH)",
+                 "Escuela Superior de Enfermería y Obstetricia (ESEO)",
+                 "Centro Interdisciplinario de Ciencias de la Salud (CICS)Unidad Milpa Alta",
+                 "Centro Interdisciplinario de Ciencias de la Salud (CICS) Unidad Santo Tomás",
+                 "Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás",
+                 "Escuela Superior de Comercio y Administración (ESCA) Unidad Tepepan",
+                 "Escuela Superior de Economía (ESE)",
+                 "Escuela Superior de Turismo (EST)",
+                 "Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)",
+                 "Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)",
+                 "Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Hidalgo (UPIIH)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)",
+                 "Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Palenque (UPIIP)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Coahuila (UPIIC)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Tlaxcala (UPIIT)",
+                 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+                 "Dirección de Educación Superior",
+                 "Dirección de Educación Virtual",
+                 "Dirección de Formación e Innovación Educativa",
+                 "Dirección de Formación en Lenguas Extranjeras",
+                 "Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco",
+                 "Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás",           
+                 "Secretaría Académica",
+                     
+                                  
+                 //Secretaria Administrativa
+                 "Secretaría de Administración",
+                 "Dirección de Capital Humano",
+                 "Dirección de Programación y Presupuesto",
+                 "Dirección de Recursos Financieros",
+                 "Dirección de Recursos Materiales e Infraestructua",
+                 "Dirección de Servicios Generales",
+                 "Coordinación de Centros de Desarrollo Infantil",
                  
-//Secretaria Administrativa
-"Secretaría de Administración",
-"Dirección de Capital Humano",
-"Dirección de Programación y Presupuesto",
-"Dirección de Recursos Financieros",
-"Dirección de Recursos Materiales e Infraestructua",
-"Dirección de Servicios Generales",
-"Coordinación de Centros de Desarrollo Infantil",
-
-
-
-//Secretaria de Inovacion e Integracion Social
-
-"Centro de Vinculación y Desarrollo Regional (CVDR),Unidad Cajeme -Sonora",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala", 
-    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua",
-    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz",
-    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla",
-"Dirección de Vinculación y Desarrollo Regional",
-"Secretaría de Innovación e Integración Social",
-"Dirección de Egresados y Servicio Social",
-"Dirección de Relaciones Internacionales",
-"Dirección de Servicios Empresariales y Transferencia Tecnológica",
-"Dirección de Incubación de Empresas Tecnológicas",
-"Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli",
+                 //Secretaria de Inovacion e Integracion Social
+                 
+                 "Centro de Vinculación y Desarrollo Regional (CVDR),Unidad Cajeme -Sonora",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala", 
+                 "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua",
+                 "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz",
+                 "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla",
+                 "Dirección de Vinculación y Desarrollo Regional",
+                 "Secretaría de Innovación e Integración Social",
+                 "Dirección de Egresados y Servicio Social",
+                 "Dirección de Relaciones Internacionales",
+                 "Dirección de Servicios Empresariales y Transferencia Tecnológica",
+                 "Dirección de Incubación de Empresas Tecnológicas",
+                 "Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli",
+                 
 
 
 
 
-
-//Secretaria de Investigacion y Posgrado
-"Dirección de Investigación",
-"Secretaría de Investigación y Posgrado",
-"Dirección de Posgrado",
-"Dirección de Difusión de Ciencia y Tecnología",
-"Centro de Desarrollo Aeroespacial (CDA)",
-"Centro de Nanociencias y Micro y Nanotecnologías (CNMN)",
-"Centro Interdisciplinario de Ciencias Marinas (CICIMAR)",
-   "Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente Y Desarrollo (CIIEMAD)",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Michoacán",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca",
-   "Centro de Desarrollo de Productos Bióticos (CEPROBI)",
-   "Centro de Biotecnología Genómica (CBG)",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada  (CICATA), Unidad Morelos",
-   "Centro de Investigación en Computación (CIC)",
-   "Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)",
-   "Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)",
-   "Centro de Investigación en Biotecnología Aplicada, IPN -Tlaxcala (CIBA)",
-   "Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)",
-   "Centro de Investigación e Innovación Tecnológica (CIITEC)",
-   "Centro Mexicano para la Producción Más Limpia (CMP+L)",
-
+                 //Secretaria de Investigacion y Posgrado
+                 "Dirección de Investigación",
+                 "Secretaría de Investigación y Posgrado",
+                 "Dirección de Posgrado",
+                 "Dirección de Difusión de Ciencia y Tecnología",
+                 "Centro de Desarrollo Aeroespacial (CDA)",
+                 "Centro de Nanociencias y Micro y Nanotecnologías (CNMN)",
+                 "Centro Interdisciplinario de Ciencias Marinas (CICIMAR)",
+                 "Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente Y Desarrollo (CIIEMAD)",
+                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango",
+                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa",
+                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Michoacán",
+                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca",
+                 "Centro de Desarrollo de Productos Bióticos (CEPROBI)",
+                 "Centro de Biotecnología Genómica (CBG)",
+                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría",
+                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira",
+                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro",
+                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada  (CICATA), Unidad Morelos",
+                 "Centro de Investigación en Computación (CIC)",
+                 "Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)",
+                 "Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)",
+                 "Centro de Investigación en Biotecnología Aplicada, IPN -Tlaxcala (CIBA)",
+                 "Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)",
+                 "Centro de Investigación e Innovación Tecnológica (CIITEC)",
+                 "Centro Mexicano para la Producción Más Limpia (CMP+L)",
 
 
 
 
+                 "Secretaría de Servicios Educativos",
+                 "Dirección de Administración Escolar",
+                 "Dirección de Difusión Cultural",
+                 "Dirección de Actividades Deportivas",
+                 "Dirección de Bibliotecas y Publicaciones",
+                 "Dirección de Apoyos a Estudiantes",
+
+
+                 //Coordinacion General de Planeacion e Informacion Institucional
+                 
+                 "Coordinación General de Planeación e Información Institucional",
+                 "Dirección de Planeación y Organización",
+                 "Dirección de Información Institucional",
+
+
+
+                 // Coordinación de Imagen Institucional
+                 
+                 "Coordinación de Imagen Institucional",
+                 
+                 
+                 //Centro Nacional de Calculo
+                 
+                 "Centro Nacional de Cálculo (CENAC)",
+                 "Dirección de cómputo y comunicaciones",                 
+                 "Dirección de sistemas informáticos",
+                 
+                   
+                 //Estacion de Radio
+                 
+                 "Estación de Radiodifusión Radio IPN XHIPN-FM 95.7 MHZ.",
+                 
+                 "Patronato de Obras e Instalaciones  (POI)",
+                 "Comisión de Operación y Fomento de Actividades Académicas (COFAA)"
+                 ];
 
 
 
 
-"Secretaría de Servicios Educativos",
-"Dirección de Administración Escolar",
-"Dirección de Difusión Cultural",
-"Dirección de Actividades Deportivas",
-"Dirección de Bibliotecas y Publicaciones",
-"Dirección de Apoyos a Estudiantes",
 
 
-//Coordinacion General de Planeacion e Informacion Institucional
+const folios =new Map( [
+              [ "Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)"                                            ,"FDN-UPGPG-001"                               ],                                                                                                     
+              [ "Defensoría de los Derechos Politécnicos"                                                                    ,"FDN-DDP-002"                                 ],                                                                                                     
+              [ "Secretaría General"                                                                                         ,"FDN-SG-003"                                  ],                                                                                                                                                                                                           
+              [ "Dirección General"                                                                                          ,"FDN-DG-004"                                  ],                                                                                                     
+              [ "Coordinación Politécnica para la Sustentabilidad"                                                           ,"FDN-CPS-005"                                 ],                                                                                                     
+              [ "Oficina del Abogado General"                                                                                ,"FDN-OAG-006"                                 ],                                                                                                     
+              [ "Dirección de Asuntos Jurídicos"                                                                             ,"FDN-DAJ-007"                                 ],                                                                                                                                                                                  
+              [ "Dirección de Convenios y Trámite Registral"                                                                 ,"FDN-DCT-008"                                 ],                                                                                                       
+              [ "Dirección de Legislación, Consulta y Transparencia"                                                         ,"FDN-LCT-009"                                 ],                                                                                                 
+              [ "Presidencia del Decanato"                                                                                   ,"FDN-PD-010"                                  ],                                                                                                 
+              [ 'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"'                                             ,"FDN-CET1-011"                                ],                                                                                                 
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 1) "Gonzalo Vázquez Vela"'                             ,"FDN-CECyT1-012"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 2) "Miguel Bernard"'                                   ,"FDN-CECyT2-013"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 3) "Estanislao Ramírez Ruiz"'                          ,"FDN-CECyT3-014"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 4) "Lázaro Cárdenas"'                                  ,"FDN-CECyT4-015"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 5) "Benito Juárez"'                                    ,"FDN-CECyT5-016"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 6) "Miguel Othón De Mendizábal"'                       ,"FDN-CECyT6-017"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 7) "Cuauhtémoc"'                                       ,"FDN-CECyT7-018"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 8) "Narciso Bassols"'                                  ,"FDN-CECyT8-019"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 9) "Juan De Dios Bátiz"'                               ,"FDN-CECyT9-020"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"'                          ,"FDN-CECyT10-021"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"'                                ,"FDN-CECyT11-022"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"'                              ,"FDN-CECyT12-023"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"'                            ,"FDN-CECyT13-024"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"'                               ,"FDN-CECyT14-025"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"'                       ,"FDN-CECyT15-026"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"'                                         ,"FDN-CECyT16-027"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"'                                ,"FDN-CECyT17-028"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"'                                       ,"FDN-CECyT18-029"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"'                                   ,"FDN-CECyT19-030"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"'                        ,"FDN-CECyT20-031"                             ],
+              [ "Dirección de Educación Media Superior"                                                                      ,"FDN-DIEMS-032"                               ],
+              [ "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco"                              ,"FDN-ESIME-Zacatenco-033"                     ],
+              [ "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán"                              ,"FDN-ESIME-Culhuacán-034"                     ],
+              [ "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco"                           ,"FDN-ESIME-Azcapotzalco-035"                  ],
+              [ "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán"                                ,"FDN-ESIME-Ticomán-036"                       ],
+              [ "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco"                                     ,"FDN-ESIA-Zacatenco-037"                      ],
+              [ "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco"                                  ,"FDN-ESIA-Tecamachalco-038"                   ],
+              [ "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán"                                       ,"FDN-ESIA-Ticoman-039"                        ],
+              [ "Escuela Superior de Ingeniería Textil (ESIT)"                                                               ,"FDN-ESIT-040"                                ],
+              [ "Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)"                                   ,"FDN-ESIQIE-041"                              ],
+              [ "Escuela Superior de Física y Matemáticas (ESFM)"                                                            ,"FDN-ESFM-042"                                ],
+              [ "Escuela Superior de Cómputo (ESCOM)"                                                                        ,"FDN-ESCOM-043"                               ],
+              [ "Escuela Nacional de Ciencias Biológicas (ENCB)"                                                             ,"FDN-ENCB-044"                                ],
+              [ "Escuela Superior de Medicina (ESM)"                                                                         ,"FDN-ESM-045"                                 ],
+              [  "Escuela Nacional de Medicina y Homeopatía (ENMH)"                                                          ,"FDN-ENMH-046"                                ],
+              [  "Escuela Superior de Enfermería y Obstetricia (ESEO)","Escuela Superior de Enfermería y Obstetricia (ESEO)" ,"FDN-ESEO-047"                                ],
+              [  "Centro Interdisciplinario de Ciencias de la Salud (CICS)Unidad Milpa Alta"                                 ,"FDN-CICS-MilpaAlta-048"                      ],
+              [  "Centro Interdisciplinario de Ciencias de la Salud (CICS) Unidad Santo Tomás"                               ,"FDN-CICS-SantoTomas-049"                     ],
+              [  "Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás"                                   ,"FDN-ESCA-SantoTomas-050"                     ],
+              [  "Escuela Superior de Comercio y Administración (ESCA) Unidad Tepepan"                                       ,"FDN-ESCA-Tepepan-051"                        ],
+              [  "Escuela Superior de Economía (ESE)"                                                                        ,"FDN-ESE-052"                                 ],
+              [  "Escuela Superior de Turismo (EST)"                                                                         ,"FDN-EST-053"                                 ],
+              [  "Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)"                                                 ,"FDN-ENBA-054"                                ],
+              [  "Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)"                      ,"FDN-UPIITA-055"                              ],
+              [  "Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)"       ,"FDN-UPIICSA-056"                             ],
+              [  "Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)"                                            ,"FDN-UPIBI-057"                               ],
+              [  "Unidad Profesional Interdisciplinaria de Ingeniería Campus Hidalgo (UPIIH)"                                ,"FDN-UPIIH-Hidalgo-058"                       ],
+              [  "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)"                            ,"FDN-UPIIG-Guanajuato-59"                     ]      ,
+              [  "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)"                             ,"FDN-UPIIZ-Zacatecas-60"                      ],
+              [  "Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)"                                      ,"FDN-UPIEM-061"                               ],
+              [  "Unidad Profesional Interdisciplinaria de Ingeniería Campus Palenque (UPIIP)"                               ,"FDN-UPIIP-Palenque-062"                      ],
+              [  "Unidad Profesional Interdisciplinaria de Ingeniería Campus Coahuila (UPIIC)"                               ,"FDN-UPIIC-Coahuila-063"                      ],
+              [  "Unidad Profesional Interdisciplinaria de Ingeniería Campus Tlaxcala (UPIIT)"                               ,"FDN-UPIIT-Tlaxcala-064"                      ],
+              [  'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)'               ,'FDN-UPIIAP-Puebla-065'                       ],
+              [  "Dirección de Educación Superior"                                                                           ,"FDN-DES-066"                                 ],
+              [  "Dirección de Educación Virtual"                                                                            ,"FDN-DEV-067"                                 ],
+              [  "Dirección de Formación e Innovación Educativa"                                                             ,"FDN-DFIE-068"                                ],
+              [  "Dirección de Formación en Lenguas Extranjeras"                                                             ,"FDN-DFLE-069"                                ],
+              [  "Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco"                                                  ,"FDN-CENLEX-Zacatenco-70"                     ] ,
+              [  "Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás"                                                ,"FDN-CENLEX-SantoTomas-071"                   ]  ,
+              [  "Secretaría Académica "                                                                                     ,"FDN-SA-072"                                  ]  ,
+              [  "Secretaría de Administración "                                                                             ,"FDN-SAD-073"                                 ]  ,
+              [  "Dirección de Capital Humano "                                                                              ,"FDN-DCH-074"                                 ]  ,
+              [  "Dirección de Programación y Presupuesto"                                                                   ,"FDN-DPP-075"                                 ],                     
+              [  "Dirección de Recursos Financieros"                                                                         ,"FDN-DRF-076"                                 ],                     
+              [  "Dirección de Recursos Materiales e Infraestructua"                                                         ,"FDN-DRMI-077"                                ],                     
+              [  "Dirección de Servicios Generales"                                                                          ,"FDN-DSG-078"                                 ],                     
+              [  "Coordinación de Centros de Desarrollo Infantil"                                                            ,"FDN-CCDI-079"                                ],                     
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR),Unidad Cajeme -Sonora"                                  ,"FDN-CVDR-Cajeme-080"                         ],
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche"                                       ,"FDN-CVDR-Campeche-81"                        ],
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún"                                         ,"FDN-CVDR-Cancun-082"                         ],
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán"                                       ,"FDN-CVDR-Culiacan-083"                       ],
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango"                                        ,"FDN-CVDR-Durango-084"                        ],
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis"                                     ,"FDN-CVDR-LosMochis-085"                      ],
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán"                                       ,"FDN-CVDR-Mazatlan-086"                       ],
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia"                                        ,"FDN-CVDR-Morelia-087"                        ],
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca"                                         ,"FDN-CVDR-Oaxaca-088"                         ],
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico"                                        ,"FDN-CVDR-Tampico-089"                        ],
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana"                                        ,"FDN-CVDR-Tijuana-090"                        ],
+              [  "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala"                                       ,"FDN-CVDR-Tlaxcala-091"                       ],
+              [  "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua"      ,"FDN-CIITA-Ciudad Juarez-092"                 ],
+              [  "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz"            ,"FDN-CIITA-Papantla-093"                      ],
+              [  "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla"                        ,"FDN-CIITA-Puebla-094"                        ],
+              [  "Dirección de Vinculación y Desarrollo Regional"                                                            ,"FDN-DVDR-095"                                ],
+              [  "Secretaría de Innovación e Integración Social"                                                             ,"FDN-SIIS-096"                                ],
+              [  "Dirección de Egresados y Servicio Social"                                                                  ,"FDN-DESS-097"                                ],
+              [  "Dirección de Relaciones Internacionales"                                                                   ,"FDN-DRI-098"                                 ],
+              [  "Dirección de Servicios Empresariales y Transferencia Tecnológica"                                          ,"FDN-DSETT-099"                               ],
+              [  "Dirección de Incubación de Empresas Tecnológicas"                                                          ,"FDN-DIET-100"                                ],
+              [  "Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli"                                             ,"FDN-DPIT-101 - Tecnópoli"                    ],
+              [  "Dirección de Investigación"                                                                                ,"FDN-DI-102"                                  ],
+              [  "Secretaría de Investigación y Posgrado"                                                                    ,"FDN-SIP-103"                                 ],
+              [  "Dirección de Posgrado"                                                                                     ,"FDN-DP-104"                                  ],
+              [  "Dirección de Difusión de Ciencia y Tecnología"                                                             ,"FDN-DDCyT-105"                               ],
+              [  "Centro de Desarrollo Aeroespacial (CDA)"                                                                   ,"FDN-CDA-106"                                 ],
+              [  "Centro de Nanociencias y Micro y Nanotecnologías (CNMN)"                                                   ,"FDN-CNMN-107"                                ],
+              [  "Centro Interdisciplinario de Ciencias Marinas (CICIMAR)"                                                   ,"FDN-CICIMAR-108"                             ],
+              [  "Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente Y Desarrollo (CIIEMAD)"         ,"FDN-CIIEMAD-109"                             ],
+              [  "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango"  ,"FDN-CIIDIR-Durango-110"                      ],
+              [  "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa"  ,"FDN-CIIDIR-Sinaloa-111"                      ],
+              [  "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Michoacán","FDN-CIIDIR-Michoacán-112"                    ],
+              [  "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca"   ,"FDN-CIIDIR-Oaxaca-113"                       ], 
+              [  "Centro de Desarrollo de Productos Bióticos (CEPROBI)"                                                      ,"FDN-CEPROBI-114"                             ],
+              [  "Centro de Biotecnología Genómica (CBG)"                                                                    ,"FDN-CBG-115"                                 ],
+              [  "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría"                ,"FDN-CICATA-Legaria-116"                      ],
+              [  "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira"               ,"FDN-CICATA-Altamira-117"                     ],
+              [  "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro"              ,"FDN-CICATA-Querétaro-118"                    ],
+              [  "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada  (CICATA), Unidad Morelos"               ,"FDN-CICATA-Morelos-119"                      ],
+              [  "Centro de Investigación en Computación (CIC)"                                                              ,"FDN-CIC-120"                                 ],
+              [  "Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)"                                       ,"FDN-CITEDI-121"                              ],
+              [  "Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)"                                 ,"FDN-CIECAS-122"                              ],
+              [  "Centro de Investigación en Biotecnología Aplicada, IPN -Tlaxcala (CIBA)"                                   ,"FDN-CIBA-Tlaxcala-123"                       ],
+              [  "Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)"                                        ,"FDN-CIDETEC-124"                             ],
+              [  "Centro de Investigación e Innovación Tecnológica (CIITEC)"                                                 ,"FDN-CIITEC-125"                              ],
+              [  "Centro Mexicano para la Producción Más Limpia (CMP+L)"                                                     ,"FDN-CMP+L-126"                               ],
+              [  "Secretaría de Servicios Educativos"                                                                        ,"FDN-SSE-127"                                 ],
+              [  "Dirección de Administración Escolar"                                                                       ,"FDN-DAE-128"                                 ],
+              [  "Dirección de Difusión Cultural"                                                                            ,"FDN-DDC-129"                                 ],
+              [  "Dirección de Actividades Deportivas"                                                                       ,"FDN-DAD-130"                                 ],
+              [  "Dirección de Bibliotecas y Publicaciones"                                                                  ,"FDN-DBP-131"                                 ],
+              [  "Dirección de Apoyos a Estudiantes"                                                                         ,"FDN-DAE-132"                                 ],
+              [  "Coordinación General de Planeación e Información Institucional"                                            ,"FDN-CGPII-133"                               ],
+              [ "Dirección de Planeación y Organización"                                                                     ,"FDN-DPO-134"                                 ],
+              [  "Dirección de Información Institucional"                                                                    ,"FDN-DII-135"                                 ],
+              [  "Coordinación de Imagen Institucional"                                                                      ,"FDN-CII-136"                                 ],
+              [  "Centro Nacional de Cálculo (CENAC)"                                                                        ,"FDN-CENAC-137"                               ],
+              [  "Dirección de cómputo y comunicaciones"                                                                     ,"FDN-DCC-138"                                 ],
+              [  "Dirección de sistemas informáticos"                                                                        ,"FDN-DSI-139"                                 ],
+              [  "Estación de Radiodifusión Radio IPN XHIPN-FM 95.7 MHZ."                                                    ,"FDN-Radio-IPN-140"                           ],
+              [  "Patronato de Obras e Instalaciones  (POI)"                                                                 ,"FDN-POI-141"                                 ],
+              [  "Comisión de Operación y Fomento de Actividades Académicas (COFAA)"                                         ,"FDN-COFAA-142"                               ]
+              ]);
+/*
 
-"Coordinación General de Planeación e Información Institucional",
-
-"Dirección de Planeación y Organización",
-
-"Dirección de Información Institucional",
 
 
 
-// Coordinación de Imagen Institucional
+function obtenerDependencia(folio) {
+    const clave = extraerClaveDependencia(folio);
 
-"Coordinación de Imagen Institucional",
+    return dependencias.get(clave) ?? "Dependencia no encontrada";
+}
+
+const dependenciaB = obtenerDependencia(folio);
+
+document.querySelector("#dependencia").value = dependenciaB;
 
 
-//Centro Nacional de Calculo
+const folio = document.getElementById("folioInput").value.trim();
+function obtenerDependencia(folio) {
+     
+ // const clave = extraerClaveDependencia(folio);
 
-"Centro Nacional de Cálculo (CENAC)",
-"Dirección de cómputo y comunicaciones",                 
-"Dirección de sistemas informáticos",
+    return dependencias.get(folio) ?? "Dependencia no encontrada";
+}
 
+function cargarDep(){
+   const folio = document.getElementById("folioInput").value.trim();
+
+    if (!folio) {
+        alert("Escribe un folio primero.");
+        return;
+    }
+
+    const dependenciaB = obtenerDependencia(folio);
+
+    setSelectValue("dependencia", dependenciaB);    
   
-//Estacion de Radio
-
-"Estación de Radiodifusión Radio IPN XHIPN-FM 95.7 MHZ.",
-
-"Patronato de Obras e Instalaciones  (POI)",
-"Comisión de Operación y Fomento de Actividades Académicas (COFAA)"
-];
+             
+}
+// document.querySelector("#dependencia").value = ;
 
 
 
-  opciones.forEach(value => {
+document.getElementById("cargarDependencia").addEventListener("click", cargarDep);
+
+
+
+
+
+
+*/
+
+// document.querySelector("#dependencia").value = ;
+
+
+
+function obtenerFolio(dependenciaA) {
+     
+    return folios.get(dependenciaA) ?? "folio de la Dependencia no encontrado";
+}
+
+function cargarFol(){
+
+const    dependenciaI = document.getElementById("dependencia").value.trim();
+
+
+    if (!dependenciaI) {
+        alert("Selecciona una dependencia primero.");
+        return;
+    }
+
+    const folioB = obtenerFolio(dependenciaI);
+
+    document.getElementById("folioInput").value=folioB;    
+       
+             
+}
+
+document.getElementById("cargarFolio").addEventListener("click", cargarFol);
+
+
+opciones.forEach(value => {
     const option = document.createElement("option");
     option.value = value;
     option.textContent = value;
@@ -1636,6 +1857,11 @@ function agregarFila(){
   const fila = document.createElement("tr");
   const fila1 = document.createElement("tr");
   fila.innerHTML = `
+     <td>
+      ${i}
+    </td>
+  
+     
     <td>
       <textarea
         name="Programa_T1R${i}"
@@ -1692,7 +1918,7 @@ function agregarFila(){
   fila1.innerHTML = `
     <td>
       <textarea
-        name="Programa_T1_1R${i}"
+        name="Programa_T1_1R${j}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -1701,37 +1927,37 @@ function agregarFila(){
     </td>
 
     <td>
-    <input type="number" name="Usuarios1_T1_1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    <input type="number" name="Usuarios1_T1_1R${j}" class="input_tabla " aria-label="Usuarios1"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios2_T1_1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+    <input type="number" name="Usuarios2_T1_1R${j}" class="input_tabla " aria-label="Usuarios2"> </input>
     </td>
     <td> 
-    <input type="number" name="Usuarios3_T1_1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
+    <input type="number" name="Usuarios3_T1_1R${j}" class="input_tabla " aria-label="Usuarios3"> </input>
      </td>
     <td>
-    <input type="number" name="Usuarios4_T1_1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    <input type="number" name="Usuarios4_T1_1R${j}" class="input_tabla " aria-label="Usuarios4"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios5_T1_1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    <input type="number" name="Usuarios5_T1_1R${j}" class="input_tabla " aria-label="Usuarios5"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios6_T1_1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    <input type="number" name="Usuarios6_T1_1R${j}" class="input_tabla " aria-label="Usuarios6"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios7_T1_1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios8_T1_1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
+    <input type="number" name="Usuarios7_T1_1R${j}" class="input_tabla " aria-label="Usuarios7"> </input>
     </td>
 
     <td>
-    <input type="number" name="Usuarios9_T1_1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
+    <input type="number" name="Usuarios8_T1_1R${j}" class="input_tabla " aria-label="Usuarios8"> </input>
     </td>
 
     <td>
-    <input type="number" name="Usuarios10_T1_1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
+    <input type="number" name="Usuarios9_T1_1R${j}" class="input_tabla " aria-label="Usuarios9"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios10_T1_1R${j}" class="input_tabla " aria-label="Usuarios10"> </input>
     </td>
   `;
   tbody.appendChild(fila);
@@ -1758,6 +1984,9 @@ function agregarFila2(){
 
   const fila = document.createElement("tr");
   fila.innerHTML = `
+    <td>
+      ${i}
+    </td>
     <td>
     <input name="Edificio_T2R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
@@ -1827,6 +2056,9 @@ function agregarFila3(){
 
 fila.innerHTML = `
     <td>
+      ${i}
+    </td>
+    <td>
     <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
 
@@ -1869,7 +2101,10 @@ function agregarFilaC(){
   const fila = document.createElement("tr");
 
 
-fila.innerHTML = `     
+fila.innerHTML = ` 
+     <td>
+      ${i}
+    </td>    
      <td>
       <textarea
         name="nombreCotizacion_TCR${i}"
@@ -1943,6 +2178,9 @@ function agregarFila4(){
 
   const fila = document.createElement("tr");
   fila.innerHTML  = `
+     <td>
+      ${i}
+    </td>
     <td>
       <textarea
         name="ProgramaAcademico_T4R${i}"
@@ -2035,10 +2273,10 @@ function agregarFila4(){
 
 
 
-    <td>
+    <td class="paso">
       <textarea
         name="urlCotizacionAdquisicion_T4R${i}"
-        class="auto-expand input_tabla"
+        class="auto-expand input_tabla "
         rows="1"
         style="resize:none;"
         aria-label="Url de las Cotizaciones"
@@ -2075,7 +2313,7 @@ function agregarFila4(){
 
 
 
-<td>
+<td class="paso">
       <textarea
         name="urlCotizacionAdquisicion2_T4R${i}"
         class="auto-expand input_tabla"
@@ -2100,6 +2338,9 @@ function agregarFila5(){
 
   const fila = document.createElement("tr");
   fila.innerHTML = `
+     <td>
+      ${i}
+    </td>
     <td>
       <textarea
         name="ProgramaAcademico_T5R${i}"
@@ -2412,7 +2653,7 @@ if(document
 });
 */
 
-const direccionEnlace="https://script.google.com/macros/s/AKfycbwmLlYirlReeDyBZl4FBrwW-5ml2KpmodF-zKiGmcAWX45lYHUgqtRDt9RNo2AZMQxCSQ/exec"
+const direccionEnlace="https://script.google.com/macros/s/AKfycbxMWW1L4i_8R0b8GM9M-Hn3WOYriq_-GKdkYoauB5PfN8N-XOlG85jMrzuama1AnPr_/exec"
 
 let folioActual=null;
 let edicionActual=null;
@@ -2468,11 +2709,15 @@ try {
 const res = await fetch(direccionEnlace, {
     method: "POST",
     body: JSON.stringify({
-        action: "EnviarFormulario",
+        action: "guardarBorrador",
         json1: partes[0],
            json2: partes[1],
            json3: partes[2],
-           json4: partes[3]
+           json4: partes[3],
+           json5: partes[4],   
+           json6: partes[5],
+           json7: partes[6],
+           json8:partes[7]
     })
 });
 
@@ -2711,7 +2956,7 @@ setTimeout(() => {
     setTimeout(() => {
 */
 
-
+folioValor.value=data.folio;
 setSelectValue("dependencia", data.dependencia);
 
 Object.keys(data).forEach(name => {
@@ -3099,7 +3344,11 @@ const res = await fetch(direccionEnlace, {
         json1: partes[0],
            json2: partes[1],
            json3: partes[2],
-           json4: partes[3]
+           json4: partes[3],
+           json5: partes[4],   
+           json6: partes[5],
+           json7: partes[6],
+           json8:partes[7]
     })
 });
 /*
