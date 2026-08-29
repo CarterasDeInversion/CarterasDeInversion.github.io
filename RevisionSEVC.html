@@ -37,9 +37,15 @@
                       
                       
                       
-                      
+                    
+                                   
                       
                       <div class="bloque-botones filtroInicial">
+                            
+                            <button type="button" id="cargarFolio">
+                                                    Cargar Folio
+                            </button>
+                            <input  type="text" id="folioInput" placeholder="folio Correspondiente" readonly> 
                             <label for="dependencia">Dependencia</label>
                                  <select name="dependencia" id="dependencia" class="IGS" required>
                                    <option value=""> Favor de Cargar una solicitud, dependencia no Encontrada</option>
@@ -55,6 +61,8 @@
                                       
                     
                           </select>
+
+                          
                     </div>
                     <br>
                     <div class="bloque-botones BotIzquierda">
@@ -79,14 +87,17 @@
                            
                       </div>
                         
-                      
-
+                    
+                      <!-- <div class="bloque-botones">
+                                
+                                <input  type="text" id="folioInput" placeholder="Ingresa tu folio">    
+                    </div>  
+-->
 
 
 
                       <div class="bloque-botones Botderecha">
                                 
-                                <input class="paso" type="text" id="folioInput" placeholder="Ingresa tu folio">    
                                 <button type="button" id="cargarRespuesta">📂Cargar Respuesta de Solicitud</button>   
                                 <button  class="BotonChico"type="submit" id="Enviar">Enviar</button>
                                 
@@ -282,7 +293,10 @@
 <div class="paso activo" id="paso2">  
     
     
-
+                                                 <h3>Estadisticas-Espacios </h3>
+                                          <fieldset class="TablaFS"> 
+                                            <legend class="TablaLeg" >Tabla 1.Usuarios</legend>
+                    
      <div class="pestañas">
                       <button type="button" class="pagina botonActivo" >
                   
@@ -291,21 +305,20 @@
                       </button>
                   
                       <button type="button" class="pagina" onclick="siguiente(2,3)">
-                        Tabla2. Infraestructura de los espacio de los espacios participantes.
+                        Tabla2. Infraestructura de los espacios participantes.
                       </button>
                        
-                      
                   
                       <button type="button" class="pagina" onclick="siguiente(2,4)">
-                        Tabla3. Infraestructura de los espacio de los espacios participantes.
+                        Tabla3. Infraestructura General y planos.
                       </button>
                    
                       <button type="button" class="pagina" onclick="siguiente(2,5)">
-                        Cotizaciones. (en caso de haber una cotizacion para varios equipos) 
+                        Cotizaciones.  
                       </button>
                   
                       <button type="button" class="pagina" onclick="siguiente(2,6)">
-                        Tabla4. Demanda
+                        Tabla4. Demanda.
                       </button>
                   
                       <button type="button" class="pagina" onclick="siguiente(2,7)">
@@ -318,12 +331,12 @@
                       </button>
                   
                       </div>
-                                          <h3>Estadisticas-Espacios </h3>
-                                          <fieldset class="TablaFS"> 
-                                            <legend class="TablaLeg" >Tabla 1.Usuarios</legend>
                                           <table class="tabla_style Tabla1" title="Tabla 1.Usuarios">
                                           <thead>
                                                                          <tr>
+                                                                          <th title="Numero de Fila">
+                                                                                                                        
+                                                                 </th>
                                                                               <th title="Programas">
                                                                                    Programas académicos, servicios o actividades que realiza la dependencia.   
                                                                               </th>
@@ -376,8 +389,11 @@
                                           <table class="tabla_style Tabla1" title="Tabla 1_1 Profesores y Administrativos">
                                           <thead>
                                                                          <tr>
-                                                                              <th title="Número de Profesores Superior y Posgrado  ">
-                                                                                   Número de Profesores Superior y Posgrado     
+                                                                          <th title="Numero de Fila">
+                                                                                                                        
+                                                                 </th>
+                                                                              <th title="División, Departamento o Jefatura. ">
+                                                                                   División, Departamento o Jefatura.     
                                                                               </th>
                                                           
                                                                               <th id="UsuariosAHAnio1" title="Número de Profesores y Administrativos Hombres 1">
@@ -432,6 +448,16 @@
 
 
 <div class="paso" id="paso3">  
+
+
+
+
+
+           <h3>Estadisticas-Espacios </h3>
+                               <fieldset class="TablaFS"> 
+                                 <legend class="TablaLeg" >Tabla 2. Infraestructura de los Espacios Participantes.</legend>
+                               
+
           <div class="pestañas">
            
               <button type="button" class="pagina" onclick="siguiente(3,2)">
@@ -439,7 +465,7 @@
               </button>
                
               <button type="button" class="pagina botonActivo" >
-                Tabla2. Infraestructura de los espacio de los espacios participantes.
+                Tabla2. Infraestructura de los espacios participantes.
               </button>
           
               <button type="button" class="pagina" onclick="siguiente(3,4)">
@@ -447,7 +473,7 @@
               </button>
           
               <button type="button" class="pagina" onclick="siguiente(3,5)">
-                Cotizaciones (en caso de haber una cotizacion para varios equipos)
+                Cotizaciones.
               </button> 
           
               <button type="button" class="pagina" onclick="siguiente(3,6)">
@@ -463,12 +489,12 @@
            
            </div>
 
-                               <h3>Estadisticas-Espacios </h3>
-                               <fieldset class="TablaFS"> 
-                                 <legend class="TablaLeg" >Tabla 2. Infraestructura (De los Espacios Participantes)</legend>
                                <table class="tabla_style Tabla2" title="Tabla2.Infraesctructura">
                                <thead>
                                                               <tr>
+                                                                <th title="Numero de Fila">
+                                                                                                                        
+                                                                 </th>
                                                                    <th title="Edificio">
                                                                         Nombre del Edificio    
                                                                    </th>
@@ -511,6 +537,12 @@
   </div>
 
 <div class="paso" id="paso4">
+
+
+                 <h3>Estadisticas-Espacios </h3>
+                             <fieldset class="TablaFS"> 
+                             <legend class="TablaLeg" >Tabla 3. Infraestructura General y planos</legend>
+                             
                 <div class="pestañas">
                 
                    <button type="button" class="pagina" onclick="siguiente(4,2)">
@@ -518,7 +550,7 @@
                    </button>
                     
                    <button type="button" class="pagina" onclick="siguiente(4,3)">
-                     Tabla2. Infraestructura de los espacio de los espacios participantes.
+                     Tabla2. Infraestructura de los espacios participantes.
                    </button>
                    
                    
@@ -528,7 +560,7 @@
                    </button>
                
                    <button type="button" class="pagina" onclick="siguiente(4,5)">
-                     Cotizaciones (en caso de haber una cotizacion para varios equipos)
+                     Cotizaciones.
                    </button> 
                
                    <button type="button" class="pagina" onclick="siguiente(4,6)">
@@ -543,12 +575,12 @@
                    </button>
                
                </div>
-                             <h3>Estadisticas-Espacios </h3>
-                             <fieldset class="TablaFS"> 
-                             <legend class="TablaLeg" >Tabla 3. Infraestructura (General)</legend>
                              <table class="tabla_style Tabla3" title="Tabla de Registro de Necesidades">
                              <thead>
                                                             <tr>
+                                                              <th title="Numero de Fila">
+                                                                                                                        
+                                                                 </th>
                                                                  <th title="Edificio">
                                                                       Nombre del Edificio    
                                                                  </th>
@@ -574,7 +606,13 @@
   </div>
 
 <div class="paso" id="paso5">
+                 
 
+
+                 <h3>Demanda </h3>             
+                                <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Cotizaciones </legend>
+                                
                  <div class="pestañas">
                   
                      <button type="button" class="pagina" onclick="siguiente(5,2)">
@@ -582,7 +620,7 @@
                      </button>
                       
                      <button type="button" class="pagina" onclick="siguiente(5,3)">
-                       Tabla2.Infraestructura de los espacio de los espacios participantes.
+                       Tabla2.Infraestructura de los espacios participantes.
                      </button>
                      
                  
@@ -591,7 +629,7 @@
                      </button>
                  
                      <button type="button" class="pagina botonActivo" >
-                       Cotizaciones.(en caso de haber una cotizacion para varios equipos)
+                       Cotizaciones.
                      </button> 
                  
                      <button type="button" class="pagina" onclick="siguiente(5,6)">
@@ -608,12 +646,12 @@
                  
                  </div>
                  
-                                <h3>Demanda </h3>             
-                                <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Cotizaciones </legend>
                                 <table class="TablaCotizaciones" title="Tabla de Registro de Necesidades">
                                 <thead>
                                                                <tr>
+                                                                <th title="Numero de Fila">
+                                                                                                                        
+                                                                 </th>
                                                                     <th title="Nombre Cotizacion de Adquisicion General Alternativa 1">
                                                                          Nombre  de la Cotizacion de Adquisicion General Alternativa 1     
                                                                     </th>    
@@ -662,7 +700,10 @@
 
 
 <div class="paso" id="paso6">
-
+                   <h3>Demanda </h3>             
+                                <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Tabla 4 Demanda </legend>
+                                
 
                    <div class="pestañas">
                     
@@ -671,7 +712,7 @@
                        </button>
                         
                        <button type="button" class="pagina" onclick="siguiente(6,3)">
-                         Tabla2. Infraestructura de los espacio de los espacios participantes.
+                         Tabla2. Infraestructura de los espacios participantes.
                        </button>
                        
                    
@@ -680,7 +721,7 @@
                        </button>
                    
                        <button type="button" class="pagina" onclick="siguiente(6,5)">
-                         Cotizaciones.(en caso de haber una cotizacion para varios equipos)
+                         Cotizaciones.
                        </button> 
                    
                        <button type="button" class="pagina botonActivo" >
@@ -695,14 +736,14 @@
                        </button>                    
                    </div>
                  
-                                <h3>Demanda </h3>             
-                                <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 4 Demanda </legend>
                                 <table class="Tabla4" title="Tabla de Registro de Necesidades">
                                 <thead>
                                                                <tr>
+                                                                    <th title="Numero de Fila">
+                                                                                                                        
+                                                                 </th>
                                                                     <th title="ProgramaAcadémico">
-                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                         Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.     
                                                                     </th>
                                                 
                                                                     <th title="Espacio">
@@ -734,11 +775,11 @@
                                                                     </th>
                                                                     
                                                                     <th title="Nombre del Archivo de la Cotización de Adquisición">
-                                                                        Nombre del Archivo de la Cotización de Adquisición (En caso de haberla subido en la tabla anterior)
+                                                                        Nombre del Archivo de la Cotización de Adquisición 
                                                                     </th>
 
 
-                                                                    <th title="Cotización de Adquisición">
+                                                                    <th class="paso" title="Cotización de Adquisición">
                                                                         Cotización de Adquisición
                                                                     </th>
                                                                     
@@ -747,10 +788,10 @@
                                                                     </th>
                                 
                                                                     <th title="Nombre del Archivo de la Cotización de Adquisición 2">
-                                                                        Nombre del Archivo de la Cotización de Adquisición 2 (En caso de haberla subido en la tabla anterior)
+                                                                        Nombre del Archivo de la Cotización de Adquisición 2
                                                                     </th>   
 
-                                                                    <th title="Cotización de Adquisición 2">
+                                                                    <th  class="paso" title="Cotización de Adquisición 2">
                                                                         Cotización de Adquisición 2
                                                                     </th>
                                                                     
@@ -771,6 +812,12 @@
 <div class="paso" id="paso7">
 
 
+                                    
+                                <h3>Oferta </h3>            
+                                <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Tabla 5.OFERTA Directa con la DEMANDA-Equipo existente con el que cuenta la dependencia </legend>
+                                
+
                     <div class="pestañas">
                      
                         <button type="button" class="pagina" onclick="siguiente(7,2)">
@@ -778,7 +825,7 @@
                         </button>
                          
                         <button type="button" class="pagina" onclick="siguiente(7,3)">
-                          Tabla2. Infraestructura de los espacio de los espacios participantes.
+                          Tabla2. Infraestructura de los espacios participantes.
                         </button>
                         
                     
@@ -787,7 +834,7 @@
                         </button>
                     
                         <button type="button" class="pagina" onclick="siguiente(7,5)">
-                          Cotizaciones. (en caso de haber una cotizacion para varios equipos)
+                          Cotizaciones.
                         </button> 
                     
                         <button type="button" class="pagina" onclick="siguiente(7,6)">
@@ -800,15 +847,18 @@
                         <button type="button" class="pagina" onclick="siguiente(7,8)">
                           Observaciones
                         </button>                      
-                      </div >                   
-                                <h3>Oferta </h3>            
-                                <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 5.OFERTA Directa con la DEMANDA-Equipo existente con el que cuenta la dependencia </legend>
-                                <table class="Tabla5" title="Tabla de Registro de Necesidades">
+                      </div >   
+                      
+                      
+                      
+                              <table class="Tabla5" title="Tabla de Registro de Necesidades">
                                 <thead>
                                                                <tr>
+                                                                <th title="Numero de Fila">
+                                                                                                                        
+                                                                 </th>
                                                                     <th title="ProgramaAcadémico">
-                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                         Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.     
                                                                     </th>
                                                 
                                                                     <th title="Espacio">
@@ -853,6 +903,17 @@
 </div>                                
 
 <div class="paso" id="paso8">
+
+
+
+
+           <h3>Observaciones Generales </h3>
+                                
+                                
+<!-- ------------------------------------------Tabla 1 Obs-->
+                                
+                                
+
            <div class="pestañas">
                     
                        <button type="button" class="pagina" onclick="siguiente(8,2)">
@@ -860,7 +921,7 @@
                        </button>
                         
                        <button type="button" class="pagina" onclick="siguiente(8,3)">
-                         Tabla 2. Infraestructura de los espacio de los espacios participantes.
+                         Tabla 2. Infraestructura de los espacios participantes.
                        </button>
                        
                    
@@ -869,7 +930,7 @@
                        </button>
                    
                        <button type="button" class="pagina" onclick="siguiente(8,5)">
-                         Cotizaciones. (en caso de haber una cotizacion para varios equipos)
+                         Cotizaciones.
                        </button> 
                    
                        <button type="button" class="pagina" onclick="siguiente(8,6)">
@@ -940,13 +1001,11 @@
       Tabla6
     </button>
 -->
-                                    <h3>Observaciones Generales </h3>
-                                
-                                
-<!-- ------------------------------------------Tabla 1 Obs-->
-                                <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 1. Usuarios </legend>
-                                <table class="Tabla7" title="Tabla de Registro de Necesidades">
+
+                                    <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Tabla 1. Usuarios </legend> 
+
+                                    <table class="Tabla7" title="Tabla de Registro de Necesidades">
                                 <thead>
                                    <tr>
                                          <th title ="Columna">Columna</th>
@@ -957,7 +1016,7 @@
                                                                
                                  <tbody >
                                       <tr>
-                                           <td>(A) Programa Académico (Todos)</td>
+                                           <td>Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.</td>
                                            <td><textarea
                                                        name="ObsProgramaAcademicoDPO"
                                                        class="auto-expand input_tabla obligatorio"
@@ -1194,7 +1253,7 @@
 
 
                                                                              <tr>
-                                           <td>Número de Profesores Superior y Posgrado</td>
+                                           <td>División, Departamento o Jefatura.</td>
                                            <td><textarea
                                                        name="ObsNumProfSupPosgDPO"
                                                        class="auto-expand input_tabla obligatorio"
@@ -1434,7 +1493,7 @@
 
                               <!-- ------------------------------------------Tabla 2 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 2. Infraestructura (De los Espacios Participantes)) </legend>
+                                <legend class="TablaLeg" >Tabla 2. Infraestructura de los Espacios Participantes. </legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1446,7 +1505,7 @@
 
                     <tbody> 
                               <tr>
-                                     <td>(P) Nombre del Edificio</td>
+                                     <td> Nombre del Edificio</td>
                                      <td><textarea name="ObsEdificioDPO_T2" 
                                                    class="auto-expand input_tabla obligatorio" 
                                                    rows="1" 
@@ -1498,7 +1557,7 @@
                               </tr>  
                               
                               <tr>
-                                     <td>Largo del espacio (M)</td>
+                                     <td>Largo del espacio (mts.)</td>
                                      <td><textarea name="ObsLargoDPO_T2" 
                                                     class="auto-expand input_tabla obligatorio" 
                                                     rows="1" style="resize:none;" 
@@ -1515,7 +1574,7 @@
                               </tr>
 
                               <tr>
-                                     <td>Ancho del espacio (M)</td>
+                                     <td>Ancho del espacio (mts.)</td>
                                      <td><textarea name="ObsAnchoDPO_T2" 
                                                     class="auto-expand input_tabla obligatorio" 
                                                     rows="1" style="resize:none;" 
@@ -1585,7 +1644,7 @@
 
 <!-- ------------------------------------------Tabla 3 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 3. Infraestructura (De los Espacios Participantes)) </legend>
+                                <legend class="TablaLeg" >Tabla3. Infraestructura General y planos. </legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1597,7 +1656,7 @@
 
                     <tbody> 
                               <tr>
-                                     <td>(P) Nombre del Edificio</td>
+                                     <td> Nombre del Edificio</td>
                                      <td><textarea name="ObsEdificioDPO_T3" 
                                                    class="auto-expand input_tabla obligatorio" 
                                                    rows="1" 
@@ -1615,7 +1674,7 @@
                               </tr>
 
                               <tr>
-                                     <td>(Q) Metros Cuadrados</td>
+                                     <td> Metros Cuadrados</td>
                                      <td><textarea name="ObsMetrosCuadradosDPO_T3" 
                                                     class="auto-expand input_tabla obligatorio" 
                                                     rows="1" style="resize:none;" 
@@ -1638,7 +1697,7 @@
 
                     <!-- ------------------------------------------Tabla 4 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 4. Infraestructura (De los Espacios Participantes)) </legend>
+                                <legend class="TablaLeg" >Tabla 4. Demanda </legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1651,7 +1710,7 @@
                     <tbody> 
                               
                                             <tr>
-                                                          <td>(A) Programa Académico</td>
+                                                          <td>Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.</td>
                                                           <td><textarea name="ObsProgramaAcademicoDPO_T4" 
                                                                         class="auto-expand input_tabla obligatorio" 
                                                                         rows="1" style="resize:none;"
@@ -1666,7 +1725,7 @@
                                              </tr>
                     
                                              <tr>
-                                                         <td>(B) Espacio</td>
+                                                         <td>Espacio</td>
                                                          <td><textarea name="ObsEspacioDPO_T4"
                                                                        class="auto-expand input_tabla obligatorio"
                                                                         rows="1"
@@ -1680,7 +1739,7 @@
                                               </tr>
                     
                                               <tr>
-                                                         <td>(C) Clave CUCOP</td>
+                                                         <td>Clave CUCOP</td>
                                                          <td> <textarea 
                                                                         name="ObsClaveCUCOPDPO_T4"
                                                                         class="auto-expand input_tabla obligatorio" 
@@ -1696,7 +1755,7 @@
                                               </tr>
                     
                                               <tr>
-                                                  <td>(D) Nombre del Componente</td>
+                                                  <td> Nombre del Componente</td>
                                                   <td><textarea 
                                                                name="ObsComponenteDPO_T4"
                                                                class="auto-expand input_tabla obligatorio"
@@ -1711,7 +1770,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(E) Cantidad Equipos solicitados</td>
+                                                  <td> Cantidad Equipos solicitados</td>
                                               <td><textarea 
                                                             name="ObsCantidadDPO_T4"
                                                             class="auto-expand input_tabla obligatorio"
@@ -1726,7 +1785,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(F) Características / Especificaciones Técnicas</td>
+                                              <td> Características / Especificaciones Técnicas</td>
                                               <td><textarea 
                                                             name="ObsCaracteristicasDPO_T4" 
                                                             class="auto-expand input_tabla obligatorio"
@@ -1742,7 +1801,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(G) Justificación</td>
+                                              <td> Justificación</td>
                                               <td><textarea 
                                                              name="ObsJustificacionDPO_T4"
                                                               class="auto-expand input_tabla obligatorio"
@@ -1758,7 +1817,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(H) Precio unitario adquisición alternativa 1</td>
+                                              <td> Precio unitario adquisición alternativa 1</td>
                                               <td><textarea 
                                                 name="ObsPrecio1DPO_T4"
                                                  class="auto-expand input_tabla obligatorio"
@@ -1774,7 +1833,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(I) Cotización de Adquisición</td>
+                                              <td> Cotización de Adquisición</td>
                                               <td><textarea 
                                                             name="ObsCotizacion1DPO_T4"
                                                              class="auto-expand input_tabla obligatorio"
@@ -1790,7 +1849,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(L) Precio unitario adquisición alternativa 2</td>
+                                              <td> Precio unitario adquisición alternativa 2</td>
                                               <td><textarea 
                                                 name="ObsPrecio2DPO_T4"
                                                  class="auto-expand input_tabla obligatorio"
@@ -1807,7 +1866,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(M) Cotización de Adquisición</td>
+                                              <td> Cotización de Adquisición</td>
                                               <td><textarea 
                                                               name="ObsCotizacion2DPO_T4"
                                                               class="auto-expand input_tabla obligatorio"
@@ -1830,7 +1889,7 @@
 
 <!-- ------------------------------------------Tabla 5 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 5. Infraestructura (De los Espacios Participantes)) </legend>
+                                <legend class="TablaLeg" >Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia. </legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1842,7 +1901,7 @@
 
                     <tbody> 
                             <tr>
-                                                  <td>(A) Programa Académico</td>
+                                                  <td>Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.</td>
                                                   <td><textarea 
                                                                 name="ObsProgramaAcademico_T5"
                                                                  class="auto-expand input_tabla obligatorio"
@@ -1857,7 +1916,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(B) Espacio</td>
+                                                  <td>Espacio</td>
                                                   <td><textarea 
                                                                 name="ObsEspacio_T5"  
                                                                 class="auto-expand input_tabla obligatorio"
@@ -1873,7 +1932,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(C) Nombre del componente</td>
+                                                  <td>Nombre del componente</td>
                                                   <td><textarea 
                                                                 name="ObsComponente_T5"  
                                                                 class="auto-expand input_tabla obligatorio" 
@@ -1889,7 +1948,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(D) Especificaciones y Desempeño Operativo</td>
+                                                  <td>Especificaciones y Desempeño Operativo</td>
                                                   <td><textarea 
                                                                name="ObsEspecificaciones_T5"   
                                                                class="auto-expand input_tabla obligatorio" 
@@ -1905,7 +1964,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(E) Cuántos equipos en mal estado</td>
+                                                  <td> Cuántos equipos en mal estado</td>
                                                   <td><textarea 
                                                                name="ObsMalEstado_T5"  
                                                                class="auto-expand input_tabla obligatorio" 
@@ -1921,7 +1980,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(F) Cuántos equipos en buen estado</td>
+                                                  <td> Cuántos equipos en buen estado</td>
                                                   <td><textarea 
                                                                  name="ObsBuenEstado_T5" 
                                                                  class="auto-expand input_tabla obligatorio"
@@ -1937,7 +1996,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(G) Cuántos equipos en estado regular</td>
+                                                  <td> Cuántos equipos en estado regular</td>
                                                   <td><textarea 
                                                                 name="ObsEstadoRegular_T5" 
                                                                 class="auto-expand input_tabla obligatorio" 
@@ -2132,4 +2191,6 @@
 
 
 </html>
+
+
 
