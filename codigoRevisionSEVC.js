@@ -10,11 +10,1154 @@ const tbody6 = document.getElementById("tablaBody6");
 */
 const tbody7 = document.getElementById("tablaBody7");
 
+function agregarFila(){
+  const tbody = document.getElementById("tablaBody");
+  const tbody1 = document.getElementById("tablaBody1_1");
+  const i = obtenerNumeroFila1();
+  const j = obtenerNumeroFila1_1();
+
+  const fila = document.createElement("tr");
+  const fila1 = document.createElement("tr");
+  
+fila.innerHTML = `
+
+    <td>
+        ${i}
+    </td>
+
+    <td>
+        <textarea
+            name="Programa_T1R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Programas académicos, servicios o actividades de la dependencia"
+        > </textarea>
+
+        <input
+            name="Programa_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Programa_T1R${i}RO"
+            data-campo="Programa_T1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios1_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios1"
+        >
+
+        <input
+            name="Usuarios1_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios1_T1R${i}RO"
+            data-campo="Usuarios1_T1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios2_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios2"
+        >
+
+        <input
+            name="Usuarios2_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios2_T1R${i}RO"
+            data-campo="Usuarios2_T1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios3_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios3"
+        >
+
+        <input
+            name="Usuarios3_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios3_T1R${i}RO"
+            data-campo="Usuarios3_T1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios4_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios4"
+        >
+
+        <input
+            name="Usuarios4_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios4_T1R${i}RO"
+            data-campo="Usuarios4_T1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios5_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios5"
+        >
+
+        <input
+            name="Usuarios5_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios5_T1R${i}RO"
+            data-campo="Usuarios5_T1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios6_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios6"
+        >
+
+        <input
+            name="Usuarios6_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios6_T1R${i}RO"
+            data-campo="Usuarios6_T1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios7_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios7"
+        >
+
+        <input
+            name="Usuarios7_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios7_T1R${i}RO"
+            data-campo="Usuarios7_T1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios8_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios8"
+        >
+
+        <input
+            name="Usuarios8_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios8_T1R${i}RO"
+            data-campo="Usuarios8_T1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios9_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios9"
+        >
+
+        <input
+            name="Usuarios9_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios9_T1R${i}RO"
+            data-campo="Usuarios9_T1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios10_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios10"
+        >
+
+        <input
+            name="Usuarios10_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios10_T1R${i}RO"
+            data-campo="Usuarios10_T1R${i}"
+        >
+    </td>
+`;
+
+fila1.innerHTML = `
+
+    <td>
+        ${i}
+    </td>
+
+    <td>
+        <textarea
+            name="Programa_T1_1R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Programas académicos, servicios o actividades de la dependencia"
+        > </textarea>
+
+        <input
+            name="Programa_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Programa_T1_1R${i}RO"
+            data-campo="Programa_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios1_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios1"
+        >
+
+        <input
+            name="Usuarios1_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios1_T1_1R${i}RO"
+            data-campo="Usuarios1_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios2_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios2"
+        >
+
+        <input
+            name="Usuarios2_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios2_T1_1R${i}RO"
+            data-campo="Usuarios2_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios3_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios3"
+        >
+
+        <input
+            name="Usuarios3_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios3_T1_1R${i}RO"
+            data-campo="Usuarios3_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios4_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios4"
+        >
+
+        <input
+            name="Usuarios4_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios4_T1_1R${i}RO"
+            data-campo="Usuarios4_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios5_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios5"
+        >
+
+        <input
+            name="Usuarios5_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios5_T1_1R${i}RO"
+            data-campo="Usuarios5_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios6_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios6"
+        >
+
+        <input
+            name="Usuarios6_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios6_T1_1R${i}RO"
+            data-campo="Usuarios6_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios7_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios7"
+        >
+
+        <input
+            name="Usuarios7_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios7_T1_1R${i}RO"
+            data-campo="Usuarios7_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios8_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios8"
+        >
+
+        <input
+            name="Usuarios8_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios8_T1_1R${i}RO"
+            data-campo="Usuarios8_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios9_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios9"
+        >
+
+        <input
+            name="Usuarios9_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios9_T1_1R${i}RO"
+            data-campo="Usuarios9_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios10_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios10"
+        >
+
+        <input
+            name="Usuarios10_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios10_T1_1R${i}RO"
+            data-campo="Usuarios10_T1_1R${i}"
+        >
+    </td>
+`;
+
+tbody.appendChild(fila);
+tbody1.appendChild(fila1);
+
+activarAutoExpand(fila);
+activarAutoExpand(fila1);
+}
+
+//*-----------------------Agregar fila tabla 2*
+
+function agregarFila2() {
+
+    const tbody = document.getElementById("tablaBody2");
+    const i = obtenerNumeroFila2();
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+
+        <td>
+            ${i}
+        </td>
+
+        <td>
+            <input
+                name="Edificio_T2R${i}"
+                class="input_tabla"
+                aria-label="Edificio"
+            >
+
+            <input
+                name="Edificio_T2R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Edificio_T2R${i}RO"
+                data-campo="Edificio_T2R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                name="Nivel_T2R${i}"
+                class="input_tabla"
+                aria-label="Nivel"
+            >
+
+            <input
+                name="Nivel_T2R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Nivel_T2R${i}RO"
+                data-campo="Nivel_T2R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                name="Espacio_T2R${i}"
+                class="input_tabla"
+                aria-label="Espacio"
+            >
+
+            <input
+                name="Espacio_T2R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Espacio_T2R${i}RO"
+                data-campo="Espacio_T2R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="Largo_T2R${i}"
+                class="input_tabla"
+                aria-label="Largo"
+            >
+
+            <input
+                name="Largo_T2R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Largo_T2R${i}RO"
+                data-campo="Largo_T2R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="Ancho_T2R${i}"
+                class="input_tabla"
+                aria-label="Ancho"
+            >
+
+            <input
+                name="Ancho_T2R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Ancho_T2R${i}RO"
+                data-campo="Ancho_T2R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="Alumnos_T2R${i}"
+                class="input_tabla"
+                aria-label="Numero de Alumnos"
+            >
+
+            <input
+                name="Alumnos_T2R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Alumnos_T2R${i}RO"
+                data-campo="Alumnos_T2R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="Horas_T2R${i}"
+                class="input_tabla"
+                aria-label="Horas de Servicio"
+            >
+
+            <input
+                name="Horas_T2R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Horas_T2R${i}RO"
+                data-campo="Horas_T2R${i}"
+            >
+        </td>
+    `;
+
+    tbody.appendChild(fila);
+
+    activarAutoExpand(fila);
+}
+
+
+//*-----------------------Agregar fila tabla 3*
+
+function agregarFila3() {
+
+    const tbody = document.getElementById("tablaBody3");
+    const i = obtenerNumeroFila3();
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+
+        <td>
+            ${i}
+        </td>
+
+        <td>
+            <input
+                name="Edificio_T3R${i}"
+                class="input_tabla"
+                aria-label="Edificio"
+            >
+
+            <input
+                name="Edificio_T3R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Edificio_T3R${i}RO"
+                data-campo="Edificio_T3R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="MetrosCuadrados_T3R${i}"
+                class="input_tabla"
+                aria-label="MetrosCuadrados"
+            >
+
+            <input
+                name="MetrosCuadrados_T3R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="MetrosCuadrados_T3R${i}RO"
+                data-campo="MetrosCuadrados_T3R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                id="urlPlanos_T3R${i}"
+                name="urlPlanos_T3R${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="Url de los planos recibidos"
+                readonly
+            ></textarea>
+        </td>
+    `;
+
+    tbody.appendChild(fila);
+
+    activarAutoExpand(fila);
+}
+
+
+//*-----------------------Agregar fila tabla C*
+
+function agregarFilaC() {
+
+    const tbody = document.getElementById("tablaCotizaciones");
+    const i = obtenerNumeroFilaC();
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+
+        <td>
+            ${i}
+        </td>
+
+        <td>
+            <textarea
+                name="nombreCotizacion_TCR${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Nombre de la Cotizacion"
+            > </textarea>
+        </td>
+
+        <td>
+            <textarea
+                name="urlCotizacionAdquisicionG1_TCR${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="Url de las Cotizaciones"
+            > </textarea>
+        </td>
+
+        <td class="cantidadCol">
+
+            <input
+                type="number"
+                name="anio_TCR${i}"
+                class="input_tabla"
+                aria-label="Año de la cotizacion"
+            >
+
+            <input
+                name="anio_TCR${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="anio_TCR${i}RO"
+                data-campo="anio_TCR${i}"
+            >
+
+        </td>
+
+        <td>
+            <textarea
+                name="nombreCotizacion2_TCR${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Nombre de la Cotizacion 2"
+            > </textarea>
+        </td>
+
+        <td>
+            <textarea
+                name="urlCotizacionAdquisicionG2_TCR${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="Url de las Cotizaciones"
+            > </textarea>
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="anioA2_TCR${i}"
+                class="input_tabla"
+                aria-label="Año de la cotizacion"
+            >
+
+            <input
+                name="anioA2_TCR${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="anioA2_TCR${i}RO"
+                data-campo="anioA2_TCR${i}"
+            >
+        </td>
+    `;
+
+    tbody.appendChild(fila);
+
+    activarAutoExpand(fila);
+}
+
+
+//*-----------------------Agregar fila tabla 4*
+
+function agregarFila4() {
+
+    const tbody = document.getElementById("tablaBody4");
+    const i = obtenerNumeroFila4();
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+
+        <td>
+            ${i}
+        </td>
+
+        <td>
+            <textarea
+                id="ProgramaAcademico_T4R${i}"
+                name="ProgramaAcademico_T4R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Programa Académico"
+            ></textarea>
+
+            <input
+                name="ProgramaAcademico_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="ProgramaAcademico_T4R${i}RO"
+                data-campo="ProgramaAcademico_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="Espacio_T4R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Espacio"
+            ></textarea>
+
+            <input
+                name="Espacio_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Espacio_T4R${i}RO"
+                data-campo="Espacio_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="Clave_T4R${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="clave"
+            ></textarea>
+
+            <input
+                name="Clave_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Clave_T4R${i}RO"
+                data-campo="Clave_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="nombredelEquipo_T4R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Nombre del Equipo"
+            ></textarea>
+
+            <input
+                name="nombredelEquipo_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="nombredelEquipo_T4R${i}RO"
+                data-campo="nombredelEquipo_T4R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+
+            <input
+                type="number"
+                name="cantidad_T4R${i}"
+                class="input_tabla"
+                aria-label="Cantidad"
+            >
+
+            <input
+                name="cantidad_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="cantidad_T4R${i}RO"
+                data-campo="cantidad_T4R${i}"
+            >
+
+        </td>
+
+        <td>
+            <textarea
+                name="especificaciones_T4R${i}"
+                class="auto-expand input_tabla expandible"
+                rows="1"
+                style="resize:none;"
+                aria-label="Especificaciones"
+            ></textarea>
+
+            <input
+                name="especificaciones_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="especificaciones_T4R${i}RO"
+                data-campo="especificaciones_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                id="justificacion_T4R${i}"
+                name="justificacion_T4R${i}"
+                class="auto-expand input_tabla expandible"
+                rows="1"
+                style="resize:none;"
+                aria-label="Justificación"
+            ></textarea>
+
+            <input
+                name="justificacion_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="justificacion_T4R${i}RO"
+                data-campo="justificacion_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <div class="precio-wrapper">
+
+                <span class="peso">$</span>
+
+                <input
+                    type="text"
+                    name="precio_T4R${i}"
+                    class="input_tabla precio"
+                    oninput="formatearMiles(this)"
+                    inputmode="decimal"
+                    aria-label="Precio"
+                >
+
+            </div>
+
+            <input
+                name="precio_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="precio_T4R${i}RO"
+                data-campo="precio_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="nombreCotizacion_T4R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Nombre del archivo donde esta la Cotizacion del Equipo"
+            ></textarea>
+
+            <input
+                name="nombreCotizacion_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="nombreCotizacion_T4R${i}RO"
+                data-campo="nombreCotizacion_T4R${i}"
+            >
+        </td>
+
+        <td class="paso">
+            <textarea
+                name="urlCotizacionAdquisicion_T4R${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="Url de las Cotizaciones"
+            ></textarea>
+
+            <input
+                name="urlCotizacionAdquisicion_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="urlCotizacionAdquisicion_T4R${i}RO"
+                data-campo="urlCotizacionAdquisicion_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <div class="precio-wrapper">
+
+                <span class="peso">$</span>
+
+                <input
+                    type="text"
+                    name="precio2_T4R${i}"
+                    class="input_tabla precio"
+                    oninput="formatearMiles(this)"
+                    inputmode="decimal"
+                    aria-label="Precio 2"
+                >
+
+            </div>
+
+            <input
+                name="precio2_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="precio2_T4R${i}RO"
+                data-campo="precio2_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="nombreCotizacion2_T4R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Nombre del archivo donde esta la Cotizacion del Equipo"
+            ></textarea>
+
+            <input
+                name="nombreCotizacion2_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="nombreCotizacion2_T4R${i}RO"
+                data-campo="nombreCotizacion2_T4R${i}"
+            >
+        </td>
+
+        <td class="paso">
+            <textarea
+                name="urlCotizacionAdquisicion2_T4R${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="Url de las Cotizaciones"
+            ></textarea>
+
+            <input
+                name="urlCotizacionAdquisicion2_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="urlCotizacionAdquisicion2_T4R${i}RO"
+                data-campo="urlCotizacionAdquisicion2_T4R${i}"
+            >
+        </td>
+    `;
+
+    tbody.appendChild(fila);
+
+    activarAutoExpand(fila);
+}
+
+
+function agregarFila5() {
+
+    const tbody = document.getElementById("tablaBody5");
+    const i = obtenerNumeroFila5();
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+
+        <td>
+            ${i}
+        </td>
+
+        <td>
+            <textarea
+                name="ProgramaAcademico_T5R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Programa Académico"
+            ></textarea>
+
+            <input
+                name="ProgramaAcademico_T5R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="ProgramaAcademico_T5R${i}RO"
+                data-campo="ProgramaAcademico_T5R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="Espacio_T5R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Espacio"
+            ></textarea>
+
+            <input
+                name="Espacio_T5R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Espacio_T5R${i}RO"
+                data-campo="Espacio_T5R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="nombredelEquipo_T5R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Nombre del Equipo"
+            ></textarea>
+
+            <input
+                name="nombredelEquipo_T5R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="nombredelEquipo_T5R${i}RO"
+                data-campo="nombredelEquipo_T5R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="especificaciones_T5R${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="Especificaciones"
+            ></textarea>
+
+            <input
+                name="especificaciones_T5R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="especificaciones_T5R${i}RO"
+                data-campo="especificaciones_T5R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+
+            <input
+                type="number"
+                name="cantidadMal_estado_T5R${i}"
+                class="input_tabla"
+                aria-label="Cantidad en mal estado"
+            >
+
+            <input
+                name="cantidadMal_estado_T5R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="cantidadMal_estado_T5R${i}RO"
+                data-campo="cantidadMal_estado_T5R${i}"
+            >
+
+        </td>
+
+        <td class="cantidadCol">
+
+            <input
+                type="number"
+                name="cantidadBuen_estado_T5R${i}"
+                class="input_tabla"
+                aria-label="Cantidad en buen estado"
+            >
+
+            <input
+                name="cantidadBuen_estado_T5R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="cantidadBuen_estado_T5R${i}RO"
+                data-campo="cantidadBuen_estado_T5R${i}"
+            >
+
+        </td>
+
+        <td class="cantidadCol">
+
+            <input
+                type="number"
+                name="cantidadRegular_estado_T5R${i}"
+                class="input_tabla"
+                aria-label="Cantidad en estado Regular"
+            >
+
+            <input
+                name="cantidadRegular_estado_T5R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="cantidadRegular_estado_T5R${i}RO"
+                data-campo="cantidadRegular_estado_T5R${i}"
+            >
+
+        </td>
+    `;
+
+    tbody.appendChild(fila);
+
+    activarAutoExpand(fila);
+}
+
+
+
+
+
+
+
 //------------------------------------Construccion de tabla--------------------------
 
 
 for (let i = 1; i <= 10; i++) {
-  const tr = document.createElement("tr");
+
+  agregarFila();
+  agregarFila2();
+  agregarFila3();
+  agregarFilaC();
+  agregarFila4();
+  agregarFila5();
+  /*const tr = document.createElement("tr");
   const tr1 = document.createElement("tr");
   const tr2 = document.createElement("tr");
   const tr3 = document.createElement("tr");
@@ -25,8 +1168,10 @@ for (let i = 1; i <= 10; i++) {
   const tr6 = document.createElement("tr");
   
   */
+ /*
  const tr7 = document.createElement("tr");
  
+ *//*
   tr.innerHTML = `
 
     <td>
@@ -41,41 +1186,110 @@ for (let i = 1; i <= 10; i++) {
         style="resize:none;"
         aria-label="Programas académicos, servicios o actividades de la dependencia"
         > </textarea>
+        
+        <input
+         name="Programa_T1R${i}RO" 
+             type="checkbox"
+         id="Programa_T1R${i}RO"
+         data-campo="Programa_T1R${i}"
+       >
+
     </td>
 
     <td>
-    <input type="number" name="Usuarios1_T1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    <input type="number" name="Usuarios1_T1R${i}" class="input_tabla " aria-label="Usuarios1"> </input> 
+    <input
+         name="Usuarios1_T1R${i}RO" 
+             type="checkbox"
+         id="Usuarios1_T1R${i}RO"
+         data-campo="Usuarios1_T1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios2_T1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+     <input
+         name="Usuarios2_T1R${i}RO" 
+             type="checkbox"
+         id="Usuarios2_T1R${i}RO"
+         data-campo="Usuarios2_T1R${i}"
+       > 
+
     </td>
     <td> 
     <input type="number" name="Usuarios3_T1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
-     </td>
+    <input
+         name="Usuarios3_T1R${i}RO" 
+             type="checkbox"
+         id="Usuarios3_T1R${i}RO"
+         data-campo="Usuarios3_T1R${i}"
+       > 
+    </td>
     <td>
     <input type="number" name="Usuarios4_T1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    <input
+         name="Usuarios4_T1R${i}RO" 
+             type="checkbox"
+         id="Usuarios4_T1R${i}RO"
+         data-campo="Usuarios4_T1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios5_T1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    <input
+         name="Usuarios5_T1R${i}RO" 
+             type="checkbox"
+         id="Usuarios5_T1R${i}RO"
+         data-campo="Usuarios5_T1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios6_T1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    <input
+         name="Usuarios6_T1R${i}RO" 
+             type="checkbox"
+         id="Usuarios6_T1R${i}RO"
+         data-campo="Usuarios6_T1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios7_T1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
+    <input
+         name="Usuarios7_T1R${i}RO" 
+             type="checkbox"
+         id="Usuarios7_T1R${i}RO"
+         data-campo="Usuarios7_T1R${i}"
+       >
     </td>
 
     <td>
     <input type="number" name="Usuarios8_T1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
+    <input
+         name="Usuarios8_T1R${i}RO" 
+             type="checkbox"
+         id="Usuarios8_T1R${i}RO"
+         data-campo="Usuarios8_T1R${i}"
+       >
     </td>
 
     <td>
     <input type="number" name="Usuarios9_T1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
+    <input
+         name="Usuarios9_T1R${i}RO" 
+             type="checkbox"
+         id="Usuarios9_T1R${i}RO"
+         data-campo="Usuarios9_T1R${i}"
+       >
     </td>
 
 
     <td>
     <input type="number" name="Usuarios10_T1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
+    <input
+         name="Usuarios10_T1R${i}RO" 
+             type="checkbox"
+         id="Usuarios10_T1R${i}RO"
+         data-campo="Usuarios10_T1R${i}"
+       >
     </td>
 
   `;
@@ -96,39 +1310,105 @@ for (let i = 1; i <= 10; i++) {
         style="resize:none;"
         aria-label="Programas académicos, servicios o actividades de la dependencia"
         > </textarea>
+    <input
+         name="Programa_T1_1R${i}RO" 
+             type="checkbox"
+         id="Programa_T1_1R${i}RO"
+         data-campo="Programa_T1_1R${i}"
+       >    
     </td>
     <td>
     <input type="number" name="Usuarios1_T1_1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    <input
+         name="Usuarios1_T1_1R${i}RO" 
+             type="checkbox"
+         id="Usuarios1_T1_1R${i}RO"
+         data-campo="Usuarios1_T1_1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios2_T1_1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+    <input
+         name="Usuarios2_T1_1R${i}RO" 
+             type="checkbox"
+         id="Usuarios2_T1_1R${i}RO"
+         data-campo="Usuarios2_T1_1R${i}"
+       >
     </td>
     <td> 
     <input type="number" name="Usuarios3_T1_1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
+    <input
+         name="Usuarios3_T1_1R${i}RO" 
+             type="checkbox"
+         id="Usuarios3_T1_1R${i}RO"
+         data-campo="Usuarios3_T1_1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios4_T1_1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    <input
+         name="Usuarios4_T1_1R${i}RO" 
+             type="checkbox"
+         id="Usuarios4_T1_1R${i}RO"
+         data-campo="Usuarios4_T1_1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios5_T1_1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    <input
+         name="Usuarios5_T1_1R${i}RO" 
+             type="checkbox"
+         id="Usuarios5_T1_1R${i}RO"
+         data-campo="Usuarios5_T1_1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios6_T1_1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    <input
+         name="Usuarios6_T1_1R${i}RO" 
+             type="checkbox"
+         id="Usuarios6_T1_1R${i}RO"
+         data-campo="Usuarios6_T1_1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios7_T1_1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
+    <input
+         name="Usuarios7_T1_1R${i}RO" 
+             type="checkbox"
+         id="Usuarios7_T1_1R${i}RO"
+         data-campo="Usuarios7_T1_1R${i}"
+       >
     </td>
 
     <td>
     <input type="number" name="Usuarios8_T1_1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
+    <input
+         name="Usuarios8_T1_1R${i}RO" 
+             type="checkbox"
+         id="Usuarios8_T1_1R${i}RO"
+         data-campo="Usuarios8_T1_1R${i}"
+       >
     </td>
 
     <td>
     <input type="number" name="Usuarios9_T1_1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
+    <input
+         name="Usuarios9_T1_1R${i}RO" 
+             type="checkbox"
+         id="Usuarios9_T1_1R${i}RO"
+         data-campo="Usuarios9_T1_1R${i}"
+       >
     </td>
 
     <td>
     <input type="number" name="Usuarios10_T1_1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
+    <input
+         name="Usuarios10_T1_1R${i}RO" 
+             type="checkbox"
+         id="Usuarios10_T1_1R${i}RO"
+         data-campo="Usuarios10_T1_1R${i}"
+       >
     </td>
   `;
 
@@ -139,52 +1419,122 @@ tr2.innerHTML = `
     <td>
       ${i}
     </td>
+<td>
+    <input 
+        name="Edificio_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Edificio"
+    >
 
-    <td>
-    <input name="Edificio_T2R${i}" class="input_tabla" aria-label="Edificio"> </input>
-    </td>
+    <input 
+        name="Edificio_T2R${i}RO" 
+        type="checkbox" 
+        id="Edificio_T2R${i}RO" 
+        data-campo="Edificio_T2R${i}"
+    >
+</td>
 
-    <td>
-    <input name="Nivel_T2R${i}" class="input_tabla" aria-label="Nivel"> </input>
-    </td>
+<td>
+    <input 
+        name="Nivel_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Nivel"
+    >
 
-    <td>
-    <input name="Espacio_T2R${i}" class="input_tabla" aria-label="Espacio"> </input>
-    </td>    
-    
-    
-    
-    
+    <input 
+        name="Nivel_T2R${i}RO" 
+        type="checkbox" 
+        id="Nivel_T2R${i}RO" 
+        data-campo="Nivel_T2R${i}"
+    >
+</td>
 
-      <td class="cantidadCol">
+<td>
+    <input 
+        name="Espacio_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Espacio"
+    >
 
-      <input type="number" name="Largo_T2R${i}" class="input_tabla " aria-label="Largo"> </input>  
-    
-      </td>
+    <input 
+        name="Espacio_T2R${i}RO" 
+        type="checkbox" 
+        id="Espacio_T2R${i}RO" 
+        data-campo="Espacio_T2R${i}"
+    >
+</td>
 
-      
-    
-      <td class="cantidadCol">
+<td class="cantidadCol">
 
-              <input type="number" name="Ancho_T2R${i}" class="input_tabla " aria-label="Ancho">
-              </input>  
-    
-      </td>
-      
+    <input 
+        type="number" 
+        name="Largo_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Largo"
+    >
 
-      <td class="cantidadCol">
+    <input 
+        name="Largo_T2R${i}RO" 
+        type="checkbox" 
+        id="Largo_T2R${i}RO" 
+        data-campo="Largo_T2R${i}"
+    >
 
-      <input type="number" name="Alumnos_T2R${i}" class="input_tabla " aria-label="Numero de Alumnos"> </input>  
-    
-      </td>
-      
+</td>
 
-   
-      <td class="cantidadCol">
+<td class="cantidadCol">
 
-      <input type="number" name="Horas_T2R${i}" class="input_tabla " aria-label="Horas de Servicio"> </input>  
-    
-      </td>
+    <input 
+        type="number" 
+        name="Ancho_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Ancho"
+    >
+
+    <input 
+        name="Ancho_T2R${i}RO" 
+        type="checkbox" 
+        id="Ancho_T2R${i}RO" 
+        data-campo="Ancho_T2R${i}"
+    >
+
+</td>
+
+<td class="cantidadCol">
+
+    <input 
+        type="number" 
+        name="Alumnos_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Numero de Alumnos"
+    >
+
+    <input 
+        name="Alumnos_T2R${i}RO" 
+        type="checkbox" 
+        id="Alumnos_T2R${i}RO" 
+        data-campo="Alumnos_T2R${i}"
+    >
+
+</td>
+
+<td class="cantidadCol">
+
+    <input 
+        type="number" 
+        name="Horas_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Horas de Servicio"
+    >
+
+    <input 
+        name="Horas_T2R${i}RO" 
+        type="checkbox" 
+        id="Horas_T2R${i}RO" 
+        data-campo="Horas_T2R${i}"
+    >
+
+</td>
 
   `;
 
@@ -193,31 +1543,65 @@ tr2.innerHTML = `
 
 
 
-tr3.innerHTML = `
+
+
+  tr3.innerHTML = `
          
-     <td>
-      ${i}
+    <td>
+        ${i}
     </td>
      
     <td>
-    <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
+        <input 
+            name="Edificio_T3R${i}" 
+            class="input_tabla" 
+            aria-label="Edificio">
+        </input>
+
+        <input
+            name="Edificio_T3R${i}RO"
+            type="checkbox"
+            id="Edificio_T3R${i}RO"
+            data-campo="Edificio_T3R${i}"
+        >
     </td>
 
     <td>
-    <input type="number" name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
+        <input 
+            type="number" 
+            name="MetrosCuadrados_T3R${i}" 
+            class="input_tabla" 
+            aria-label="MetrosCuadrados">
+        </input>
+
+        <input
+            name="MetrosCuadrados_T3R${i}RO"
+            type="checkbox"
+            id="MetrosCuadrados_T3R${i}RO"
+            data-campo="MetrosCuadrados_T3R${i}"
+        >
     </td>
+
     <td>
-                      <textarea 
-                       id= "urlPlanos_T3R${i}"
-                       name="urlPlanos_T3R${i}" 
-                       class="auto-expand input_tabla"
-                       rows="1"
-                       style="resize:none;"
-                       aria-label="Url de los planos recibidos" readonly>
-  
-                 </textarea>
+        <textarea 
+            id="urlPlanos_T3R${i}"
+            name="urlPlanos_T3R${i}" 
+            class="auto-expand input_tabla"
+            rows="1"
+            style="resize:none;"
+            aria-label="Url de los planos recibidos"
+            readonly>
+        </textarea>
+
+    
     </td>
-  `;
+`;
+
+
+
+
+
+
 trC.innerHTML = `
      <td>
       ${i}
@@ -246,10 +1630,25 @@ trC.innerHTML = `
 
 <td class="cantidadCol">
 
-      <input type="number" name="anio_TCR${i}" class="input_tabla " aria-label="Año de la cotizacion"> </input>  
-    
-      </td>    
+        <input 
+            type="number" 
+            name="anio_TCR${i}" 
+            class="input_tabla" 
+            aria-label="Año de la cotizacion">
+        </input>
+
+        <input
+            name="anio_TCR${i}RO"
+            type="checkbox"
+            id="anio_TCR${i}RO"
+            data-campo="anio_TCR${i}"
+        >
+
+    </td>    
       
+
+
+
     <td>
       <textarea
         name="nombreCotizacion2_TCR${i}"
@@ -269,13 +1668,26 @@ trC.innerHTML = `
         aria-label="Url de las Cotizaciones"
         > </textarea>
     </td>
-<td>
-      <input type="number" name="anioA2_TCR${i}" class="input_tabla " aria-label="Año de la cotizacion"> </input>  
-    
-      </td>
+
+       <td>
+        <input 
+            type="number" 
+            name="anioA2_TCR${i}" 
+            class="input_tabla" 
+            aria-label="Año de la cotizacion">
+        </input>
+
+        <input
+            name="anioA2_TCR${i}RO"
+            type="checkbox"
+            id="anioA2_TCR${i}RO"
+            data-campo="anioA2_TCR${i}"
+        >
+    </td>
 
 
 `;
+
 
 
 
@@ -286,221 +1698,376 @@ trC.innerHTML = `
 
 tr4.innerHTML = `
     <td>
-      ${i}
+        ${i}
     </td>
+
     <td>
-      <textarea
-        name="ProgramaAcademico_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programa Académico"
-        > </textarea>
+        <textarea
+            id="ProgramaAcademico_T4R${i}"
+            name="ProgramaAcademico_T4R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Programa Académico">
+        </textarea>
+
+        <input
+            name="ProgramaAcademico_T4R${i}RO" 
+            type="checkbox"
+            id="ProgramaAcademico_T4R${i}RO"
+            data-campo="ProgramaAcademico_T4R${i}"
+        >
     </td> 
     
     <td>
-         <textarea
-        name="Espacio_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Espacio"
-        > </textarea>
+        <textarea
+            name="Espacio_T4R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Espacio">
+        </textarea>
+
+        <input
+            name="Espacio_T4R${i}RO"
+            type="checkbox"
+            id="Espacio_T4R${i}RO"
+            data-campo="Espacio_T4R${i}"
+        >
     </td>    
+
     <td>
-      <textarea
-        name="Clave_T4R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="clave"
-        > </textarea>
-      </td>
-    <td>
-      <textarea
-        name="nombredelEquipo_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del Equipo"
-        > </textarea>
+        <textarea
+            name="Clave_T4R${i}"
+            class="auto-expand input_tabla"
+            rows="1"
+            style="resize:none;"
+            aria-label="clave">
+        </textarea>
+
+        <input
+            name="Clave_T4R${i}RO"
+            type="checkbox"
+            id="Clave_T4R${i}RO"
+            data-campo="Clave_T4R${i}"
+        >
     </td>
-    
-    
+
+    <td>
+        <textarea
+            name="nombredelEquipo_T4R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Nombre del Equipo">
+        </textarea>
+
+        <input
+            name="nombredelEquipo_T4R${i}RO"
+            type="checkbox"
+            id="nombredelEquipo_T4R${i}RO"
+            data-campo="nombredelEquipo_T4R${i}"
+        >
+    </td>
 
     <td class="cantidadCol">
 
-      <input type="number" name="cantidad_T4R${i}" class="input_tabla " aria-label="Cantidad"> </input>  
-    
-      </td>
+        <input 
+            type="number" 
+            name="cantidad_T4R${i}" 
+            class="input_tabla" 
+            aria-label="Cantidad">
+        </input>
 
+        <input
+            name="cantidad_T4R${i}RO"
+            type="checkbox"
+            id="cantidad_T4R${i}RO"
+            data-campo="cantidad_T4R${i}"
+        >
 
-    <td>
-      <textarea
-        name="especificaciones_T4R${i}"
-        class="auto-expand input_tabla expandible"
-        rows="1"
-        style="resize:none;"
-        aria-label="Especificaciones"
-        > </textarea>
     </td>
 
     <td>
-      <textarea id="justificacion_T4R${i}" name="justificacion_T4R${i}"
-                   class="auto-expand input_tabla expandible"
-                   rows="1"
-                   style="resize:none;"  aria-label="Justificación">  
-      </textarea>
+        <textarea
+            name="especificaciones_T4R${i}"
+            class="auto-expand input_tabla expandible"
+            rows="1"
+            style="resize:none;"
+            aria-label="Especificaciones">
+        </textarea>
+
+        <input
+            name="especificaciones_T4R${i}RO"
+            type="checkbox"
+            id="especificaciones_T4R${i}RO"
+            data-campo="especificaciones_T4R${i}"
+        >
     </td>
 
-    
-    
-     <td>
-      <div class="precio-wrapper">
+    <td>
+        <textarea 
+            id="justificacion_T4R${i}" 
+            name="justificacion_T4R${i}"
+            class="auto-expand input_tabla expandible"
+            rows="1"
+            style="resize:none;"
+            aria-label="Justificación">
+        </textarea>
+
+        <input
+            name="justificacion_T4R${i}RO"
+            type="checkbox"
+            id="justificacion_T4R${i}RO"
+            data-campo="justificacion_T4R${i}"
+        >
+    </td>
+
+    <td>
+        <div class="precio-wrapper">
             <span class="peso">$</span>
-            <input type="text"
-                   name="precio_T4R${i}"
-                   class="input_tabla precio"
-                   oninput="formatearMiles(this)"
-                   inputmode="decimal" 
-                   aria-label="Precio"> 
+
+            <input 
+                type="text"
+                name="precio_T4R${i}"
+                class="input_tabla precio"
+                oninput="formatearMiles(this)"
+                inputmode="decimal" 
+                aria-label="Precio"> 
             </input>
-      </div>
-      </td>
+        </div>
+
+        <input
+            name="precio_T4R${i}RO"
+            type="checkbox"
+            id="precio_T4R${i}RO"
+            data-campo="precio_T4R${i}"
+        >
+    </td>
     
     <td>
-      <textarea
-        name="nombreCotizacion_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del archivo donde esta la Cotizacion del Equipo"
-        > </textarea>
+        <textarea
+            name="nombreCotizacion_T4R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Nombre del archivo donde esta la Cotizacion del Equipo">
+        </textarea>
+
+        <input
+            name="nombreCotizacion_T4R${i}RO"
+            type="checkbox"
+            id="nombreCotizacion_T4R${i}RO"
+            data-campo="nombreCotizacion_T4R${i}"
+        >
     </td>
 
-
-    
-    
     <td class="paso">
-      <textarea
-        name="urlCotizacionAdquisicion_T4R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Url de las Cotizaciones"
-        > </textarea>
+        <textarea
+            name="urlCotizacionAdquisicion_T4R${i}"
+            class="auto-expand input_tabla"
+            rows="1"
+            style="resize:none;"
+            aria-label="Url de las Cotizaciones">
+        </textarea>
+
+        <input
+            name="urlCotizacionAdquisicion_T4R${i}RO"
+            type="checkbox"
+            id="urlCotizacionAdquisicion_T4R${i}RO"
+            data-campo="urlCotizacionAdquisicion_T4R${i}"
+        >
     </td>
 
-
-
-
-
-  <td>
-   <div class="precio-wrapper">
+    <td>
+        <div class="precio-wrapper">
             <span class="peso">$</span>
-            <input type="text"
-                   name="precio2_T4R${i}"
-                   class="input_tabla precio"
-                   oninput="formatearMiles(this)"
-                   inputmode="decimal" 
-                   aria-label="Precio 2"> 
+
+            <input 
+                type="text"
+                name="precio2_T4R${i}"
+                class="input_tabla precio"
+                oninput="formatearMiles(this)"
+                inputmode="decimal" 
+                aria-label="Precio 2"> 
             </input>
-      </div>
-      </td>
+        </div>
+
+        <input
+            name="precio2_T4R${i}RO"
+            type="checkbox"
+            id="precio2_T4R${i}RO"
+            data-campo="precio2_T4R${i}"
+        >
+    </td>
      
-  <td>
-      <textarea
-        name="nombreCotizacion_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del archivo donde esta la Cotizacion del Equipo"
-        > </textarea>
+    <td>
+        <textarea
+            name="nombreCotizacion_T4R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Nombre del archivo donde esta la Cotizacion del Equipo">
+        </textarea>
+
+        <input
+            name="nombreCotizacion2_T4R${i}RO"
+            type="checkbox"
+            id="nombreCotizacion_T4R${i}RO"
+            data-campo="nombreCotizacion_T4R${i}"
+        >
     </td>
 
+    <td class="paso">
+        <textarea
+            name="urlCotizacionAdquisicion2_T4R${i}"
+            class="auto-expand input_tabla"
+            rows="1"
+            style="resize:none;"
+            aria-label="Url de las Cotizaciones">
+        </textarea>
 
-
-
-<td class="paso">
-      <textarea
-        name="urlCotizacionAdquisicion2_T4R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Url de las Cotizaciones"
-        > </textarea>
+        <input
+            name="urlCotizacionAdquisicion2_T4R${i}RO"
+            type="checkbox"
+            id="urlCotizacionAdquisicion2_T4R${i}RO"
+            data-campo="urlCotizacionAdquisicion2_T4R${i}"
+        >
     </td>
-
-
 `;
+
+
+
+
+
+
 
 tr5.innerHTML = `
     <td>
-      ${i}
+        ${i}
     </td>
+
     <td>
-      <textarea
-        name="ProgramaAcademico_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programa Académico"
-        > </textarea>
+        <textarea
+            name="ProgramaAcademico_T5R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Programa Académico">
+        </textarea>
+
+        <input
+            name="ProgramaAcademico_T5R${i}RO"
+            type="checkbox"
+            id="ProgramaAcademico_T5R${i}RO"
+            data-campo="ProgramaAcademico_T5R${i}"
+        >
     </td> 
     
-    
-    <td >
-    <textarea
-        name="Espacio_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Espacio"
-        > </textarea></td>
-
-
     <td>
-      <textarea
-        name="nombredelEquipo_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del Equipo"
-        > </textarea>
-    </td>
-    
-    
+        <textarea
+            name="Espacio_T5R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Espacio">
+        </textarea>
 
-    
-
-    <td>
-      <textarea
-        name="especificaciones_T5R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Especificaciones"
-        > </textarea>
+        <input
+            name="Espacio_T5R${i}RO"
+            type="checkbox"
+            id="Espacio_T5R${i}RO"
+            data-campo="Espacio_T5R${i}"
+        >
     </td>
 
-      <td class="cantidadCol">
+    <td>
+        <textarea
+            name="nombredelEquipo_T5R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Nombre del Equipo">
+        </textarea>
 
-      <input type="number" name="cantidadMal_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en mal estado"> </input>  
-    
-      </td>
+        <input
+            name="nombredelEquipo_T5R${i}RO"
+            type="checkbox"
+            id="nombredelEquipo_T5R${i}RO"
+            data-campo="nombredelEquipo_T5R${i}"
+        >
+    </td>
+
+    <td>
+        <textarea
+            name="especificaciones_T5R${i}"
+            class="auto-expand input_tabla"
+            rows="1"
+            style="resize:none;"
+            aria-label="Especificaciones">
+        </textarea>
+
+        <input
+            name="especificaciones_T5R${i}RO"
+            type="checkbox"
+            id="especificaciones_T5R${i}RO"
+            data-campo="especificaciones_T5R${i}"
+        >
+    </td>
 
     <td class="cantidadCol">
 
-      <input type="number" name="cantidadBuen_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
-    
-      </td>
+        <input 
+            type="number" 
+            name="cantidadMal_estado_T5R${i}" 
+            class="input_tabla" 
+            aria-label="Cantidad en mal estado">
+        </input>
+
+        <input
+            name="cantidadMal_estado_T5R${i}RO"
+            type="checkbox"
+            id="cantidadMal_estado_T5R${i}RO"
+            data-campo="cantidadMal_estado_T5R${i}"
+        >
+
+    </td>
+
     <td class="cantidadCol">
 
-      <input type="number" name="cantidadRegular_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
-    
-      </td>
-     
+        <input 
+            type="number" 
+            name="cantidadBuen_estado_T5R${i}" 
+            class="input_tabla" 
+            aria-label="Cantidad en buen estado">
+        </input>
 
+        <input
+            name="cantidadBuen_estado_T5R${i}RO"
+            type="checkbox"
+            id="cantidadBuen_estado_T5R${i}RO"
+            data-campo="cantidadBuen_estado_T5R${i}"
+        >
+
+    </td>
+
+    <td class="cantidadCol">
+
+        <input 
+            type="number" 
+            name="cantidadRegular_estado_T5R${i}" 
+            class="input_tabla" 
+            aria-label="Cantidad en estado Regular">
+        </input>
+
+        <input
+            name="cantidadRegular_estado_T5R${i}RO"
+            type="checkbox"
+            id="cantidadRegular_estado_T5R${i}RO"
+            data-campo="cantidadRegular_estado_T5R${i}"
+        >
+
+    </td>
 `;
 
 
@@ -576,7 +2143,7 @@ tr6.innerHTML = `
 
 
 
-
+/*
 
 
   tbody.appendChild(tr);
@@ -585,7 +2152,7 @@ tr6.innerHTML = `
   tbody3.appendChild(tr3);
   tbody4.appendChild(tr4);
   tbodyC.appendChild(trC);
-  tbody5.appendChild(tr5);
+  tbody5.appendChild(tr5);*/
   /*
   tbody6.appendChild(tr6);
 */
@@ -834,503 +2401,6 @@ textareas.forEach(textarea => {
   autoResize(textarea);
 });
 
-//------------------------------Listas desplegables que dependen de otros valores
-/*
-//--------------------------------1.-Secretarias-----------------------------------------------------------------
-const secretarias={
-
-SG:[{text:"Unidad Politécnica de gestión con perspectiva de género (UPGPG)",value:"UPGPG"},
-        {text:"Secretaría General",value:"SG"},
-        {text:"Defensoría de los Derechos Politécnicos",value:"DDP"}],
-    DG:[{text:"Dirección General", value:"DG"},
-        {text:"Coordinación Politécnica para la Sustentabilidad",value:"CPPS"}
-        ],
-    AG:[{text:"Oficina del Abogado General",value:"AG"},
-        {text:"Dirección de Asuntos Jurídicos",value:"DAJ"}, 
-        {text:"Dirección de Convenios y Trámite Registral",value:"DCTR"},  
-        {text:"Dirección de Legislación, Consulta y Transparencia",value:"DLCT"}],
-
-    DAJ:[{text:"Administrativo", value:"ADMIN_DAJ_AG"}],
-    
-    DCTR:[{text:"Administrativo", value:"ADMIN_DCTR_AG"}],
-    
-    DLCT:[{text:"Administrativo", value:"ADMIN_DLCT_AG"}],
-    
-    PD:[{text:"Presidencia del Decanato", value:"PD"}],
-    SACAD:[{text:"Dirección de Educación Media Superior", value:"DEMS"},
-        {text:"Dirección de Educación Superior", value:"DES"},
-        {text:"Dirección de Formación en Lenguas Extranjeras", value:"DFLE_SA"},
-        {text:"Secretaría Académica", value:"SACAD"},
-        {text:"Dirección de educación virtual", value:"DEV"},
-        {text:"Dirección de formación e innovación educativa", value:"DFIE"}],
-        
-
-    SADMIN:[{text:"Secretaría de Administración",value:"SA"},
-        {text:"Dirección de Capital Humano", value:"DCH"},
-        {text:"Dirección de Programación y Presupuesto", value:"DPP"},
-        {text:"Dirección de Recursos Financieros", value:"DRF"},
-        {text:"Dirección de Recursos Materiales e Infraestructua", value:"DRMI"},
-        {text:"Dirección de Servicios Generales", value:"DSG"},
-        {text:"Coordinación de Centros de Desarrollo Infantil", value:"CCDI"}],
-    SIIS:[{text:"Dirección de Vinculación y Desarrollo Regional", value:"DVDR"},
-          {text:"Secretaría de Innovación e Integración Social", value:"SIIS"},
-          {text:"Dirección de Egresados y Servicio Social", value:"DESS"},
-          {text:"Dirección de Relaciones Internacionales", value:"DRI"},
-          {text:"Dirección de Servicios Empresariales y Transferencia Tecnológica", value:"DSETT"},
-          {text:"Dirección de Incubación de Empresas Tecnológicas", value:"DIET"},
-          {text:"Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli", value:"DPITT"}],
-    SIP:[{text:"Dirección de Investigación", value:"DI"},
-         {text:"Secretaría de Investigación y Posgrado", value:"SIP"},
-         {text:"Dirección de Posgrado", value:"DP"},
-         {text:"Dirección de Difusión de Ciencia y Tecnología", value:"DDCT"},
-         {text:"Dirección de Investigación / Dirección de Posgrado", value:"DI_DP"}],
-
-    SSE:[{text:"Secretaría de Servicios Educativos", value:"SSE"},
-         {text:"Dirección de Administración Escolar", value:"DAES"},
-         {text:"Dirección de Difusión Cultural", value:"DDC_SE"},
-         {text:"Dirección de Actividades Deportivas", value:"DAD"},
-         {text:"Dirección de Bibliotecas y Publicaciones", value:"DBP"},
-         {text:"Dirección de Apoyos a Estudiantes", value:"DAE"}],
-   CGPII:[{text:"Coordinación General de Planeación e Información Institucional", value:"CGPII"},
-           {text:"Dirección de información institucional", value:"DII"},
-           {text:"Dirección de Planeación y Organización", value:"DPO"}],         
-   CII:[{text:"Coordinación de Imagen Institucional", value:"CII"}],
-   CENAC:[{text:"Centro Nacional de Cálculo (CENAC)", value:"CGCENAC"},
-          {text:"Dirección de cómputo y comunicaciones", value:"DCC"}, 
-          {text:"Dirección de sistemas informáticos", value:"DSI"}],  
-    ER:[{text:"Estación de Radiodifusión XHIPN-FM 95.7 MHz", value:"ER"}],    
-    POI:[{text:"Patronato de Obras e Instalaciones  (POI)", value:"POI"}],
-    COFAA:[{text:"Comisión de Operación y Fomento de Actividades Académicas (COFAA)", value:"COFAA"}],
-}
-
-
-
-
-
-
-
-
-//---------------------Definicion de opciones de selects con base a la eleccion en a secretaria------------------------------------------------
-
-secretariaInput.addEventListener("change", () => {
-  const valor = secretariaInput.value;
-
-  // Limpiar subcategoría
-  direccionInput.innerHTML = '<option value="">-- Selecciona Direccion--</option>';
-  direccionInput.disabled = !valor;
-
-  if (!valor || !secretarias[valor]) return;
-
-  secretarias[valor].forEach(op => {
-    const option = document.createElement("option");
-    option.value = op.value;
-    option.textContent = op.text;
-    direccionInput.appendChild(option);
-  });
-});
-
-
-
-//--------------------------------2.-Direcciones-----------------------------------------------------------------
-
-
-
-
-const direcciones={
-                  //Secretaria General
-    UPGPG:[{text:"Administrativo", value:"ADMIN_UPGPG"}],
-
-    DDP:[{text:"Administrativo", value:"ADMIN_DDP"} ],
-
-    SG:[{text:"Administrativo", value:"ADMIN_SG_SG"}],
-
-//Direccion General
-    DG:[{text:"Administrativo", value:"ADMIN_DG_DG"}],
-
-    CPPS:[{text:"Administrativo", value:"ADMIN_CPPS"}],
-    
-//Abogado General
-    AG:[{text:"Administrativo", value:"ADMIN_AG_AG"}],
-
-    DAJ:[{text:"Administrativo", value:"ADMIN_DAJ_AG"}],
-    
-    DCTR:[{text:"Administrativo", value:"ADMIN_DCTR_AG"}],
-    
-    DLCT:[{text:"Administrativo", value:"ADMIN_DLCT_AG"}],
-  
-//Presidencia del Decanato
-    PD:[{text:"Administrativo", value:"ADMIN_PD_PD"}],
-
-//Secretaria Academica 
-   
-    DEMS:[{text:"Nivel Medio Superior", value:"NMS"},{text:"Administrativo", value:"ADMIN_NMS"}],
-
-    DES:[{text:"Nivel Superior", value:"NS"},{text:"Administrativo", value:"ADMIN_NS"}],
-
-    DFLE_SA:[{text:"Lenguas", value:"L_DFLE_SA"},{text:"Administrativo", value:"ADMIN_DFLE_SA"}],
-
-    DEV:[{text:"Administrativo", value:"ADMIN_DEV_SA"}],
-
-    DFIE:[{text:"Administrativo", value:"ADMIN_DFIE_SA"}],
-
-    SACAD:[{text:"Administrativo", value:"ADMIN_SACAD_SACAD"}],
-
-    //Secretaria Administrativa
-    SA:[{text:"Administrativo", value:"ADMIN_SA_SA"}],
-    
-    DCH:[{text:"Administrativo", value:"ADMIN_DCH_SA"}],
-    
-    DPP:[{text:"Administrativo", value:"ADMIN_DPP_SA"}],
-    
-    DRF:[{text:"Administrativo", value:"ADMIN_DRF_SA"}],
-    
-    DRMI:[{text:"Administrativo", value:"ADMIN_DRMI_SA"}],
-    
-    DSG:[{text:"Administrativo", value:"ADMIN_DSG_SA"}],
-    
-    CCDI:[{text:"Administrativo", value:"ADMIN_CCDI_SA"}],
-    
-    
-
-//Secretaria de Inovacion e Integracion Social
-
-    DVDR:[{text:"Vinculación y Desarrollo", value:"VD"},{text:"Administrativo", value:"ADMIN_DVDR"}],
-
-
-    SIIS:[{text:"Administrativo", value:"ADMIN_SIIS_SIIS"}],
-    
-    DESS:[{text:"Administrativo", value:"ADMIN_DESS_SIIS"}],
-    
-    DRI:[{text:"Administrativo", value:"ADMIN_DRI_SIIS"}],
-    
-    DSETT:[{text:"Administrativo", value:"ADMIN_DSETT_SIIS"}],
-    
-    DIET:[{text:"Administrativo", value:"ADMIN_DIET_SIIS"}],
-    
-    DPITT:[{text:"Administrativo", value:"ADMIN_DPITT_SIIS"}],
-   
-    
-
-    //Secretaria de Investigacion y Posgrado
-
-    DI:[{text:"Administrativo", value:"ADMIN_DI"}],
-
-    SIP:[{text:"Administrativo", value:"ADMIN_SIP_SIP"}],
-    
-    DP:[{text:"Administrativo", value:"ADMIN_DP_SIP"}],
-    
-    DDCT:[{text:"Administrativo", value:"ADMIN_DDCT_SIP"}],
-   
-    DI_DP:[{text:"Investigacion", value:"I_DI_DP"},{text:"Investigación y Posgrado", value:"INV_POSG"}],
-
-    //Secretaria de Servicios Educativos 
-
-    SSE:[{text:"Administrativo", value:"ADMIN_SSE_SSE"}],
-    
-    DAES:[{text:"Administrativo", value:"ADMIN_DAES_SSE"}],
-    
-    DDC_SE:[{text:"Administrativo", value:"ADMIN_DDC_SSE"}],
-    
-    DAD:[{text:"Administrativo", value:"ADMIN_DAD_SSE"}],
-    
-    DBP:[{text:"Administrativo", value:"ADMIN_DBP_SSE"}],
-    
-    DAE:[{text:"Administrativo", value:"ADMIN_DAE_SSE"}],
-  // Coordinación General de Planeacion e Informacion Institucional 
-    
-    CGPII:[{text:"Administrativo", value:"ADMIN_CGPII_DG"}],
-
-    DPO:[{text:"Administrativo", value:"ADMIN_DPO_DG"}],
-
-    DII:[{text:"Administrativo", value:"ADMIN_DII_DG"}],
-    
-    // Coordinación de Imagen Institucional
-
-    CII:[{text:"Administrativo", value:"ADMIN_CII_DG"}],
-
-    //Centro Nacional de Calculo
-
-    CGCENAC:[{text:"Administrativo", value:"ADMIN_CGCENAC_SA"}],
-  
-    DCC:[{text:"Administrativo", value:"ADMIN_DCC_CENAC"}],
-    
-    DSI:[{text:"Administrativo", value:"ADMIN_DSI_CENAC"}],
-    
-    //Estacion de Radio
-    
-    ER:[{text:"Administrativo",value:"ADMIN_ER"}],
-    // POI
-    POI:[{text:"Administrativo",value:"ADMIN_POI"}],
-
-    // 
-    COFAA:[{text:"Administrativo",value:"ADMIN_COFAA"}]
-
-}    
-
-direccionInput.addEventListener("change", () => {
-  const valor = direccionInput.value;
-
-  // Limpiar subcategoría
-  nivelInput.innerHTML = '<option value="">-- Selecciona Nivel--</option>';
-  nivelInput.disabled = !valor;
-
-  if (!valor || !direcciones[valor]) return;
-
-  direcciones[valor].forEach(op => {
-    const option = document.createElement("option");
-    option.value = op.value;
-    option.textContent = op.text;
-    nivelInput.appendChild(option);
-  });
-});
-
-
-
-//------------------------Nivel-----------------------------------------------------------------------------------
-
-
-
-
-
-const opciones = {
-//Secretaria General
-ADMIN_UPGPG:["Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)", "Defensoría de los Derechos Politécnicos"],
-ADMIN_DDP:["Defensoría de los Derechos Politécnicos"],
-ADMIN_SG_SG:["Secretaría General"],
-//Direcion General
-
-ADMIN_DG_DG:["Dirección General"],
-
-ADMIN_CPPS:["Coordinación Politécnica para la Sustentabilidad"],
-
-
-
-//Abogado General
-ADMIN_AG_AG:["Oficina del Abogado General"],
-
-ADMIN_DAJ_AG :["Dirección de Asuntos Jurídicos"],
-  
-ADMIN_DCTR_AG:["Dirección de Convenios y Trámite Registral"],  
-
-ADMIN_DLCT_AG:["Dirección de Legislación, Consulta y Transparencia"],  
-
-  
-//Presidencia del decanato
-ADMIN_PD_PD:["Presidencia del Decanato"],
-
-//Secretaria Academica
-NMS: ['Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 1)  "Gonzalo Vázquez Vela"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 2)  "Miguel Bernard"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 3)  "Estanislao Ramírez Ruiz"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 4)  "Lázaro Cárdenas"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 5)  "Benito Juárez"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 6)  "Miguel Othón De Mendizábal"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 7)  "Cuauhtémoc"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 8)  "Narciso Bassols"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 9)  "Juan De Dios Bátiz"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"'],
-ADMIN_NMS:["Dirección de Educación Media Superior"],
-NS:["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco",
-    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán",
-    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco",
-    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán",
-    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco",
-    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco", 
-    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán",
-    "Escuela Superior de Ingeniería Textil (ESIT)",
-    "Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)",
-    "Escuela Superior de Física y Matemáticas (ESFM)",
-    "Escuela Superior de Cómputo (ESCOM)",
-    "Escuela Nacional de Ciencias Biológicas (ENCB)",
-    "Escuela Superior de Medicina (ESM)",
-    "Escuela Nacional de Medicina y Homeopatía (ENMH)",
-    "Escuela Superior de Enfermería y Obstetricia (ESEO)",
-    "Centro Interdisciplinario de Ciencias de la Salud (CICS)Unidad Milpa Alta",
-    "Centro Interdisciplinario de Ciencias de la Salud (CICS) Unidad Santo Tomás",
-    "Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás",
-    "Escuela Superior de Comercio y Administración (ESCA) Unidad Tepepan",
-    "Escuela Superior de Economía (ESE)",
-    "Escuela Superior de Turismo (EST)",
-    "Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)",
-    "Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)",
-    "Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Hidalgo (UPIIH)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)",
-    "Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Palenque (UPIIP)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Coahuila (UPIIC)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Tlaxcala (UPIIT)",
-    'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)'],
-    ADMIN_NS:["Dirección de Educación Superior"],
-    
-    ADMIN_DEV_SA:["Dirección de Educación Virtual"],
-    
-    ADMIN_DFIE_SA:["Dirección de Formación e Innovación Educativa"],
-
-    ADMIN_DFLE_SA:["Dirección de Formación en Lenguas Extranjeras"],
-    
-    L_DFLE_SA:["Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco",
-               "Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás]"],           
-    
-    ADMIN_SACAD_SACAD:["Secretaría Académica"],
-    
-    
-    
-
-    
-    
-    
-
-
-           
-                 
-//Secretaria Administrativa
-ADMIN_SA_SA:["Secretaría de Administración"],
-ADMIN_DCH_SA:["Dirección de Capital Humano"],
-ADMIN_DPP_SA:["Dirección de Programación y Presupuesto"],
-ADMIN_DRF_SA:["Dirección de Recursos Financieros"],
-ADMIN_DRMI_SA:["Dirección de Recursos Materiales e Infraestructua"],
-ADMIN_DSG_SA:["Dirección de Servicios Generales"],
-ADMIN_CCDI_SA:["Coordinación de Centros de Desarrollo Infantil"],
-
-
-
-//Secretaria de Inovacion e Integracion Social
-
-VD:["Centro de Vinculación y Desarrollo Regional (CVDR),Unidad Cajeme -Sonora",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala", 
-    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua",
-    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz",
-    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla"],
-ADMIN_DVDR:["Dirección de Vinculación y Desarrollo Regional"],
-ADMIN_SIIS_SIIS:["Secretaría de Innovación e Integración Social"],
-ADMIN_DESS_SIIS:["Dirección de Egresados y Servicio Social"],
-ADMIN_DRI_SIIS:["Dirección de Relaciones Internacionales"],
-ADMIN_DSETT_SIIS:["Dirección de Servicios Empresariales y Transferencia Tecnológica"],
-ADMIN_DIET_SIIS:["Dirección de Incubación de Empresas Tecnológicas"],
-ADMIN_DPITT_SIIS:["Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli"],
-
-
-
-
-
-//Secretaria de Investigacion y Posgrado
-ADMIN_DI:["Dirección de Investigación"],
-ADMIN_SIP_SIP:["Secretaría de Investigación y Posgrado"],
-ADMIN_DP_SIP:["Dirección de Posgrado"],
-ADMIN_DDCT_SIP:["Dirección de Difusión de Ciencia y Tecnología"],
-I_DI_DP:["Centro de Desarrollo Aeroespacial (CDA)","Centro de Nanociencias y Micro y Nanotecnologías (CNMN)"],
-INV_POSG:["Centro Interdisciplinario de Ciencias Marinas (CICIMAR)",
-   "Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente Y Desarrollo (CIIEMAD)",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Michoacán",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca",
-   "Centro de Desarrollo de Productos Bióticos (CEPROBI)",
-   "Centro de Biotecnología Genómica (CBG)",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada  (CICATA), Unidad Morelos",
-   "Centro de Investigación en Computación (CIC)",
-   "Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)",
-   "Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)",
-   "Centro de Investigación en Biotecnología Aplicada, IPN -Tlaxcala (CIBA)",
-   "Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)",
-   "Centro de Investigación e Innovación Tecnológica (CIITEC)",
-   "Centro Mexicano para la Producción Más Limpia (CMP+L)"],
-
-
-
-
-
-
-
-
-
-//Secretaria de SE
-ADMIN_SSE_SSE:["Secretaría de Servicios Educativos"],
-ADMIN_DAES_SSE:["Dirección de Administración Escolar"],
-ADMIN_DDC_SSE:["Dirección de Difusión Cultural"],
-ADMIN_DAD_SSE:["Dirección de Actividades Deportivas"],
-ADMIN_DBP_SSE:["Dirección de Bibliotecas y Publicaciones"],
-ADMIN_DAE_SSE:["Dirección de Apoyos a Estudiantes"],
-
-
-//Coordinacion General de Planeacion e Informacion Institucional
-
-ADMIN_CGPII_DG:["Coordinación General de Planeación e Información Institucional"],
-
-ADMIN_DPO_DG:["Dirección de Planeación y Organización"],
-
-ADMIN_DII_DG:["Dirección de Información Institucional"],
-
-
-
-// Coordinación de Imagen Institucional
-
-ADMIN_CII_DG:["Coordinación de Imagen Institucional"],
-
-
-//Centro Nacional de Calculo
-
-ADMIN_CGCENAC_SA:["Centro Nacional de Cálculo (CENAC)"],
-ADMIN_DCC_CENAC:["Dirección de cómputo y comunicaciones"],                 
-ADMIN_DSI_CENAC:["Dirección de sistemas informáticos"],
-
-  
-//Estacion de Radio
-
-ADMIN_ER:["Estación de Radiodifusión Radio IPN XHIPN-FM 95.7 MHZ."],
-
-ADMIN_POI:["Patronato de Obras e Instalaciones  (POI)"],
-ADMIN_COFAA:["Comisión de Operación y Fomento de Actividades Académicas (COFAA)"],  
-};
-
-
-//--------------------Actualizacion de la opciones de dependencia con base al valor elegido en el nivel
-
-
-nivelInput.addEventListener("change", () => {
-  const valor = nivelInput.value;
-
-  // Limpiar subcategoría
-  dependenciaInput.innerHTML = '<option value="">-- Selecciona --</option>';
-  dependenciaInput.disabled = !valor;
-
-  if (!valor || !opciones[valor]) return;
-
-  opciones[valor].forEach(texto => {
-    const option = document.createElement("option");
-    option.value = texto;
-    option.textContent = texto;
-    dependenciaInput.appendChild(option);
-  });
-});
-*/
 
 const opciones = ["Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)",
                   "Defensoría de los Derechos Politécnicos",
@@ -1348,26 +2418,26 @@ const opciones = ["Unidad Politécnica de Gestión con Perspectiva de Género (U
 
                   //Secretaria Academica
                  'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 1)  "Gonzalo Vázquez Vela"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 2)  "Miguel Bernard"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 3)  "Estanislao Ramírez Ruiz"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 4)  "Lázaro Cárdenas"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 5)  "Benito Juárez"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 6)  "Miguel Othón De Mendizábal"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 7)  "Cuauhtémoc"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 8)  "Narciso Bassols"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 9)  "Juan De Dios Bátiz"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 1) "Gonzalo Vázquez Vela"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 5) "Benito Juárez"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 6) "Miguel Othón De Mendizábal"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 7) "Cuauhtémoc"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 9) "Juan De Dios Bátiz"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 11) "Wilfrido Massieu"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 13) "Ricardo Flores Magón"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 14) "Luis Enrique Erro"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 15) "Diódoro Antúnez Echegaray"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 16) "Hidalgo"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 17) "León, Guanajuato"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Leona Vicario"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"',
                  "Dirección de Educación Media Superior",
                  "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco",
                  "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán",
@@ -1532,26 +2602,26 @@ const folios =new Map( [
               [ "Dirección de Legislación, Consulta y Transparencia"                                                         ,"FDN-LCT-009"                                 ],                                                                                                 
               [ "Presidencia del Decanato"                                                                                   ,"FDN-PD-010"                                  ],                                                                                                 
               [ 'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"'                                             ,"FDN-CET1-011"                                ],                                                                                                 
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 1) "Gonzalo Vázquez Vela"'                             ,"FDN-CECyT1-012"                              ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 2) "Miguel Bernard"'                                   ,"FDN-CECyT2-013"                              ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 3) "Estanislao Ramírez Ruiz"'                          ,"FDN-CECyT3-014"                              ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 4) "Lázaro Cárdenas"'                                  ,"FDN-CECyT4-015"                              ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 5) "Benito Juárez"'                                    ,"FDN-CECyT5-016"                              ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 6) "Miguel Othón De Mendizábal"'                       ,"FDN-CECyT6-017"                              ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 7) "Cuauhtémoc"'                                       ,"FDN-CECyT7-018"                              ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 8) "Narciso Bassols"'                                  ,"FDN-CECyT8-019"                              ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 9) "Juan De Dios Bátiz"'                               ,"FDN-CECyT9-020"                              ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"'                          ,"FDN-CECyT10-021"                             ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"'                                ,"FDN-CECyT11-022"                             ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"'                              ,"FDN-CECyT12-023"                             ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"'                            ,"FDN-CECyT13-024"                             ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"'                               ,"FDN-CECyT14-025"                             ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"'                       ,"FDN-CECyT15-026"                             ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"'                                         ,"FDN-CECyT16-027"                             ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"'                                ,"FDN-CECyT17-028"                             ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"'                                       ,"FDN-CECyT18-029"                             ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"'                                   ,"FDN-CECyT19-030"                             ],
-              [ 'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"'                        ,"FDN-CECyT20-031"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 1) "Gonzalo Vázquez Vela"'                             ,"FDN-CECyT1-012"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"'                                   ,"FDN-CECyT2-013"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"'                          ,"FDN-CECyT3-014"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"'                                  ,"FDN-CECyT4-015"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 5) "Benito Juárez"'                                    ,"FDN-CECyT5-016"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 6) "Miguel Othón De Mendizábal"'                       ,"FDN-CECyT6-017"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 7) "Cuauhtémoc"'                                       ,"FDN-CECyT7-018"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"'                                  ,"FDN-CECyT8-019"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 9) "Juan De Dios Bátiz"'                               ,"FDN-CECyT9-020"                              ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"'                          ,"FDN-CECyT10-021"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 11) "Wilfrido Massieu"'                                ,"FDN-CECyT11-022"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"'                              ,"FDN-CECyT12-023"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 13) "Ricardo Flores Magón"'                            ,"FDN-CECyT13-024"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 14) "Luis Enrique Erro"'                               ,"FDN-CECyT14-025"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 15) "Diódoro Antúnez Echegaray"'                       ,"FDN-CECyT15-026"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 16) "Hidalgo"'                                         ,"FDN-CECyT16-027"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 17) "León, Guanajuato"'                                ,"FDN-CECyT17-028"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"'                                       ,"FDN-CECyT18-029"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Leona Vicario"'                                   ,"FDN-CECyT19-030"                             ],
+              [ 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"'                        ,"FDN-CECyT20-031"                             ],
               [ "Dirección de Educación Media Superior"                                                                      ,"FDN-DIEMS-032"                               ],
               [ "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco"                              ,"FDN-ESIME-Zacatenco-033"                     ],
               [ "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán"                              ,"FDN-ESIME-Culhuacán-034"                     ],
@@ -1848,568 +2918,7 @@ document.getElementById("tablaBody6").addEventListener("input", function (e) {
 
 //-----------------------Agergar fila tabla 1
 
-function agregarFila(){
-  const tbody = document.getElementById("tablaBody");
-  const tbody1 = document.getElementById("tablaBody1_1");
-  const i = obtenerNumeroFila1();
-  const j = obtenerNumeroFila1_1();
 
-  const fila = document.createElement("tr");
-  const fila1 = document.createElement("tr");
-  fila.innerHTML = `
-     <td>
-      ${i}
-    </td>
-  
-     
-    <td>
-      <textarea
-        name="Programa_T1R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programas académicos, servicios o actividades de la dependencia"
-        > </textarea>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios1_T1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
-    </td>
-    
-    <td>
-    <input type="number" name="Usuarios2_T1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
-    </td>
-    
-    <td> 
-    <input type="number" name="Usuarios3_T1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
-     </td>
-    
-    <td>
-    <input type="number" name="Usuarios4_T1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
-    </td>
-    
-    <td>
-    <input type="number" name="Usuarios5_T1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios6_T1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios7_T1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios8_T1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios9_T1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
-    </td>
-
-
-    <td>
-    <input type="number" name="Usuarios10_T1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
-    </td>
-
-  `;
-
-  fila1.innerHTML = `
-    <td>
-      <textarea
-        name="Programa_T1_1R${j}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programas académicos, servicios o actividades de la dependencia"
-        > </textarea>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios1_T1_1R${j}" class="input_tabla " aria-label="Usuarios1"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios2_T1_1R${j}" class="input_tabla " aria-label="Usuarios2"> </input>
-    </td>
-    <td> 
-    <input type="number" name="Usuarios3_T1_1R${j}" class="input_tabla " aria-label="Usuarios3"> </input>
-     </td>
-    <td>
-    <input type="number" name="Usuarios4_T1_1R${j}" class="input_tabla " aria-label="Usuarios4"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios5_T1_1R${j}" class="input_tabla " aria-label="Usuarios5"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios6_T1_1R${j}" class="input_tabla " aria-label="Usuarios6"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios7_T1_1R${j}" class="input_tabla " aria-label="Usuarios7"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios8_T1_1R${j}" class="input_tabla " aria-label="Usuarios8"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios9_T1_1R${j}" class="input_tabla " aria-label="Usuarios9"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios10_T1_1R${j}" class="input_tabla " aria-label="Usuarios10"> </input>
-    </td>
-  `;
-  tbody.appendChild(fila);
-   tbody1.appendChild(fila1);
-
- // generarNivel();
- // generarDependencia();
-  activarAutoExpand(fila);
-  activarAutoExpand(fila1);
-
-}    
-
-
-
-
-
-//-----------------------Agergar fila tabla 2
-
-
-function agregarFila2(){
-  const tbody = document.getElementById("tablaBody2");
-  const i = obtenerNumeroFila2();
-
-
-  const fila = document.createElement("tr");
-  fila.innerHTML = `
-    <td>
-      ${i}
-    </td>
-    <td>
-    <input name="Edificio_T2R${i}" class="input_tabla" aria-label="Edificio"> </input>
-    </td>
-
-    <td>
-    <input name="Nivel_T2R${i}" class="input_tabla" aria-label="Nivel"> </input>
-    </td>
-
-    <td>
-    <input name="Espacio_T2R${i}" class="input_tabla" aria-label="Espacio"> </input>
-    </td>    
-    
-    
-    
-    
-
-      <td class="cantidadCol">
-
-      <input type="number" name="Largo_T2R${i}" class="input_tabla " aria-label="Largo"> </input>  
-    
-      </td>
-
-      
-    
-      <td class="cantidadCol">
-
-              <input type="number" name="Ancho_T2R${i}" class="input_tabla " aria-label="Ancho">
-              </input>  
-    
-      </td>
-      
-
-      <td class="cantidadCol">
-
-      <input type="number" name="Alumnos_T2R${i}" class="input_tabla " aria-label="Numero de Alumnos"> </input>  
-    
-      </td>
-      
-
-   
-      <td class="cantidadCol">
-
-      <input type="number" name="Horas_T2R${i}" class="input_tabla " aria-label="Horas de Servicio"> </input>  
-    
-      </td>
-
-  `;
-  tbody.appendChild(fila);
-
-//  generarNivel();
-//  generarDependencia();
-  activarAutoExpand(fila);
-}
-
-
-
-//-----------------------Agregar fila tabla 3
-
-function agregarFila3(){
-  const tbody = document.getElementById("tablaBody3");
-  const i = obtenerNumeroFila3();
-
-
-  const fila = document.createElement("tr");
- 
-
-
-fila.innerHTML = `
-    <td>
-      ${i}
-    </td>
-    <td>
-    <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
-    </td>
-    <td >
-
-                      <textarea 
-                       id= "urlPlanos_T3R${i}"
-                       name="urlPlanos_T3R${i}" 
-                       class="auto-expand input_tabla"
-                       rows="1"
-                       style="resize:none;"
-                       aria-label="Url de los planos recibidos" readonly>
-  
-                 </textarea>
-   
-    </td>
-  `;
-
-
-
-
-  tbody.appendChild(fila);
-
-//  generarNivel();
-//  generarDependencia();
-  activarAutoExpand(fila);
-}
-
-
-
-
-function agregarFilaC(){
-  const tbody = document.getElementById("tablaCotizaciones");
-  const i = obtenerNumeroFilaC();
-
-
-  const fila = document.createElement("tr");
-
-
-fila.innerHTML = ` 
-     <td>
-      ${i}
-    </td>    
-     <td>
-      <textarea
-        name="nombreCotizacion_TCR${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre de la Cotizacion"
-        > </textarea>
-    </td>
-
-     <td>
-      <textarea
-        name="urlCotizacionAdquisicionG1_TCR${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Url de las Cotizaciones"
-        > </textarea>
-    </td>
-
-<td class="cantidadCol">
-
-      <input type="number" name="anio_TCR${i}" class="input_tabla " aria-label="Año de la cotizacion"> </input>  
-    
-      </td>    
-
-
-
-            <td>
-      <textarea
-        name="nombreCotizacion2_TCR${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre de la Cotizacion 2"
-        > </textarea>
-    </td>
-
-<td>
-      <textarea
-        name="urlCotizacionAdquisicionG2_TCR${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Url de las Cotizaciones"
-        > </textarea>
-    </td>
-
-     <td>
-            <input type="number" name="anioA2_TCR${i}" class="input_tabla " aria-label="Año de la cotizacion"> </input>  
-    
-      </td>
-
-
-  `;
-
-  tbody.appendChild(fila);
-
-//  generarNivel();
-//  generarDependencia();
-  activarAutoExpand(fila);
-}
-
-
-//-----------------------Agergar fila tabla 4
-
-function agregarFila4(){
-  const tbody = document.getElementById("tablaBody4");
-  const i = obtenerNumeroFila4();
-
-
-  const fila = document.createElement("tr");
-  fila.innerHTML  = `
-     <td>
-      ${i}
-    </td>
-    <td>
-      <textarea
-        name="ProgramaAcademico_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programa Académico"
-        > </textarea>
-    </td> 
-    
-    <td>
-         <textarea
-        name="Espacio_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Espacio"
-        > </textarea>
-    </td>
-    <td>
-      <textarea
-        name="Clave_T4R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="clave"
-        > </textarea>
-      </td>
-    <td>
-      <textarea
-        name="nombredelEquipo_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del Equipo"
-        > </textarea>
-    </td>
-    
-    
-
-    <td class="cantidadCol">
-
-      <input type="number" name="cantidad_T4R${i}" class="input_tabla " aria-label="Cantidad"> </input>  
-    
-      </td>
-
-
-    <td>
-      <textarea
-        name="especificaciones_T4R${i}"
-        class="auto-expand input_tabla expandible"
-        rows="1"
-        style="resize:none;"
-        aria-label="Especificaciones"
-        > </textarea>
-    </td>
-
-    <td>
-      <textarea id="justificacion_T4R${i}" name="justificacion_T4R${i}"
-                   class="auto-expand input_tabla expandible"
-                   rows="1"
-                   style="resize:none;"  aria-label="Justificación">
-                   
-      </textarea>
-    </td>
-
-    
-    
-     <td>
-      <div class="precio-wrapper">
-            <span class="peso">$</span>
-            <input type="text"
-                   name="precio_T4R${i}"
-                   class="input_tabla precio"
-                   oninput="formatearMiles(this)"
-                   inputmode="decimal" 
-                   aria-label="Precio"> 
-            </input>
-      </div>
-      </td>
-    <td>
-      <textarea
-        name="nombreCotizacion_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del archivo donde esta la Cotizacion del Equipo"
-        > </textarea>
-    </td>
-
-
-
-    <td class="paso">
-      <textarea
-        name="urlCotizacionAdquisicion_T4R${i}"
-        class="auto-expand input_tabla "
-        rows="1"
-        style="resize:none;"
-        aria-label="Url de las Cotizaciones"
-        > </textarea>
-    </td>
-
-
-
-
-
-  <td>
-   <div class="precio-wrapper">
-            <span class="peso">$</span>
-            <input type="text"
-                   name="precio2_T4R${i}"
-                   class="input_tabla precio"
-                   oninput="formatearMiles(this)"
-                   inputmode="decimal" 
-                   aria-label="Precio 2"> 
-            </input>
-      </div>
-      </td>
-     
-  <td>
-      <textarea
-        name="nombreCotizacion_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del archivo donde esta la Cotizacion del Equipo"
-        > </textarea>
-    </td>
-
-
-
-
-<td class="paso">
-      <textarea
-        name="urlCotizacionAdquisicion2_T4R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Url de las Cotizaciones"
-        > </textarea>
-    </td>
- `;
-
-  tbody.appendChild(fila);
-
-//  generarNivel();
-//  generarDependencia();
-  activarAutoExpand(fila);
-}
-
-function agregarFila5(){
-  const tbody = document.getElementById("tablaBody5");
-  const i = obtenerNumeroFila5();
-
-
-  const fila = document.createElement("tr");
-  fila.innerHTML = `
-     <td>
-      ${i}
-    </td>
-    <td>
-      <textarea
-        name="ProgramaAcademico_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programa Académico"
-        > </textarea>
-    </td> 
-    
-    <td >
-    <textarea
-        name="Espacio_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Espacio"
-        > </textarea></td>
-    
-    <td>
-      <textarea
-        name="nombredelEquipo_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del Equipo"
-        > </textarea>
-    </td>
-    
-    
-
-    
-
-    <td>
-      <textarea
-        name="especificaciones_T5R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Especificaciones"
-        > </textarea>
-    </td>
-
-      <td class="cantidadCol">
-
-      <input type="number" name="cantidadMal_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en mal estado"> </input>  
-    
-      </td>
-
-    <td class="cantidadCol">
-
-      <input type="number" name="cantidadBuen_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
-    
-      </td>
-    <td class="cantidadCol">
-
-      <input type="number" name="cantidadRegular_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
-    
-      </td>
-     
-
-`;
-
-  tbody.appendChild(fila);
-
-//  generarNivel();
-//  generarDependencia();
-  activarAutoExpand(fila);
-}
 /*
 function agregarFila6(){
   const tbody = document.getElementById("tablaBody6");
@@ -2678,7 +3187,11 @@ let ExistenciaDeCotizacionesA2_T4=false;
     data[key] = value;
   });
 
-  // Guardamos también el número de filas actuales
+
+  
+ 
+  
+    // Guardamos también el número de filas actuales
   data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
   data.__filas2 = document.querySelectorAll("#tablaBody2 tr").length;
   data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
@@ -2687,12 +3200,35 @@ let ExistenciaDeCotizacionesA2_T4=false;
 /*
   data.__filas6 = document.querySelectorAll("#tablaBody6 tr").length;
  */ 
+/*alert(data.__filas4);
+alert(document.getElementById(`ProgramaAcademico_T4R1RO`).checked);
+
+*/
+
+document.querySelectorAll(".check-verificacion").forEach(check => {
+
+    data[check.name] = check.checked;
+
+});
+
+
+
+/*
+for(let i =1;i<data.__filas4;i++){
+  alert(`ProgramaAcademico_T4R${i}RO`);
+  alert(document.getElementById(`ProgramaAcademico_T4R${i}RO`).checked);
+  data[`ProgramaAcademico_T4R${i}RO`] =
+    document.getElementById(`ProgramaAcademico_T4R${i}RO`).checked;
+}
+
+*/
+/*
   if(folioActual==null){
              folioActual = generarFolio();
   }
   data.__folio = folioActual;
 
-
+*/
 
  // formData.append(
  //   "payload",
@@ -2956,7 +3492,7 @@ setTimeout(() => {
     setTimeout(() => {
 */
 
-folioValor.value=data.folio;
+// folioValor.value=data.folio;
 setSelectValue("dependencia", data.dependencia);
 
 Object.keys(data).forEach(name => {
@@ -2983,6 +3519,16 @@ Object.keys(data).forEach(name => {
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
+      
+      document.querySelectorAll(".check-verificacion").forEach(check => {
+
+    if (data.hasOwnProperty(check.name)) {
+        check.checked = data[check.name] === true;
+    }
+
+});
+
+
       document.querySelectorAll("#tablaBody tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
@@ -3145,6 +3691,16 @@ Object.keys(data).forEach(name => {
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
+
+      document.querySelectorAll(".check-verificacion").forEach(check => {
+
+    if (data.hasOwnProperty(check.name)) {
+        check.checked = data[check.name] === true;
+    }
+
+});
+
+
       document.querySelectorAll("#tablaBody tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
@@ -3320,7 +3876,11 @@ formData.append(
 
 
 
+document.querySelectorAll(".check-verificacion").forEach(check => {
 
+    data[check.name] = check.checked;
+
+});
 
 
 
@@ -3631,7 +4191,7 @@ campo.addEventListener("blur", function () {
 });
 
 
-function dividirData(data, partes = 4) {
+function dividirData(data, partes = 8) {
 
     const json = JSON.stringify(data);
 
