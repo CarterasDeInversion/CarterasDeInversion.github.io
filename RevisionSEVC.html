@@ -45,7 +45,19 @@
                             <button type="button" id="cargarFolio">
                                                     Cargar Folio
                             </button>
+
+                            <label for="folioSeleccionado">Folio / Tipo de bien</label>
+
+<select id="folioSeleccionado">
+    <option value="">Selecciona una opción</option>
+</select>
                             <input  type="text" id="folioInput" placeholder="folio Correspondiente" readonly> 
+                            
+                          
+                    </div>
+                    
+                    <div class="bloque-botones filtroInicial">
+                            
                             <label for="dependencia">Dependencia</label>
                                  <select name="dependencia" id="dependencia" class="IGS" required>
                                    <option value=""> Favor de Cargar una solicitud, dependencia no Encontrada</option>
@@ -64,13 +76,18 @@
 
                           
                     </div>
-                    
+
+
+
+
+
+
 <div class="bloque-botones Botderecha">
                                  <button type="button" id="guardarBorrador">💾 Guardar borrador</button>
                                  
-                                  
+                                  <button  class="BotonChico"type="submit" id="Enviar">Enviar</button>
                                 
-                                <button type="button" id="cargarBorrador">📂 Cargar borrador de la Solicitud</button>
+                                
                                 
                                 
                       </div>  
@@ -105,13 +122,14 @@
 
 
 
-                      <div class="bloque-botones Botderecha">
+                      <div class="bloque-botones Botderecha paso">
                                 
 
                                 
                                 <button type="button" id="cargarRespuesta">📂Cargar respuesta de solicitud</button>
+                                <button type="button" id="cargarBorrador">📂 Cargar borrador de la Solicitud</button>
                                   
-                                <button  class="BotonChico"type="submit" id="Enviar">Enviar</button>
+                                
                                 
                             </div>
 
@@ -781,11 +799,14 @@
                                                                     </th>
                                                                     
 
-
                                                                     <th title="Precio unitario Adquisición Alternativa 1 (Sin IVA)">
                                                                         Precio unitario Adquisición Alternativa 1 (Sin IVA)
                                                                     </th>
                                                                     
+                                                                    <th title="Precio Total con IVA" >
+                                                                        Precio Total con IVA
+                                                                    </th>
+
                                                                     <th title="Nombre del Archivo de la Cotización de Adquisición">
                                                                         Nombre del Archivo de la Cotización de Adquisición 
                                                                     </th>
@@ -796,7 +817,11 @@
                                                                     </th>
                                                                     
                                                                     <th title="Precio unitario Adquisición Alternativa 1 (Sin IVA)">
-                                                                        Precio unitario Adquisición Alternativa 1 (Sin IVA)
+                                                                        Precio unitario Adquisición Alternativa 2 (Sin IVA)
+                                                                    </th>
+
+                                                                    <th title="Precio 2 Total con IVA" >
+                                                                        Precio Total2 con IVA
                                                                     </th>
                                 
                                                                     <th title="Nombre del Archivo de la Cotización de Adquisición 2">
@@ -956,68 +981,12 @@
                          Observaciones
                        </button>   
                        </div>
-<!--
-    <button type="button" class="pagina" onclick="siguiente(8)">
-     Observaciones y Dudas
-    </button>         
-               
-                                <h3>Oferta </h3>            
-                                <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla  6. Inventario de la dependencia (Capitulo 5000)</legend>
-                                <table class="Tabla6" title="Tabla de Registro de Necesidades">
-                                <thead>
-                                                               <tr>
-                                                                    <th title="ProgramaAcadémico">
-                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
-                                                                    </th>
-                                                
-                                                                    <th title="Espacio">
-                                                                         Espacio
-                                                                    </th>   
-                              
-                                                                    
-                                                                    
-                                                                    <th title="Equipo">
-                                                                        Nombre del componente
-                                                                    </th>
-                                                                    
-                                                                    <th title=" Estado y caraacteristicas del equipo">
-                                                                         Especificaciones y Desempeño Operativo 
-                                                                    </th> 
-                                                                    
-                                                                    
-                                                                    <th title="Cuantos equipos  en buen estado (útiles)">
-                                                                         Cuantos equipos  en buen estado (útiles) 
-                                                                    </th>
-                                                                    
-                                                                    <th title="Cuantos equipos  en estado regular (útiles)">
-                                                                         Cuantos equipos  en estado regular (útiles) 
-                                                                    </th>
-                                                                     
-                                                               </tr>
-                                                        </thead>
-                                
-                                                        <tbody id="tablaBody6">
-                                                                
-                                
-                                
-                                                              
-                                                        </tbody>     
-                                </table>
-                                </fieldset>
 
-</div>                                
 
-<div class="paso" id="paso9">
-<button type="button" class="pagina" onclick="anterior(9)">
-      Tabla6
-    </button>
--->
+                                   <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Tabla 1. Usuarios </legend>
 
-                                    <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 1. Usuarios </legend> 
-
-                                    <table class="Tabla7" title="Tabla de Registro de Necesidades">
+                                <table class="Tabla7" title="Tabla de Registro de Necesidades">
                                 <thead>
                                    <tr>
                                          <th title ="Columna">Columna</th>
@@ -1038,13 +1007,13 @@
                                             > </textarea></td>
 
                                            <td>
-                                             <textarea
+                                             <textarea       
                                                        name="DudaProgramaAcademicoDep"
                                                        class="auto-expand input_tabla obligatorio"
                                                        rows="1"
                                                        style="resize:none;"
                                                        aria-label="Duda de Programa Academico de la Dependencia"
-                                            > </textarea></td>
+                                             readonly> </textarea></td>
                                         </tr>
 
                                       <tr>
@@ -1053,7 +1022,7 @@
 
 
                                            <td id="UsuariosHAnio1Obs"> </td>
-                                           <td><textarea
+                                           <td><textarea     
                                                        name="ObsAlumnosHAnio1DPO"
                                                        class="auto-expand input_tabla obligatorio"
                                                        rows="1"
@@ -1062,13 +1031,13 @@
                                             > </textarea></td>
 
                                            <td>
-                                             <textarea
-                                                       name="DudaAlumnosHAnio1DPO"
+                                             <textarea  
+                                                       name="DudaAlumnosHAnio1DPO"    
                                                        class="auto-expand input_tabla obligatorio"
                                                        rows="1"
                                                        style="resize:none;"
                                                        aria-label="Duda de Número de alumnos 2021 de la Dependencia"
-                                            > </textarea></td>
+                                             readonly> </textarea></td>
                                      </tr> 
                                      
                                      
@@ -1076,19 +1045,19 @@
                                      <td id="UsuariosMAnio1Obs"></td>
                                      <td >
                                          <textarea
-                                             name="ObsAlumnosMAnio1DPO"
+                                                   name="ObsAlumnosMAnio1DPO"
                                              class="auto-expand input_tabla obligatorio"
                                              rows="1"
                                              style="resize:none;"
                                              aria-label="Observaciones de Numero de alumnos 2022 de la DPO"></textarea>
                                      </td>
                                      <td>
-                                         <textarea
-                                             name="DudaAlumnosMAnio1Dep"
+                                         <textarea        
+                                             name="DudaAlumnosMAnio1Dep"     
                                              class="auto-expand input_tabla obligatorio"
                                              rows="1"
                                              style="resize:none;"
-                                             aria-label="Duda de Numero de alumnos 2022 de la Dependencia"></textarea>
+                                             aria-label="Duda de Numero de alumnos 2022 de la Dependencia" readonly></textarea>
                          
                          
                          
@@ -1098,7 +1067,7 @@
                                        <tr>
                                            <td id="UsuariosHAnio2Obs"></td>
                                            <td>
-                                               <textarea
+                                               <textarea 
                                                    name="ObsAlumnosHAnio2DPO"   
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
@@ -1106,52 +1075,52 @@
                                                    aria-label="Observaciones de Numero de alumnos 2023 de la DPO"></textarea>
                                            </td>
                                            <td>
-                                               <textarea
+                                               <textarea 
                                                    name="DudaAlumnosHAnio2Dep"
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2023 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2023 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
                                
                                        <tr>
                                            <td id="UsuariosMAnio2Obs"></td>
                                            <td>
-                                               <textarea
-                                                   name="ObsAlumnosMAnio2DPO"
+                                               <textarea 
+                                                   name="ObsAlumnosMAnio2DPO"    
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
                                                    aria-label="Observaciones de Numero de alumnos 2024 de la DPO"></textarea>
                                            </td>
                                            <td>
-                                               <textarea
+                                               <textarea 
                                                    name="DudaAlumnosMAnio2Dep"
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2024 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2024 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
                                
                                        <tr>
                                            <td id="UsuariosHAnio3Obs"></td>
                                            <td>
-                                               <textarea
-                                                   name="ObsAlumnosHAnio3DPO"
+                                               <textarea     
+                                                   name="ObsAlumnosHAnio3DPO"    
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
                                                    aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
                                            </td>
                                            <td>
-                                               <textarea
+                                               <textarea    
                                                    name="DudaAlumnosHAnio3Dep"
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
 
@@ -1159,7 +1128,7 @@
                                        <tr>
                                            <td id="UsuariosMAnio3Obs"></td>
                                            <td>
-                                               <textarea
+                                               <textarea 
                                                    name="ObsAlumnosMAnio3DPO"
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
@@ -1172,7 +1141,7 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
 
@@ -1181,21 +1150,25 @@
 
                                        <tr>
                                            <td id="UsuariosHAnio4Obs"></td>
-                                           <td>
-                                               <textarea
+                                           <td>|
+                                               <textarea   
                                                    name="ObsAlumnosHAnio4DPO"
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
                                                    aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
                                            </td>
+
+
+
+
                                            <td>
-                                               <textarea
+                                               <textarea 
                                                    name="DudaAlumnosHAnio4Dep"
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
 
@@ -1216,7 +1189,7 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
 
@@ -1236,7 +1209,7 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
 
@@ -1257,7 +1230,7 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
 
@@ -1281,7 +1254,7 @@
                                                        rows="1"
                                                        style="resize:none;"
                                                        aria-label="Duda de Programa Academico de la Dependencia"
-                                            > </textarea></td>
+                                             readonly> </textarea></td>
                                         </tr>
 
                                       <tr>
@@ -1303,7 +1276,7 @@
                                                        rows="1"
                                                        style="resize:none;"
                                                        aria-label="Duda de Número de alumnos 2021 de la Dependencia"
-                                            > </textarea></td>
+                                             readonly> </textarea></td>
                                      </tr> 
                                      
                                      
@@ -1323,7 +1296,7 @@
                                              class="auto-expand input_tabla obligatorio"
                                              rows="1"
                                              style="resize:none;"
-                                             aria-label="Duda de Numero de alumnos 2022 de la Dependencia"></textarea>
+                                             aria-label="Duda de Numero de alumnos 2022 de la Dependencia" readonly></textarea>
                          
                          
                          
@@ -1346,7 +1319,7 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2023 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2023 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
                                
@@ -1366,7 +1339,7 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2024 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2024 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
                                
@@ -1386,7 +1359,7 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
 
@@ -1407,7 +1380,7 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
 
@@ -1430,7 +1403,7 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
 
@@ -1451,7 +1424,7 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
 
@@ -1472,7 +1445,7 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
 
@@ -1493,9 +1466,15 @@
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
-                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia" readonly></textarea>
                                            </td>
                                        </tr>
+
+
+
+
+
+
                               </tbody>
                               </table>
                               </fieldset>
@@ -1503,9 +1482,16 @@
 
 
 
+
+
+
+                              
+
+
+
                               <!-- ------------------------------------------Tabla 2 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 2. Infraestructura de los espacios participantes. </legend>
+                                <legend class="TablaLeg" >Tabla 2. Infraestructura de los espacios participantes.</legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1530,7 +1516,7 @@
                                                    rows="1" 
                                                    style="resize:none;"
                                                     aria-label="Duda de Nombre del Edificio de la Dependencia"
-                                                    ></textarea>
+                                                     readonly></textarea>
                                     </td>
                               </tr>
 
@@ -1547,7 +1533,7 @@
                                                      rows="1"
                                                       style="resize:none;" 
                                                       aria-label="Duda de Nivel (Planta) de la Dependencia"
-                                                      ></textarea>
+                                                       readonly></textarea>
                                      </td>
                               </tr>
 
@@ -1564,7 +1550,7 @@
                                                      rows="1"
                                                       style="resize:none;" 
                                                       aria-label="Duda de Espacio de la Dependencia"
-                                                      ></textarea>
+                                                       readonly></textarea>
                                      </td>
                               </tr>  
                               
@@ -1581,7 +1567,7 @@
                                                      rows="1"
                                                       style="resize:none;" 
                                                       aria-label="Duda de Largo del espacio (M) de la Dependencia"
-                                                      ></textarea>
+                                                       readonly></textarea>
                                      </td>
                               </tr>
 
@@ -1598,7 +1584,7 @@
                                                      rows="1"
                                                       style="resize:none;" 
                                                       aria-label="Duda de Ancho del espacio (M) de la Dependencia"
-                                                      ></textarea>
+                                                       readonly></textarea>
                                      </td>
                               </tr>
                               <tr>
@@ -1614,7 +1600,7 @@
                                                      rows="1"
                                                       style="resize:none;" 
                                                       aria-label="Duda de Número de Alumnos o personas atendidas por espacio (Capacidad, para cuantos) de la Dependencia"
-                                                      ></textarea>
+                                                       readonly></textarea>
                                      </td>
                               </tr>
 
@@ -1631,7 +1617,7 @@
                                                      rows="1"
                                                       style="resize:none;" 
                                                       aria-label="Duda de Horas de servicio(Por semana) de la Dependencia"
-                                                      ></textarea>
+                                                       readonly></textarea>
                                      </td>
                               </tr>
 	  
@@ -1656,7 +1642,7 @@
 
 <!-- ------------------------------------------Tabla 3 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 3. Infraestructura general y planos. </legend>
+                                <legend class="TablaLeg" >Tabla3. Infraestructura general y planos.</legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1668,7 +1654,7 @@
 
                     <tbody> 
                               <tr>
-                                     <td> Nombre del Edificio</td>
+                                     <td>Nombre del Edificio</td>
                                      <td><textarea name="ObsEdificioDPO_T3" 
                                                    class="auto-expand input_tabla obligatorio" 
                                                    rows="1" 
@@ -1681,12 +1667,12 @@
                                                    rows="1" 
                                                    style="resize:none;"
                                                     aria-label="Duda de Nombre del Edificio de la Dependencia"
-                                                    ></textarea>
+                                                     readonly></textarea>
                                     </td>
                               </tr>
 
                               <tr>
-                                     <td> Metros Cuadrados</td>
+                                     <td>Metros Cuadrados</td>
                                      <td><textarea name="ObsMetrosCuadradosDPO_T3" 
                                                     class="auto-expand input_tabla obligatorio" 
                                                     rows="1" style="resize:none;" 
@@ -1698,7 +1684,7 @@
                                                      rows="1"
                                                       style="resize:none;" 
                                                       aria-label="Duda de Metros Cuadrados de la Dependencia"
-                                                      ></textarea>
+                                                       readonly></textarea>
                                      </td>
                               </tr>
 
@@ -1732,7 +1718,7 @@
                                                    rows="1" 
                                                    style="resize:none;"
                                                     aria-label="Duda de Nombre de la Cotizacion Alternativa 1 de la Dependencia"
-                                                    ></textarea>
+                                                     readonly></textarea>
                                     </td>
                               </tr>
 
@@ -1750,7 +1736,7 @@
                                                    rows="1" 
                                                    style="resize:none;"
                                                     aria-label="Duda de la Cotizacion Alternativa 1 de la Dependencia"
-                                                    ></textarea>
+                                                     readonly></textarea>
                                     </td>
                               </tr>
                               <tr>
@@ -1767,9 +1753,29 @@
                                                    rows="1" 
                                                    style="resize:none;"
                                                     aria-label="Duda del año de la Cotizacion Alternativa 1 de la Dependencia"
-                                                    ></textarea>
+                                                     readonly></textarea>
                                     </td>
                               </tr>
+
+                               
+                              <tr>
+                                     <td>Nombre  de la Cotizacion de Adquisicion General Alternativa 2</td>
+                                     <td><textarea name="ObsNombreCot2DPO_T3" 
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;" 
+                                                   aria-label="Observaciones de Nombre de la Cotizacion Alternativa 1 de la DPO"
+                                                   ></textarea>
+                                    </td>
+                                     <td><textarea name="DudaNombreCot2Dep_T3"
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;"
+                                                    aria-label="Duda de Nombre de la Cotizacion Alternativa 1 de la Dependencia"
+                                                     readonly></textarea>
+                                    </td>
+                              </tr>
+                               
 
                               <tr>
                                      <td>Cotizacion de Adquisicion General Alternativa 2</td>
@@ -1780,16 +1786,16 @@
                                                    aria-label="Observaciones de la Cotizacion Alternativa 2 de la DPO"
                                                    ></textarea>
                                     </td>
-                                     <td><textarea name="DudaNombreCot2Dep_T3"
+                                     <td><textarea name="DudaCot2Dep_T3"
                                                    class="auto-expand input_tabla obligatorio" 
                                                    rows="1" 
                                                    style="resize:none;"
                                                     aria-label="Duda de la Cotizacion Alternativa 2 de la Dependencia"
-                                                    ></textarea>
+                                                     readonly></textarea>
                                     </td>
                               </tr>
                               <tr>
-                                     <td>Año de la Cotizacion de Adquisicion 2</td>
+                                     <td>Año de la Cotizacion de Adquisicion 1</td>
                                      <td><textarea name="ObsAnio2DPO_T3" 
                                                    class="auto-expand input_tabla obligatorio" 
                                                    rows="1" 
@@ -1802,7 +1808,7 @@
                                                    rows="1" 
                                                    style="resize:none;"
                                                     aria-label="Duda del año de la Cotizacion Alternativa 2 de la Dependencia"
-                                                    ></textarea>
+                                                     readonly></textarea>
                                     </td>
                               </tr>
 
@@ -1810,9 +1816,16 @@
                     </table>
 
                     </fieldset>
+ 
+
+
+
+
+
+
                     <!-- ------------------------------------------Tabla 4 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 4. Demanda </legend>
+                                <legend class="TablaLeg" >Tabla 4.Demanda</legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1825,7 +1838,7 @@
                     <tbody> 
                               
                                             <tr>
-                                                          <td>Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.</td>
+                                                          <td> Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.</td>
                                                           <td><textarea name="ObsProgramaAcademicoDPO_T4" 
                                                                         class="auto-expand input_tabla obligatorio" 
                                                                         rows="1" style="resize:none;"
@@ -1835,12 +1848,12 @@
                                                                         class="auto-expand input_tabla obligatorio" 
                                                                         rows="1" 
                                                                         style="resize:none;"
-                                                                        ></textarea>
+                                                                         readonly></textarea>
                                                           </td>
                                              </tr>
                     
                                              <tr>
-                                                         <td>Espacio</td>
+                                                         <td> Espacio</td>
                                                          <td><textarea name="ObsEspacioDPO_T4"
                                                                        class="auto-expand input_tabla obligatorio"
                                                                         rows="1"
@@ -1850,11 +1863,11 @@
                                                          <td><textarea name="DudaEspacioDep_T4" 
                                                                        class="auto-expand input_tabla obligatorio"
                                                                         rows="1"
-                                                                         style="resize:none;"></textarea></td>
+                                                                         style="resize:none;" readonly></textarea></td>
                                               </tr>
                     
                                               <tr>
-                                                         <td>Clave CUCOP</td>
+                                                         <td> Clave CUCOP</td>
                                                          <td> <textarea 
                                                                         name="ObsClaveCUCOPDPO_T4"
                                                                         class="auto-expand input_tabla obligatorio" 
@@ -1866,11 +1879,11 @@
                                                                        class="auto-expand input_tabla obligatorio"
                                                                         rows="1" 
                                                                         style="resize:none;"
-                                                        ></textarea></td>
+                                                         readonly></textarea></td>
                                               </tr>
                     
                                               <tr>
-                                                  <td> Nombre del Componente</td>
+                                                  <td>Nombre del Componente</td>
                                                   <td><textarea 
                                                                name="ObsComponenteDPO_T4"
                                                                class="auto-expand input_tabla obligatorio"
@@ -1881,7 +1894,7 @@
                                                                name="DudaComponenteDep_T4" 
                                                                class="auto-expand input_tabla obligatorio"
                                                                 rows="1" style="resize:none;"
-                                                  ></textarea></td>
+                                                   readonly></textarea></td>
                                               </tr>
                                               
                                               <tr>
@@ -1896,7 +1909,7 @@
                                                            name="DudaCantidadDep_T4" 
                                                            class="auto-expand input_tabla obligatorio"
                                                             rows="1" style="resize:none;"
-                                              ></textarea></td>
+                                               readonly></textarea></td>
                                           </tr>
                                           
                                           <tr>
@@ -1912,7 +1925,7 @@
                                                             class="auto-expand input_tabla obligatorio"
                                                              rows="1" 
                                                              style="resize:none;"
-                                                             ></textarea></td>
+                                                              readonly></textarea></td>
                                           </tr>
                                           
                                           <tr>
@@ -1928,7 +1941,7 @@
                                                              class="auto-expand input_tabla obligatorio" 
                                                              rows="1" 
                                                              style="resize:none;"
-                                                             ></textarea></td>
+                                                              readonly></textarea></td>
                                           </tr>
                                           
                                           <tr>
@@ -1944,11 +1957,11 @@
                                                 class="auto-expand input_tabla obligatorio" 
                                                 rows="1" 
                                                 style="resize:none;"
-                                                ></textarea></td>
+                                                 readonly></textarea></td>
                                           </tr>
                                           
                                           <tr>
-                                              <td> Cotización de Adquisición</td>
+                                              <td>Nombre de la Cotización de Adquisición</td>
                                               <td><textarea 
                                                             name="ObsCotizacion1DPO_T4"
                                                              class="auto-expand input_tabla obligatorio"
@@ -1960,7 +1973,7 @@
                                                             class="auto-expand input_tabla obligatorio" 
                                                             rows="1" 
                                                             style="resize:none;"
-                                            ></textarea></td>
+                                             readonly></textarea></td>
                                           </tr>
                                           
                                           <tr>
@@ -1977,11 +1990,11 @@
                                                    class="auto-expand input_tabla obligatorio" 
                                                    rows="1" 
                                                    style="resize:none;"
-                                                   ></textarea></td>
+                                                    readonly></textarea></td>
                                           </tr>
                                           
                                           <tr>
-                                              <td> Cotización de Adquisición</td>
+                                              <td>Nombre de la Cotización de Adquisición 2</td>
                                               <td><textarea 
                                                               name="ObsCotizacion2DPO_T4"
                                                               class="auto-expand input_tabla obligatorio"
@@ -1993,7 +2006,7 @@
                                                              class="auto-expand input_tabla obligatorio" 
                                                              rows="1" 
                                                              style="resize:none;"
-                                                  ></textarea></td>
+                                                   readonly></textarea></td>
                                           </tr>    
 
 
@@ -2027,7 +2040,7 @@
                                                                 name="DudaProgramaAcademico_T5"
                                                                  class="auto-expand input_tabla obligatorio"
                                                                   rows="1" style="resize:none;"
-                                                                  ></textarea></td>
+                                                                   readonly></textarea></td>
                                               </tr>
                                               
                                               <tr>
@@ -2043,7 +2056,7 @@
                                                                 class="auto-expand input_tabla obligatorio"
                                                                  rows="1" 
                                                                  style="resize:none;"
-                                                    ></textarea></td>
+                                                     readonly></textarea></td>
                                               </tr>
                                               
                                               <tr>
@@ -2059,7 +2072,7 @@
                                                                 class="auto-expand input_tabla obligatorio" 
                                                                 rows="1" 
                                                                 style="resize:none;"
-                                                    ></textarea></td>
+                                                     readonly></textarea></td>
                                               </tr>
                                               
                                               <tr>
@@ -2075,7 +2088,7 @@
                                                                class="auto-expand input_tabla obligatorio" 
                                                                rows="1" 
                                                                style="resize:none;"
-                                                    ></textarea></td>
+                                                     readonly></textarea></td>
                                               </tr>
                                               
                                               <tr>
@@ -2091,7 +2104,7 @@
                                                                class="auto-expand input_tabla obligatorio" 
                                                                rows="1" 
                                                                style="resize:none;"
-                                                ></textarea></td>
+                                                 readonly></textarea></td>
                                               </tr>
                                               
                                               <tr>
@@ -2107,7 +2120,7 @@
                                                                  class="auto-expand input_tabla obligatorio"
                                                                   rows="1"
                                                                   style="resize:none;"
-                                                    ></textarea></td>
+                                                     readonly></textarea></td>
                                               </tr>
                                               
                                               <tr>
@@ -2123,7 +2136,7 @@
                                                                  class="auto-expand input_tabla obligatorio"
                                                                   rows="1"
                                                                    style="resize:none;"
-                                                    ></textarea></td>
+                                                     readonly></textarea></td>
                                               </tr>
             
 
@@ -2137,7 +2150,7 @@
 
 <!-- ------------------------------------------Tabla 6 Obs-->
                     <fieldset class="TablaFS paso"> 
-                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 6. Infraestructura (De los Espacios Participantes)) </legend>
+                                <legend class="TablaLeg paso" >Tabla 6. Infraestructura (De los Espacios Participantes)</legend>
                                  <table class="Tabla7 paso" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -2149,7 +2162,7 @@
 
                     <tbody> 
                                     <tr>
-                                       <td>(J) Programa Académico</td>
+                                       <td>Programa Académico</td>
                                    
                                        <td>
                                            <textarea
@@ -2166,7 +2179,7 @@
                                                class="auto-expand input_tabla obligatorio"
                                                rows="1"
                                                style="resize:none;"
-                                               aria-label="Duda de Programa Académico de la Dependencia"></textarea>
+                                               aria-label="Duda de Programa Académico de la Dependencia" readonly></textarea>
                                        </td>
                                     </tr>
                                     
@@ -2188,7 +2201,7 @@
                                                 class="auto-expand input_tabla obligatorio"
                                                 rows="1"
                                                 style="resize:none;"
-                                                aria-label="Duda de Espacio de la Dependencia"></textarea>
+                                                aria-label="Duda de Espacio de la Dependencia" readonly></textarea>
                                         </td>
                                     </tr>
                                     
@@ -2210,7 +2223,7 @@
                                                 class="auto-expand input_tabla obligatorio"
                                                 rows="1"
                                                 style="resize:none;"
-                                                aria-label="Duda de Nombre del componente de la Dependencia"></textarea>
+                                                aria-label="Duda de Nombre del componente de la Dependencia" readonly></textarea>
                                         </td>
                                     </tr>
                                     
@@ -2232,7 +2245,7 @@
                                                 class="auto-expand input_tabla obligatorio"
                                                 rows="1"
                                                 style="resize:none;"
-                                                aria-label="Duda de Estado y características del equipo de la Dependencia"></textarea>
+                                                aria-label="Duda de Estado y características del equipo de la Dependencia" readonly></textarea>
                                         </td>
                                     </tr>
                                     
@@ -2254,7 +2267,7 @@
                                                 class="auto-expand input_tabla obligatorio"
                                                 rows="1"
                                                 style="resize:none;"
-                                                aria-label="Duda de Cuántos equipos en buen estado de la Dependencia"></textarea>
+                                                aria-label="Duda de Cuántos equipos en buen estado de la Dependencia" readonly></textarea>
                                         </td>
                                     </tr>
                                     
@@ -2276,7 +2289,7 @@
                                                 class="auto-expand input_tabla obligatorio"
                                                 rows="1"
                                                 style="resize:none;"
-                                                aria-label="Duda de Cuántos equipos en estado regular de la Dependencia"></textarea>
+                                                aria-label="Duda de Cuántos equipos en estado regular de la Dependencia" readonly></textarea>
                                         </td>
                                     </tr>    
                                     
@@ -2306,6 +2319,4 @@
 
 
 </html>
-
-
 
