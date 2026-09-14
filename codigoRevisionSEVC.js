@@ -409,11 +409,11 @@ fila1.innerHTML = `
     </td>
 `;
 
-tbody.appendChild(fila);
-tbody1.appendChild(fila1);
-
-activarAutoExpand(fila);
-activarAutoExpand(fila1);
+    tbody.appendChild(fila);
+    tbody1.appendChild(fila1);
+    
+    activarAutoExpand(fila);
+    activarAutoExpand(fila1);
 }
 
 //*-----------------------Agregar fila tabla 2*
@@ -1086,8 +1086,14 @@ function agregarFila4() {
         </td>
     `;
 
-    tbody.appendChild(fila);
+const filaTotal =
+  document.getElementById("filaTotalTabla4");
 
+if (filaTotal) {
+  tbody.insertBefore(fila, filaTotal);
+} else {
+  tbody.appendChild(fila);
+}
     activarAutoExpand(fila);
 }
 
@@ -1256,7 +1262,7 @@ for (let i = 1; i <= 10; i++) {
 }
 
 
-
+crearFilaTotalTabla4();
 
 
 //----------------------------------------Archivos y su mecanismo-----------------------------------------------------
@@ -1407,6 +1413,52 @@ document.getElementById("tablaCotizaciones").addEventListener("change", e => {
 
 
 
+document
+  .getElementById("tablaBody4")
+  .addEventListener("change", e => {
+
+    if (!e.target.name?.startsWith("nombredelEquipo_T4R")) {
+      return;
+    }
+
+    const filas = document.querySelectorAll(
+      "#tablaBody4 tr:not(#filaTotalTabla4)"
+    );
+
+    const ultimaFila = filas[filas.length - 1];
+
+    if (ultimaFila.contains(e.target)) {
+
+      agregarFila4();
+
+      actualizarTotalesTabla4();
+    }
+  });
+
+
+
+
+
+
+
+  document
+  .getElementById("tablaBody4")
+  .addEventListener("input", function(event) {
+
+    if (
+      event.target.matches(
+        '[name^="cantidad_T4R"],' +
+        '[name^="precio_T4R"],' +
+        '[name^="precioTotal_T4R"],' +
+        '[name^="precio2_T4R"],' +
+        '[name^="precioTotal2_T4R"]'
+      )
+    ) {
+      actualizarTotalesTabla4();
+    }
+  });
+
+/*
 
 
 document.getElementById("tablaBody4").addEventListener("change", e => {
@@ -1419,6 +1471,10 @@ document.getElementById("tablaBody4").addEventListener("change", e => {
     agregarFila4();
   }
 });
+
+*/
+
+
 
 
 
@@ -4052,6 +4108,150 @@ function formatearMiles(input) {
 }
 
 
+
+function crearFilaTotalTabla4() {
+
+  const tbody = document.getElementById("tablaBody4");
+
+  // Si ya existe, no crear otra
+  if (document.getElementById("filaTotalTabla4")) return;
+
+  const filaTotal = document.createElement("tr");
+
+  filaTotal.id = "filaTotalTabla4";
+  filaTotal.classList.add("fila-total");
+
+  filaTotal.innerHTML = `
+    <td></td>
+
+    <td colspan="4">
+      <strong>TOTAL</strong>
+    </td>
+
+    <td id="totalCantidad_T4"></td>
+
+    <td></td>
+    <td></td>
+
+    <td id="totalPrecio1_T4"></td>
+
+    <td id="totalPrecioIVA1_T4"></td>
+
+    <td></td>
+    <td class="paso"></td>
+
+    <td id="totalPrecio2_T4"></td>
+
+    <td id="totalPrecioIVA2_T4"></td>
+
+    <td></td>
+    <td class="paso"></td>
+  `;
+
+  tbody.appendChild(filaTotal);
+
+  actualizarTotalesTabla4();
+}
+
+
+function numeroSinFormato(valor) {
+
+  return Number(
+    String(valor || "").replace(/,/g, "")
+  ) || 0;
+}
+
+
+function formatoMilesNumero(numero) {
+
+  return numero.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
+
+
+function actualizarTotalesTabla4() {
+
+  let totalCantidad = 0;
+  let totalPrecio1 = 0;
+  let totalPrecioIVA1 = 0;
+  let totalPrecio2 = 0;
+  let totalPrecioIVA2 = 0;
+
+  document
+    .querySelectorAll('#tablaBody4 tr:not(#filaTotalTabla4)')
+    .forEach(fila => {
+
+        if (fila.style.display === "none") {
+                     return;
+        }   
+      const cantidad =
+        fila.querySelector('[name^="cantidad_T4R"]');
+
+      const precio1 =
+        fila.querySelector('[name^="precio_T4R"]:not([name$="RO"])');
+
+      const precioIVA1 =
+        fila.querySelector('[name^="precioTotal_T4R"]');
+
+      const precio2 =
+        fila.querySelector('[name^="precio2_T4R"]:not([name$="RO"])');
+
+      const precioIVA2 =
+        fila.querySelector('[name^="precioTotal2_T4R"]');
+
+      if (cantidad) {
+        totalCantidad += numeroSinFormato(cantidad.value);
+      }
+
+      if (precio1) {
+        totalPrecio1 += numeroSinFormato(precio1.value);
+      }
+
+      if (precioIVA1) {
+        totalPrecioIVA1 += numeroSinFormato(precioIVA1.value);
+      }
+
+      if (precio2) {
+        totalPrecio2 += numeroSinFormato(precio2.value);
+      }
+
+      if (precioIVA2) {
+        totalPrecioIVA2 += numeroSinFormato(precioIVA2.value);
+      }
+    });
+
+
+  document.getElementById("totalCantidad_T4").textContent =
+    totalCantidad;
+
+  document.getElementById("totalPrecio1_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecio1);
+
+  document.getElementById("totalPrecioIVA1_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecioIVA1);
+
+  document.getElementById("totalPrecio2_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecio2);
+
+  document.getElementById("totalPrecioIVA2_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecioIVA2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function activarAutoExpand(fila){
   const textareas = fila.querySelectorAll(".auto-expand");
   textareas.forEach(textarea => {
@@ -4150,25 +4350,36 @@ if(document
 
 
 
+function precioTotalMasIVA(precioInput) {
+      
+               
+        
+            let precioTotal=precioInput.dataset.precio;
+            let cantidad=precioInput.dataset.cant;
+        
+        
+        let cantidadInput=document
+        .getElementById(cantidad);
+        
+        let precioTotalinput=document
+        .getElementById(precioTotal);
+        
+       let valorUnitario = Number(
+                precioInput.value.replace(/,/g, "")
+              );
+                 precioTotal=valorUnitario*cantidadInput.value*1.16;
+                
+                precioTotalinput.value=precioTotal;    
 
-document
-  .querySelector(".Tabla4")
-  .addEventListener("change", function(event) {
-
-    if (event.target.classList.contains("unitario")) {
-        let precioTotal=event.target.dataset.precio;
-        let cantidad=event.target.dataset.cant;
-         let valorUnitario = Number(
-        event.target.value.replace(/,/g, "")
-      );
-  let valorCant=document
-  .getElementById(cantidad).value;
-        document
-  .getElementById(precioTotal).value=valorUnitario *1.16*valorCant;
-    }
-
-  });
-
+            formatearMiles(precioTotalinput);
+            actualizarTotalesTabla4();    
+            }
+    
+       document
+               .querySelector(".Tabla4")
+               .addEventListener("change",function (event){
+                        precioTotalMasIVA(event.target)
+               });
 
 
 
@@ -4180,7 +4391,8 @@ document
   e.preventDefault();
 });
 */
-const direccionEnlace="https://script.google.com/macros/s/AKfycbxW225Zjh-t7AMDfE3Tw8aa3zAyvMd7vn5yZnJYOKIFf5uepfYxUFcHluavCGBABzHzaQ/exec"
+
+const direccionEnlace="https://script.google.com/macros/s/AKfycbz3Y7-NRj_DbY_giSYTskegQBuL52U8x3PMv_kk4RFrbf6tcjMSJmR4POwfyfecxweK4g/exec"
 
 let folioActual=null;
 let edicionActual=null;
@@ -4285,6 +4497,14 @@ Object.keys(data).forEach(name => {
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
       
+      document
+    .querySelectorAll(".Tabla4 .unitario")
+    .forEach(precioInput => {
+        precioTotalMasIVA(precioInput);
+    });
+
+
+
       document.querySelectorAll(".check-verificacion").forEach(check => {
 
     if (data.hasOwnProperty(check.name)) {
@@ -4335,7 +4555,15 @@ Object.keys(data).forEach(name => {
 //---------------------------GuardarBorrador--------------------------------------------------
 
 
-  document.getElementById("guardarBorrador").addEventListener("click", async () => {
+//--------------------------Funcion-------------------------------
+
+
+let ultimoBorradorGuardado = "";
+let temporizadorAutoguardado ;
+
+
+async function guardarBorradorAutomatico(mostrarAlerta = false) {
+  
   const form = document.getElementById("miFormulario");
   const formData = new FormData(form);
 
@@ -4372,30 +4600,12 @@ document.querySelectorAll(".check-verificacion").forEach(check => {
 
 
 
-/*
-for(let i =1;i<data.__filas4;i++){
-  alert(`ProgramaAcademico_T4R${i}RO`);
-  alert(document.getElementById(`ProgramaAcademico_T4R${i}RO`).checked);
-  data[`ProgramaAcademico_T4R${i}RO`] =
-    document.getElementById(`ProgramaAcademico_T4R${i}RO`).checked;
+const borradorActual = JSON.stringify(data);
+
+if (!mostrarAlerta && borradorActual === ultimoBorradorGuardado) {
+    return;
 }
 
-*/
-/*
-  if(folioActual==null){
-             folioActual = generarFolio();
-  }
-  data.__folio = folioActual;
-
-*/
-
- // formData.append(
- //   "payload",
- //   JSON.stringify({
- //       action: "guardarBorrador",
- //       data
- //   })
-//);
 
 try {
 
@@ -4405,7 +4615,7 @@ const res = await fetch(direccionEnlace, {
     method: "POST",
     body: JSON.stringify({
         action: "guardarBorrador",
-        json1: partes[0],
+           json1: partes[0],
            json2: partes[1],
            json3: partes[2],
            json4: partes[3],
@@ -4427,16 +4637,95 @@ const res = await fetch(direccionEnlace, {
 
   const json = await res.json();
 if (json.success) {
-      alert(`✅ Borrador guardado correctamente. Tu folio es: ${folioActual}`);
+
+    ultimoBorradorGuardado = borradorActual;
+
+    if (mostrarAlerta) {
+                alert(
+                    `✅ Borrador guardado correctamente. Tu folio es: ${folioActual}`
+                );
+            }else{
+            mostrarEstadoGuardado("✅ Borrador guardado automáticamente");
+            }
+   //   alert(`✅ Borrador guardado correctamente. Tu folio es: ${folioActual}`);
     } else {
-      alert("⚠️ Error al guardar el borrador: " + json.message);
+              if (mostrarAlerta) {
+        
+                    alert("⚠️ Error al guardar el borrador: " + json.message);
+              }else{
+                mostrarEstadoGuardado("⚠ Error al guardar");
+
+              }     
     }
   } catch (e) {
-    alert("⚠️ Error de conexión al guardar el borrador");
+         if (mostrarAlerta) {            
+                     alert("⚠️ Error de conexión al guardar el borrador");
+         }else{
+            mostrarEstadoGuardado("⚠ Error de conexión");
+         }            
   }
 
-});
+};
+   // tu código actual para guardar
 
+
+
+
+
+   let temporizadorToast;
+
+function mostrarEstadoGuardado(mensaje) {
+
+    const toast = document.getElementById("estadoGuardado");
+
+    clearTimeout(temporizadorToast);
+
+    toast.textContent = mensaje;
+    toast.classList.add("mostrar");
+
+    temporizadorToast = setTimeout(() => {
+        toast.classList.remove("mostrar");
+    }, 2500);
+}
+
+
+
+
+
+
+
+
+
+document
+    .getElementById("miFormulario")
+    .addEventListener("input", () => {
+
+        clearTimeout(temporizadorAutoguardado);
+
+        temporizadorAutoguardado = setTimeout(() => {
+
+            guardarBorradorAutomatico(false);
+
+        }, 5000);
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+  document.getElementById("guardarBorrador").addEventListener("click", () => {
+
+        guardarBorradorAutomatico(true);
+
+    });
 
 
 
@@ -4562,7 +4851,8 @@ function restaurarTabla(data) {
     }
 });     
         
-
+crearFilaTotalTabla4();
+actualizarTotalesTabla4();
 
 
 
@@ -5600,4 +5890,392 @@ document.getElementById("convertirSolicitudes").addEventListener("click", async 
 
     }
 
+});
+
+
+
+
+const filtrosActivos = new WeakMap();
+
+function activarFiltrosExcel(tabla) {
+
+    if (!filtrosActivos.has(tabla)) {
+        filtrosActivos.set(tabla, {});
+    }
+
+    const encabezados = tabla.querySelectorAll("thead th");
+
+    encabezados.forEach((th, indiceColumna) => {
+
+        if (th.querySelector(".boton-filtro")) return;
+
+        th.classList.add("filtro-th");
+
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.className = "boton-filtro";
+        boton.textContent = "▼";
+
+        const menu = document.createElement("div");
+        menu.className = "menu-filtro";
+
+        menu.innerHTML = `
+            <input
+                type="text"
+                class="buscar-filtro"
+                placeholder="Buscar..."
+            >
+
+            <label>
+                <input
+                    type="checkbox"
+                    class="seleccionar-todo"
+                    checked
+                >
+                Seleccionar todo
+            </label>
+
+            <div class="lista-valores-filtro"></div>
+
+            <div class="acciones-filtro">
+                <button type="button" class="aplicar-filtro">
+                    Aplicar
+                </button>
+
+                <button type="button" class="limpiar-filtro">
+                    Limpiar
+                </button>
+            </div>
+        `;
+
+        th.appendChild(boton);
+        th.appendChild(menu);
+
+        boton.addEventListener("click", e => {
+
+            e.stopPropagation();
+
+            document.querySelectorAll(".menu-filtro")
+                .forEach(m => {
+                    if (m !== menu) {
+                        m.style.display = "none";
+                    }
+                });
+
+            cargarValoresFiltro(
+                tabla,
+                indiceColumna,
+                menu
+            );
+
+            menu.style.display =
+                menu.style.display === "block"
+                    ? "none"
+                    : "block";
+        });
+
+        menu.addEventListener("click", e => {
+            e.stopPropagation();
+        });
+
+        const buscador =
+            menu.querySelector(".buscar-filtro");
+
+        buscador.addEventListener("input", () => {
+
+            const texto =
+                buscador.value
+                    .toLowerCase()
+                    .trim();
+
+            menu.querySelectorAll(".item-filtro")
+                .forEach(item => {
+
+                    item.style.display =
+                        item.textContent
+                            .toLowerCase()
+                            .includes(texto)
+                            ? "block"
+                            : "none";
+                });
+        });
+
+        const seleccionarTodo =
+            menu.querySelector(".seleccionar-todo");
+
+        seleccionarTodo.addEventListener("change", () => {
+
+            menu.querySelectorAll(".valor-filtro")
+                .forEach(check => {
+                    check.checked =
+                        seleccionarTodo.checked;
+                });
+        });
+
+        menu.querySelector(".aplicar-filtro")
+            .addEventListener("click", () => {
+
+                guardarFiltroColumna(
+                    tabla,
+                    indiceColumna,
+                    menu
+                );
+
+                aplicarTodosLosFiltros(tabla);
+
+                menu.style.display = "none";
+            });
+
+        menu.querySelector(".limpiar-filtro")
+            .addEventListener("click", () => {
+
+                const filtros =
+                    filtrosActivos.get(tabla);
+
+                delete filtros[indiceColumna];
+
+                boton.classList.remove("filtro-activo");
+
+                aplicarTodosLosFiltros(tabla);
+
+                menu.style.display = "none";
+            });
+    });
+}
+
+
+function cargarValoresFiltro(
+    tabla,
+    indiceColumna,
+    menu
+) {
+
+    const valores = new Set();
+
+    tabla.querySelectorAll("tbody tr:not(.fila-total)")
+        .forEach(fila => {
+
+            const valor =
+                obtenerValorCelda(
+                    fila,
+                    indiceColumna
+                );
+
+            if (valor !== "") {
+                valores.add(valor);
+            }
+        });
+
+    const lista =
+        menu.querySelector(
+            ".lista-valores-filtro"
+        );
+
+    lista.innerHTML = "";
+
+    const filtros =
+        filtrosActivos.get(tabla);
+
+    const filtroActual =
+        filtros[indiceColumna];
+
+    [...valores]
+        .sort((a, b) =>
+            a.localeCompare(
+                b,
+                "es",
+                { numeric: true }
+            )
+        )
+        .forEach(valor => {
+
+            const label =
+                document.createElement("label");
+
+            label.className =
+                "item-filtro";
+
+            const check =
+                document.createElement("input");
+
+            check.type = "checkbox";
+            check.className = "valor-filtro";
+            check.value = valor;
+
+            if (filtroActual) {
+
+                check.checked =
+                    filtroActual.has(valor);
+
+            } else {
+
+                check.checked = true;
+            }
+
+            label.appendChild(check);
+
+            label.appendChild(
+                document.createTextNode(
+                    " " + valor
+                )
+            );
+
+            lista.appendChild(label);
+        });
+
+    menu.querySelector(".buscar-filtro")
+        .value = "";
+}
+
+
+function guardarFiltroColumna(
+    tabla,
+    indiceColumna,
+    menu
+) {
+
+    const seleccionados =
+        new Set(
+            [...menu.querySelectorAll(
+                ".valor-filtro:checked"
+            )].map(check => check.value)
+        );
+
+    const total =
+        menu.querySelectorAll(
+            ".valor-filtro"
+        ).length;
+
+    const filtros =
+        filtrosActivos.get(tabla);
+
+    const boton =
+        menu.parentElement
+            .querySelector(".boton-filtro");
+
+    if (
+        seleccionados.size === total
+    ) {
+
+        delete filtros[indiceColumna];
+
+        boton.classList.remove(
+            "filtro-activo"
+        );
+
+    } else {
+
+        filtros[indiceColumna] =
+            seleccionados;
+
+        boton.classList.add(
+            "filtro-activo"
+        );
+    }
+}
+
+
+function aplicarTodosLosFiltros(tabla) {
+
+    const filtros =
+        filtrosActivos.get(tabla);
+
+    tabla.querySelectorAll("tbody tr:not(.fila-total)")
+        .forEach(fila => {
+
+            let mostrar = true;
+
+            for (
+                const [indice, valores]
+                of Object.entries(filtros)
+            ) {
+
+                const valor =
+                    obtenerValorCelda(
+                        fila,
+                        Number(indice)
+                    );
+
+                if (!valores.has(valor)) {
+
+                    mostrar = false;
+                    break;
+                }
+            }
+
+            fila.style.display =
+                mostrar
+                    ? ""
+                    : "none";
+        });
+
+         if (tabla.classList.contains("Tabla4")) {
+        actualizarTotalesTabla4();
+    }
+}
+
+
+function obtenerValorCelda(
+    fila,
+    indiceColumna
+) {
+
+    const celda =
+        fila.children[indiceColumna];
+
+    if (!celda) return "";
+
+    const campo =
+        celda.querySelector(
+            "input, textarea, select"
+        );
+
+    if (campo) {
+
+        if (campo.tagName === "SELECT") {
+
+            const opcion =
+                campo.options[
+                    campo.selectedIndex
+                ];
+
+            return opcion
+                ? opcion.text.trim()
+                : "";
+        }
+
+        return campo.value.trim();
+    }
+
+    return celda.textContent.trim();
+}
+
+
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        document.querySelectorAll(
+            ".Tabla1, " +
+            ".Tabla2, " +
+            ".Tabla3, " +
+            ".Tabla4, " +
+            ".Tabla5, " +
+            ".TablaCotizaciones"
+        )
+        .forEach(tabla => {
+            activarFiltrosExcel(tabla);
+        });
+    }
+);
+
+
+crearFilaTotales("tablaBody4", {
+  cantidad: "cantidad_T4R",
+  precio1: "precio_T4R",
+  total1: "precioTotal_T4R",
+  precio2: "precio2_T4R",
+  total2: "precioTotal2_T4R"
 });
