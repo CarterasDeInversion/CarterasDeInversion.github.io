@@ -65,9 +65,9 @@
                                    <option value=""> Favor de Cargar una solicitud, dependencia no Encontrada</option>
                                                     
                                 </select>                      
-
-                                <label for="tipoDeSolicitud">Tipo de Equipamento</label>
-                          <select id="tipoDeSolicitud" name="tipoDeSolicitud" placeholder="   " class="TS" required>
+                           <div class="paso">
+                                <label class="paso" for="tipoDeSolicitud">Tipo de Equipamento</label>
+                          <select id="tipoDeSolicitud" name="tipoDeSolicitud" placeholder="   " class="TS paso"" required>
                                        <option value="">-- Selecciona un tipo de equipamento--</option>
                                       <option value="Equipamento General (Capitulo 5000)">Equipamento General (Capitulo 5000)</option>
                                       <option value="Bienes Tics">Bienes Tics</option>
@@ -75,8 +75,8 @@
                                       
                     
                           </select>
-
-                          
+                          </div>
+                           
                     </div>
 
 
@@ -186,57 +186,6 @@
                            
                               
       <div class="bloque-DatosDep">  
-<!--
-                            <fieldset title="Info Gral">
-                                    <legend>Información General </legend>
-                        
-                        <div class="form_input IG">
-                        
-                            <label for="secretaria">Secretaría o Direccion General</label>
-                          <select id="secretaria" name="secretaria" placeholder="   " class="IGS" required>
-                                       <option value="">-- Selecciona un nivel--</option>
-                                      <option value="CII">Coordinación de Imagen Institucional</option>
-                                      <option value="CGPII">Coordinación General de Planeación e Información Institucional</option>
-                                      <option value="DG">Dirección General</option>             
-                                      <option value="AG">Oficina del Abogado General</option>
-                                      <option value="PD">Presidencia del Decanato</option>   
-                                      <option value="SACAD">Secretaría Académica</option>   
-                                      <option value="SADMIN">Secretaría de Administración</option>        
-                                      <option value="CENAC">Centro Nacional de Cálculo (CENAC)</option>          
-                                      <option value="SIIS">Secretaría de Innovación e Integración Social</option>     
-                                      <option value="SIP">Secretaría de Investigación y Posgrado</option>      
-                                      <option value="SSE">Secretaría de Servicios Educativos</option>       
-                                      <option value="SG">Secretaría General</option>    
-                                      <option value="ER">Estación de Radiodifusión XHIPN-FM 95.7 MHz</option>
-                                      <option value="POI">Patronato de Obras e Instalaciones (POI)</option>
-                                      <option value="COFAA">Comisión de Operación y Fomento de Actividades Académicas (COFAA)</option>          
-                    
-                                      </select>
-                          
-                        </div>
-                    
-                        <div class="form_input IG">
-                             <label for="direccion">Dirección o Coordinación</label>   
-                                 <select id="direccion" name="direccion" class="IGS" disabled required>
-                                 <option value="">-- Selecciona un dirección--</option>
-                                 </select>
-                        </div>
-                         
-                        <div class="form_input IG">
-                              <label for="nivel">Nivel/Área/otro</label>   
-                                 <select id="nivel" name="nivel" class="IGS" disabled required>
-                                 <option value="">-- Selecciona un nivel--</option>
-                                 </select>
-                                </div>
-                            
-                                
-                    
-                      </fieldset>
-                    -->
-                      <!--  </td>
-                           
-                        <td>
-                        -->
                           <fieldset title="Info titu">
                        <legend>Información del Titular </legend>
                         
@@ -368,43 +317,120 @@
                                                                           <th title="Numero de Fila">
                                                                                                                         
                                                                  </th>
-                                                                              <th title="Programas">
-                                                                                   Programas académicos, servicios o actividades que realiza la dependencia.   
-                                                                              </th>
+                                                                               
+                                                                                  
+                                                                               <th                                  
+                                                                                    >                                                              
+                                                                                   Programas académicos, servicios o actividades que realiza la dependencia.
+                                                                                  <button                                                                                      
+                                                                                         class="abrir-observaciones"                                                
+                                                                                         type="button"                                                                      
+                                                                                        data-observacion="ObsProgramaAcademicoDPO"                                                                             
+                                                                                         data-duda="DudaProgramaAcademicoDep">
+                                                                                          Observaciones
+                                                                                   </button>
+                                                                                   
+                                                                                                                                                                     </th>
+                                                                              
                                                           
                                                                               <th id="UsuariosHAnio1" title="Matrícula Hombres 1">
-                                                                                
-                                                                              </th>   
-                                          
+                                                                                           <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsAlumnosHAnio1DPO"
+                                                                                         data-duda="DudaAlumnosHAnio1DPO">
+                                                                                          Observaciones
+                                                                                   </button>                                                                         
+                                                                              </th>                                                                
+                                                                                                                                                      
                                                                               <th id="UsuariosMAnio1" title="Matrícula Mujeres 1">
-                                                                                   
+                                                                                          <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                                
+                                             
+                                                                                        data-observacion="ObsAlumnosMAnio1DPO"
+                                                                                         data-duda="DudaAlumnosMAnio1Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
                                                                               <th id="UsuariosHAnio2" title="Matrícula Hombres 2">
-                                                                                  
+                                                                                          <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsAlumnosHAnio2DPO"
+                                                                                         data-duda="DudaAlumnosHAnio2Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
                                                                               <th  id="UsuariosMAnio2" title="Matrícula Mujeres 2">
-                                                                                  
+                                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsAlumnosMAnio2DPO"
+                                                                                         data-duda="DudaAlumnosMAnio2Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
                                           
                                                                               <th id="UsuariosHAnio3" title="Matrícula Hombres 3">
-                                                                                  
+                                                                                          <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsAlumnosHAnio3DPO"
+                                                                                         data-duda="DudaAlumnosHAnio3Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
-                                                                              <th  id="UsuariosMAnio3" title="Matrícula Mujeres 3">
-                                                                                  
+                                                                              <th  id="UsuariosMAnio3" title="Matrícula Mujeres 3">  
+                                                                                          <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsAlumnosMAnio3DPO"
+                                                                                         data-duda="DudaAlumnosMAnio3Dep">
+                                                                                          Observaciones
+                                                                                   </button>                                                 
                                                                               </th>
-
-                                                                              <th id="UsuariosHAnio4" title="Matrícula Hombres 4">
-                                                                                  
+                                                          
+                                          <th id="UsuariosHAnio4" title="Matrícula Hombres 4">
+                                                                                          <button
+                                                                                         class="abrir-observaciones"                                                         
+                                                                                         type="button"                                                         
+                                                                                        data-observacion="ObsAlumnosHAnio4DPO"                               
+                                                                                         data-duda="DudaAlumnosHAnio4Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
                                                                               <th  id="UsuariosMAnio4" title="Matrícula Mujeres 4">  
+                                                                                          <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsAlumnosMAnio4DPO"
+                                                                                         data-duda="DudaAlumnosMAnio4Dep">
+                                                                                          Observaciones
+                                                                                   </button> 
                                                                               </th>
 
                                                                               
                                                                               <th id="UsuariosHAnio5" title="Matrícula Hombres 5">
-                                                                                  
+                                                                                          <button
+                                                                                         class="abrir-observaciones"                                                 
+                                                                                         type="button"
+                                                                                        data-observacion="ObsAlumnosHAnio5DPO"
+                                                                                         data-duda="DudaAlumnosHAnio5Dep">
+                                                                                          Observaciones
+                                                                                   </button>                                                        
                                                                               </th>
                                                                               <th  id="UsuariosMAnio5" title="Matrícula Mujeres 5">  
+                                                                                             <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsAlumnosMAnio5DPO"
+                                                                                         data-duda="DudaAlumnosMAnio5Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
+
 
                                                                          </tr>
                                                                   </thead>
@@ -423,43 +449,112 @@
                                                                           <th title="Numero de Fila">
                                                                                                                         
                                                                  </th>
-                                                                              <th title="División, Departamento o Jefatura. ">
-                                                                                   División, Departamento o Jefatura.     
+                                                                      
+                                                                              <th title="División, Departamento o Jefatura.  ">
+                                                                                   División, Departamento o Jefatura. 
+                                                                                   <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsNumProfSupPosgDPO"
+                                                                                         data-duda="DudaNumProfSupPosgDep">
+                                                                                          Observaciones
+                                                                                   </button>    
                                                                               </th>
                                                           
                                                                               <th id="UsuariosAHAnio1" title="Número de Profesores y Administrativos Hombres 1">
-                                                                                
+                                                                                        <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsUsuariosAHAnio1DPO"
+                                                                                         data-duda="DudaUsuariosAHAnio1DPO">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>   
                                           
                                                                               <th id="UsuariosAMAnio1" title="Número de Profesores y Administrativos Mujeres 1">
-                                                                                   
+                                                                                         <button
+                                                                                         class="abrir-observaciones"                                             
+                                                                                         type="button"
+                                                                                        data-observacion="ObsUsuariosAMAnio1DPO"
+                                                                                         data-duda="DudaUsuariosAMAnio1Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
                                                                               <th id="UsuariosAHAnio2" title="Número de Profesores y Administrativos Hombres 2">
-                                                                                  
+                                                                                           <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsUsuariosAHAnio2DPO"
+                                                                                         data-duda="DudaUsuariosAHAnio2Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
                                                                               <th  id="UsuariosAMAnio2" title="Número de Profesores y Administrativos Mujeres 2">
-                                                                                  
+                                                                                            <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsUsuariosAMAnio2DPO"
+                                                                                         data-duda="DudaUsuariosAMAnio2Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
                                           
                                                                               <th id="UsuariosAHAnio3" title="Número de Profesores y Administrativos Hombres 3">
-                                                                                  
+                                                                                            <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsUsuariosAHAnio3DPO"
+                                                                                         data-duda="DudaUsuariosAHAnio3Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
                                                                               <th  id="UsuariosAMAnio3" title="Número de Profesores y Administrativos Mujeres 3">
-                                                                                  
+                                                                                            <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsUsuariosAMAnio3DPO"
+                                                                                         data-duda="DudaUsuariosAMAnio3Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
 
+
                                                                               <th id="UsuariosAHAnio4" title="Número de Profesores y Administrativos Hombres 4">
-                                                                                  
+                                                                                           <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsUsuariosAHAnio4DPO"
+                                                                                         data-duda="DudaUsuariosAHAnio4Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
                                                                               <th  id="UsuariosAMAnio4" title="Número de Profesores y Administrativos Mujeres 4">
-                                                                                  
+                                                                                           <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsUsuariosAMAnio4DPO"
+                                                                                         data-duda="DudaUsuariosAMAnio4Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
 
                                                                               <th id="UsuariosAHAnio5" title="Número de Profesores y Administrativos Hombres 5">
-                                                                                  
+                                                                                            <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsUsuariosAHAnio5DPO"
+                                                                                         data-duda="DudaUsuariosAHAnio5Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
                                                                               <th  id="UsuariosAMAnio5" title="Número de Profesores y Administrativos Mujeres 5">
-                                                                                  
+                                                                                          <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsUsuariosAMAnio5DPO"
+                                                                                         data-duda="DudaUsuariosAMAnio5Dep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                               </th>
 
                                                                          </tr>
@@ -524,31 +619,83 @@
                                                               <tr>
                                                                 <th title="Numero de Fila">
                                                                                                                         
-                                                                 </th>
+                                                                  </th>
                                                                    <th title="Edificio">
                                                                         Nombre del Edificio    
-                                                                   </th>
+                                                                        <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsEdificioDPO_T2"
+                                                                                         data-duda="DudaEdificioDep_T2">
+                                                                                          Observaciones
+                                                                                   </button>
+                                                                      </th>
                                                
                                                                    <th title="Nivel">
                                                                         Nivel (Planta)
+                                                                        <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsNivelDPO_T2"
+                                                                                         data-duda="DudaObsNivelDep_T2">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                    </th>   
                                
                                                                    <th title="Espacio">
                                                                         Espacio (Aulas, Laboratorios, Área administrativa, etc.)
+                                                                        <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsEspacioDPO_T2"
+                                                                                         data-duda="DudaEspacioDep_T2">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                    </th>
                                                                    <th title="Largo">
                                                                        Largo del espacio  (M)
+                                                                       <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsLargoDPO_T2"
+                                                                                         data-duda="DudaLargoDep_T2">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                    </th>
                                                                    <th title="Ancho">
                                                                        Ancho del espacio  (M)
+                                                                       <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsAnchoDPO_T2"
+                                                                                         data-duda="DudaAnchoDep_T2">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                    </th>
                                
                                                                    <th title="Alumnos">
                                                                         Número de Alumnos o personas  atendidas por espacio (Capacidad, para cuantos)
+                                                                        <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsNumeroAlumnosDPO_T2"
+                                                                                         data-duda="DudaNumeroAlumnosDep_T2">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                    </th> 
                                                                    
                                                                    <th title="HorasServicio">
                                                                        Horas de servicio(Por semana)
+                                                                       <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsHorasDPO_T2"
+                                                                                         data-duda="DudaHorasDep_T2">
+                                                                                          Observaciones
+                                                                                   </button>
+                                                                   </th>
+                                                                   <th >
+                                                                       
                                                                    </th>
                                
                                                                    
@@ -611,14 +758,39 @@
                                                                                                                         
                                                                  </th>
                                                                  <th title="Edificio">
-                                                                      Nombre del Edificio    
+                                                                      Nombre del Edificio   
+                                                                      <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsEdificioDPO_T3"
+                                                                                         data-duda="DudaEdificioDep_T3">
+                                                                                          Observaciones
+                                                                                   </button> 
                                                                  </th>
                                              
                                                                  <th title="MetrosCuadrados">
                                                                       Metros Cuadrados 
+                                                                      <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsMetrosCuadradosDPO_T3"
+                                                                                         data-duda="DudaMetrosCuadradosDep_T3">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                  </th>   
-                                                                 <th title ="Planos">
+                                                                 
+                                                                 <th >
+                                                                       
+                                                                 </th> 
+                                                                  <th title ="Planos">
                                                                         Planos
+                                                                       <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsProgramaAcademicoDPO"
+                                                                                         data-duda="DudaProgramaAcademicoDep">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                  </th>
                                                             </tr>
                                                      </thead>
@@ -680,28 +852,72 @@
                                                                 <th title="Numero de Fila">
                                                                                                                         
                                                                  </th>
-                                                                    <th title="Nombre Cotizacion de Adquisicion General Alternativa 1">
-                                                                         Nombre  de la Cotizacion de Adquisicion General Alternativa 1     
+                                                                    <th title="Nombre Cotizacion de Adquisicion General Alternativa 1" class="paso">
+                                                                         Nombre  de la Cotizacion de Adquisicion General Alternativa 1
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsNombreCotDPO_T3"
+                                                                                         data-duda="DudaNombreCotDep_T3">
+                                                                                          Observaciones
+                                                                                   </button>     
                                                                     </th>    
 
                                                                     <th title="Cotizacion de Adquisicion General Alternativa 1">
-                                                                         Cotizacion de Adquisicion General Alternativa 1     
+                                                                         Cotizacion de Adquisicion General Alternativa 1
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsCotDPO_T3"
+                                                                                         data-duda="DudaCotDep_T3">
+                                                                                          Observaciones
+                                                                                   </button>     
                                                                     </th>
                                                 
+
                                                                     <th title="Año">
                                                                          Año
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsAnio1DPO_T3"
+                                                                                         data-duda="DudaAnio1Dep_T3">
+                                                                                          Observaciones
+                                                                                   </button>
+                                                                    </th>   
+                                
+                                                                    
+                                                                    <th title="Nombre Cotizacion de Adquisicion General Alternativa 2" class="paso">
+                                                                         Nombre  de la Cotizacion de Adquisicion General Alternativa 2
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsNombreCot2DPO_T3"
+                                                                                         data-duda="DudaNombreCot2Dep_T3">
+                                                                                          Observaciones
+                                                                                   </button>     
                                                                     </th>
                                                                     
-                                                                    <th title="Nombre Cotizacion de Adquisicion General Alternativa 2">
-                                                                         Nombre  de la Cotizacion de Adquisicion General Alternativa 2     
-                                                                    </th>
-                                
                                                                     <th title="Cotizacion de Adquisicion General Alternativa 2">
-                                                                         Cotizacion de Adquisicion General Alternativa 2     
+                                                                         Cotizacion de Adquisicion General Alternativa 2
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsCot2DPO_T3"
+                                                                                         data-duda="DudaCot2Dep_T3">
+                                                                                          Observaciones
+                                                                                   </button>     
                                                                     </th>
                                                 
                                                                     <th title="Año">
                                                                          Año
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsAnio2DPO_T3"
+                                                                                         data-duda="DudaAnio2Dep_T3">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                     </th>
                                                                     
                                                                </tr>
@@ -769,36 +985,93 @@
                                                                <tr>
                                                                     <th title="Numero de Fila">
                                                                                                                         
-                                                                 </th>
+                                                                     </th>
                                                                     <th title="ProgramaAcadémico">
-                                                                         Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.     
+                                                                         Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsProgramaAcademicoDPO_T4"
+                                                                                         data-duda="DudaProgramaAcademicoDep_T4">
+                                                                                          Observaciones
+                                                                                   </button>     
                                                                     </th>
                                                 
                                                                     <th title="Espacio">
                                                                          Espacio
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsEspacioDPO_T4"
+                                                                                         data-duda="DudaEspacioDep_T4">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                     </th>   
                                 
                                                                     <th title="Clave">
                                                                          Clave CUCOP
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsClaveCUCOPDPO_T4"
+                                                                                         data-duda="DudaClaveCUCOPDep_T4">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                     </th>
                                                                     <th title="Equipo">
                                                                         Nombre genérico del equipo
+                                                                        <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsComponenteDPO_T4"
+                                                                                         data-duda="DudaComponenteDep_T4">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                     </th>
                                                                     <th title="Cantidad">
-                                                                        Cantidad Equipos solicitados 
+                                                                        Cantidad Equipos solicitados
+                                                                        <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsCantidadDPO_T4"
+                                                                                         data-duda="DudaCantidadDep_T4">
+                                                                                          Observaciones
+                                                                                   </button> 
                                                                     </th>
                                 
                                                                     <th title=" Especificaciones Técnicas del Equipo">
                                                                          Características /Especificaciones Técnicas 
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsCaracteristicasDPO_T4"
+                                                                                         data-duda="DudaCaracteristicasDep_T4">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                     </th> 
                                                                     
                                                                     <th title="Justificación (Equipo no Existente, Sustitución o Complemento)">
                                                                         Justificación Porque se requiere el equipo; las cantidades; las funciones que realizara; Mejora operativa obtenida
-                                                                    </th>
+                                                                          <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsJustificacionDPO_T4"
+                                                                                         data-duda="DudaJustificacionDep_T4">
+                                                                                          Observaciones
+                                                                                   </button>
+                                                                      </th>
                                                                     
+
 
                                                                     <th title="Precio unitario Adquisición Alternativa 1 (Sin IVA)">
                                                                         Precio unitario Adquisición Alternativa 1 (Sin IVA)
+                                                                        <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsPrecio1DPO_T4"
+                                                                                         data-duda="DudaPrecio1Dep_T4">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                     </th>
                                                                     
                                                                     <th title="Precio Total con IVA" >
@@ -806,27 +1079,51 @@
                                                                     </th>
 
                                                                     <th title="Nombre del Archivo de la Cotización de Adquisición">
-                                                                        Nombre del Archivo de la Cotización de Adquisición 
+                                                                        Nombre de la Cotización (En la tabla anterior)
+                                                                        <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsCotizacion1DPO_T4"
+                                                                                         data-duda="DudaCotizacion1Dep_T4">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                     </th>
 
 
-                                                                    <th class="paso" title="Cotización de Adquisición">
+                                                                    <th title="Cotización de Adquisición" class="paso">
                                                                         Cotización de Adquisición
+                                                                        
                                                                     </th>
                                                                     
                                                                     <th title="Precio unitario Adquisición Alternativa 1 (Sin IVA)">
                                                                         Precio unitario Adquisición Alternativa 2 (Sin IVA)
+                                                                        <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsPrecio2DPO_T4"
+                                                                                         data-duda="DudaPrecio2Dep_T4">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                     </th>
 
                                                                     <th title="Precio 2 Total con IVA" >
-                                                                        Precio Total2 con IVA
+                                                                        Precio Total 2 con IVA
+                                                                        
                                                                     </th>
+
                                 
                                                                     <th title="Nombre del Archivo de la Cotización de Adquisición 2">
-                                                                        Nombre del Archivo de la Cotización de Adquisición 2
+                                                                        Nombre de la Cotización2 (En la tabla anterior)
+                                                                        <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsCotizacion2DPO_T4"
+                                                                                         data-duda="DudaCotizacion2Dep_T4">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                     </th>   
 
-                                                                    <th  class="paso" title="Cotización de Adquisición 2">
+                                                                    <th title="Cotización de Adquisición 2" class="paso">
                                                                         Cotización de Adquisición 2
                                                                     </th>
                                                                     
@@ -892,7 +1189,7 @@
                                                                 <th title="Numero de Fila">
                                                                                                                         
                                                                  </th>
-                                                                    <th title="ProgramaAcadémico">
+                                                                    <th title="ProgramaAcadémico" >
                                                                          Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.     
                                                                     </th>
                                                 
@@ -907,17 +1204,45 @@
                                                                     
                                                                     <th title=" Especificaciones y Desempeño Operativo">
                                                                          Especificaciones y Desempeño Operativo 
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsEspecificaciones_T5"
+                                                                                         data-duda="DudaEspecificaciones_T5">
+                                                                                          Observaciones
+                                                                                   </button>
                                                                     </th> 
                                                                     
                                                                     <th title="Cuantos equipos en mal estado (obsoletos, a remplazar)">
-                                                                         Cuantos equipos en mal estado (obsoletos, a remplazar) 
+                                                                         Cuantos equipos en mal estado (obsoletos, a remplazar)
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsMalEstado_T5"
+                                                                                         data-duda="DudaMalEstado_T5">
+                                                                                          Observaciones
+                                                                                   </button> 
                                                                     </th>
                                                                     <th title="Cuantos equipos  en buen estado (útiles)">
-                                                                         Cuantos equipos  en buen estado (útiles) 
+                                                                         Cuantos equipos  en buen estado (útiles)
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsBuenEstado_T5"
+                                                                                         data-duda="DudaBuenEstado_T5">
+                                                                                          Observaciones
+                                                                                   </button> 
                                                                     </th>
                                                                     
                                                                     <th title="Cuantos equipos  en estado regular (útiles)">
-                                                                         Cuantos equipos  en estado regular (útiles) 
+                                                                         Cuantos equipos  en estado regular (útiles)
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsEstadoRegular_T5"
+                                                                                         data-duda="DudaEstadoRegular_T5">
+                                                                                          Observaciones
+                                                                                   </button> 
                                                                     </th>
                                                                      
                                                                </tr>
@@ -2318,6 +2643,3 @@
 
 
 </html>
-
-
-
