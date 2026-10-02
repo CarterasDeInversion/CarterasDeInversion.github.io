@@ -5995,7 +5995,7 @@ function precioTotalMasIVA(precioInput) {
 */
 //V6 https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec
 // V7 https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec
-const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 let folioActual=null;
 let edicionActual=null;
@@ -6061,6 +6061,7 @@ const data =json.data;
   
       folioActual = folio;
       edicionActual=data.edicion;
+      numerodeEnvio=data.numeroEnvio;
 // Restaurar selects encadenados
 /*setSelectValue("secretaria", data.secretaria);
 
@@ -6075,7 +6076,8 @@ setTimeout(() => {
 
 // folioValor.value=data.folio;
 setSelectValue("dependencia", data.dependencia);
-
+document.getElementById("folioInput").value=folioActual;
+document.getElementById("Envio").value=numerodeEnvio;
 Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
                           if (name.includes("R")) return; //quitamos los campos de la tabla
@@ -7822,8 +7824,8 @@ document.addEventListener(
     }
 );
 
-
-
+/*
+// -----------------------corregir ---------------------------------------------------------------------
 
 document.addEventListener("click", function (e) {
 
@@ -7953,4 +7955,293 @@ function crearLeyenda(campo) {
 
         }
 }
+*/
+
+//------------------------------------------------Test Observaciones---------------------------------------------------
+
+//********************
+
+
+//******************* 
+
+
+//******************** 
+
+function crearFieldsetObservacion(campo, tipo) {
+
+    // Guardamos exactamente dónde estaba
+    campo.popupOriginal = {
+        padre: campo.parentElement,
+        siguiente: campo.nextSibling,
+
+        // Recordamos estas clases para restaurarlas
+        teniaPaso: campo.classList.contains("paso"),
+        teniaVentana:
+            campo.classList.contains("ventanaFormulario")
+    };
+
+
+    const fieldset = document.createElement("fieldset");
+
+    fieldset.classList.add(
+        "fieldset-observacion",
+        tipo
+    );
+
+
+    const legend = document.createElement("legend");
+
+    legend.textContent =
+        campo.getAttribute("aria-label") ||
+        (tipo === "fieldset-O"
+            ? "Observación"
+            : "Duda");
+
+
+    fieldset.appendChild(legend);
+
+
+    // Mostrar el campo
+    campo.classList.remove(
+        "paso",
+        "ventanaFormulario",
+        "campo-ampliadoO",
+        "campo-ampliadoD"
+    );
+
+    campo.classList.add(
+        "campo-observacion-flotante"
+    );
+
+
+    fieldset.appendChild(campo);
+
+    document.body.appendChild(fieldset);
+}
+
+
+
+function cerrarFieldsetsObservacion() {
+
+    document
+        .querySelectorAll(".fieldset-observacion")
+        .forEach(fieldset => {
+
+            const campo =
+                fieldset.querySelector(
+                    ".campo-observacion-flotante"
+                );
+
+            if (!campo) {
+                fieldset.remove();
+                return;
+            }
+
+
+            const original =
+                campo.popupOriginal;
+
+
+            campo.classList.remove(
+                "campo-observacion-flotante"
+            );
+
+
+            if (original) {
+
+                // Restaurar las clases que tenía originalmente
+                if (original.teniaPaso) {
+                    campo.classList.add("paso");
+                } else {
+                    campo.classList.remove("paso");
+                }
+
+
+                if (original.teniaVentana) {
+                    campo.classList.add(
+                        "ventanaFormulario"
+                    );
+                } else {
+                    campo.classList.remove(
+                        "ventanaFormulario"
+                    );
+                }
+
+
+                // Regresar exactamente al lugar donde estaba
+                if (
+                    original.siguiente &&
+                    original.siguiente.parentNode ===
+                        original.padre
+                ) {
+
+                    original.padre.insertBefore(
+                        campo,
+                        original.siguiente
+                    );
+
+                } else {
+
+                    original.padre.appendChild(campo);
+                }
+
+
+                delete campo.popupOriginal;
+            }
+
+
+            fieldset.remove();
+        });
+}
+
+document.addEventListener("click", function (e) {
+
+    const boton =
+        e.target.closest(".abrir-observaciones");
+
+    if (!boton) return;
+
+
+    const Obs =
+        document.querySelector(
+            `[name="${boton.dataset.observacion}"]`
+        );
+
+    const Duda =
+        document.querySelector(
+            `[name="${boton.dataset.duda}"]`
+        );
+
+
+    if (!Obs || !Duda) return;
+
+
+    // Si había otras observaciones abiertas,
+    // primero las cerramos
+    cerrarFieldsetsObservacion();
+
+
+    // Crear los dos fieldsets
+    crearFieldsetObservacion(
+        Obs,
+        "fieldset-O"
+    );
+
+    crearFieldsetObservacion(
+        Duda,
+        "fieldset-D"
+    );
+
+});
+
+document.addEventListener("click", function (e) {
+
+    // Si acabamos de presionar el botón
+    // Observaciones, no cerramos.
+    if (
+        e.target.closest(".abrir-observaciones")
+    ) {
+        return;
+    }
+
+
+    // Si presionamos dentro de cualquiera
+    // de los fieldsets, tampoco cerramos.
+    if (
+        e.target.closest(".fieldset-observacion")
+    ) {
+        return;
+    }
+
+
+    cerrarFieldsetsObservacion();
+
+});
+
+
+
+
+
+
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+document
+    .getElementById("exportarExcel")
+    .addEventListener("click", async function () {
+
+        const folio =
+            document
+                .getElementById("folioInput")
+                .value
+                .trim();
+        const dependencia =
+            document
+                .getElementById("dependencia")
+                .value
+                .trim();        
+         const numerodeEnvio =
+            document
+                .getElementById("Envio")
+                .value
+                .trim();       
+
+        if (!folio||!dependencia || !numerodeEnvio) {
+            alert("Favor de cargar el folio de la dependencia a la que se le requiere su formato final de excel");
+            return;
+        }
+
+        try {
+
+            const respuesta = await fetch(direccionEnlace, {
+
+                method: "POST",
+
+                body: JSON.stringify({
+                    action: "exportarExcel",
+                    folio: folio,
+                    dependencia:dependencia,
+                    numerodeEnvio:numerodeEnvio,
+
+                })
+
+            });
+
+            const resultado =
+                await respuesta.json();
+
+
+            if (!resultado.success) {
+                throw new Error(
+                    resultado.message ||
+                    "No se pudo crear el Excel."
+                );
+            }
+
+
+            window.open(
+                resultado.data.url,
+                "_blank"
+            );
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(
+                "Error al crear el Excel:\n" +
+                error.message
+            );
+        }
+
+    });
+
 
