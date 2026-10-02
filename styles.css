@@ -1062,7 +1062,7 @@ th {
 }
 
 
-
+/*
 .campo-ampliadoI {
 
     position: fixed !important;
@@ -1071,7 +1071,7 @@ th {
     width: 30vw !important;
     height: 20vh !important;
     z-index: 9999;
-/*    background-color: white !important;*/
+//    background-color: white !important;
     border: 2px solid #611232 !important;
     border-radius: 80px 80px 80px 80px !important;
     padding: 15px !important;
@@ -1081,7 +1081,7 @@ th {
     box-shadow: 0 10px 40px rgba(0,0,0,.35);
     
 }
-
+*/
 .archivoMultipleInput {
     display: none !important;
 }
@@ -1344,14 +1344,96 @@ th {
     overflow-y: auto !important;
 }
 
-
-th:has(.abrir-observaciones) {
+/*
+th:has(.abrir-observaciones)
+th:has(.informacion) {
     position: relative;
 
-    /* Espacio reservado para el botón */
-    padding-bottom: 65px;
+    // Espacio reservado para el botón 
+    padding-bottom: 8px;
+}
+*/
+
+/*
+th:has(.abrir-observaciones),
+th:has(.informacion) {
+    position: relative;
+
+//     Zona inferior reservada para los botones 
+    padding-bottom: 60px !important;
+
+    box-sizing: border-box;
+}
+*/
+
+th:has(.abrir-observaciones),
+th:has(.informacion) {
+
+    position: relative;
+
+    /* La columna no puede hacerse más angosta que esto */
+    min-width: 180px !important;
+
+    /* Espacio inferior exclusivo para los botones */
+    padding-bottom: 60px !important;
+
+    box-sizing: border-box;
 }
 
+
+
+.abrir-observaciones {
+
+    position: absolute !important;
+
+    right: 5px !important;
+    bottom: 5px !important;
+
+    width: 100px !important;
+    min-width: 100px !important;
+
+    height: 40px !important;
+    min-height: 40px !important;
+
+    margin: 0 !important;
+    padding: 3px 5px !important;
+
+    box-sizing: border-box;
+
+    font-size: 11px;
+
+    /* No cortar el texto */
+    white-space: normal;
+
+    overflow: visible;
+}
+
+
+.informacion {
+
+    position: absolute !important;
+
+    /* Un poco separada de la esquina,
+       pero todavía del lado izquierdo */
+    left: 35px !important;
+    bottom: 10px !important;
+
+    width: 30px !important;
+    min-width: 30px !important;
+
+    height: 30px !important;
+    min-height: 30px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box;
+
+    overflow: visible;
+}
+
+
+/*
 .abrir-observaciones {
     position: absolute;
 
@@ -1382,15 +1464,374 @@ th:has(.abrir-observaciones) {
 
     font-size: small;
 }
+*/
+
+/*penultimo 
+.abrir-observaciones {
+
+    position: static !important;
+
+    display: block;
+
+    width: auto !important;
+    max-width: 100% !important;
+
+    height: auto !important;
+
+    margin: 8px auto 2px auto !important;
+
+    padding: 5px 8px;
+
+    font-size: small;
+
+    white-space: normal;
+}
 
 
+.informacion {
 
+    position: static !important;
+
+    display: block;
+
+    width: 30px !important;
+    height: 30px !important;
+
+    margin: 8px auto 2px auto !important;
+
+    padding: 0 !important;
+
+    font-size: small;
+}
+
+*/
+
+
+/*
 .botonSeleccionarPlanos{
 
     width:8vw;
     height:1vw;
 }
 
+
+
+*/
+
+
+.fieldset-observacion {
+
+    position: fixed !important;
+
+    top: 25vh;
+
+    width: 38vw !important;
+    height: 42vh !important;
+
+    z-index: 9999;
+
+    margin: 0 !important;
+    padding: 10px !important;
+
+    background-color: #DCDCDE;
+
+    border: 2px solid #611232 !important;
+    border-radius: 10px !important;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.35);
+
+    box-sizing: border-box;
+}
+
+
+.fieldset-O {
+    left: 10vw;
+}
+
+
+.fieldset-D {
+    left: 52vw;
+}
+
+
+.fieldset-observacion legend {
+
+    padding: 5px 12px;
+
+    max-width: 90%;
+
+    white-space: normal;
+
+    background-color: #611232;
+    color: white;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+}
+
+
+.campo-observacion-flotante {
+
+    width: 100% !important;
+    height: calc(100% - 10px) !important;
+
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    padding: 15px !important;
+
+    resize: none;
+
+    overflow: auto;
+
+    font-size: 18px;
+}
+.informacion img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Llena el contenedor recortando la imagen si es necesario */
+}
+
+
+
+.fieldset-informacion {
+
+    position: fixed !important;
+
+    top: 25vh;
+    left: 25vw;
+
+    width: 50vw !important;
+    height: 30vh !important;
+
+    z-index: 10001;
+
+    margin: 0 !important;
+
+    padding: 10px !important;
+
+    background-color: #DCDCDE;
+
+    border: 2px solid #611232 !important;
+
+    border-radius: 10px !important;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.35);
+
+    box-sizing: border-box;
+}
+
+
+.fieldset-informacion legend {
+
+    padding: 5px 12px;
+
+    max-width: 90%;
+
+    background-color: #611232;
+
+    color: white;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+
+    white-space: normal;
+}
+
+
+.contenido-informacion {
+
+    width: 100% !important;
+
+    height: calc(100% - 10px) !important;
+
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    padding: 15px !important;
+
+    font-size: 18px;
+
+    resize: none;
+
+    overflow: auto;
+}
+
+/*
+.contenedorArchivo:has(.botonSeleccionarPlanos) {
+
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    grid-template-rows: auto auto;
+
+    column-gap: 6px;
+    row-gap: 3px;
+
+    align-items: start;
+}
+
+
+.contenedorArchivo .botonSeleccionarPlanos {
+
+    grid-column: 1;
+    grid-row: 1;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+
+    padding: 6px 10px !important;
+
+    align-self: start;
+}
+
+
+.contenedorArchivo .nombreArchivo {
+
+    grid-column: 2;
+    grid-row: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+
+    gap: 2px;
+
+    margin: 0;
+}
+
+
+.contenedorArchivo .archivoItem {
+
+    margin: 0;
+    padding: 0;
+}
+
+
+.contenedorArchivo .contnombre {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 3px;
+
+    margin: 0;
+
+    padding: 1px 3px;
+}
+
+
+.contenedorArchivo .mensajeArchivos {
+
+    grid-column: 2;
+    grid-row: 2;
+
+    align-items: flex-start;
+
+    margin: 0;
+
+    font-size: small;
+}*/
+
+
+/* =========================
+   PLANOS
+   ========================= */
+
+.contenedorArchivo:has(.botonSeleccionarPlanos) {
+
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    grid-template-rows: auto auto;
+
+    column-gap: 6px;
+    row-gap: 3px;
+
+    align-items: start;
+}
+
+
+/* Botón artificial */
+.contenedorArchivo .botonSeleccionarPlanos {
+
+    grid-column: 1;
+    grid-row: 1 / span 2;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+
+    padding: 6px 10px !important;
+
+    align-self: start;
+}
+
+
+/* Primero: mensaje de cantidad */
+.contenedorArchivo .mensajeArchivos {
+
+    grid-column: 2;
+    grid-row: 1;
+
+    margin: 0;
+
+    font-size: small;
+}
+
+
+/* Después: nombres de archivos */
+.contenedorArchivo .nombreArchivo {
+
+    grid-column: 2;
+    grid-row: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 2px;
+
+    margin: 0;
+}
+
+
+/* Cada archivo */
+.contenedorArchivo .archivoItem {
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Nombre + botón borrar */
+.contenedorArchivo .contnombre {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 3px;
+
+    margin: 0;
+
+    padding: 1px 3px;
+}
 
 
 
