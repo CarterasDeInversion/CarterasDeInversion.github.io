@@ -5,9 +5,6 @@ const tbody3 = document.getElementById("tablaBody3");
 const tbody4 = document.getElementById("tablaBody4");
 const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
-/*
-const tbody6 = document.getElementById("tablaBody6");
-*/
 const tbody7 = document.getElementById("tablaBody7");
 
 function agregarFila(){
