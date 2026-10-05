@@ -2,437 +2,423 @@ const tbody  = document.getElementById("tablaBody");
 const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
 const tbody3 = document.getElementById("tablaBody3");
-const tbodyP = document.getElementById("tablaBodyP");
 const tbody4 = document.getElementById("tablaBody4");
 const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
-
-
+/*
+const tbody6 = document.getElementById("tablaBody6");
+*/
 const tbody7 = document.getElementById("tablaBody7");
 
-//--------------------------------------------------Para el Guardado de las URL-------------------------------------------------------
-
-let urlCotizacionesActuales={};
-let nombresCotizacionesActuales = {};
-
-
-//------------------------------------Construccion de tabla--------------------------
-
-
-                       //----------------------------------Funciones para crear filas---------------------------------------------------------------------------
-
-
-
 function agregarFila(){
+  const tbody = document.getElementById("tablaBody");
+  const tbody1 = document.getElementById("tablaBody1_1");
+  const i = obtenerNumeroFila1();
+  const j = obtenerNumeroFila1_1();
 
-    const tbody = document.getElementById("tablaBody");
-    const tbody1 = document.getElementById("tablaBody1_1");
+  const fila = document.createElement("tr");
+  const fila1 = document.createElement("tr");
+  
+fila.innerHTML = `
 
-    const i = obtenerNumeroFila1();
-    const j = obtenerNumeroFila1_1();
-    
-
-
-    const fila = document.createElement("tr");
-    const fila1 = document.createElement("tr");
-
-    fila.innerHTML = `
-        <td>
-            ${i}
-        </td>
-
-        <td>
-            <textarea
-                name="Programa_T1R${i}"
-                class="auto-expand input_tabla obligatorio"
-                rows="1"
-                style="resize:none;"
-                aria-label="Programas académicos, servicios o actividades de la dependencia">
-            </textarea>
-
-            <input
-                name="Programa_T1R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Programa_T1R${i}RO"
-                data-campo="Programa_T1R${i}"
-            >
-        </td>
-
-        <td>
-            <input
-                type="number"
-                name="Usuarios1_T1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios1">
-
-            <input
-                name="Usuarios1_T1R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Usuarios1_T1R${i}RO"
-                data-campo="Usuarios1_T1R${i}"
-            >
-        </td>
-
-        <td>
-            <input
-                type="number"
-                name="Usuarios2_T1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios2">
-
-            <input
-                name="Usuarios2_T1R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Usuarios2_T1R${i}RO"
-                data-campo="Usuarios2_T1R${i}"
-            >
-        </td>
-
-        <td>
-            <input
-                type="number"
-                name="Usuarios3_T1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios3">
-
-            <input
-                name="Usuarios3_T1R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Usuarios3_T1R${i}RO"
-                data-campo="Usuarios3_T1R${i}"
-            >
-        </td>
-
-        <td>
-            <input
-                type="number"
-                name="Usuarios4_T1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios4">
-
-            <input
-                name="Usuarios4_T1R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Usuarios4_T1R${i}RO"
-                data-campo="Usuarios4_T1R${i}"
-            >
-        </td>
-
-        <td>
-            <input
-                type="number"
-                name="Usuarios5_T1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios5">
-
-            <input
-                name="Usuarios5_T1R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Usuarios5_T1R${i}RO"
-                data-campo="Usuarios5_T1R${i}"
-            >
-        </td>
-
-        <td>
-            <input
-                type="number"
-                name="Usuarios6_T1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios6">
-
-            <input
-                name="Usuarios6_T1R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Usuarios6_T1R${i}RO"
-                data-campo="Usuarios6_T1R${i}"
-            >
-        </td>
-
-        <td>
-            <input
-                type="number"
-                name="Usuarios7_T1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios7">
-
-            <input
-                name="Usuarios7_T1R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Usuarios7_T1R${i}RO"
-                data-campo="Usuarios7_T1R${i}"
-            >
-        </td>
-
-        <td>
-            <input
-                type="number"
-                name="Usuarios8_T1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios8">
-
-            <input
-                name="Usuarios8_T1R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Usuarios8_T1R${i}RO"
-                data-campo="Usuarios8_T1R${i}"
-            >
-        </td>
-
-        <td>
-            <input
-                type="number"
-                name="Usuarios9_T1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios9">
-
-            <input
-                name="Usuarios9_T1R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Usuarios9_T1R${i}RO"
-                data-campo="Usuarios9_T1R${i}"
-            >
-        </td>
-
-        <td>
-            <input
-                type="number"
-                name="Usuarios10_T1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios10">
-
-            <input
-                name="Usuarios10_T1R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Usuarios10_T1R${i}RO"
-                data-campo="Usuarios10_T1R${i}"
-            >
-        </td>
     <td>
-            <button
-        type="button"
-        class="borrar-fila"
-        title="Eliminar fila">
-        ✕
-    </button>
-        </td>
+        ${i}
+    </td>
 
-    `;
+    <td>
+        <textarea
+            name="Programa_T1R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Programas académicos, servicios o actividades de la dependencia"
+        > </textarea>
 
+        <input
+            name="Programa_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Programa_T1R${i}RO"
+            data-campo="Programa_T1R${i}"
+        >
+    </td>
 
-    fila1.innerHTML = `
-        <td>
-            ${i}
-        </td>
+    <td>
+        <input
+            type="number"
+            name="Usuarios1_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios1"
+        >
 
-        <td>
-            <textarea
-                name="Programa_T1_1R${i}"
-                class="auto-expand input_tabla obligatorio"
-                rows="1"
-                style="resize:none;"
-                aria-label="Programas académicos, servicios o actividades de la dependencia">
-            </textarea>
+        <input
+            name="Usuarios1_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios1_T1R${i}RO"
+            data-campo="Usuarios1_T1R${i}"
+        >
+    </td>
 
-            <input
-                name="Programa_T1_1R${i}RO"
-                id="Programa_T1_1R${i}RO"
-                data-campo="Programa_T1_1R${i}"
-                readonly
-                class="paso check-verificacion"
-            >
-        </td>
+    <td>
+        <input
+            type="number"
+            name="Usuarios2_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios2"
+        >
 
-        <td>
-            <input
-                type="number"
-                name="Usuarios1_T1_1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios1">
+        <input
+            name="Usuarios2_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios2_T1R${i}RO"
+            data-campo="Usuarios2_T1R${i}"
+        >
+    </td>
 
-            <input
-                name="Usuarios1_T1_1R${i}RO"
-                class="paso check-verificacion"
-                id="Usuarios1_T1_1R${i}RO"
-                data-campo="Usuarios1_T1_1R${i}"
-                readonly
-            >
-        </td>
+    <td>
+        <input
+            type="number"
+            name="Usuarios3_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios3"
+        >
 
-        <td>
-            <input
-                type="number"
-                name="Usuarios2_T1_1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios2">
+        <input
+            name="Usuarios3_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios3_T1R${i}RO"
+            data-campo="Usuarios3_T1R${i}"
+        >
+    </td>
 
-            <input
-                name="Usuarios2_T1_1R${i}RO"
-                class="paso check-verificacion"
-                id="Usuarios2_T1_1R${i}RO"
-                data-campo="Usuarios2_T1_1R${i}"
-                readonly
-            >
-        </td>
+    <td>
+        <input
+            type="number"
+            name="Usuarios4_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios4"
+        >
 
-        <td>
-            <input
-                type="number"
-                name="Usuarios3_T1_1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios3">
+        <input
+            name="Usuarios4_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios4_T1R${i}RO"
+            data-campo="Usuarios4_T1R${i}"
+        >
+    </td>
 
-            <input
-                name="Usuarios3_T1_1R${i}RO"
-                class="paso check-verificacion"
-                readonly
-                id="Usuarios3_T1_1R${i}RO"
-                data-campo="Usuarios3_T1_1R${i}"
-            >
-        </td>
+    <td>
+        <input
+            type="number"
+            name="Usuarios5_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios5"
+        >
 
-        <td>
-            <input
-                type="number"
-                name="Usuarios4_T1_1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios4">
+        <input
+            name="Usuarios5_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios5_T1R${i}RO"
+            data-campo="Usuarios5_T1R${i}"
+        >
+    </td>
 
-            <input
-                name="Usuarios4_T1_1R${i}RO"
-                class="paso check-verificacion"
-                readonly
-                id="Usuarios4_T1_1R${i}RO"
-                data-campo="Usuarios4_T1_1R${i}"
-            >
-        </td>
+    <td>
+        <input
+            type="number"
+            name="Usuarios6_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios6"
+        >
 
-        <td>
-            <input
-                type="number"
-                name="Usuarios5_T1_1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios5">
+        <input
+            name="Usuarios6_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios6_T1R${i}RO"
+            data-campo="Usuarios6_T1R${i}"
+        >
+    </td>
 
-            <input
-                name="Usuarios5_T1_1R${i}RO"
-                class="paso check-verificacion"
-                readonly
-                id="Usuarios5_T1_1R${i}RO"
-                data-campo="Usuarios5_T1_1R${i}"
-            >
-        </td>
+    <td>
+        <input
+            type="number"
+            name="Usuarios7_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios7"
+        >
 
-        <td>
-            <input
-                type="number"
-                name="Usuarios6_T1_1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios6">
+        <input
+            name="Usuarios7_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios7_T1R${i}RO"
+            data-campo="Usuarios7_T1R${i}"
+        >
+    </td>
 
-            <input
-                name="Usuarios6_T1_1R${i}RO"
-                class="paso check-verificacion"
-                readonly
-                id="Usuarios6_T1_1R${i}RO"
-                data-campo="Usuarios6_T1_1R${i}"
-            >
-        </td>
+    <td>
+        <input
+            type="number"
+            name="Usuarios8_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios8"
+        >
 
-        <td>
-            <input
-                type="number"
-                name="Usuarios7_T1_1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios7">
+        <input
+            name="Usuarios8_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios8_T1R${i}RO"
+            data-campo="Usuarios8_T1R${i}"
+        >
+    </td>
 
-            <input
-                name="Usuarios7_T1_1R${i}RO"
-                class="paso check-verificacion"
-                readonly
-                id="Usuarios7_T1_1R${i}RO"
-                data-campo="Usuarios7_T1_1R${i}"
-            >
-        </td>
+    <td>
+        <input
+            type="number"
+            name="Usuarios9_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios9"
+        >
 
-        <td>
-            <input
-                type="number"
-                name="Usuarios8_T1_1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios8">
+        <input
+            name="Usuarios9_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios9_T1R${i}RO"
+            data-campo="Usuarios9_T1R${i}"
+        >
+    </td>
 
-            <input
-                name="Usuarios8_T1_1R${i}RO"
-                class="paso check-verificacion"
-                readonly
-                id="Usuarios8_T1_1R${i}RO"
-                data-campo="Usuarios8_T1_1R${i}"
-            >
-        </td>
+    <td>
+        <input
+            type="number"
+            name="Usuarios10_T1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios10"
+        >
 
-        <td>
-            <input
-                type="number"
-                name="Usuarios9_T1_1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios9">
+        <input
+            name="Usuarios10_T1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios10_T1R${i}RO"
+            data-campo="Usuarios10_T1R${i}"
+        >
+    </td>
+`;
 
-            <input
-                name="Usuarios9_T1_1R${i}RO"
-                class="paso check-verificacion"
-                readonly
-                id="Usuarios9_T1_1R${i}RO"
-                data-campo="Usuarios9_T1_1R${i}"
-            >
-        </td>
+fila1.innerHTML = `
 
-        <td>
-            <input
-                type="number"
-                name="Usuarios10_T1_1R${i}"
-                class="input_tabla"
-                aria-label="Usuarios10">
+    <td>
+        ${i}
+    </td>
 
-            <input
-                name="Usuarios10_T1_1R${i}RO"
-                class="paso check-verificacion"
-                readonly
-                id="Usuarios10_T1_1R${i}RO"
-                data-campo="Usuarios10_T1_1R${i}"
-            >
-        </td>
+    <td>
+        <textarea
+            name="Programa_T1_1R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Programas académicos, servicios o actividades de la dependencia"
+        > </textarea>
 
-            <td>            
-            <button
-        type="button"
-        class="borrar-fila"
-        title="Eliminar fila">
-        ✕
-    </button>
-        </td>
-    `; 
+        <input
+            name="Programa_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Programa_T1_1R${i}RO"
+            data-campo="Programa_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios1_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios1"
+        >
+
+        <input
+            name="Usuarios1_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios1_T1_1R${i}RO"
+            data-campo="Usuarios1_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios2_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios2"
+        >
+
+        <input
+            name="Usuarios2_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios2_T1_1R${i}RO"
+            data-campo="Usuarios2_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios3_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios3"
+        >
+
+        <input
+            name="Usuarios3_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios3_T1_1R${i}RO"
+            data-campo="Usuarios3_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios4_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios4"
+        >
+
+        <input
+            name="Usuarios4_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios4_T1_1R${i}RO"
+            data-campo="Usuarios4_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios5_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios5"
+        >
+
+        <input
+            name="Usuarios5_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios5_T1_1R${i}RO"
+            data-campo="Usuarios5_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios6_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios6"
+        >
+
+        <input
+            name="Usuarios6_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios6_T1_1R${i}RO"
+            data-campo="Usuarios6_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios7_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios7"
+        >
+
+        <input
+            name="Usuarios7_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios7_T1_1R${i}RO"
+            data-campo="Usuarios7_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios8_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios8"
+        >
+
+        <input
+            name="Usuarios8_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios8_T1_1R${i}RO"
+            data-campo="Usuarios8_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios9_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios9"
+        >
+
+        <input
+            name="Usuarios9_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios9_T1_1R${i}RO"
+            data-campo="Usuarios9_T1_1R${i}"
+        >
+    </td>
+
+    <td>
+        <input
+            type="number"
+            name="Usuarios10_T1_1R${i}"
+            class="input_tabla"
+            aria-label="Usuarios10"
+        >
+
+        <input
+            name="Usuarios10_T1_1R${i}RO"
+            type="checkbox"
+            class="check-verificacion"
+            id="Usuarios10_T1_1R${i}RO"
+            data-campo="Usuarios10_T1_1R${i}"
+        >
+    </td>
+`;
+
     tbody.appendChild(fila);
     tbody1.appendChild(fila1);
-
+    
     activarAutoExpand(fila);
     activarAutoExpand(fila1);
 }
 
+//*-----------------------Agregar fila tabla 2*
 
-// -----------------------Agregar fila tabla 2
-
-function agregarFila2(){
+function agregarFila2() {
 
     const tbody = document.getElementById("tablaBody2");
     const i = obtenerNumeroFila2();
@@ -440,6 +426,7 @@ function agregarFila2(){
     const fila = document.createElement("tr");
 
     fila.innerHTML = `
+
         <td>
             ${i}
         </td>
@@ -453,8 +440,8 @@ function agregarFila2(){
 
             <input
                 name="Edificio_T2R${i}RO"
-                class="paso check-verificacion"
-                readonly
+                type="checkbox"
+                class="check-verificacion"
                 id="Edificio_T2R${i}RO"
                 data-campo="Edificio_T2R${i}"
             >
@@ -462,9 +449,9 @@ function agregarFila2(){
 
         <td>
             <select
-                   name="Nivel_T2R${i}"
-                   class="input_tabla"
-                   aria-label="Nivel"
+                name="Nivel_T2R${i}"
+                class="input_tabla"
+                aria-label="Nivel"
             >
                 <option value="">-- Selecciona un nivel --</option>
                 <option value="Planta Baja">Planta Baja</option>
@@ -477,19 +464,19 @@ function agregarFila2(){
                 <option value="Nivel 7">Nivel 7</option>
                 <option value="Nivel 8">Nivel 8</option>
                 <option value="Nivel 9">Nivel 9</option>
-                 <option value="Nivel 10">Nivel 10</option>
-                 <option value="Nivel 11">Nivel 11</option>
-             </select>
+                <option value="Nivel 10">Nivel 10</option>
+                <option value="Nivel 11">Nivel 11</option>
+            </select>
 
             <input
                 name="Nivel_T2R${i}RO"
-                class="paso check-verificacion"
-                readonly
+                type="checkbox"
+                class="check-verificacion"
                 id="Nivel_T2R${i}RO"
                 data-campo="Nivel_T2R${i}"
             >
         </td>
-        
+
         <td>
             <input
                 name="Espacio_T2R${i}"
@@ -499,8 +486,8 @@ function agregarFila2(){
 
             <input
                 name="Espacio_T2R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="Espacio_T2R${i}RO"
                 data-campo="Espacio_T2R${i}"
             >
@@ -516,8 +503,8 @@ function agregarFila2(){
 
             <input
                 name="Largo_T2R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="Largo_T2R${i}RO"
                 data-campo="Largo_T2R${i}"
             >
@@ -533,8 +520,8 @@ function agregarFila2(){
 
             <input
                 name="Ancho_T2R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="Ancho_T2R${i}RO"
                 data-campo="Ancho_T2R${i}"
             >
@@ -550,8 +537,8 @@ function agregarFila2(){
 
             <input
                 name="Alumnos_T2R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="Alumnos_T2R${i}RO"
                 data-campo="Alumnos_T2R${i}"
             >
@@ -567,20 +554,11 @@ function agregarFila2(){
 
             <input
                 name="Horas_T2R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="Horas_T2R${i}RO"
                 data-campo="Horas_T2R${i}"
             >
-        </td>
-
-        <td>
-            <button
-        type="button"
-        class="borrar-fila"
-        title="Eliminar fila">
-        ✕
-    </button>
         </td>
     `;
 
@@ -592,128 +570,85 @@ function agregarFila2(){
 
 //*-----------------------Agregar fila tabla 3*
 
-function agregarFila3(){
+function agregarFila3() {
 
     const tbody = document.getElementById("tablaBody3");
     const i = obtenerNumeroFila3();
 
     const fila = document.createElement("tr");
 
-    if (i === 1) {
+    fila.innerHTML = `
 
-        fila.innerHTML = `
-            <td>
-                ${i}
-            </td>
-
-            <td>
-                <input
-                    name="Edificio_T3R${i}"
-                    class="input_tabla"
-                    aria-label="Edificio"
-                >
-
-                <input
-                    name="Edificio_T3R${i}RO"
-                    type="text"
-                    readonly
-                    class="paso check-verificacion"
-                    id="Edificio_T3R${i}RO"
-                    data-campo="Edificio_T3R${i}"
-                >
-            </td>
-
-            <td>
-                <input
-                    type="number"
-                    name="MetrosCuadrados_T3R${i}"
-                    class="input_tabla"
-                    aria-label="MetrosCuadrados"
-                >
-                
-                <input
-                    name="MetrosCuadrados_T3R${i}RO"
-                    type="text"
-                    readonly
-                    class="paso check-verificacion"
-                    id="MetrosCuadrados_T3R${i}RO"
-                    data-campo="MetrosCuadrados_T3R${i}"
-                >
-            </td>
-
-            <td>
-            <button
-        type="button"
-        class="borrar-fila"
-        title="Eliminar fila">
-        ✕
-    </button>
+        <td>
+            ${i}
         </td>
 
-        `;
+        <td>
+            <input
+                name="Edificio_T3R${i}"
+                class="input_tabla"
+                aria-label="Edificio"
+            >
 
-    } else {
-
-        fila.innerHTML = `
-            <td>
-                ${i}
-            </td>
-
-            <td>
-                <input
-                    name="Edificio_T3R${i}"
-                    class="input_tabla"
-                    aria-label="Edificio"
-                >
-
-                <input
-                    name="Edificio_T3R${i}RO"
-                    type="text"
-                    readonly
-                    class="paso check-verificacion"
-                    id="Edificio_T3R${i}RO"
-                    data-campo="Edificio_T3R${i}"
-                >
-            </td>
-
-            <td>
-                <input
-                    type="number"
-                    name="MetrosCuadrados_T3R${i}"
-                    class="input_tabla"
-                    aria-label="MetrosCuadrados"
-                >
-
-                <input
-                    name="MetrosCuadrados_T3R${i}RO"
-                    type="text"
-                    readonly
-                    class="paso check-verificacion"
-                    id="MetrosCuadrados_T3R${i}RO"
-                    data-campo="MetrosCuadrados_T3R${i}"
-                >
-            </td>
-
-            <td>
-            <button
-        type="button"
-        class="borrar-fila"
-        title="Eliminar fila">
-        ✕
-    </button>
+            <input
+                name="Edificio_T3R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="Edificio_T3R${i}RO"
+                data-campo="Edificio_T3R${i}"
+            >
         </td>
-        `;
-    }
+
+        <td>
+            <input
+                type="number"
+                name="MetrosCuadrados_T3R${i}"
+                class="input_tabla"
+                aria-label="MetrosCuadrados"
+            >
+
+            <input
+                name="MetrosCuadrados_T3R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="MetrosCuadrados_T3R${i}RO"
+                data-campo="MetrosCuadrados_T3R${i}"
+            >
+        </td>
+
+    `;
 
     tbody.appendChild(fila);
 
     activarAutoExpand(fila);
 }
 
+function agregarFilaP(){
+  const tbodyP = document.getElementById("tablaBodyP");
+    const i = obtenerNumeroFilaP();
 
-//*-----------------------Agregar fila tabla Cotizaciones*
+    const fila = document.createElement("tr");
 
-function agregarFilaC(){
+    fila.innerHTML = `<td>
+            <textarea
+                id="urlPlanos_T3R${i}"
+                name="urlPlanos_T3R${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="Url de los planos recibidos"
+                readonly
+            ></textarea>
+        </td>`
+               
+        tbodyP.appendChild(fila);
+
+}
+
+
+//*-----------------------Agregar fila tabla C*
+
+function agregarFilaC() {
 
     const tbody = document.getElementById("tablaCotizaciones");
     const i = obtenerNumeroFilaC();
@@ -721,51 +656,30 @@ function agregarFilaC(){
     const fila = document.createElement("tr");
 
     fila.innerHTML = `
+
         <td>
             ${i}
         </td>
 
         <td class="paso">
-            <input
+            <textarea
                 name="nombreCotizacion_TCR${i}"
-                id="nombreCotizacion_TCR${i}"
-
-                class="input_tabla "
+                class="auto-expand input_tabla "
+                rows="1"
+                style="resize:none;"
                 aria-label="Nombre de la Cotizacion"
-                readonly
-            >
-
+            > </textarea>
         </td>
 
         <td>
-            <div class="contenedorArchivo">
-
-                <input
-                    type="file"
-                    id="CotizacionAdquisicionG1_TCR${i}"
-                    name="CotizacionAdquisicionG1_TCR${i}"
-                    class="archivoInput "
-                    data-compa2="nombrearchivo_TC${i}$"
-                    data-compa="urlCotizacionAdquisicionG1_TCR${i}"
-                    data-compa3="nombreCotizacion_TCR${i}"
-                    accept=".pdf,.xlsx,.doc,.docx,.png,.jpg"
-                >
-
-                <span id="nombrearchivo_TC${i}$" class="nombreArchivo"></span>
-                 
-                <textarea
-                id="urlCotizacionAdquisicionG1_TCR${i}"
+            <textarea
                 name="urlCotizacionAdquisicionG1_TCR${i}"
-                class="auto-expand input_tabla paso"
+                class="auto-expand input_tabla"
                 rows="1"
-                readonly                
                 style="resize:none;"
                 aria-label="Url de las Cotizaciones"
-            > </textarea> 
-
-
-
-            </div>
+                readonly
+            > </textarea>
         </td>
 
         <td class="cantidadCol">
@@ -779,8 +693,8 @@ function agregarFilaC(){
 
             <input
                 name="anio_TCR${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="anio_TCR${i}RO"
                 data-campo="anio_TCR${i}"
             >
@@ -788,48 +702,24 @@ function agregarFilaC(){
         </td>
 
         <td class="paso">
-            <input
-                id="nombreCotizacion2_TCR${i}"
+            <textarea
                 name="nombreCotizacion2_TCR${i}"
-                class="input_tabla"
+                class="auto-expand input_tabla class="paso""
+                rows="1"
+                style="resize:none;"
                 aria-label="Nombre de la Cotizacion 2"
-                readonly
-            >
+            > </textarea>
         </td>
 
         <td>
-            <div class="contenedorArchivo">
-
-                <input
-                    type="file"
-                    id="CotizacionAdquisicionG2_TCR${i}"
-                    name="CotizacionAdquisicionG2_TCR${i}"
-                    data-compa="urlCotizacionAdquisicionG2_TCR${i}"
-                    data-compa2="nombrearchivo2_TC${i}$"
-                    data-compa3="nombreCotizacion2_TCR${i}"
-                    class="archivoInput "
-                    accept=".pdf,.xlsx,.doc,.docx,.png,.jpg"
-                >
-
-                <span 
-                id="nombrearchivo2_TC${i}$"
-                class="nombreArchivo"></span>
-
-                <span class="nombreArchivo"></span>
-                 
-                <textarea
-                id="urlCotizacionAdquisicionG2_TCR${i}"
+            <textarea
                 name="urlCotizacionAdquisicionG2_TCR${i}"
-                class="auto-expand input_tabla paso"
+                class="auto-expand input_tabla"
                 rows="1"
-                readonly
-                
                 style="resize:none;"
                 aria-label="Url de las Cotizaciones"
-            > </textarea> 
-
-
-            </div>
+                readonly
+            > </textarea>
         </td>
 
         <td>
@@ -842,8 +732,8 @@ function agregarFilaC(){
 
             <input
                 name="anioA2_TCR${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="anioA2_TCR${i}RO"
                 data-campo="anioA2_TCR${i}"
             >
@@ -858,7 +748,7 @@ function agregarFilaC(){
 
 //*-----------------------Agregar fila tabla 4*
 
-function agregarFila4(){
+function agregarFila4() {
 
     const tbody = document.getElementById("tablaBody4");
     const i = obtenerNumeroFila4();
@@ -866,12 +756,10 @@ function agregarFila4(){
     const fila = document.createElement("tr");
 
     fila.innerHTML = `
+
         <td>
             ${i}
         </td>
-        
-
-
 
         <td>
             <select
@@ -885,20 +773,22 @@ function agregarFila4(){
                 </option>
 
             </select>
-        
+
+
             <input
                 name="ProgramaAcademico_T4R${i}RO"
-                type="text"
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="ProgramaAcademico_T4R${i}RO"
                 data-campo="ProgramaAcademico_T4R${i}"
-                readonly
             >
         </td>
 
 
 
+
         <td>
+            
             <select
                 id="Espacio_T4R${i}"
                 name="Espacio_T4R${i}"
@@ -906,16 +796,16 @@ function agregarFila4(){
                 aria-label="Espacio">
 
                 <option value="">
-                    -- Selecciona un espacio--
+                    -- Selecciona un programa--
                 </option>
 
             </select>
-
+            
 
             <input
                 name="Espacio_T4R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="Espacio_T4R${i}RO"
                 data-campo="Espacio_T4R${i}"
             >
@@ -932,34 +822,36 @@ function agregarFila4(){
                 class="auto-expand input_tabla"
                 rows="1"
                 style="resize:none;"
-                aria-label="clave">
-            </textarea>
+                aria-label="clave"
+            ></textarea>
 
             <input
                 name="Clave_T4R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="Clave_T4R${i}RO"
                 data-campo="Clave_T4R${i}"
             >
         </td>
 
-          
+
+
+
+
 
         <td>
             <textarea
                 name="nombredelEquipo_T4R${i}"
-                id="nombredelEquipo_T4R${i}"
                 class="auto-expand input_tabla obligatorio"
                 rows="1"
                 style="resize:none;"
-                aria-label="Nombre del Equipo">
-            </textarea>
+                aria-label="Nombre del Equipo"
+            ></textarea>
 
             <input
                 name="nombredelEquipo_T4R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="nombredelEquipo_T4R${i}RO"
                 data-campo="nombredelEquipo_T4R${i}"
             >
@@ -970,7 +862,9 @@ function agregarFila4(){
 
 
 
+
         <td class="cantidadCol">
+
             <input
                 type="number"
                 id="cantidad_T4R${i}"
@@ -981,14 +875,13 @@ function agregarFila4(){
 
             <input
                 name="cantidad_T4R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="cantidad_T4R${i}RO"
                 data-campo="cantidad_T4R${i}"
             >
+
         </td>
-
-
 
 
 
@@ -998,17 +891,16 @@ function agregarFila4(){
         <td>
             <textarea
                 name="especificaciones_T4R${i}"
-                class="auto-expand input_tabla expandible limite-altura"
+                class="auto-expand input_tabla expandible"
                 rows="1"
                 style="resize:none;"
                 aria-label="Especificaciones"
-                >
-            </textarea>
+            ></textarea>
 
             <input
                 name="especificaciones_T4R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="especificaciones_T4R${i}RO"
                 data-campo="especificaciones_T4R${i}"
             >
@@ -1020,25 +912,26 @@ function agregarFila4(){
 
 
 
-
         <td>
             <textarea
                 id="justificacion_T4R${i}"
                 name="justificacion_T4R${i}"
-                class="auto-expand input_tabla expandible limite-altura"
+                class="auto-expand input_tabla expandible"
                 rows="1"
                 style="resize:none;"
-                aria-label="Justificación">
-            </textarea>
+                aria-label="Justificación"
+            ></textarea>
 
             <input
                 name="justificacion_T4R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="justificacion_T4R${i}RO"
                 data-campo="justificacion_T4R${i}"
             >
         </td>
+
+
 
 
 
@@ -1060,18 +953,19 @@ function agregarFila4(){
                     inputmode="decimal"
                     aria-label="Precio"
                 >
-                <input
+
+            </div>
+
+            <input
                 name="precio_T4R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="precio_T4R${i}RO"
                 data-campo="precio_T4R${i}"
             >
-
-            </div>
-</td>
-            
-
+        </td>
+        
+        
 
 
 
@@ -1093,12 +987,9 @@ function agregarFila4(){
                 >
 
             </div>
-
             
         </td>
-
-
-
+        
 
 
 
@@ -1107,7 +998,7 @@ function agregarFila4(){
 
 
         <td>
-            <select
+             <select
                 id="nombreCotizacion_T4R${i}"
                 name="nombreCotizacion_T4R${i}"
                 class="tabla_select"
@@ -1117,47 +1008,37 @@ function agregarFila4(){
                     -- Selecciona una cotización--
                 </option>
 
-            </select>
+            </select> 
+            
 
             <input
                 name="nombreCotizacion_T4R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="nombreCotizacion_T4R${i}RO"
                 data-campo="nombreCotizacion_T4R${i}"
             >
         </td>
 
-
-
-
-
-
-
         <td class="paso">
-            <div class="contenedorArchivo paso">
+            <textarea
+                name="urlCotizacionAdquisicion_T4R${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="Url de las Cotizaciones"
+            ></textarea>
+            
+            
 
-                <input
-                    type="file"
-                    name="CotizacionAdquisicion_T4R${i}"
-                    class="archivoInput"
-                    accept=".pdf,.xlsx,.doc,.docx,.png,.jpg"
-                >
-
-                <span class="nombreArchivo"></span>
-
-                <button type="button" class="borrarArchivo">
-                    ❌
-                </button>
-
-            </div>
+            <input
+                name="urlCotizacionAdquisicion_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="urlCotizacionAdquisicion_T4R${i}RO"
+                data-campo="urlCotizacionAdquisicion_T4R${i}"
+            >
         </td>
-
-
-
-
-
-
 
         <td>
             <div class="precio-wrapper">
@@ -1167,7 +1048,6 @@ function agregarFila4(){
                 <input
                     type="text"
                     name="precio2_T4R${i}"
-
                     class="input_tabla precio unitario"
                     data-cant="cantidad_T4R${i}"
                     data-precio="precioTotal2_T4R${i}"
@@ -1180,22 +1060,15 @@ function agregarFila4(){
 
             <input
                 name="precio2_T4R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="precio2_T4R${i}RO"
                 data-campo="precio2_T4R${i}"
             >
-
-
         </td>
-        
-
-
-
-
-
 
         
+
         <td>
             <div class="precio-wrapper">
 
@@ -1209,20 +1082,12 @@ function agregarFila4(){
                     class="input_tabla precio"
                     oninput="formatearMiles(this)"
                     inputmode="decimal"
-                    aria-label="Precio Total 2 mas IVA"
+                    aria-label="Precio Total mas IVA"
                 >
 
             </div>
 
-
         </td>
-        
-        
-
-
-
-
-
 
 
 
@@ -1233,7 +1098,7 @@ function agregarFila4(){
                 id="nombreCotizacion2_T4R${i}"
                 name="nombreCotizacion2_T4R${i}"
                 class="tabla_select"
-                aria-label="Nombre del archivo donde esta la Cotizacion de la alternativa 2 del Equipo">
+                aria-label="Nombre del archivo donde esta la Cotizacion2 del Equipo">
 
                 <option value="">
                     -- Selecciona una cotización--
@@ -1243,50 +1108,33 @@ function agregarFila4(){
 
             <input
                 name="nombreCotizacion2_T4R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="nombreCotizacion2_T4R${i}RO"
                 data-campo="nombreCotizacion2_T4R${i}"
             >
         </td>
 
-
-
-
-
-
-
-
         <td class="paso">
-            <div class="contenedorArchivo paso">
+            <textarea
+                name="urlCotizacionAdquisicion2_T4R${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="Url de las Cotizaciones"
+            ></textarea>
 
-                <input
-                    type="file"
-                    name="CotizacionAdquisicion2_T4R${i}"
-                    class="archivoInput"
-                    accept=".pdf,.xlsx,.doc,.docx,.png,.jpg"
-                >
-
-                <span class="nombreArchivo"></span>
-
-                <button type="button" class="borrarArchivo">
-                    ❌
-                </button>
-
-            </div>
-        </td>
-
-        <td>
-            <button
-        type="button"
-        class="borrar-fila"
-        title="Eliminar fila">
-        ✕
-    </button>
+            <input
+                name="urlCotizacionAdquisicion2_T4R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="urlCotizacionAdquisicion2_T4R${i}RO"
+                data-campo="urlCotizacionAdquisicion2_T4R${i}"
+            >
         </td>
     `;
 
-    const filaTotal =
+const filaTotal =
   document.getElementById("filaTotalTabla4");
 
 if (filaTotal) {
@@ -1298,11 +1146,7 @@ if (filaTotal) {
 }
 
 
-
-
-
-
-function agregarFila5(){
+function agregarFila5() {
 
     const tbody = document.getElementById("tablaBody5");
     const i = obtenerNumeroFila5();
@@ -1310,14 +1154,19 @@ function agregarFila5(){
     const fila = document.createElement("tr");
 
     fila.innerHTML = `
+
         <td>
             ${i}
         </td>
 
-        <td>
+
+
+        
+
+
+<td>
             <textarea
                 name="ProgramaAcademico_T5R${i}"
-                id="ProgramaAcademico_T5R${i}"
                 class="auto-expand input_tabla obligatorio"
                 rows="1"
                 style="resize:none;"
@@ -1329,10 +1178,12 @@ function agregarFila5(){
 
             </td>
 
+
+
+
         <td>
             <textarea
                 name="Espacio_T5R${i}"
-                id="Espacio_T5R${i}"
                 class="auto-expand input_tabla obligatorio"
                 rows="1"
                 style="resize:none;"
@@ -1347,7 +1198,6 @@ function agregarFila5(){
         <td>
             <textarea
                 name="nombredelEquipo_T5R${i}"
-                id="nombredelEquipo_T5R${i}"
                 class="auto-expand input_tabla obligatorio"
                 rows="1"
                 style="resize:none;"
@@ -1358,25 +1208,27 @@ function agregarFila5(){
             </textarea>
         </td>
 
+
         <td>
             <textarea
                 name="especificaciones_T5R${i}"
                 class="auto-expand input_tabla"
                 rows="1"
                 style="resize:none;"
-                aria-label="Especificaciones">
-            </textarea>
+                aria-label="Especificaciones"
+            ></textarea>
 
             <input
                 name="especificaciones_T5R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="especificaciones_T5R${i}RO"
                 data-campo="especificaciones_T5R${i}"
             >
         </td>
 
         <td class="cantidadCol">
+
             <input
                 type="number"
                 name="cantidadMal_estado_T5R${i}"
@@ -1386,14 +1238,16 @@ function agregarFila5(){
 
             <input
                 name="cantidadMal_estado_T5R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="cantidadMal_estado_T5R${i}RO"
                 data-campo="cantidadMal_estado_T5R${i}"
             >
+
         </td>
 
         <td class="cantidadCol">
+
             <input
                 type="number"
                 name="cantidadBuen_estado_T5R${i}"
@@ -1403,14 +1257,16 @@ function agregarFila5(){
 
             <input
                 name="cantidadBuen_estado_T5R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="cantidadBuen_estado_T5R${i}RO"
                 data-campo="cantidadBuen_estado_T5R${i}"
             >
+
         </td>
 
         <td class="cantidadCol">
+
             <input
                 type="number"
                 name="cantidadRegular_estado_T5R${i}"
@@ -1420,11 +1276,12 @@ function agregarFila5(){
 
             <input
                 name="cantidadRegular_estado_T5R${i}RO"
-                readonly
-                class="paso check-verificacion"
+                type="checkbox"
+                class="check-verificacion"
                 id="cantidadRegular_estado_T5R${i}RO"
                 data-campo="cantidadRegular_estado_T5R${i}"
             >
+
         </td>
     `;
 
@@ -1438,35 +1295,31 @@ function agregarFila5(){
 
 
 
-                //-------------------------Construccion de la Tabla
+
+//------------------------------------Construccion de tabla--------------------------
 
 
 for (let i = 1; i <= 10; i++) {
+
   agregarFila();
   agregarFila2();
   agregarFila3();
   agregarFilaC();
+  agregarFilaP();
   agregarFila4();
   agregarFila5();
-
 }
+
 
 crearFilaTotalTabla4();
 
 
 
 
-//-----------------------------------------------Enlaces Tabla1-Tabla4-Tabla2------------------------------------------------------------------------- 
-
-
-
-//---------------------------------------------------Actualizacion de los selects de nombres de archivos
 
 
 
 
-
-//---------------------------------------Funciones para cargar selects---------------------------------------------------------
 
 function actualizarOpcionesProgramas() {
 
@@ -1476,8 +1329,8 @@ function actualizarOpcionesProgramas() {
     tbody.querySelectorAll(
     '[name^="Programa_T1R"]'
                              ).forEach(input => {
+  if (input.classList.contains("check-verificacion")) return;
 
-     if (input.classList.contains("check-verificacion")) return;
     //tbody.querySelectorAll('[name^="Programa_T1R"]').forEach(input => {
 
         const valor = input.value.trim();
@@ -1533,13 +1386,11 @@ function actualizarOpcionesEspacios() {
     tbody2.querySelectorAll('[name^="Espacio_T2R"]').forEach(input => {
          if (input.classList.contains("check-verificacion")) return;
         const valor = input.value.trim();
-        
+
         if (!valor) return;
 
         espacios.push(valor);
     });
-
-
     tbody4.querySelectorAll(
         'select[name^="Espacio_T4R"]'
     ).forEach(select => {
@@ -1574,58 +1425,35 @@ tbody2.addEventListener("change", e => {
 
 
 function actualizarOpcionesCotizacion1() {
-    const nombresCot = [];
 
+    const cotizaciones = [];
 
-    tbodyC.querySelectorAll('[name^="CotizacionAdquisicionG1_TCR"]').forEach(input => {
-        
-       const fila = input.closest("tr");
+    // Leer cada cotización 1 desde su MISMA fila
+    tbodyC.querySelectorAll("tr").forEach(fila => {
 
-       const nombreCotizacion =fila.querySelector('[name^="nombreCotizacion_TCR"]');
-        
+        const campoNombre = fila.querySelector(
+            '[name^="nombreCotizacion_TCR"]'
+        );
 
-       /* if (input.files.length === 0) return;
-       
-             const  valor = input.files[0].name;
-//             const valor = input.value.trim();
-        
-            
-        if (!valor) return;
-        nombreCotizacion.value=valor;
-        nombresCot.push(valor);
-        */
-       let valor = "";
+        const campoUrl = fila.querySelector(
+            '[name^="urlCotizacionAdquisicionG1_TCR"]'
+        );
 
-// Si hay archivo nuevo, usamos su nombre
-if (input.files.length > 0) {
+        if (!campoNombre) return;
 
-    valor = input.files[0].name;
+        const nombre = campoNombre.value.trim();
+        const url = campoUrl?.value.trim() || "";
 
-    // Solo sobrescribimos el nombre guardado
-    // cuando realmente se eligió otro archivo
-    nombreCotizacion.value = valor;
+        if (!nombre) return;
 
-} else {
-
-    // No hay archivo nuevo.
-// Conservamos el nombre que ya estaba guardado.
-    valor = nombreCotizacion.value.trim();
-}
-
-if (!valor) return;
-
-nombresCot.push(valor);
-
-
-
-
-
+        cotizaciones.push({
+            nombre,
+            url
+        });
     });
 
 
-    
-    // ---------------- COTIZACIÓN 1 ----------------
-
+    // Crear opciones en los selects de Cotización 1 de Tabla 4
     tbody4.querySelectorAll(
         'select[name^="nombreCotizacion_T4R"]'
     ).forEach(select => {
@@ -1633,10 +1461,69 @@ nombresCot.push(valor);
         const valorActual = select.value;
 
         select.innerHTML =
-            '<option value="">Seleccione...</option>';
-        nombresCot.forEach(nombre => {
+            '<option value="">-- Selecciona una cotización --</option>';
+
+        cotizaciones.forEach(cotizacion => {
 
             const option = document.createElement("option");
+
+            option.value = cotizacion.nombre;
+            option.textContent = cotizacion.nombre;
+
+            // El URL viaja junto con SU nombre
+            option.dataset.url = cotizacion.url;
+
+            select.appendChild(option);
+        });
+
+        // Conservamos el valor si la opción ya existe
+        if (
+            cotizaciones.some(
+                cotizacion => cotizacion.nombre === valorActual
+            )
+        ) {
+            select.value = valorActual;
+        }
+    });
+}
+
+
+/*
+
+function actualizarOpcionesCotizacion1() {
+
+    const nombresCot = [];
+
+    // Leer los nombres que YA fueron cargados en Tabla Cotizaciones
+    tbodyC.querySelectorAll(
+        '[name^="nombreCotizacion_TCR"]'
+    ).forEach(campoNombre => {
+
+        const valor = campoNombre.value.trim();
+
+        if (!valor) return;
+
+        nombresCot.push(valor);
+    });
+
+
+    // ---------------- COTIZACIÓN 1 ----------------
+
+    tbody4.querySelectorAll(
+        'select[name^="nombreCotizacion_T4R"]'
+    ).forEach(select => {
+
+        // restaurarTabla(data) YA puso aquí
+        // la cotización que tenía seleccionada
+        const valorActual = select.value;
+
+        select.innerHTML =
+            '<option value="">Seleccione...</option>';
+
+        nombresCot.forEach(nombre => {
+
+            const option =
+                document.createElement("option");
 
             option.value = nombre;
             option.textContent = nombre;
@@ -1644,58 +1531,39 @@ nombresCot.push(valor);
             select.appendChild(option);
         });
 
-        select.value = valorActual;
-    });
 
-    
-}
-
-
-
-
-
-function actualizarOpcionesCotizacion2() {
-    const nombresCot = [];
-
-    
-    tbodyC.querySelectorAll('[name^="CotizacionAdquisicionG2_TCR"]').forEach(input => {
-        const fila = input.closest("tr");
-
-       const nombreCotizacion =fila.querySelector('[name^="nombreCotizacion2_TCR"]');
-
-    /* 
-        if (input.files.length === 0) return;
-       
-             const  valor = input.files[0].name;
-//             const valor = input.value.trim();
-
-        if (!valor) return;
-
-        nombresCot.push(valor);
-    */
-
-        let valor = "";
-
-        // Archivo nuevo
-        if (input.files.length > 0) {
-
-            valor = input.files[0].name;
-
-            nombreCotizacion.value = valor;
-
+        // Si el nombre sigue existiendo entre las cotizaciones,
+        // vuelve a dejarlo seleccionado.
+        if (nombresCot.includes(valorActual)) {
+            select.value = valorActual;
         } else {
-
-            // Cotización que ya estaba guardada
-            valor = nombreCotizacion.value.trim();
+            select.value = "";
         }
 
+    });
+}
+
+*/
+
+
+/*
+
+function actualizarOpcionesCotizacion2() {
+
+    const nombresCot = [];
+
+    // Leer los nombres que YA fueron cargados en Tabla Cotizaciones
+    tbodyC.querySelectorAll(
+        '[name^="nombreCotizacion2_TCR"]'
+    ).forEach(campoNombre => {
+
+        const valor = campoNombre.value.trim();
+
         if (!valor) return;
 
         nombresCot.push(valor);
-
     });
-   
-    
+
 
     // ---------------- COTIZACIÓN 1 ----------------
 
@@ -1703,13 +1571,17 @@ function actualizarOpcionesCotizacion2() {
         'select[name^="nombreCotizacion2_T4R"]'
     ).forEach(select => {
 
+        // restaurarTabla(data) YA puso aquí
+        // la cotización que tenía seleccionada
         const valorActual = select.value;
 
         select.innerHTML =
             '<option value="">Seleccione...</option>';
+
         nombresCot.forEach(nombre => {
 
-            const option = document.createElement("option");
+            const option =
+                document.createElement("option");
 
             option.value = nombre;
             option.textContent = nombre;
@@ -1717,10 +1589,82 @@ function actualizarOpcionesCotizacion2() {
             select.appendChild(option);
         });
 
-        select.value = valorActual;
+
+        // Si el nombre sigue existiendo entre las cotizaciones,
+        // vuelve a dejarlo seleccionado.
+        if (nombresCot.includes(valorActual)) {
+            select.value = valorActual;
+        } else {
+            select.value = "";
+        }
+
     });
-    
 }
+
+
+*/
+function actualizarOpcionesCotizacion2() {
+
+    const cotizaciones = [];
+
+    // Leer cada cotización 2 desde su MISMA fila
+    tbodyC.querySelectorAll("tr").forEach(fila => {
+
+        const campoNombre = fila.querySelector(
+            '[name^="nombreCotizacion2_TCR"]'
+        );
+
+        const campoUrl = fila.querySelector(
+            '[name^="urlCotizacionAdquisicionG2_TCR"]'
+        );
+
+        if (!campoNombre) return;
+
+        const nombre = campoNombre.value.trim();
+        const url = campoUrl?.value.trim() || "";
+
+        if (!nombre) return;
+
+        cotizaciones.push({
+            nombre,
+            url
+        });
+    });
+
+
+    // Crear opciones en los selects de Cotización 2 de Tabla 4
+    tbody4.querySelectorAll(
+        'select[name^="nombreCotizacion2_T4R"]'
+    ).forEach(select => {
+
+        const valorActual = select.value;
+
+        select.innerHTML =
+            '<option value="">-- Selecciona una cotización --</option>';
+
+        cotizaciones.forEach(cotizacion => {
+
+            const option = document.createElement("option");
+
+            option.value = cotizacion.nombre;
+            option.textContent = cotizacion.nombre;
+
+            // El URL correspondiente queda unido a esta opción
+            option.dataset.url = cotizacion.url;
+
+            select.appendChild(option);
+        });
+
+        if (
+            cotizaciones.some(
+                cotizacion => cotizacion.nombre === valorActual
+            )
+        ) {
+            select.value = valorActual;
+        }
+    });
+}
+
 
 
 tbodyC.addEventListener("change", e => {
@@ -1737,20 +1681,38 @@ tbodyC.addEventListener("change", e => {
 });
 
 
-function contarArchivosCargados() {
+function restaurarSeleccionCotizaciones(data) {
 
-    let cantidad = 0;
+    // ---------------- COTIZACIÓN 1 ----------------
 
-    document.querySelectorAll(
-        '.archivoInput'
-    ).forEach(input => {
+    tbody4.querySelectorAll(
+        'select[name^="nombreCotizacion_T4R"]'
+    ).forEach(select => {
 
-        if (input.files.length > 0) {
-            cantidad += input.files.length;
+        const valorGuardado = data[select.name];
+
+        if (valorGuardado === undefined || valorGuardado === null) {
+            return;
         }
+
+        select.value = valorGuardado;
     });
 
-    return cantidad;
+
+    // ---------------- COTIZACIÓN 2 ----------------
+
+    tbody4.querySelectorAll(
+        'select[name^="nombreCotizacion2_T4R"]'
+    ).forEach(select => {
+
+        const valorGuardado = data[select.name];
+
+        if (valorGuardado === undefined || valorGuardado === null) {
+            return;
+        }
+
+        select.value = valorGuardado;
+    });
 }
 
 
@@ -1759,353 +1721,75 @@ function contarArchivosCargados() {
 
 
 
-//--------------------------------------------------Mecanica de archivos----------------------------------------------------------------------------------------------------
 
-
-
-document.addEventListener("click", (e) => {
-
-    const boton = e.target.closest(".botonSeleccionarPlanos");
-    if (!boton) return;
-
-    const contenedor = boton.closest(".contenedorArchivo");
-    if (!contenedor) return;
-
-    const inputsPlanos =
-        contenedor.querySelectorAll(".archivoMultipleInput");
-
-    let inputDisponible = null;
-
-    inputsPlanos.forEach(input => {
-
-        if (input.files.length === 0) {
-            inputDisponible = input;
-        }
-
-    });
-
-    if (inputDisponible) {
-        inputDisponible.click();
-    }
-
-});
-
-
-
-
-
-
+//----------------------------------------Archivos y su mecanismo-----------------------------------------------------
 
 
 
 document.addEventListener("change", (e) => {
 
-    if (!e.target.matches(".archivoInput")) return;
+  if (!e.target.matches(".archivoInput")) return;
 
-    const input = e.target;
-    const contenedor = input.closest(".contenedorArchivo");
-    const nombres = contenedor.querySelector(".nombreArchivo");
+  const input = e.target;
+  const contenedor = input.closest(".contenedorArchivo");
 
-    if (input.files.length === 0) return;
+  const nombre = contenedor.querySelector(".nombreArchivo");
 
-    const file = input.files[0];
+  if (input.files.length > 0) {
 
+    nombre.textContent = input.files[0].name;
 
-    // =====================================================
-    // PLANOS
-    // Cada archivo queda guardado en SU PROPIO INPUT
-    // =====================================================
+    input.style.display = "none";
 
-    if (input.matches(".archivoMultipleInput")) {
-         const mensaje = contenedor.querySelector(".mensajeArchivos");
-        // Nombre que tiene este input:
-        // Planos_T3R1, Planos_T3R2, etc.
+  }
 
-        const item = document.createElement("div");
-        item.classList.add("archivoItem");
-
-        // Este item queda asociado específicamente
-        // con el input que contiene este archivo.
-        item.inputArchivo = input;
-
-        item.innerHTML = `<div class="contnombre">
-                <span>${file.name}</span>
-
-                <button type="button" class="borrarArchivo">
-                    ❌
-                </button>
-            </div>`;
-
-        nombres.appendChild(item);
-
-
-        // El input que ya tiene archivo se oculta.
-        input.style.display = "none";
-
-
-        // Buscamos el siguiente número
-        const inputsPlanos = contenedor.querySelectorAll(
-            'input[type="file"].archivoMultipleInput'
-        );
-
-        let siguienteNumero = 1;
-
-        inputsPlanos.forEach(inp => {
-
-            const match = inp.name.match(/Planos_T3R(\d+)/);
-
-            if (match) {
-                siguienteNumero = Math.max(
-                    siguienteNumero,
-                    Number(match[1]) + 1
-                );
-            }
-        });
-
-
-        // Creamos NUEVO input vacío
-        const nuevoInput = input.cloneNode();
-
-        nuevoInput.value = "";
-
-        nuevoInput.name = `Planos_T3R${siguienteNumero}`;
-        nuevoInput.id = `Planos_T3R${siguienteNumero}`;
-
-     //   nuevoInput.style.display = "block";
-
-        contenedor.appendChild(nuevoInput);
-
-        let cantidadArchivos = 0;
-
-contenedor
-    .querySelectorAll(".archivoMultipleInput")
-    .forEach(inputPlano => {
-
-        if (inputPlano.files.length > 0) {
-            cantidadArchivos++;
-        }
-
-    });
-
-mensaje.textContent =
-    cantidadArchivos === 1
-        ? "1 archivo cargado"
-        : `${cantidadArchivos} archivos cargados`;
-
-
-        return;
-    }
-
-
-    // =====================================================
-    // COTIZACIONES
-    // Solamente UN archivo por input
-    // =====================================================
-
-    nombres.innerHTML = "";
-
-    const item = document.createElement("div");
-    item.classList.add("archivoItem");
-
-    item.inputArchivo = input;
-
-    item.innerHTML = `
-        <div class="contnombre">
-            <span>${file.name}</span>
-
-            <button type="button" class="borrarArchivo">
-                ❌
-            </button>
-        </div>
-    `;
-
-    nombres.appendChild(item);
 });
-
-
-
-
-
-
-//------------------------Borrar archivox------------------------
 
 document.addEventListener("click", (e) => {
 
-    const boton = e.target.closest(".borrarArchivo");
-    if (!boton) return;
+  if (!e.target.matches(".borrarArchivo")) return;
 
-    const item = boton.closest(".archivoItem");
-    if (!item) return;
+  const contenedor = e.target.closest(".contenedorArchivo");
 
-    const input = item.inputArchivo;
-    if (!input) return;
+  const input = contenedor.querySelector(".archivoInput");
 
-    // Por ahora SOLO PLANOS
-    
-    const contenedor = input.closest(".contenedorArchivo");
-    const nombres = contenedor.querySelector(".nombreArchivo");            
-    
-    //---------------------------------Planos------------------------------------------------
-                if (input.matches(".archivoMultipleInput")) {
-                                    const mensaje = contenedor.querySelector(".mensajeArchivos");
-                                
-                                    // Borra el nombre + ❌
-                                        item.remove();
-                                    
-                                    // Borra el input que contenía ese archivo
-                                    
-                                        input.remove();
-                                    
-                                
-                                
-                                    // Recalcular archivos que quedan
-                                    let cantidadArchivos = 0;
-                                
-                                    contenedor
-                                        .querySelectorAll(".archivoMultipleInput")
-                                        .forEach(inputPlano => {
-                                
-                                            if (inputPlano.files.length > 0) {
-                                                cantidadArchivos++;
-                                            }
-                                
-                                        });
-                                
-                                
-                                    // Actualizar mensaje
-                                    if (cantidadArchivos === 0) {
-                                
-                                        mensaje.textContent =
-                                            "Seleccione uno o más archivos para adjuntar";
-                                
-                                    } else if (cantidadArchivos === 1) {
-                                
-                                        mensaje.textContent =
-                                            "1 archivo cargado";
-                                
-                                    } else {
-                                
-                                        mensaje.textContent =
-                                            `${cantidadArchivos} archivos cargados`;
-                                
-                                    }
-                                      return;
-                }
-//-------------------------------Cotizaciones-----------------------------------------------------
+  const nombre = contenedor.querySelector(".nombreArchivo");
 
+  input.value = "";
 
+  input.style.display = "block";
 
-         if (
-        input.name.startsWith("CotizacionAdquisicionG1_TCR") ||
-        input.name.startsWith("CotizacionAdquisicionG2_TCR")
-    ) {
-
-        const nombreCampo = input.dataset.compa3;
-        const urlCampo = input.dataset.compa;
-
-
-        // Cancelamos ÚNICAMENTE el archivo nuevo
-        input.value = "";
-
-
-        // Recuperamos lo que estaba vigente antes
-        const nombreAnterior =
-            nombresCotizacionesActuales[nombreCampo] || "";
-
-        const urlAnterior =
-            urlCotizacionesActuales[urlCampo] || "";
-
-
-        // Campo donde guardas el nombre
-        const campoNombre =
-            document.getElementById(nombreCampo);
-
-        if (campoNombre) {
-            campoNombre.value = nombreAnterior;
-        }
-
-
-        // Campo de URL visible
-        const campoURL =
-            document.getElementById(urlCampo);
-
-        if (campoURL) {
-            campoURL.value = urlAnterior;
-        }
-
-
-        // Quitar la presentación del archivo nuevo
-        item.remove();
-
-
-        // Si existía una cotización anterior,
-        // la volvemos a mostrar como vínculo
-        if (nombreAnterior && urlAnterior) {
-
-            nombres.innerHTML = `
-                <a
-                    href="${urlAnterior}"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    ${nombreAnterior}
-                </a>
-            `;
-
-        } else {
-
-            // Esta fila nunca había tenido cotización
-            nombres.innerHTML = "";
-
-        }
-
-
-        // Volver a actualizar los selects de Tabla 4
-        if (
-            input.name.startsWith(
-                "CotizacionAdquisicionG1_TCR"
-            )
-        ) {
-
-            actualizarOpcionesCotizacion1();
-
-        } else {
-
-            actualizarOpcionesCotizacion2();
-
-        }
-
-
-        return;
-    }
-
-
-    // =====================================================
-    // OTRAS COTIZACIONES
-    // =====================================================
-
-    // Para los otros inputs de archivo que usan este tache
-    input.value = "";
-    item.remove();
+  nombre.textContent = "";
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 //---------------------------Definicion de variables para selects de D Generales-------------------------------
 
+//const secretariaInput = document.getElementById("secretaria");
+//const direccionInput = document.getElementById("direccion");
+//const nivelInput = document.getElementById("nivel");
+
 
 
 const tipoDeSolicitudInput = document.getElementById("tipoDeSolicitud");
 
-
-
 const dependenciaInput = document.getElementById("dependencia");
-const dependenciaEncabezado = document.getElementById("dependenciaSolicitud");
-
-
-
+ const dependenciaEncabezado = document.getElementById("dependenciaSolicitud");
 
 
 
@@ -2128,6 +1812,11 @@ dependenciaInput.addEventListener("change", actualizarEncabezado);
 
 
 tipoDeSolicitudInput.addEventListener("change", actualizarEncabezado);
+
+
+
+
+
 
 
 
@@ -2181,7 +1870,6 @@ document.getElementById("tablaCotizaciones").addEventListener("change", e => {
 
 
 
-
 document
   .getElementById("tablaBody4")
   .addEventListener("change", e => {
@@ -2207,7 +1895,7 @@ document
 
 
 
-  //---------------------------Recalcular Totales-------------------
+
 
 
   document
@@ -2232,6 +1920,7 @@ document
 
 
 
+
 document.getElementById("tablaBody5").addEventListener("change", e => {
   if (!e.target.name?.startsWith("nombredelEquipo_T5R")) return;
 
@@ -2244,7 +1933,6 @@ document.getElementById("tablaBody5").addEventListener("change", e => {
 });
 
 
-//Recuerda agregar esta misma funcion para cada tabla en caso de que las 4 tablas queden en la misma pagina cosa que aun no decido
 
 
 
@@ -2267,7 +1955,6 @@ function generarDependencia() {
 }
 //----------------------------------------------------------------------------
 
-
 // Ajuste automatico de celdas con mucho texto
 
 const textareas = document.querySelectorAll(".auto-expand");
@@ -2286,123 +1973,8 @@ textareas.forEach(textarea => {
 
 
 
-
-
-const siglasDependencias = new Map([
-    ["Dirección de Asuntos Jurídicos", "DAJ"],
-    ["Dirección de Programación y Presupuesto", "DPP"],
-    ["Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco", "ESIA-Zacatenco"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"', "CECyT17"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"', "CECyT19"],
-    ["Dirección de Apoyo a Estudiantes", "DAE"],
-    ["Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco", "ESIA-Tecamachalco"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"', "CECyT10"],
-    ["Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente y Desarrollo (CIIEMAD)", "CIIEMAD"],
-    ['Centro de Estudios Tecnológicos (CET 1) "Walter Cross Buchanan"', "CET1"],
-    ["Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)", "UPIITA"],
-    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco", "ESIME-Zacatenco"],
-    ["Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)", "UPIICSA"],
-    ["Escuela Superior de Turismo (EST)", "EST"],
-    ["Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)", "CIECAS"],
-    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán", "ESIME-Culhuacan"],
-    ["Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)", "ENBA"],
-    ["Centro Interdisciplinario de Ciencias de la Salud, Unidad Santo Tomás (CICS UST)", "CICS-SantoTomas"],
-    ["Escuela Superior de Medicina (ESM)", "ESM"],
-    ["Escuela Superior de Física y Matemáticas (ESFM)", "ESFM"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"', "CECyT12"],
-    ["Centro de Investigación en Computación (CIC)", "CIC"],
-    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)", "UPIIP-Palenque"],
-    ["Escuela Nacional de Medicina y Homeopatía (ENMH)", "ENMH"],
-    ["Dirección de Educación Superior", "DES"],
-    ["Dirección de Formación e Innovación Educativa", "DFIE"],
-    ["Secretaría Académica", "SA"],
-    ["Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco", "CENLEX-Zacatenco"],
-    ["Escuela Superior de Comercio y Administración (ESCA), Unidad Tepepan", "ESCA-Tepepan"],
-    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)", "UPIIH-Hidalgo"],
-    ["Escuela Superior de Enfermería y Obstetricia (ESEO)", "ESEO"],
-    ["Escuela Superior de Comercio y Administración (ESCA), Unidad Santo Tomás", "ESCA-SantoTomas"],
-    ["Centro de Nanociencia y Micro-nanotecnología (CNMN)", "CNMN"],
-    ["Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)", "UPIEM"],
-    ["Centro Interdisciplinario de Ciencias Marinas (CICIMAR)", "CICIMAR"],
-    ["Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)", "ESIQIE"],
-    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán", "ESIME-Ticoman"],
-    ["Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán", "ESIA-Ticoman"],
-    ["Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)", "UPIBI"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"', "CECyT3"],
-    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira", "CICATA-Altamira"],
-    ["Escuela Superior de Ingeniería Textil (ESIT)", "ESIT"],
-    ["Centro Interdisciplinario de Ciencias de la Salud, Unidad Milpa Alta (CICS UMA)", "CICS-MilpaAlta"],
-    ["Dirección de Recursos Materiales E Infraestructura", "DRMI"],
-    ["Escuela Nacional de Ciencias Biológicas (ENCB)", "ENCB"],
-    ["Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)", "CITEDI"],
-    ["Dirección de Difusión de Ciencia y Tecnología", "DDCyT"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"', "CECyT18"],
-    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría", "CICATA-Legaria"],
-    ["Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca", "CIIDIR-Oaxaca"],
-    ["Escuela Superior de Ingeniería Química e Industrias Extractivas (ESIQIE)", "ESIQIE"],
-    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco", "ESIME-Azcapotzalco"],
-    ["Escuela Superior de Economía (ESE)", "ESE"],
-    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)", "UPIIG-Guanajuato"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"', "CECyT8"],
-    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)", "UPIIT-Tlaxcala"],
-    ["Centro de Desarrollo de Productos Bióticos (CEPROBI)", "CEPROBI"],
-    ["Dirección de Información Institucional", "DII"],
-    ["Escuela Superior de Cómputo (ESCOM)", "ESCOM"],
-    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Morelos", "CICATA-Morelos"],
-    ["Centro Interdisciplinario de Investigación para El Desarrollo Integral Regional (CIIDIR), Unidad Michoacán", "CIIDIR-Michoacan"],
-    ["Defensoría de los Derechos Politécnicos", "DDP"],
-    ["Dirección de Formación en Lenguas Extranjeras", "DFLE"],
-    ["Dirección General", "DG"],
-    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)", "UPIIZ-Zacatecas"],
-    ["Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla", "CIITA-Puebla"],
-    ["Dirección de Relaciones Internacionales", "DRI"],
-    ["Dirección de Capital Humano", "DCH"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Tecámac"', "CECyT19"],
-    ["Dirección de Educación Media Superior", "DIEMS"],
-    ["Coordinación General de Planeación E Información Institucional", "CGPII"],
-    ["Coordinación de Imagen Institucional", "CII"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 7) "Cuauhtémoc"', "CECyT7"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"', "CECyT2"],
-    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán", "CVDR-Culiacan"],
-    ["Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango", "CIIDIR-Durango"],
-    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán", "CVDR-Mazatlan"],
-    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche", "CVDR-Campeche"],
-    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca", "CVDR-Oaxaca"],
-    ["Centro de Investigación en Biotecnología Aplicada, IPN-tlaxcala (CIBA)", "CIBA-Tlaxcala"],
-    ["Dirección de Cómputo y Comunicaciones", "DCC"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"', "CECyT4"],
-    ["Secretaría de Investigación y Posgrado", "SIP"],
-    ["Dirección de Vinculación y Desarrollo Regional", "DVDR"],
-    ["Centro Mexicano para la Producción Más Limpia (CMP+L)", "CMP+L"],
-    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro", "CICATA-Queretaro"],
-    ["Secretaría General", "SG"],
-    ["Dirección de Egresados y Servicio Social", "DESS"],
-    ["Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás", "CENLEX-SantoTomas"],
-    ["Secretaría de Innovación E Integración Social", "SIIS"],
-    ["Dirección de Bibliotecas y Publicaciones", "DBP"],
-    ["Centro de Biotecnología Genómica (CBG)", "CBG"],
-    ["Dirección de Educación Virtual", "DEV"],
-    ['Centro de Estudios Cientificos y Tecnológicos (CECYT 11) "Wilfrido Massieu"', "CECyT11"],
-    ["Dirección de Planeación y Organización", "DPO"],
-    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún", "CVDR-Cancun"],
-    ["Dirección de Difusión Cultural", "DDC"],
-    ["Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)", "UPGPG"],
-    ['Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)', "UPIIAP-Puebla"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"', "CECyT20"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 13) "Ricardo Flores Magón"', "CECyT13"],
-    ["Dirección de Recursos Materiales e Infraestructura", "DRMI"],
-    ["Dirección de Incubación de Empresas Tecnológicas", "DIET"],
-    ['Centro de Estudios Científicos y Tecnológicos (CECYT 15) "Diódoro Antúnez Echegaray"', "CECyT15"]
-]);
-
-const siglasTipoBienes = new Map([
-    ["Equipamento General (Capitulo 5000)", "EGC5000"],
-["Bienes Tics","BT"],
-["Flota Vehicular","FV"],
-["Equipo de Laboratorio","EL"]]);
-
-
 /*
+
 const mapaFolios = new Map([
 [
     "ESIA-Zacatenco-BG-001",
@@ -4241,8 +3813,6 @@ const mapaFolios = new Map([
 ]);
 
 */
-
-
 const mapaFolios = new Map([
 [
     "DAJ-BG-001",
@@ -5741,16 +5311,127 @@ const mapaFolios = new Map([
 
 
 
+const siglasDependencias = new Map([
+    ["Dirección de Asuntos Jurídicos", "DAJ"],
+    ["Dirección de Programación y Presupuesto", "DPP"],
+    ["Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco", "ESIA-Zacatenco"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"', "CECyT17"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"', "CECyT19"],
+    ["Dirección de Apoyo a Estudiantes", "DAE"],
+    ["Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco", "ESIA-Tecamachalco"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"', "CECyT10"],
+    ["Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente y Desarrollo (CIIEMAD)", "CIIEMAD"],
+    ['Centro de Estudios Tecnológicos (CET 1) "Walter Cross Buchanan"', "CET1"],
+    ["Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)", "UPIITA"],
+    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco", "ESIME-Zacatenco"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)", "UPIICSA"],
+    ["Escuela Superior de Turismo (EST)", "EST"],
+    ["Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)", "CIECAS"],
+    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán", "ESIME-Culhuacan"],
+    ["Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)", "ENBA"],
+    ["Centro Interdisciplinario de Ciencias de la Salud, Unidad Santo Tomás (CICS UST)", "CICS-SantoTomas"],
+    ["Escuela Superior de Medicina (ESM)", "ESM"],
+    ["Escuela Superior de Física y Matemáticas (ESFM)", "ESFM"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"', "CECyT12"],
+    ["Centro de Investigación en Computación (CIC)", "CIC"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)", "UPIIP-Palenque"],
+    ["Escuela Nacional de Medicina y Homeopatía (ENMH)", "ENMH"],
+    ["Dirección de Educación Superior", "DES"],
+    ["Dirección de Formación e Innovación Educativa", "DFIE"],
+    ["Secretaría Académica", "SA"],
+    ["Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco", "CENLEX-Zacatenco"],
+    ["Escuela Superior de Comercio y Administración (ESCA), Unidad Tepepan", "ESCA-Tepepan"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)", "UPIIH-Hidalgo"],
+    ["Escuela Superior de Enfermería y Obstetricia (ESEO)", "ESEO"],
+    ["Escuela Superior de Comercio y Administración (ESCA), Unidad Santo Tomás", "ESCA-SantoTomas"],
+    ["Centro de Nanociencia y Micro-nanotecnología (CNMN)", "CNMN"],
+    ["Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)", "UPIEM"],
+    ["Centro Interdisciplinario de Ciencias Marinas (CICIMAR)", "CICIMAR"],
+    ["Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)", "ESIQIE"],
+    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán", "ESIME-Ticoman"],
+    ["Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán", "ESIA-Ticoman"],
+    ["Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)", "UPIBI"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"', "CECyT3"],
+    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira", "CICATA-Altamira"],
+    ["Escuela Superior de Ingeniería Textil (ESIT)", "ESIT"],
+    ["Centro Interdisciplinario de Ciencias de la Salud, Unidad Milpa Alta (CICS UMA)", "CICS-MilpaAlta"],
+    ["Dirección de Recursos Materiales E Infraestructura", "DRMI"],
+    ["Escuela Nacional de Ciencias Biológicas (ENCB)", "ENCB"],
+    ["Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)", "CITEDI"],
+    ["Dirección de Difusión de Ciencia y Tecnología", "DDCyT"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"', "CECyT18"],
+    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría", "CICATA-Legaria"],
+    ["Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca", "CIIDIR-Oaxaca"],
+    ["Escuela Superior de Ingeniería Química e Industrias Extractivas (ESIQIE)", "ESIQIE"],
+    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco", "ESIME-Azcapotzalco"],
+    ["Escuela Superior de Economía (ESE)", "ESE"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)", "UPIIG-Guanajuato"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"', "CECyT8"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)", "UPIIT-Tlaxcala"],
+    ["Centro de Desarrollo de Productos Bióticos (CEPROBI)", "CEPROBI"],
+    ["Dirección de Información Institucional", "DII"],
+    ["Escuela Superior de Cómputo (ESCOM)", "ESCOM"],
+    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Morelos", "CICATA-Morelos"],
+    ["Centro Interdisciplinario de Investigación para El Desarrollo Integral Regional (CIIDIR), Unidad Michoacán", "CIIDIR-Michoacan"],
+    ["Defensoría de los Derechos Politécnicos", "DDP"],
+    ["Dirección de Formación en Lenguas Extranjeras", "DFLE"],
+    ["Dirección General", "DG"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)", "UPIIZ-Zacatecas"],
+    ["Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla", "CIITA-Puebla"],
+    ["Dirección de Relaciones Internacionales", "DRI"],
+    ["Dirección de Capital Humano", "DCH"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Tecámac"', "CECyT19"],
+    ["Dirección de Educación Media Superior", "DIEMS"],
+    ["Coordinación General de Planeación E Información Institucional", "CGPII"],
+    ["Coordinación de Imagen Institucional", "CII"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 7) "Cuauhtémoc"', "CECyT7"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"', "CECyT2"],
+    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán", "CVDR-Culiacan"],
+    ["Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango", "CIIDIR-Durango"],
+    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán", "CVDR-Mazatlan"],
+    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche", "CVDR-Campeche"],
+    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca", "CVDR-Oaxaca"],
+    ["Centro de Investigación en Biotecnología Aplicada, IPN-tlaxcala (CIBA)", "CIBA-Tlaxcala"],
+    ["Dirección de Cómputo y Comunicaciones", "DCC"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"', "CECyT4"],
+    ["Secretaría de Investigación y Posgrado", "SIP"],
+    ["Dirección de Vinculación y Desarrollo Regional", "DVDR"],
+    ["Centro Mexicano para la Producción Más Limpia (CMP+L)", "CMP+L"],
+    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro", "CICATA-Queretaro"],
+    ["Secretaría General", "SG"],
+    ["Dirección de Egresados y Servicio Social", "DESS"],
+    ["Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás", "CENLEX-SantoTomas"],
+    ["Secretaría de Innovación E Integración Social", "SIIS"],
+    ["Dirección de Bibliotecas y Publicaciones", "DBP"],
+    ["Centro de Biotecnología Genómica (CBG)", "CBG"],
+    ["Dirección de Educación Virtual", "DEV"],
+    ['Centro de Estudios Cientificos y Tecnológicos (CECYT 11) "Wilfrido Massieu"', "CECyT11"],
+    ["Dirección de Planeación y Organización", "DPO"],
+    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún", "CVDR-Cancun"],
+    ["Dirección de Difusión Cultural", "DDC"],
+    ["Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)", "UPGPG"],
+    ['Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)', "UPIIAP-Puebla"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"', "CECyT20"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 13) "Ricardo Flores Magón"', "CECyT13"],
+    ["Dirección de Recursos Materiales e Infraestructura", "DRMI"],
+    ["Dirección de Incubación de Empresas Tecnológicas", "DIET"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 15) "Diódoro Antúnez Echegaray"', "CECyT15"]
+]);
+
+
+
+
+/*
 function obtenerListaDependencias() {
-    return Array.from(siglasDependencias.keys());
+    return Array.from(mapaFolios.values());
 }
+*/
 
 
 
 
 
-
-const opciones = [
+const opciones= [
   ...new Set(
     [...mapaFolios.values()]
       .map(obj => obj.dependencia)
@@ -5758,22 +5439,85 @@ const opciones = [
 ];
 
 
-
-
-
-
-
-
-
-
-
-
-  opciones.forEach(value => {
+opciones.forEach(value => {
     const option = document.createElement("option");
     option.value = value;
     option.textContent = value;
     dependenciaInput.appendChild(option);
   });
+
+
+
+
+
+//-------------------------------Funcion para obtener todos los Folios de una dependencia(Exclusivo de FDPO) 
+function cargarFoliosPorDependencia(dependenciaBuscada) {
+
+    const select = document.getElementById("folioSeleccionado");
+
+    select.innerHTML = `
+        <option value="">
+            Selecciona una opción
+        </option>
+    `;
+
+    for (const [folio, datos] of mapaFolios) {
+
+        if (datos.dependencia === dependenciaBuscada) {
+
+            const option = document.createElement("option");
+
+            option.value = folio;
+
+            option.textContent =
+                `${folio} — ${datos.tipoDeBien}`;
+
+            select.appendChild(option);
+        }
+    }
+}
+//--------------------Es el Listener para cargar los folios como opciones del select de folios------------------------
+
+
+document.getElementById("dependencia").addEventListener("change",  function () {
+
+          dependencia =this.value;
+          setSelectValue("tipoDeSolicitud","");
+          let Folio= document.getElementById("folioInput");
+        Folio.value=""; 
+        if (!dependencia) {
+            alert("Selecciona una dependencia.");
+            return;
+        }
+
+        cargarFoliosPorDependencia(dependencia);
+    });
+
+//-----------------Es el Listener que carga automatico el tipo de solicitud atraves de el folio generado
+
+document
+    .getElementById("folioSeleccionado")
+    .addEventListener("change", function () {
+
+        const folio = this.value;
+        
+        if (!folio) {
+            return;
+        }
+
+        const datos = mapaFolios.get(folio);
+
+        if (!datos) {
+            return;
+        }
+        let Folio= document.getElementById("folioInput");
+        Folio.value=folio;
+        setSelectValue(
+            "tipoDeSolicitud",
+            datos.tipoDeBien
+        );
+//        document.getElementById("folioSeleccionado");
+    });
 
 
 
@@ -5858,202 +5602,38 @@ document.getElementById("tablaBody5").addEventListener("input", function (e) {
 });
 
 
-  
+
+
+
 
 
 function obtenerNumeroFila1(){
-     const filas = document.querySelectorAll("#tablaBody tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-
-    //  return document.querySelectorAll("#tablaBody tr").length -1;
+  return document.querySelectorAll("#tablaBody tr").length + 1;
 }
 function obtenerNumeroFila1_1(){
-      const filas = document.querySelectorAll("#tablaBody1_1 tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-  //return document.querySelectorAll("#tablaBody1_1 tr").length -1;
+  return document.querySelectorAll("#tablaBody1_1 tr").length + 1;
 }
-
-
 function obtenerNumeroFila2(){
-       const filas = document.querySelectorAll("#tablaBody2 tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-//  return document.querySelectorAll("#tablaBody2 tr").length - 1;
+  return document.querySelectorAll("#tablaBody2 tr").length + 1;
 }
 
 function obtenerNumeroFila3(){
-       const filas = document.querySelectorAll("#tablaBody3 tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-//    return document.querySelectorAll("#tablaBody3 tr").length - 1;
+  return document.querySelectorAll("#tablaBody3 tr").length + 1;
+}
+function obtenerNumeroFilaP(){
+  return document.querySelectorAll("#tablaBodyP tr").length + 1;
 }
 
 function obtenerNumeroFilaC(){
-         const filas = document.querySelectorAll("#tablaCotizaciones tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-//    return document.querySelectorAll("#tablaCotizaciones tr").length + 1;
+  return document.querySelectorAll("#tablaCotizaciones tr").length + 1;
 }
 
 function obtenerNumeroFila4(){
-
-             const filas = document.querySelectorAll("#tablaBody4 tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-    // No contar total
-         if (fila.id === "filaTotalTabla") {
-            return;
-        }
-
-        numero++;
-    });
-
-    return numero;
-
-//  return document.querySelectorAll("#tablaBody4 tr").length - 1;
+  return document.querySelectorAll("#tablaBody4 tr").length + 1;
 }
 
 function obtenerNumeroFila5(){
-
-     
-                const filas = document.querySelectorAll("#tablaBody5 tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-
-//  return document.querySelectorAll("#tablaBody5 tr").length - 1;
+  return document.querySelectorAll("#tablaBody5 tr").length + 1;
 }
 
 
@@ -6078,10 +5658,6 @@ function formatearMiles(input) {
     ? `${entero}.${decimal.slice(0,2)}`
     : entero;
 }
-
-
-
-
 
 
 
@@ -6130,6 +5706,8 @@ function crearFilaTotalTabla4() {
 }
 
 
+
+
 function numeroSinFormato(valor) {
 
   return Number(
@@ -6159,6 +5737,9 @@ function actualizarTotalesTabla4() {
     .querySelectorAll('#tablaBody4 tr:not(#filaTotalTabla4)')
     .forEach(fila => {
 
+        if (fila.style.display === "none") {
+                     return;
+        }   
       const cantidad =
         fila.querySelector('[name^="cantidad_T4R"]');
 
@@ -6219,6 +5800,12 @@ function actualizarTotalesTabla4() {
 
 
 
+
+
+
+
+
+
 function activarAutoExpand(fila){
   const textareas = fila.querySelectorAll(".auto-expand");
   textareas.forEach(textarea => {
@@ -6246,7 +5833,6 @@ document.getElementById("miFormulario").addEventListener("keydown", function (e)
 function generarFolio() {
    return Math.random().toString(36).substr(2, 8).toUpperCase();
 }
-
 
 
 
@@ -6293,11 +5879,7 @@ if(document
     .getElementById(`paso${numero}`)
     .classList.add("activo");
   }
-
 }
-
-
-
 
 
 
@@ -6320,24 +5902,22 @@ function precioTotalMasIVA(precioInput) {
               );
                  precioTotal=valorUnitario*cantidadInput.value*1.16;
                 
-                precioTotalinput.value=precioTotal;
-                formatearMiles(precioTotalinput);
-                actualizarTotalesTabla4();    
+                precioTotalinput.value=precioTotal;    
+
+            formatearMiles(precioTotalinput);
+            actualizarTotalesTabla4();    
             }
     
-document
+       document
                .querySelector(".Tabla4")
                .addEventListener("change",function (event){
-    
-            const origen = event.target;    
+                           const origen = event.target;    
                document
             .querySelectorAll(`[data-relleno="${origen.id}"]`)
             .forEach(destino => {
                 destino.value = origen.value;
             });
-                
-               precioTotalMasIVA(event.target);
-
+                           precioTotalMasIVA(event.target)
                });
 
 
@@ -6345,102 +5925,48 @@ document
 
 
 
-/*
-document
-        .getElementById(precioTotal);
-document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
-    const nombreOrigen = campo.dataset.relleno;
-
-    const campoOrigen = document.querySelector(
-        `[name="${nombreOrigen}"]`
-    );
-
-    if (!campoOrigen) return;
-
-    campo.value = campoOrigen.value;
-
-    if (campo.tagName === "TEXTAREA") {
-        campo.style.height = "auto";
-        campo.style.height = campo.scrollHeight + "px";
-    }
-});               
-
+/*dependencia.addEventListener("mousedown", e => {
+  e.preventDefault();
+});
 */
+//V6
+// 
+ const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
-
-
-
-
-
-
-
-// V6  
-//
-  const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 // V7 
-
-//const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+// const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 
 let folioActual=null;
 let edicionActual=null;
-let numerodeEnvio=0;
+let numerodeEnvio=1;
 let ExistenciaDeCotizaciones=false;
+let ExistenciaDeCotizaciones_T4=false;
 let folioCargado = false;
 
-
-let ExistenciaDeCotizaciones_T4=false;
-
-
 let ExistenciaDeCotizacionesA2=false;
-
-
-
 let ExistenciaDeCotizacionesA2_T4=false;
 
-//--------------------------------------Cargar UltimaVersion
 
-async function cargarDatosPorFolio() {
-
-    const folio = document
-        .getElementById("folioInput")
-        .value
-        .trim();
-
-    if (!folio) {
-        alert("Ingrese un folio.");
-        return;
-    }
-    folioActual=folio;
-    const datos = mapaFolios.get(folio);
-
-    if (!datos) {
-        alert("Folio no encontrado.");
-        return;
-    }
-
-    // Cargar dependencia
-setSelectValue(
-        "dependencia",
-        datos.dependencia
-    );
-
-    setSelectValue(
-        "tipoDeSolicitud",
-        datos.tipoDeBien
-    );
+//----------------------------------------cargar Ultimo Guardado
 
 
+document.getElementById("cargarFolio").addEventListener("click", async function () {   
+    
+    const folio = document.getElementById("folioInput").value.trim();
 
-try {    
+    const dependencia = document.getElementById("dependencia").value.trim();
+   
+  const tipoDeEquipamento = document.getElementById("tipoDeSolicitud").value.trim();
+try{
     const res = await fetch(direccionEnlace, {
     method: "POST",
     body: JSON.stringify({
         action: "cargarUltimaVersion",
-        dependencia:datos.dependencia,
-        tipoDeBien:datos.tipoDeBien
+        dependencia:dependencia,
+        tipoDeBien:tipoDeEquipamento
     })
 });
 
@@ -6448,8 +5974,7 @@ const json = await res.json();
 const data =json.data;
 
 // alert(data.dependencia + "  su funcion y accion funcionan bien.Hora de la actualizacion:" + data.fechaModificacion +". el Origen es un" + json.origen );
-
-  const form = document.getElementById("miFormulario");
+ const form = document.getElementById("miFormulario");
 
   // Limpiar tabla
   const tbody = document.getElementById("tablaBody");
@@ -6458,30 +5983,25 @@ const data =json.data;
   const tbodyC = document.getElementById("tablaCotizaciones");
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
-
-  /*
+/*
   const tbody6 = document.getElementById("tablaBody6");
-  */
-
+*/
   tbody.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
-  /*
-  tbody6.innerHTML = "";
-  
-  */
-  // Reconstruir filas
+/*  tbody6.innerHTML = "";
+
+*/
+// Reconstruir filas
 //  const filas = data.__filas || 10;
 //  for (let i = 1; i <= filas; i++) {
 //    agregarFila();
 //  }
-
-//alert("despues de cargar Borrador"+folioActual);
-
-//      folioActual = folio;
+  
+      folioActual = folio;
       edicionActual=data.edicion;
       numerodeEnvio=data.numeroEnvio;
 // Restaurar selects encadenados
@@ -6495,30 +6015,20 @@ setTimeout(() => {
 
     setTimeout(() => {
 */
-//-------------------------------  activa selects
+if(!numerodeEnvio){
+    numerodeEnvio=0;
+}
 // folioValor.value=data.folio;
-      setSelectValue("dependencia", data.dependencia);
-      Object.keys(data).forEach(name => {
+setSelectValue("dependencia", data.dependencia);
+document.getElementById("folioInput").value=folioActual;
+document.getElementById("Envio").value=numerodeEnvio;
+Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
-                          if(name.includes("url")){
-                                        urlCotizacionesActuales[name] = data[name];
-                                        //alert("data:"+data[name]);
-                                        //alert("urlcot"+urlCotizacionesActuales[name]);
-                          };
-                          if (
-                               name.startsWith("nombreCotizacion_TCR") ||
-                               name.startsWith("nombreCotizacion2_TCR")
-                              ) {
-
-                               nombresCotizacionesActuales[name] = data[name];
-                       
-                          }
                           if (name.includes("R")) return; //quitamos los campos de la tabla
                           if(name.includes("secretaria")) return;
                           if(name.includes("direccion")) return; 
                           if(name.includes("nivel")) return; 
-                          if(name.includes("dependencia")) return;
-//                          if(name.includes("folio")) return; 
+                         // if(name.includes("dependencia")) return; 
                           const campo = document.querySelector(`[name="${name}"]`);
                           if (!campo) return;
                           
@@ -6530,27 +6040,23 @@ setTimeout(() => {
     }
   });
 
-let folioValor = document.getElementById("folioInput");
- folioValor.value=folioActual;
+
 
 
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
-actualizarOpcionesProgramas();
-actualizarOpcionesEspacios();
-actualizarOpcionesCotizacion1()
-actualizarOpcionesCotizacion2()
+      actualizarOpcionesProgramas();
+      actualizarOpcionesEspacios();
+
+      actualizarOpcionesCotizacion1();
+      actualizarOpcionesCotizacion2();
+
+      restaurarSeleccionCotizaciones(data);
 
 
 
-      document.querySelectorAll("textarea.auto-expand").forEach(textarea => {
-    textarea.style.height = "auto";
-    textarea.style.height = textarea.scrollHeight + "px";
-});
-
-
-document
+      document
     .querySelectorAll(".Tabla4 .unitario")
     .forEach(precioInput => {
         precioTotalMasIVA(precioInput);
@@ -6558,160 +6064,47 @@ document
 
 
 
+      document.querySelectorAll(".check-verificacion").forEach(check => {
 
-document.querySelectorAll(".check-verificacion").forEach(check => {
+    if (data.hasOwnProperty(check.name)) {
+        check.checked = data[check.name] === true;
+    }
 
-     const campo = document.querySelector(`[name="${check.dataset.campo}"]`);
-    if (!campo) return;
-
-    campo.readOnly = check.value === true || check.value === "true";
 });
-
-
-//document.getElementById("especificaciones").readOnly =    data.especificacionesRO ?? false;
-
-      
-const ejemplos = json.ejemplos;
-    for(let index=1;index<3;index++){
-   document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
-   document.getElementById(`UsuariosHAnio2E${index}`).textContent=ejemplos[`UsuariosHAnio2E${index}`];
-   document.getElementById(`UsuariosMAnio2E${index}`).textContent=ejemplos[`UsuariosMAnio2E${index}`];
-   document.getElementById(`UsuariosHAnio3E${index}`).textContent=ejemplos[`UsuariosHAnio3E${index}`];
-   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
-   document.getElementById(`UsuariosMAnio3E${index}`).textContent=ejemplos[`UsuariosMAnio3E${index}`];
-   document.getElementById(`UsuariosHAnio4E${index}`).textContent=ejemplos[`UsuariosHAnio4E${index}`];
-   document.getElementById(`UsuariosMAnio4E${index}`).textContent=ejemplos[`UsuariosMAnio4E${index}`];
-   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
-   document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
-   document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
-
- document.getElementById(`NumProfE${index}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
- document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`]
- document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`]
- document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`]
- document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`]
- document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`]
- document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`]
- document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`]
- document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`]
- document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`]
- document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`]
-
-document.getElementById(`Edificio_T2E${index}`).textContent= ejemplos[`Edificio_T2E${index}`];
-document.getElementById(`Nivel_T2E${index}`   ).textContent= ejemplos[`Nivel_T2E${index}`   ];
-document.getElementById(`Espacio_T2E${index}` ).textContent= ejemplos[`Espacio_T2E${index}` ];
-document.getElementById(`Largo_T2E${index}`   ).textContent= ejemplos[`Largo_T2E${index}`   ];
-document.getElementById(`Ancho_T2E${index}`   ).textContent= ejemplos[`Ancho_T2E${index}`   ];
-document.getElementById(`Alumnos_T2E${index}` ).textContent= ejemplos[`Alumnos_T2E${index}` ];
-document.getElementById(`Horas_T2E${index}`   ).textContent= ejemplos[`Horas_T2E${index}`   ];
-
-document.getElementById(`Edificio_T3E${index}`).textContent       = ejemplos[`Edificio_T3E${index}`];
-document.getElementById(`MetrosCuadrados_T3E${index}`).textContent= ejemplos[`MetrosCuadrados_T3E${index}`];
-
-
-document.getElementById(`ProgramaAcademico_T4E${index}`).textContent= ejemplos[`ProgramaAcademico_T4E${index}`];              
-document.getElementById(`Espacio_T4E${index}`).textContent= ejemplos[`Espacio_T4E${index}`];         
-document.getElementById(`Clave_T4E${index}`).textContent= ejemplos[`Clave_T4E${index}`];       
-document.getElementById(`Equipo_T4E${index}`).textContent= ejemplos[`Equipo_T4E${index}`];        
-document.getElementById(`Cantidad_T4E${index}`).textContent= ejemplos[`Cantidad_T4E${index}`];         
-document.getElementById(`Especificaciones_T4E${index}`).textContent= ejemplos[`Especificaciones_T4E${index}`];         
-document.getElementById(`Justificacion_T4E${index}`).textContent= ejemplos[`Justificacion_T4E${index}`];      
-
-
-
-
-
-
-document.getElementById(`PrecioUnitario_T4E${index}`).textContent= formatoMilesNumero(ejemplos[`PrecioUnitario_T4E${index}`]);
-
-const precio = numeroSinFormato(
-    ejemplos[`PrecioUnitario_T4E${index}`]
-);
-
-const cantidad = numeroSinFormato(
-    ejemplos[`Cantidad_T4E${index}`]
-);
-
-// alert(cantidad);
-const total = precio * cantidad * 1.16;
-//  alert(precio);
-document.getElementById(
-    `PrecioTotal_T4E${index}`
-).textContent = total;
-
-document.getElementById(`NombreArch_T4E${index}`).textContent= ejemplos[`NombreArch_T4E${index}`];     
-
-document.getElementById(`Cotizacion_T4E${index}`).textContent= ejemplos[`Cotizacion_T4E${index}`];       
-document.getElementById(`PrecioUnitario2_T4E${index}`).textContent=formatoMilesNumero(ejemplos[`PrecioUnitario2_T4E${index}`]);
-document.getElementById(`PrecioTotal2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`]*ejemplos[`Cantidad_T4E${index}`]*1.16
-document.getElementById(`NombreArch2_T4E${index}`).textContent= ejemplos[`NombreArch2_T4E${index}`];  
-document.getElementById(`Cotizacion2_T4E${index}`).textContent=ejemplos[`Cotizacion2_T4E${index}`];
-
-
-document.getElementById(`ProgramaAcademico_T5E${index}`).textContent=ejemplos[`ProgramaAcademico_T5E${index}`];
-document.getElementById(`Espacio_T5E${index}`).textContent=ejemplos[`Espacio_T5E${index}`]                     ;
-document.getElementById(`Equipo_T5E${index}`).textContent=ejemplos[`Equipo_T5E${index}`]                        ;
-document.getElementById(`Especificaciones_T5E${index}`).textContent=ejemplos[`Especificaciones_T5E${index}`]  ;
-document.getElementById(`MalEstado_T5E${index}`).textContent=ejemplos[`MalEstado_T5E${index}`]               ;
-document.getElementById(`BuenEstado_T5E${index}`).textContent=ejemplos[`BuenEstado_T5E${index}`]                ;
-document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`EstadoRegular_T5E${index}`]            ;
-
-}
-
 
 
       document.querySelectorAll("#tablaBody tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
-                           activarAutoExpand(fila);
-      });
-      document.querySelectorAll("#tablaBody1_1 tr").forEach(fila => {
-                           actualizarObligatoriedadFila(fila);
-                           activarAutoExpand(fila);
       });
       document.querySelectorAll("#tablaBody2 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
-                           activarAutoExpand(fila);
       });
       document.querySelectorAll("#tablaBody3 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
-                           activarAutoExpand(fila);
       });
       document.querySelectorAll("#tablaBody4 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
-                           activarAutoExpand(fila);
       });
       document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
-                           activarAutoExpand(fila);
       });
-
-
-
-
-      
-
-
-  alert("📂  datos de la solicitud cargados correctamente");
-
-  folioActual = folio;
-  folioCargado = true;
-
+/*
+      document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+*/
+//    }, 0);
+//  }, 0);
+//  }, 0);
+  alert("📂 Datos cargados correctamente");
 } catch (e) {
-    alert("⚠️ Error de conexión al cargar los datos");
-}
-  
-
+    alert("⚠️ Error de conexión al cargar los Datos");
 }
 
-//   activarAutoExpand(fila);
 
 
+    });
 
-
-
-document
-    .getElementById("cargarDependencia")
-    .addEventListener("click", cargarDatosPorFolio);
 
 
 
@@ -6721,22 +6114,22 @@ document
 //---------------------------GuardarBorrador--------------------------------------------------
 
 
-//-----------------------------Funcion-------------------------------------
+//--------------------------Funcion-------------------------------
+
+
 let ultimoBorradorGuardado = "";
 let temporizadorAutoguardado ;
 
 
-
-//--------------------------------Funcion Guardar Borrador---------------------------------------
-
 async function guardarBorradorAutomatico(mostrarAlerta = false) {
-
- if (!folioCargado) {
+  
+    if (!folioCargado) {
         return;
     }
+ 
 
 
-const form = document.getElementById("miFormulario");
+  const form = document.getElementById("miFormulario");
   const formData = new FormData(form);
 
   const data = {};
@@ -6746,39 +6139,41 @@ const form = document.getElementById("miFormulario");
     data[key] = value;
   });
 
-  // Guardamos también el número de filas actuales
+
+  
+ 
+  
+    // Guardamos también el número de filas actuales
   data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
   data.__filas2 = document.querySelectorAll("#tablaBody2 tr").length;
   data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
   data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
   data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
-  
- // if(folioActual==null){
- //            folioActual = generarFolio();
- // }
-  data.__folio = folioActual;
+
+
+document.querySelectorAll(".check-verificacion").forEach(check => {
+
+    data[check.name] = check.checked;
+
+});
+
 
 
 const borradorActual = JSON.stringify(data);
+
 if (!mostrarAlerta && borradorActual === ultimoBorradorGuardado) {
     return;
 }
 
 
-
-
-
-
 try {
 
-const partes = dividirData(data);
-
-
+    const partes = dividirData(data);
 
 const res = await fetch(direccionEnlace, {
-      method: "POST",
-      body: JSON.stringify({
-       action:"guardarBorrador",
+    method: "POST",
+    body: JSON.stringify({
+        action: "guardarBorrador",
            json1: partes[0],
            json2: partes[1],
            json3: partes[2],
@@ -6787,9 +6182,16 @@ const res = await fetch(direccionEnlace, {
            json6: partes[5],
            json7: partes[6],
            json8:partes[7]
-       })
+    })
+});
+
+/*
+    const res = await fetch(direccionEnlace, {
+      method: "POST",
+      body: JSON.stringify({action: "guardarBorrador", data})
     });
-  
+
+*/  
 // ---------------Nuevo------------------------------------------- 
 
   const json = await res.json();
@@ -6798,32 +6200,35 @@ if (json.success) {
     ultimoBorradorGuardado = borradorActual;
 
     if (mostrarAlerta) {
-    
-                       alert(`✅ Borrador  de la dependencia ${data.dependencia} guardado correctamente. Recuerda que tu solicitud esta para : ${data.tipoDeSolicitud}`);
-    }else{
-                 mostrarEstadoGuardado("✅ Borrador guardado automáticamente");
-    }
-    
-    
+                alert(
+                    `✅ Borrador guardado correctamente. Tu folio es: ${folioActual}`
+                );
+            }else{
+            mostrarEstadoGuardado("✅ Borrador guardado automáticamente");
+            }
+   //   alert(`✅ Borrador guardado correctamente. Tu folio es: ${folioActual}`);
     } else {
-                if (mostrarAlerta) {  
+              if (mostrarAlerta) {
+        
+                    alert("⚠️ Error al guardar el borrador: " + json.message);
+              }else{
+                mostrarEstadoGuardado("⚠ Error al guardar");
 
-                       alert("⚠️ Error al guardar el borrador: " + json.message);
-                }else{
-                        mostrarEstadoGuardado("⚠ Error al guardar");
-
-                }           
+              }     
     }
   } catch (e) {
-            if (mostrarAlerta) {
-                                alert("⚠️ Error de conexión al guardar el borrador"+e.message);
-            }else{
-                                mostrarEstadoGuardado("⚠ Error de conexión");
-            }
-
-}
+         if (mostrarAlerta) {            
+                     alert("⚠️ Error de conexión al guardar el borrador");
+         }else{
+            mostrarEstadoGuardado("⚠ Error de conexión");
+         }            
+  }
 
 };
+   // tu código actual para guardar
+
+
+
 
 
    let temporizadorToast;
@@ -6843,6 +6248,33 @@ function mostrarEstadoGuardado(mensaje) {
 }
 
 
+
+
+
+
+
+
+/*
+document
+    .getElementById("miFormulario")
+    .addEventListener("input", () => {
+
+        clearTimeout(temporizadorAutoguardado);
+
+        temporizadorAutoguardado = setTimeout(() => {
+
+            guardarBorradorAutomatico(false);
+
+        }, 20000);
+
+
+    });
+
+setInterval(() => {
+  guardarBorradorAutomatico(false);
+}, 1200000);
+
+*/
 
 
 
@@ -6874,13 +6306,18 @@ setInterval(() => {
 }, 1200000);
 
 
-document.getElementById("guardarBorrador").addEventListener("click", () => {
+
+
+
+
+
+
+
+  document.getElementById("guardarBorrador").addEventListener("click", () => {
 
         guardarBorradorAutomatico(true);
 
     });
-
-
 
 
 
@@ -6894,10 +6331,6 @@ function setSelectValue(selectId, value) {
   select.dispatchEvent(new Event("change"));
 }
 
-
-
-
-
 function restaurarTabla(data) {
  
  
@@ -6905,545 +6338,42 @@ function restaurarTabla(data) {
  
 
 
-  const filas1   = data.__filas1 || 10;
-  const filas1_1 = data.__filas1_1 || 10;
-  const filas2   = data.__filas2 || 10;
-  const filas3   = data.__filas3 || 10;
-  const filasC   = data.__filasC || 10;
-  const filas4   = data.__filas4 || 10;
-  const filas5   = data.__filas5 || 10;
-
+  const filas1 = data.__filas1 || 10;
+  const filas2 = data.__filas2 || 10;
+  const filas3 = data.__filas3 || 10;
+  const filasP = data.__filasP || 10;
+  const filasC = data.__filasC || 10;
+  const filas4 = data.__filas4 || 10;
+  const filas5 = data.__filas5 || 10;
   /*
-  const filas6   = data.__filas6 || 10;
-  
+  const filas6 = data.__filas6 || 10;
   */
-
+  
   const tbody = document.getElementById("tablaBody");
-  const tbody1 = document.getElementById("tablaBody1_1");
+  const tbody1 = document.getElementById("tablaBody1_1"); 
   const tbody2 = document.getElementById("tablaBody2");
   const tbody3 = document.getElementById("tablaBody3");
+  const tbodyP =document.getElementById("tablaBodyP");
   const tbodyC = document.getElementById("tablaCotizaciones"); 
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
-  /*
-  const tbody6 = document.getElementById("tablaBody6");
- 
- */
-
-  tbody.innerHTML = `<tr class="ejemplo">
-                                                                             <td title="Numero de Fila" class="ejemplo">
-                                                                                      Ejemplo                                  
-                                                                              </td> 
-
-                                                                             <td title="ProgramasE1" id="ProgramasE1" class="ejemplo">
-                                                                                   
-                                                                              </td>
-                                                          
-                                                                              <td id="UsuariosHAnio1E1" title="Matrícula Hombres 1" class="ejemplo">
-                                                                                
-                                                                              </td>   
-                                          
-                                                                              <td id="UsuariosMAnio1E1" title="Matrícula Mujeres 1" class="ejemplo">
-                                                                                   
-                                                                              </td>
-                                                                              <td id="UsuariosHAnio2E1" title="Matrícula Hombres 2" class="ejemplo">
-                                                                                  
-                                                                              </td>
-                                                                              <td  id="UsuariosMAnio2E1" title="Matrícula Mujeres 2" class="ejemplo">
-                                                                                  
-                                                                              </td>
-                                          
-                                                                              <td id="UsuariosHAnio3E1" title="Matrícula Hombres 3" class="ejemplo">
-                                                                                
-                                                                             </td>
-                                                                              <td  id="UsuariosMAnio3E1" title="Matrícula Mujeres 3" class="ejemplo">  
-                                                                             </td>
-                                                                             <td id="UsuariosHAnio4E1" title="Matrícula Hombres 4" class="ejemplo">
-                                                                               
-                                                                             </td>
-                                                                              <td  id="UsuariosMAnio4E1" title="Matrícula Mujeres 4" class="ejemplo">  
-                                                                             </td>
-                                                                             <td id="UsuariosHAnio5E1" title="Matrícula Hombres 5" class="ejemplo">
-                                                                                 
-                                                                             </td>
-                                                                              <td  id="UsuariosMAnio5E1" title="Matrícula Mujeres 5" class="ejemplo">  
-                                                                             </td>
-
-                                                                         </tr> 
-
-                                                                            <tr class="ejemplo">
-                                                                               <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                              </td>
-                                                                              <td title="ProgramasE2" id="ProgramasE2" class="ejemplo">
-                                                                                   
-                                                                              </td>
-                                                          
-                                                                              <td id="UsuariosHAnio1E2" title="Matrícula Hombres 1" class="ejemplo">
-                                                                                
-                                                                              </td>   
-                                          
-                                                                              <td id="UsuariosMAnio1E2" title="Matrícula Mujeres 1" class="ejemplo">
-                                                                                   
-                                                                              </td>
-                                                                              <td id="UsuariosHAnio2E2" title="Matrícula Hombres 2" class="ejemplo">
-                                                                                  
-                                                                              </td>
-                                                                              <td  id="UsuariosMAnio2E2" title="Matrícula Mujeres 2" class="ejemplo">
-                                                                                  
-                                                                              </td>
-                                          
-                                                                              <td id="UsuariosHAnio3E2" title="Matrícula Hombres 3" class="ejemplo">
-                                                                                
-                                                                             </td>
-                                                                              <td  id="UsuariosMAnio3E2" title="Matrícula Mujeres 3" class="ejemplo">  
-                                                                             </td>
-                                                                             <td id="UsuariosHAnio4E2" title="Matrícula Hombres 4" class="ejemplo">
-                                                                               
-                                                                             </td>
-                                                                              <td  id="UsuariosMAnio4E2" title="Matrícula Mujeres 4" class="ejemplo">  
-                                                                             </td>
-                                                                             <td id="UsuariosHAnio5E2" title="Matrícula Hombres 5" class="ejemplo">
-                                                                                 
-                                                                             </td>
-                                                                              <td  id="UsuariosMAnio5E2" title="Matrícula Mujeres 5" class="ejemplo">  
-                                                                             </td>
-
-                                                                         </tr>` ;
-                                                         tbody1.innerHTML = `<tr class="ejemplo">
-                                                                              <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                              </td>
-
-                                                                               <td title="Número de Profesores Superior y Posgrado  "    id="NumProfE1" class="ejemplo">
-                                                                                   Número de Profesores Superior y Posgrado     
-                                                                              </td>
-                                                          
-                                                                              <td   id="UsuariosAHAnio1E1" title="Número de Profesores y Administrativos Hombres 1"  class="ejemplo" >
-                                                                              </td>
-                                                                                <td id="UsuariosAMAnio1E1" title="Número de Profesores y Administrativos Mujeres 1" class="ejemplo">
-                                                                                   
-                                                                              </td>
-                                                                              <td   id="UsuariosAHAnio2E1" title="Número de Profesores y Administrativos Hombres 2" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td   id="UsuariosAMAnio2E1" title="Número de Profesores y Administrativos Mujeres 2" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                             <td    id="UsuariosAHAnio3E1" title="Número de Profesores y Administrativos Hombres 3" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td   id="UsuariosAMAnio3E1" title="Número de Profesores y Administrativos Mujeres 3"class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td id="UsuariosAHAnio4E1" title="Número de Profesores y Administrativos Hombres 4"class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td   id="UsuariosAMAnio4E1" title="Número de Profesores y Administrativos Mujeres 4"class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td  id="UsuariosAHAnio5E1" title="Número de Profesores y Administrativos Hombres 5"class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td   id="UsuariosAMAnio5E1" title="Número de Profesores y Administrativos Mujeres 5"class="ejemplo">
-                                                                                  
-                                                                             </td>
-
-                                                                         </tr>
-                                                                         <tr class="ejemplo">
-                                                                              <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                              </td>
-                                                                              <td title="Número de Profesores Superior y Posgrado  " id="NumProfE2" class="ejemplo">
-                                                                                   Número de Profesores Superior y Posgrado     
-                                                                              </td>
-                                                          
-                                                                              <td id="UsuariosAHAnio1E2" title="Número de Profesores y Administrativos Hombres 1" class="ejemplo">
-                                                                              </td>
-                                                                                <td id="UsuariosAMAnio1E2" title="Número de Profesores y Administrativos Mujeres 1" class="ejemplo">
-                                                                              
-                                                                              </td>
-                                                                              <td id="UsuariosAHAnio2E2" title="Número de Profesores y Administrativos Hombres 2" class="ejemplo">
-                                                                                 
-                                                                             </td>
-                                                                              <td  id="UsuariosAMAnio2E2" title="Número de Profesores y Administrativos Mujeres 2" class="ejemplo">
-                                                                                 
-                                                                             </td>
-                                                                             <td id="UsuariosAHAnio3E2" title="Número de Profesores y Administrativos Hombres 3" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td  id="UsuariosAMAnio3E2" title="Número de Profesores y Administrativos Mujeres 3" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td id="UsuariosAHAnio4E2" title="Número de Profesores y Administrativos Hombres 4" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td  id="UsuariosAMAnio4E2" title="Número de Profesores y Administrativos Mujeres 4" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td id="UsuariosAHAnio5E2" title="Número de Profesores y Administrativos Hombres 5" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td  id="UsuariosAMAnio5E2" title="Número de Profesores y Administrativos Mujeres 5" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                             <tr>
-                                                                             `;
-  tbody2.innerHTML = `<tr class="ejemplo">
-                                                                   <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                   </td>
-
-                                                                   <td title="Edificio" id="Edificio_T2E1" class="ejemplo">
-                                                                         
-                                                                   </td>
-                                               
-                                                                   <td title="Nivel" id="Nivel_T2E1" class="ejemplo">
-                                                                      
-                                                                   </td>   
-                               
-                                                                   <td title="Espacio" id="Espacio_T2E1" class="ejemplo">
-                                                                   </td>
-                                                                   <td title="Largo" id="Largo_T2E1" class="ejemplo">
-                                                                   </td>
-                                                                   <td title="Ancho" id="Ancho_T2E1" class="ejemplo">
-                                                                   </td>
-                               
-                                                                   <td title="Alumnos" id="Alumnos_T2E1" class="ejemplo">
-                                                                   </td> 
-                                                                   
-                                                                   <td title="HorasServicio" id="Horas_T2E1" class="ejemplo">
-                                                                   </td>
-                               
-                                                                   
-                                                              </tr>
-                               
-                                                              <tr class="ejemplo">
-                                                                 <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                              </td>
-                                                                   <td title="Edificio" id="Edificio_T2E2" class="ejemplo">
-                                                                          
-                                                                   </td>
-                                               
-                                                                   <td title="Nivel" id="Nivel_T2E2" class="ejemplo">
-                                                                        
-                                                                   </td>   
-                               
-                                                                   <td title="Espacio" id="Espacio_T2E2" class="ejemplo">
-                                                                        
-                                                                   </td>
-                                                                   <td title="Largo" id="Largo_T2E2" class="ejemplo">
-                                                                   </td>
-                                                                   <td title="Ancho" id="Ancho_T2E2" class="ejemplo">
-                                                                       
-                                                                   </td>
-                               
-                                                                   <td title="Alumnos" id="Alumnos_T2E2" class="ejemplo">
-                                                                       
-                                                                   </td> 
-                                                                   
-                                                                   <td title="HorasServicio" id="Horas_T2E2" class="ejemplo">
-                                                                       
-                                                                   </td>
-                                                              </tr>`;
-  tbody3.innerHTML = `<tr class="ejemplo">
-                                                                <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                              </td>
-
-                                                                 <td title="Edificio" id="Edificio_T3E1" class="ejemplo">
-                                                                          
-                                                                 </td>
-                                             
-                                                                 <td title="MetrosCuadrados" id="MetrosCuadrados_T3E1" class="ejemplo">
-                                                                       
-                                                                 </td>   
-                                                                 
-                                                                 
-                                                            </tr>
-                                                            <tr class="ejemplo">
-                                                                 <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                              </td>
-                                                                 <td title="Edificio" id="Edificio_T3E2" class="ejemplo">
-                                                                       
-                                                                 </td>
-                                             
-                                                                 <td title="MetrosCuadrados" id="MetrosCuadrados_T3E2" class="ejemplo">
-                                                                       
-                                                                 </td>   
-                                                                 
-                                                                 
-                                                            </tr>`;
-  tbodyC.innerHTML = ``;
-
-  tbody4.innerHTML = `<tr class="ejemplo">
-                                                                     <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                     </td>
-                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T4E1" class="ejemplo">
-                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
-                                                                    </td>                                                                                                             
-                                                                                                              
-                                                                    <td title="Espacio" title="Espacio" id="Espacio_T4E1" class="ejemplo">
-                                                                         Espacio                                                                                                             
-                                                                    </td>                                                                                                                
-                                                                                                                                             
-                                                                    <td title="Clave"  id="Clave_T4E1" class="ejemplo">
-                                                                         Clave CUCOP                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                    <td title="Equipo"  id="Equipo_T4E1" class="ejemplo">
-                                                                        Nombre genérico del equipo                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                    <td title="Cantidad"  id="Cantidad_T4E1" class="ejemplo">
-                                                                        Cantidad Equipos solicitados                                                                                                              
-                                                                    </td>                                                                                                             
-                                                                                                                                             
-                                                                    <td title=" Especificaciones Técnicas del Equipo"  class="ejemplo">
-                                                                                
-                                                                                      <textarea
-                                                                                                           id="Especificaciones_T4E1"
-                                                                                                           name="especificaciones_T4E1"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
-                                                                                                           rows="1"
-                                                                                                           style="resize:none;"
-                                                                                                           aria-label="Especificaciones"
-                                                                                                           readonly
-                                                                                                           >
-                                                                                       </textarea>                                                                                                              
-                                                                    </td>                                                                                                              
-                                                                                                                                                                                 
-                                                                    <td title="Justificación (Equipo no Existente, Sustitución o Complemento)"  class="ejemplo">
-                                                                                      
-                                                                                   <textarea
-                                                                                                           id="Justificacion_T4E1"
-                                                                                                           name="Justificacion_T4E1"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
-                                                                                                           rows="1"
-                                                                                                           style="resize:none;"
-                                                                                                           aria-label="Justificacion Ejemplo"
-                                                                                                           readonly
-                                                                                                           >
-                                                                                       </textarea>
-
-                                                                    </td>                                                                                                             
-                                                                                                                                                                                 
-                                                                                                                                                                                                                          
-                                                                                                                                                                                                                          
-                                                                    <td title="Precio unitario Adquisición Alternativa 1 (Sin IVA)" id="PrecioUnitario_T4E1" class="ejemplo">
-                                                                        Precio unitario Adquisición Alternativa 1 (Sin IVA)                                                                                                                                                                                                                          
-                                                                    </td>                                                                                                             
-                                                                         
-                                                                    <td title="Precio Total con IVA Alternativa 1 (Sin IVA)" id="PrecioTotal_T4E1" class="ejemplo">
-                                                                                                                                                                                                                                                                                                  
-                                                                    </td>
-
-                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición" id="NombreArch_T4E1" class="ejemplo">
-                                                                        Nombre de la Cotización (En la tabla anterior)                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                                                                                                                                                                          
-                                                                                                                                                                                                                          
-                                                                    <td title="Cotización de Adquisición" id="Cotizacion_T4E1" class="ejemplo paso">
-                                                                        Cotización de Adquisición                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                                                                                                                                 
-                                                                    <td title="Precio unitario Adquisición Alternativa 2 (Sin IVA)" id="PrecioUnitario2_T4E1" class="ejemplo">
-                                                                        Precio unitario Adquisición Alternativa 2 (Sin IVA)                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                         
-                                                                    <td title="Precio Total con IVA Alternativa 2 (Sin IVA)" id="PrecioTotal2_T4E1" class="ejemplo">
-                                                                                                                                                                                                                                                                                                  
-                                                                    </td>
-
-                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición 2" id="NombreArch2_T4E1" class="ejemplo">
-                                                                        Nombre de la Cotización 2 (En la tabla anterior)                                                                                                             
-                                                                    </td>                                                                                                                
-                                                                                                             
-                                                                    <td title="Cotización de Adquisición 2" id="Cotizacion2_T4E1" class="ejemplo paso">
-                                                                        Cotización de Adquisición 2                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                                                                                                                                 
-                                                               </tr>                                                                                                              
-
-
-                                                               <tr class="ejemplo">
-                                                                     <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                    </td>
-                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T4E2" class="ejemplo">
-                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
-                                                                    </td>                                                                                                             
-                                                                                                              
-                                                                    <td title="Espacio" title="Espacio" id="Espacio_T4E2" class="ejemplo">
-                                                                         Espacio                                                                                                             
-                                                                    </td>                                                                                                                
-                                                                                                                                             
-                                                                    <td title="Clave"  id="Clave_T4E2" class="ejemplo">
-                                                                         Clave CUCOP                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                    <td title="Equipo"  id="Equipo_T4E2" class="ejemplo">
-                                                                        Nombre genérico del equipo                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                    <td title="Cantidad"  id="Cantidad_T4E2" class="ejemplo">
-                                                                        Cantidad Equipos solicitados                                                                                                              
-                                                                    </td>                                                                                                             
-                                                                                                                                             
-                                                                    <td title=" Especificaciones Técnicas del Equipo"  class="ejemplo">
-                                                                                           <textarea
-                                                                                                            id="Especificaciones_T4E2"
-                                                                                                           name="especificaciones_T4E2"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
-                                                                                                           rows="1"
-                                                                                                           style="resize:none;"
-                                                                                                           aria-label="Especificaciones"
-                                                                                                           readonly
-                                                                                                           >
-                                                                                       </textarea>                                                                                                           
-                                                                    </td>                                                                                                              
-                                                                                                                                                                                 
-                                                                    <td title="Justificación (Equipo no Existente, Sustitución o Complemento)"  class="ejemplo">
-                                                                                                
-                                                                                                    <textarea
-                                                                                                           id="Justificacion_T4E2"
-                                                                                                           name="Justificacion_T4E2"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
-                                                                                                           rows="1"
-                                                                                                           style="resize:none;"
-                                                                                                           aria-label="Justificacion Ejemplo"
-                                                                                                           readonly
-                                                                                                           >
-                                                                                       </textarea>
-                                                                                        
-                                                                    </td>                                                                                                             
-                                                                                                                                                                                 
-                                                                                                                                                                                                                          
-                                                                                                                                                                                                                          
-                                                                    <td title="Precio unitario Adquisición Alternativa 1 (Sin IVA)" id="PrecioUnitario_T4E2" class="ejemplo">
-                                                                        Precio unitario Adquisición Alternativa 1 (Sin IVA)                                                                                                                                                                                                                          
-                                                                    </td>                                                                                                             
-                                                                    
-                                                                    <td title="Precio Total con IVA Alternativa 1 (Sin IVA)" id="PrecioTotal_T4E2" class="ejemplo">
-                                                                                                                                                                                                                                                                                                  
-                                                                    </td>
-
-                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición" id="NombreArch_T4E2" class="ejemplo">
-                                                                        Nombre de la Cotización (En la tabla anterior)                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                                                                                                                                                                          
-                                                                                                                                                                                                                          
-                                                                    <td title="Cotización de Adquisición" id="Cotizacion_T4E2" class="ejemplo paso">
-                                                                        Cotización de Adquisición                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                                                                                                                                 
-                                                                    <td title="Precio unitario Adquisición Alternativa 2 (Sin IVA)" id="PrecioUnitario2_T4E2" class="ejemplo">
-                                                                        Precio unitario Adquisición Alternativa 2 (Sin IVA)                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                    
-                                                                    <td title="Precio Total con IVA Alternativa 2 (Sin IVA)" id="PrecioTotal2_T4E2" class="ejemplo">
-                                                                                                                                                                                                                                                                                                  
-                                                                    </td>
-                                                                    
-                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición 2" id="NombreArch2_T4E2" class="ejemplo">
-                                                                        Nombre de la Cotización 2 (En la tabla anterior)                                                                                                             
-                                                                    </td>                                                                                                                
-                                                                                                             
-                                                                    <td title="Cotización de Adquisición 2" id="Cotizacion2_T4E2" class="ejemplo paso">
-                                                                        Cotización de Adquisición 2                                                                                                             
-                                                                    </td>                                                                                                             
-                                                                                                                                                                                 
-                                                               </tr>`;
-  tbody5.innerHTML = `<tr class="ejemplo">
-                                                                    <td title="Numero de Fila"  class="ejemplo">
-                                                                                                                        
-                                                                 </td>
-                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T5E1" class="ejemplo" >                                                                                                                                                                                              
-                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.                                                                                                                                                                                                   
-                                                                    </td>                                                                                                                                                                                              
-                                                                                                                                                                                                                                              
-                                                                    <td title="Espacio" id="Espacio_T5E1" class="ejemplo">                                                                                                                                                                                              
-                                                                         Espacio                                                                                                                                                                                              
-                                                                    </td>                                                                                                                                                                                                 
-                                                                                                                                                                                                                              
-                                                                                                                                                                                                                                                                  
-                                                                    <td title="Equipo" id="Equipo_T5E1" class="ejemplo">                                                                                                                                                                                              
-                                                                        Nombre genérico del equipo                                                                                                                                                                                              
-                                                                    </td>                                                                                                                                                                                              
-                                                                                                                                                                                                                                                                  
-                                                                    <td title=" Especificaciones y Desempeño Operativo"  class="ejemplo">                                                                                                                                                                                              
-                                                                                            <textarea
-                                                                                                            id="Especificaciones_T5E1"
-                                                                                                           name="Especificaciones_T5E1"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
-                                                                                                           rows="1"
-                                                                                                           style="resize:none;"
-                                                                                                           aria-label="Especificaciones"
-                                                                                                           readonly
-                                                                                                           >
-                                                                                       </textarea>                                                                                                                                                                                              
-                                                                    </td>                                                                                                                                                                                               
-                                                                                                                                                                                                                                                                  
-                                                                    <td title="Cuantos equipos en mal estado (obsoletos, a remplazar)" id="MalEstado_T5E1" class="ejemplo">                                                                                                                                                                                              
-                                                                         Cuantos equipos en mal estado (obsoletos, a remplazar)                                                                                                                                                                                               
-                                                                    </td>                                                                                                                                                                                              
-                                                                    <td title="Cuantos equipos  en buen estado (útiles)" id="BuenEstado_T5E1" class="ejemplo">                                                                                                                                                                                              
-                                                                         Cuantos equipos  en buen estado (útiles)                                                                                                                                                                                               
-                                                                    </td>                                                                                                                                                                                              
-                                                                                                                                                                                                                                                                  
-                                                                    <td title="Cuantos equipos  en estado regular (útiles)" id="EstadoRegular_T5E1" class="ejemplo">                                                                                                                                                                                              
-                                                                         Cuantos equipos  en estado regular (útiles)                                                                                                                                                                                               
-                                                                    </td>                                                                                                                                                                                              
-                                                                                                                                                                                                                                                                   
-                                                               </tr>                                                                                                                                                                                              
-                                                               
-                                                               
-                                                               <tr class="ejemplo">
-                                                                     <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                 </td>
-                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T5E2" class="ejemplo" >
-                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
-                                                                    </td>
-                                                
-                                                                    <td title="Espacio" id="Espacio_T5E2" class="ejemplo">
-                                                                         Espacio
-                                                                    </td>   
-                                
-                                                                    
-                                                                    <td title="Equipo" id="Equipo_T5E2" class="ejemplo">
-                                                                        Nombre genérico del equipo
-                                                                    </td>
-                                                                    
-                                                                    <td title=" Especificaciones y Desempeño Operativo"  class="ejemplo">
-                                                                                        <textarea
-                                                                                                            id="Especificaciones_T5E2"
-                                                                                                           name="Especificaciones_T5E2"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
-                                                                                                           rows="1"
-                                                                                                           style="resize:none;"
-                                                                                                           aria-label="Especificaciones"
-                                                                                                           readonly
-                                                                                                           >
-                                                                                       </textarea>
-                                                                    </td> 
-                                                                    
-                                                                    <td title="Cuantos equipos en mal estado (obsoletos, a remplazar)" id="MalEstado_T5E2" class="ejemplo">
-                                                                         Cuantos equipos en mal estado (obsoletos, a remplazar) 
-                                                                    </td>
-                                                                    <td title="Cuantos equipos  en buen estado (útiles)" id="BuenEstado_T5E2" class="ejemplo">
-                                                                         Cuantos equipos  en buen estado (útiles) 
-                                                                    </td>
-                                                                    
-                                                                    <td title="Cuantos equipos  en estado regular (útiles)" id="EstadoRegular_T5E2" class="ejemplo">
-                                                                         Cuantos equipos  en estado regular (útiles) 
-                                                                    </td>
-                                                                     
-                                                               </tr>`;
 /*
-  tbody6.innerHTML = "";
+  const tbody6 = document.getElementById("tablaBody6");
+ */
  
+  tbody.innerHTML  = "";
+  tbody1.innerHTML = "";
+  tbody2.innerHTML = "";
+  tbody3.innerHTML = "";
+  tbodyP.innerHTML = "";
   
-*/  
+  tbodyC.innerHTML = "";
+
+  tbody4.innerHTML = "";
+  tbody5.innerHTML = "";
+  /*
+  tbody6.innerHTML = "";
+  */
   for (let i = 1; i <= filas1; i++) {
     agregarFila();
   }
@@ -7452,6 +6382,11 @@ function restaurarTabla(data) {
   }
   for (let i = 1; i <= filas3; i++) {
     agregarFila3();
+
+  }
+  for (let i = 1; i <= filasP; i++) {
+    agregarFilaP();
+
   }
   for (let i = 1; i <= filasC; i++) {
     agregarFilaC();
@@ -7462,9 +6397,6 @@ function restaurarTabla(data) {
   for (let i = 1; i <= filas5; i++) {
     agregarFila5();
   }
-
-
-
   /*
   for (let i = 1; i <= filas6; i++) {
     agregarFila6();
@@ -7474,37 +6406,45 @@ function restaurarTabla(data) {
   Object.keys(data).forEach(name => {
     if (name.includes("__filas")) return;
      if (!name.includes("R")) return; // solo campos de la tabla
-     
-    const campo = document.querySelector(`[name="${name}"]`);
-
-
+    
+     const campo = document.querySelector(`[name="${name}"]`);
     if (!campo) return;
+   
+
+
     if (campo.type === "file") {
-    console.log("Archivo omitido:", name);
+//    console.log("Archivo omitido:", name);
     return;
   }
-
 
   if (
     data[name] !== null &&
     typeof data[name] === "object"
   ) {
-    console.log("Objeto omitido:", name, data[name]);
+//    console.log("Objeto omitido:", name, data[name]);
     return;
   }
-  //--------------------------------------------------------------------------------    
 
+  if (name.startsWith("urlCotizacionAdquisicionG")) {
+
+    /*alert(
+        "NAME: " + name +
+        "\nVALOR DATA: " + data[name] +
+        "\nCAMPO ENCONTRADO: " + (campo ? "SI" : "NO")
+    );
+    */
+}
     campo.value = data[name];
-// }
-
-if (campo.tagName === "TEXTAREA") {
+    
+    if (campo.tagName === "TEXTAREA") {
       campo.style.height = "auto";
       campo.style.height = campo.scrollHeight + "px";
     }
   });
   // generarNivel();
   // generarDependencia();
-  document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
+       
+   document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
     const nombreOrigen = campo.dataset.relleno;
 
@@ -7520,27 +6460,12 @@ if (campo.tagName === "TEXTAREA") {
         campo.style.height = "auto";
         campo.style.height = campo.scrollHeight + "px";
     }
-});
-
-document.querySelectorAll('[name^="CotizacionAdquisicionG"]').forEach(campo => {
-         const url  = campo.dataset.compa;
-         const name = campo.dataset.compa2;
-         const nombre        =document.getElementById(name);
-          
-         const nameFile= campo.dataset.compa3;
-         const nombreArchivo=document.getElementById(nameFile);
-         nombre.innerHTML = `
-                   <a href="${data[url]}" target="_blank">
-                             ${nombreArchivo.value}
-                    </a>
-`;     
-   
-
-});
-
-
+});     
+        
 crearFilaTotalTabla4();
 actualizarTotalesTabla4();
+
+
 
 
 }
@@ -7549,20 +6474,13 @@ actualizarTotalesTabla4();
 
 
 
-
-
-
-//------------------------------------
-
-//  alert("ANtes de cargar Borrador"+folioActual);
+//----------------------------------------------------------------------------------------------
 
 document.getElementById("cargarBorrador").addEventListener("click", async () => {
 //-------------------------- Borrador con  folio (Backend)   
   
 
-
-
-
+  const folio = document.getElementById("folioInput").value.trim();
   //-----------------------------nuevo----------------
   const dependencia = document.getElementById("dependencia").value.trim();
    
@@ -7572,6 +6490,9 @@ document.getElementById("cargarBorrador").addEventListener("click", async () => 
     alert("⚠️ Ingresa una dependencia válida");
     return;
    }
+
+
+
 
 
 /*
@@ -7584,7 +6505,7 @@ document.getElementById("cargarBorrador").addEventListener("click", async () => 
 try {
     const res = await fetch(direccionEnlace, {
       method: "POST",
-      body: JSON.stringify({action: "cargarBorrador", dependencia,tipoDeEquipamento})
+      body: JSON.stringify({action: "cargarBorrador", dependencia, tipoDeEquipamento})
     });
 
 
@@ -7622,30 +6543,25 @@ try {
   const tbodyC = document.getElementById("tablaCotizaciones");
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
-
-  /*
+/*
   const tbody6 = document.getElementById("tablaBody6");
-  */
-
+*/
   tbody.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
-  /*
-  tbody6.innerHTML = "";
-  
-  */
-  // Reconstruir filas
+/*  tbody6.innerHTML = "";
+
+*/
+// Reconstruir filas
 //  const filas = data.__filas || 10;
 //  for (let i = 1; i <= filas; i++) {
 //    agregarFila();
 //  }
-
-//alert("despues de cargar Borrador"+folioActual);
-
-//      folioActual = folio;
+  
+      folioActual = folio;
       edicionActual=data.edicion;
 // Restaurar selects encadenados
 /*setSelectValue("secretaria", data.secretaria);
@@ -7658,22 +6574,17 @@ setTimeout(() => {
 
     setTimeout(() => {
 */
-//-------------------------------  activa selects
+
 // folioValor.value=data.folio;
-      setSelectValue("dependencia", data.dependencia);
-      Object.keys(data).forEach(name => {
+setSelectValue("dependencia", data.dependencia);
+
+Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
-                          if(name.includes("url")){
-                                        urlCotizacionesActuales[name] = data[name];
-                                        //alert("data:"+data[name]);
-                                        //alert("urlcot"+urlCotizacionesActuales[name]);
-                          };
                           if (name.includes("R")) return; //quitamos los campos de la tabla
                           if(name.includes("secretaria")) return;
                           if(name.includes("direccion")) return; 
                           if(name.includes("nivel")) return; 
-                          if(name.includes("dependencia")) return;
-//                          if(name.includes("folio")) return; 
+                         // if(name.includes("dependencia")) return; 
                           const campo = document.querySelector(`[name="${name}"]`);
                           if (!campo) return;
                           
@@ -7685,120 +6596,23 @@ setTimeout(() => {
     }
   });
 
-let folioValor = document.getElementById("folioInput");
- folioValor.value=folioActual;
+
 
 
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
-/*
-for(let i =3;i<data.__filas4+2;i++){
-  
-  const estado = data[`ProgramaAcademico_T4R${i}RO`];
-  alert(estado===true || estado==="true");
-  alert(estado);
-  //alert(document.getElementById(`ProgramaAcademico_T4R${i}`).readOnly);
-
-
-
-  document.getElementById(`ProgramaAcademico_T4R${i}`).readOnly=estado === true || estado === "true";
-
-  }
-*/
-/*
-document.querySelectorAll(".check-verificacion").forEach(check => {
+      
+      document.querySelectorAll(".check-verificacion").forEach(check => {
 
     if (data.hasOwnProperty(check.name)) {
-        check.value= data[check.name];
+        check.checked = data[check.name] === true;
     }
 
 });
-*/
 
-document.querySelectorAll(".check-verificacion").forEach(check => {
-
-     const campo = document.querySelector(`[name="${check.dataset.campo}"]`);
-    if (!campo) return;
-
-    campo.readOnly = check.value === true || check.value === "true";;
-});
-
-
-
-
-//document.getElementById("especificaciones").readOnly =    data.especificacionesRO ?? false;
-
-const ejemplos = json.ejemplos;
-    for(let index=1;index<3;index++){
-   document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
-   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
-   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
-   document.getElementById(`UsuariosHAnio2E${index}`).textContent=ejemplos[`UsuariosHAnio2E${index}`];
-   document.getElementById(`UsuariosMAnio2E${index}`).textContent=ejemplos[`UsuariosMAnio2E${index}`];
-   document.getElementById(`UsuariosHAnio3E${index}`).textContent=ejemplos[`UsuariosHAnio3E${index}`];
-   document.getElementById(`UsuariosMAnio3E${index}`).textContent=ejemplos[`UsuariosMAnio3E${index}`];
-   document.getElementById(`UsuariosHAnio4E${index}`).textContent=ejemplos[`UsuariosHAnio4E${index}`];
-   document.getElementById(`UsuariosMAnio4E${index}`).textContent=ejemplos[`UsuariosMAnio4E${index}`];
-   document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
-   document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
-
- document.getElementById(`NumProfE${index}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
- document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`]
- document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`]
- document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`]
- document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`]
- document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`]
- document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`]
- document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`]
- document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`]
- document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`]
- document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`]
-
-document.getElementById(`Edificio_T2E${index}`).textContent= ejemplos[`Edificio_T2E${index}`];
-document.getElementById(`Nivel_T2E${index}`   ).textContent= ejemplos[`Nivel_T2E${index}`   ];
-document.getElementById(`Espacio_T2E${index}` ).textContent= ejemplos[`Espacio_T2E${index}` ];
-document.getElementById(`Largo_T2E${index}`   ).textContent= ejemplos[`Largo_T2E${index}`   ];
-document.getElementById(`Ancho_T2E${index}`   ).textContent= ejemplos[`Ancho_T2E${index}`   ];
-document.getElementById(`Alumnos_T2E${index}` ).textContent= ejemplos[`Alumnos_T2E${index}` ];
-document.getElementById(`Horas_T2E${index}`   ).textContent= ejemplos[`Horas_T2E${index}`   ];
-
-document.getElementById(`Edificio_T3E${index}`).textContent       = ejemplos[`Edificio_T3E${index}`];
-document.getElementById(`MetrosCuadrados_T3E${index}`).textContent= ejemplos[`MetrosCuadrados_T3E${index}`];
-
-
-document.getElementById(`ProgramaAcademico_T4E${index}`).textContent= ejemplos[`ProgramaAcademico_T4E${index}`];              
-document.getElementById(`Espacio_T4E${index}`).textContent= ejemplos[`Espacio_T4E${index}`];         
-document.getElementById(`Clave_T4E${index}`).textContent= ejemplos[`Clave_T4E${index}`];       
-document.getElementById(`Equipo_T4E${index}`).textContent= ejemplos[`Equipo_T4E${index}`];        
-document.getElementById(`Cantidad_T4E${index}`).textContent= ejemplos[`Cantidad_T4E${index}`];         
-document.getElementById(`Especificaciones_T4E${index}`).textContent= ejemplos[`Especificaciones_T4E${index}`];         
-document.getElementById(`Justificacion_T4E${index}`).textContent= ejemplos[`Justificacion_T4E${index}`];      
-document.getElementById(`PrecioUnitario_T4E${index}`).textContent= ejemplos[`PrecioUnitario_T4E${index}`];      
-document.getElementById(`NombreArch_T4E${index}`).textContent= ejemplos[`NombreArch_T4E${index}`];     
-document.getElementById(`Cotizacion_T4E${index}`).textContent= ejemplos[`Cotizacion_T4E${index}`];       
-document.getElementById(`PrecioUnitario2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`];
-document.getElementById(`NombreArch2_T4E${index}`).textContent= ejemplos[`NombreArch2_T4E${index}`];  
-document.getElementById(`Cotizacion2_T4E${index}`).textContent=ejemplos[`Cotizacion2_T4E${index}`];
-
-
-document.getElementById(`ProgramaAcademico_T5E${index}`).textContent=ejemplos[`ProgramaAcademico_T5E${index}`];
-document.getElementById(`Espacio_T5E${index}`).textContent=ejemplos[`Espacio_T5E${index}`]                     ;
-document.getElementById(`Equipo_T5E${index}`).textContent=ejemplos[`Equipo_T5E${index}`]                        ;
-document.getElementById(`Especificaciones_T5E${index}`).textContent=ejemplos[`Especificaciones_T5E${index}`]  ;
-document.getElementById(`MalEstado_T5E${index}`).textContent=ejemplos[`MalEstado_T5E${index}`]               ;
-document.getElementById(`BuenEstado_T5E${index}`).textContent=ejemplos[`BuenEstado_T5E${index}`]                ;
-document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`EstadoRegular_T5E${index}`]            ;
-
-
-
-
-}
 
       document.querySelectorAll("#tablaBody tr").forEach(fila => {
-                           actualizarObligatoriedadFila(fila);
-      });
-      document.querySelectorAll("#tablaBody1_1 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
       document.querySelectorAll("#tablaBody2 tr").forEach(fila => {
@@ -7813,16 +6627,14 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
       document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
-
-/*      
+/*
       document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
 */
-
 //    }, 0);
 //  }, 0);
-//}, 0);
+//  }, 0);
   alert("📂 Borrador cargado correctamente");
 } catch (e) {
     alert("⚠️ Error de conexión al cargar el borrador");
@@ -7835,31 +6647,25 @@ document.getElementById("cargarRespuesta").addEventListener("click", async () =>
 //-------------------------- Borrador con  folio (Backend)   
   
   const folio = document.getElementById("folioInput").value.trim();
+  
   //-----------------------------nuevo----------------
   const dependencia = document.getElementById("dependencia").value.trim();
    
   const tipoDeEquipamento = document.getElementById("tipoDeSolicitud").value.trim();
 
-   if (!dependencia) {
+
+  if (!dependencia) {
     alert("⚠️ Ingresa una dependencia válida");
     return;
    }
 
   //-------------------------------------------------------------
-
-
-
-
-  /*-------- suprimido nuevo
+  /*
   if (!folio) {
     alert("⚠️ Ingresa un folio válido");
     return;
   }
 */
-
-
-
-
 try {
     const res = await fetch(direccionEnlace, {
       method: "POST",
@@ -7901,18 +6707,18 @@ try {
   const tbodyC = document.getElementById("tablaCotizaciones");
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
-  /*
+/*
   const tbody6 = document.getElementById("tablaBody6");
-  */
-  tbody.innerHTML = "";
+*/  
+tbody.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
-  /*
+/*
   tbody6.innerHTML = "";
-  */
+*/
   // Reconstruir filas
 //  const filas = data.__filas || 10;
 //  for (let i = 1; i <= filas; i++) {
@@ -7923,16 +6729,16 @@ folioActual=folio;
 edicionActual=data.edicion;
 numerodeEnvio=data.numeroEnvio;
 /*
-alert("ExistenciaDeCotizaciones:"+ExistenciaDeCotizaciones);
-   alert("ExistenciaDeCotizaciones_T4:"+ExistenciaDeCotizaciones_T4);
-  
-   alert("ExistenciaDeCotizacionesA2 :"+ExistenciaDeCotizacionesA2);
-   alert("ExistenciaDeCotizacionesA2_T4 :"+ExistenciaDeCotizacionesA2_T4);
-
+alert("En la revision Existen cotizaciones Generales para la primera alternativa cargadas:"+ ExistenciaDeCotizaciones);
+alert("En la revision la existencia de cotizaciones Generales para la segunda alternativa cargadas:"+ ExistenciaDeCotizacionesA2);
+alert("En la revision Existen cotizaciones para la tabla 4 para la primera alternativa cargadas:"+ ExistenciaDeCotizaciones_T4);
+alert("En la revision Existen cotizaciones para la tabla 4 para la segunda alternativa cargadas:"+ ExistenciaDeCotizacionesA2_T4);
 */
 
+
 // Restaurar selects encadenados
-/*setSelectValue("secretaria", data.secretaria);
+/* 
+  setSelectValue("secretaria", data.secretaria);
 
 setTimeout(() => {
   setSelectValue("direccion", data.direccion);
@@ -7942,24 +6748,19 @@ setTimeout(() => {
 
     setTimeout(() => {
 */
-      setSelectValue("dependencia", data.dependencia);
+ //     setSelectValue("dependencia", data.dependencia);
 
-      Object.keys(data).forEach(name => {
+Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
-                          if(name.includes("url")){
-                                        urlCotizacionesActuales[name] = data[name];
-                                        //alert("data:"+data[name]);
-                                        //alert("urlcot"+urlCotizacionesActuales[name]);
-                          };
                           if (name.includes("R")) return; //quitamos los campos de la tabla
                           if(name.includes("secretaria")) return;
                           if(name.includes("direccion")) return; 
                           if(name.includes("nivel")) return; 
-                          if(name.includes("dependencia")) return; 
+ //                         if(name.includes("dependencia")) return; 
                           const campo = document.querySelector(`[name="${name}"]`);
-                          if (!campo) return;
-                          
-    campo.value = data[name];
+                          if (!campo) return;                     
+
+                            campo.value = data[name];
 
     if (campo.tagName === "TEXTAREA") {
       campo.style.height = "auto";
@@ -7974,88 +6775,13 @@ setTimeout(() => {
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
 
+      document.querySelectorAll(".check-verificacion").forEach(check => {
 
-document.querySelectorAll(".check-verificacion").forEach(check => {
+    if (data.hasOwnProperty(check.name)) {
+        check.checked = data[check.name] === true;
+    }
 
-     const campo = document.querySelector(`[name="${check.dataset.campo}"]`);
-    if (!campo) return;
-
-    campo.readOnly = check.value === true || check.value === "true";;
 });
-
-
-
-
-
-
-
-
-
-
-
-const ejemplos = json.ejemplos;
-for(let index=1;index<3;index++){
-   document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
-   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
-   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
-   document.getElementById(`UsuariosHAnio2E${index}`).textContent=ejemplos[`UsuariosHAnio2E${index}`];
-   document.getElementById(`UsuariosMAnio2E${index}`).textContent=ejemplos[`UsuariosMAnio2E${index}`];
-   document.getElementById(`UsuariosHAnio3E${index}`).textContent=ejemplos[`UsuariosHAnio3E${index}`];
-   document.getElementById(`UsuariosMAnio3E${index}`).textContent=ejemplos[`UsuariosMAnio3E${index}`];
-   document.getElementById(`UsuariosHAnio4E${index}`).textContent=ejemplos[`UsuariosHAnio4E${index}`];
-   document.getElementById(`UsuariosMAnio4E${index}`).textContent=ejemplos[`UsuariosMAnio4E${index}`];
-   document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
-   document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
-
- document.getElementById(`NumProfE${index}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
- document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`]
- document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`]
- document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`]
- document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`]
- document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`]
- document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`]
- document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`]
- document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`]
- document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`]
- document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`]
-
-document.getElementById(`Edificio_T2E${index}`).textContent= ejemplos[`Edificio_T2E${index}`];
-document.getElementById(`Nivel_T2E${index}`   ).textContent= ejemplos[`Nivel_T2E${index}`   ];
-document.getElementById(`Espacio_T2E${index}` ).textContent= ejemplos[`Espacio_T2E${index}` ];
-document.getElementById(`Largo_T2E${index}`   ).textContent= ejemplos[`Largo_T2E${index}`   ];
-document.getElementById(`Ancho_T2E${index}`   ).textContent= ejemplos[`Ancho_T2E${index}`   ];
-document.getElementById(`Alumnos_T2E${index}` ).textContent= ejemplos[`Alumnos_T2E${index}` ];
-document.getElementById(`Horas_T2E${index}`   ).textContent= ejemplos[`Horas_T2E${index}`   ];
-
-document.getElementById(`Edificio_T3E${index}`).textContent       = ejemplos[`Edificio_T3E${index}`];
-document.getElementById(`MetrosCuadrados_T3E${index}`).textContent= ejemplos[`MetrosCuadrados_T3E${index}`];
-
-
-document.getElementById(`ProgramaAcademico_T4E${index}`).textContent= ejemplos[`ProgramaAcademico_T4E${index}`];              
-document.getElementById(`Espacio_T4E${index}`).textContent= ejemplos[`Espacio_T4E${index}`];         
-document.getElementById(`Clave_T4E${index}`).textContent= ejemplos[`Clave_T4E${index}`];       
-document.getElementById(`Equipo_T4E${index}`).textContent= ejemplos[`Equipo_T4E${index}`];        
-document.getElementById(`Cantidad_T4E${index}`).textContent= ejemplos[`Cantidad_T4E${index}`];         
-document.getElementById(`Especificaciones_T4E${index}`).textContent= ejemplos[`Especificaciones_T4E${index}`];         
-document.getElementById(`Justificacion_T4E${index}`).textContent= ejemplos[`Justificacion_T4E${index}`];      
-document.getElementById(`PrecioUnitario_T4E${index}`).textContent= ejemplos[`PrecioUnitario_T4E${index}`];      
-document.getElementById(`NombreArch_T4E${index}`).textContent= ejemplos[`NombreArch_T4E${index}`];     
-document.getElementById(`Cotizacion_T4E${index}`).textContent= ejemplos[`Cotizacion_T4E${index}`];       
-document.getElementById(`PrecioUnitario2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`];
-document.getElementById(`NombreArch2_T4E${index}`).textContent= ejemplos[`NombreArch2_T4E${index}`];  
-document.getElementById(`Cotizacion2_T4E${index}`).textContent=ejemplos[`Cotizacion2_T4E${index}`];
-
-
-document.getElementById(`ProgramaAcademico_T5E${index}`).textContent=ejemplos[`ProgramaAcademico_T5E${index}`];
-document.getElementById(`Espacio_T5E${index}`).textContent=ejemplos[`Espacio_T5E${index}`]                     ;
-document.getElementById(`Equipo_T5E${index}`).textContent=ejemplos[`Equipo_T5E${index}`]                        ;
-document.getElementById(`Especificaciones_T5E${index}`).textContent=ejemplos[`Especificaciones_T5E${index}`]  ;
-document.getElementById(`MalEstado_T5E${index}`).textContent=ejemplos[`MalEstado_T5E${index}`]               ;
-document.getElementById(`BuenEstado_T5E${index}`).textContent=ejemplos[`BuenEstado_T5E${index}`]                ;
-document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`EstadoRegular_T5E${index}`]            ;
-
-}
-
 
 
       document.querySelectorAll("#tablaBody tr").forEach(fila => {
@@ -8073,14 +6799,14 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
       document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
-      /*
+/*
       document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
 */
 //    }, 0);
 //  }, 0);
-//}, 0);
+// }, 0);
   alert("📂 Respuesta cargada correctamente");
 } catch (e) {
     alert("⚠️ Error de conexión al cargar la respuesta");
@@ -8088,7 +6814,7 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
   
 });
 
-
+//----------------------------------------------------------------------------------------------
 
 
 
@@ -8106,16 +6832,15 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
 
 
 
-document.getElementById("Enviar").addEventListener("click", async () => {
+document.getElementById("Enviar").addEventListener("click", async function(e) {
    
 //document.getElementById("Enviar").addEventListener("submit", function(e){
-                //e.preventDefault();
+                    e.preventDefault();
                 //if (!this.checkValidity()) {
                 //    this.reportValidity(); // muestra mensajes
                 //    return;  
                // }
-                 const confirmar = confirm("Aviso: Al enviar el Formato de Detección de Necesidades (FDN), no podrás realizar modificaciones ni enviar información adicional hasta que la DPO emita sus observaciones.\n"+
-                    "Por ello, verifica cuidadosamente que toda la información esté completa y correcta antes de confirmar el envío del FDN.");
+                 const confirmar = confirm("¿Estás seguro de que deseas enviar el formulario?");
 
                 if (!confirmar) {
                   // ❌ Usuario canceló
@@ -8133,10 +6858,9 @@ const formData = new FormData(form);
   const data = {};
 
 const selectsTexto = [
-/*                      "secretaria",
-                      "direccion",
-                      "nivel",
-                      */
+                    //  "secretaria",
+                    //  "direccion",
+                    //  "nivel",
                       "dependencia"
                 ];
                 selectsTexto.forEach(id => {
@@ -8149,7 +6873,6 @@ const selectsTexto = [
 
   
 
-
   for (const [key, value] of formData.entries()) {
      
     if (!(value instanceof File)) {
@@ -8161,84 +6884,21 @@ const selectsTexto = [
         data[key] = "";
         continue;
     }
-    
 
-    if (
-          key.includes("CotizacionAdquisicion") ||
-          key.startsWith("Planos_T3R")
-    ) {
-
-
-/*
-     if(key.includes("CotizacionAdquisicion")){
-
-     */
-
-                             const base64 = await new Promise(resolve => {
-                             const reader = new FileReader();
-                             reader.onload = () => resolve(reader.result);
-                             reader.readAsDataURL(value);
-        });
-    
+    const base64 = await new Promise(resolve => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.readAsDataURL(value);
+    });
 
 
     data[key] = {
         nombre: value.name,
         tipo: value.type,
         contenido: base64
-    };    
+    };
+    
 }
- 
-
-
-
-
-    if((data[key]!="")&&(key.includes("CotizacionAdquisicionG1"))){
-            ExistenciaDeCotizaciones=true;
-       //    alert(data[key].nombre);     
-    }
-    if((data[key]!="")&&(key.includes("CotizacionAdquisicionG2"))){
-            ExistenciaDeCotizacionesA2=true;
-         //     alert(data[key].nombre);     
-    }
-    if((data[key]!="")&&(key.includes("CotizacionAdquisicion_T4R"))){
-            ExistenciaDeCotizaciones_T4=true;
-           //     alert(data[key].nombre);     
-    }
-    if((data[key]!="")&&(key.includes("CotizacionAdquisicion2_T4R"))){
-            ExistenciaDeCotizacionesA2_T4=true;
-           //      alert(data[key].nombre);     
-    }
-
-}
-
-
-
-/*
-const archivosPlanos = formData.getAll("Planos_T3");
-data.planos = [];
-
-for (const archivo of archivosPlanos) {
-
-  if (archivo.size === 0) continue;
-
-  const base64 = await new Promise(resolve => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.readAsDataURL(archivo);
-  });
-
-  data.planos.push({
-    nombre: archivo.name,
-    tipo: archivo.type,
-    contenido: base64
-  });
-}
-
-*/
-
-
-
 
 
 
@@ -8258,35 +6918,6 @@ data.nivelT = document.getElementById("nivel").options[
 data.dependenciaT = document.getElementById("dependencia").options[
     document.getElementById("dependencia").selectedIndex
 ].text;
-/*
-alert("ExistenciaDeCotizaciones: "+ExistenciaDeCotizaciones);
-
-
-alert("ExistenciaDeCotizacionesA2: "+ExistenciaDeCotizacionesA2);
-
-alert("ExistenciaDeCotizaciones_T4: "+ExistenciaDeCotizaciones_T4);
-alert("ExistenciaDeCotizacionesA2_T4: "+ExistenciaDeCotizacionesA2_T4);
-
-
-//------------------lleando de las url
-
-alert("Antes ");*/
-Object.keys(urlCotizacionesActuales).forEach(name => {
-             data[name] = urlCotizacionesActuales[name];
-/*             alert("data.envio:"+data.numeroEnvio);
-             alert("url de cotizaciones:"+urlCotizacionesActuales[name]);
-             alert("data: "+data[name]);
-  */     
-  });
-//alert("Despues ");
-
-
-
-
-
-  //-------------------------------------------------------------------
-
-
 
   // Guardamos también el número de filas actuales
   data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
@@ -8295,31 +6926,29 @@ Object.keys(urlCotizacionesActuales).forEach(name => {
   data.__filasC = document.querySelectorAll("#tablaCotizaciones tr").length;
   data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
   data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
-
-  /*
+/*
   data.__filas6 = document.querySelectorAll("#tablaBody6 tr").length;
   */
   if(folioActual==null){
       folioActual = generarFolio();
   }
   data.__folio = folioActual;
-  data.__envioDependencia = true;
-  data.edicion=edicionActual;
+  data.__envioDependencia = false;
+  data.edicion=true;
   data.numeroEnvio=numerodeEnvio+1;
   data.existenciaCotizaciones=ExistenciaDeCotizaciones;
   data.existenciaCotizaciones_T4=ExistenciaDeCotizaciones_T4;
+  
   data.existenciaCotizaciones2=ExistenciaDeCotizacionesA2;
   data.existenciaCotizaciones2_T4=ExistenciaDeCotizacionesA2_T4;
 
-/*  
-alert("data.existenciaCotizaciones: "+data.existenciaCotizaciones);
-alert("data.existenciaCotizaciones_T4: "+data.existenciaCotizaciones_T4);
-alert("data.existenciaCotizaciones2: "+data.existenciaCotizaciones2);
-alert("data.existenciaCotizaciones2_T4: "+data.existenciaCotizaciones2_T4);
-*/
-
-
-
+  /*
+   alert("Revision data.existenciaCotizaciones:"+data.existenciaCotizaciones);
+  alert("Revision data.existenciaCotizaciones_T4:"+data.existenciaCotizaciones_T4);
+  
+  alert("Revision data.existenciaCotizaciones2 :"+ data.existenciaCotizaciones2);
+  alert("Revision data.existenciaCotizaciones2_T4 :"+data.existenciaCotizaciones2_T4);
+*/ 
 formData.append(
     "payload",
     JSON.stringify({
@@ -8328,16 +6957,27 @@ formData.append(
     })
 );  
 
+
+
+document.querySelectorAll(".check-verificacion").forEach(check => {
+
+    data[check.name] = check.checked;
+
+});
+
+
+
+
+
 try {
+
 
 /*
     const res = await fetch(direccionEnlace, {
         method: "POST",
         body: formData
-    });
+        */
 
-  */ 
- 
 const partes = dividirData(data);
 
 const res = await fetch(direccionEnlace, {
@@ -8354,32 +6994,36 @@ const res = await fetch(direccionEnlace, {
            json8:partes[7]
     })
 });
-
-
 /*
 const res = await fetch(direccionEnlace, {
       method: "POST",
-      body: JSON.stringify({action: "EnviarFormulario", data})
- });
+      body: JSON.stringify({action: "EnviarFormulario", data})   
+
+
+    });
 */
-const json = await res.json();
+
+
+
+ 
+
+
+
+    const json = await res.json();
 
    
 
 
     if (json.success) {
 
-       if(numerodeEnvio==1){
-        alert(`✅ Registro de solicitud correctamente Enviada del formato de detección correctamente capturado. Tu folio es: ${folioActual}`);
+        if(numerodeEnvio==2){
+        alert(`✅ Tus observaciones han sido correctamente Enviadas. Tu folio es: ${folioActual}`);
 
         }else{
-          alert(`✅ Tus correcciones han sido correctamente actualizadas. Tu folio es: ${folioActual}`);
+          alert(`✅ Las observaciones han sido actualizadas. Te recordamos que el folio es: ${folioActual}`);
 
-        } 
-      
-       
-
-        aviso.textContent = "✅ Tu respuesta fue enviada correctamente";
+        }
+        aviso.textContent = "✅ La dependencia ya puede corregir el formato";
         aviso.style.color = "green";
 
         form.reset();
@@ -8400,6 +7044,62 @@ const json = await res.json();
   });
 
 
+  
+
+document.getElementById("cargarAnio").addEventListener("click", async () => {
+   
+
+  const data = {};
+
+
+
+
+
+data.anio = document.getElementById("encabezados").value;
+
+
+
+try {
+
+
+const res = await fetch(direccionEnlace, {
+      method: "POST",
+      body: JSON.stringify({action: "ActualizarAnio", data})   
+
+
+    });
+
+
+
+
+ 
+
+
+
+    const json = await res.json();
+
+
+        if (json.success) {
+            
+                           alert("✅ Año actualizado correctamente");
+
+        } else {
+           alert("⚠️ " + json.message);
+        
+        } 
+ 
+    } catch (e) {
+
+        console.error(e);
+        
+         alert("⚠️ Error de conexión: " + e.message);
+    
+}
+
+});
+
+
+
  window.onload = async function () {
 
 const res = await fetch(direccionEnlace,{
@@ -8408,137 +7108,64 @@ const res = await fetch(direccionEnlace,{
         action:"ObtenerConfiguracion"
     })
 });
+
+
 const config = await res.json();
 let encabezados=config.encabezados;
-/*
-let ejemplos=config.ejemplos;
-    for(let index=1;index<3;index++){
-   document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
-   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
-   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
-   document.getElementById(`UsuariosHAnio2E${index}`).textContent=ejemplos[`UsuariosHAnio2E${index}`];
-   document.getElementById(`UsuariosMAnio2E${index}`).textContent=ejemplos[`UsuariosMAnio2E${index}`];
-   document.getElementById(`UsuariosHAnio3E${index}`).textContent=ejemplos[`UsuariosHAnio3E${index}`];
-   document.getElementById(`UsuariosMAnio3E${index}`).textContent=ejemplos[`UsuariosMAnio3E${index}`];
-   document.getElementById(`UsuariosHAnio4E${index}`).textContent=ejemplos[`UsuariosHAnio4E${index}`];
-   document.getElementById(`UsuariosMAnio4E${index}`).textContent=ejemplos[`UsuariosMAnio4E${index}`];
-   document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
-   document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
-
- document.getElementById(`NumProfE${index}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
- document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`]
- document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`]
- document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`]
- document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`]
- document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`]
- document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`]
- document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`]
- document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`]
- document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`]
- document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`]
-
-document.getElementById(`Edificio_T2E${index}`).textContent= ejemplos[`Edificio_T2E${index}`];
-document.getElementById(`Nivel_T2E${index}`   ).textContent= ejemplos[`Nivel_T2E${index}`   ];
-document.getElementById(`Espacio_T2E${index}` ).textContent= ejemplos[`Espacio_T2E${index}` ];
-document.getElementById(`Largo_T2E${index}`   ).textContent= ejemplos[`Largo_T2E${index}`   ];
-document.getElementById(`Ancho_T2E${index}`   ).textContent= ejemplos[`Ancho_T2E${index}`   ];
-document.getElementById(`Alumnos_T2E${index}` ).textContent= ejemplos[`Alumnos_T2E${index}` ];
-document.getElementById(`Horas_T2E${index}`   ).textContent= ejemplos[`Horas_T2E${index}`   ];
-
-document.getElementById(`Edificio_T3E${index}`).textContent       = ejemplos[`Edificio_T3E${index}`];
-document.getElementById(`MetrosCuadrados_T3E${index}`).textContent= ejemplos[`MetrosCuadrados_T3E${index}`];
-
-
-document.getElementById(`ProgramaAcademico_T4E${index}`).textContent= ejemplos[`ProgramaAcademico_T4E${index}`];              
-document.getElementById(`Espacio_T4E${index}`).textContent= ejemplos[`Espacio_T4E${index}`];         
-document.getElementById(`Clave_T4E${index}`).textContent= ejemplos[`Clave_T4E${index}`];       
-document.getElementById(`Equipo_T4E${index}`).textContent= ejemplos[`Equipo_T4E${index}`];        
-document.getElementById(`Cantidad_T4E${index}`).textContent= ejemplos[`Cantidad_T4E${index}`];         
-document.getElementById(`Especificaciones_T4E${index}`).textContent= ejemplos[`Especificaciones_T4E${index}`];         
-document.getElementById(`Justificacion_T4E${index}`).textContent= ejemplos[`Justificacion_T4E${index}`];      
-document.getElementById(`PrecioUnitario_T4E${index}`).textContent= ejemplos[`PrecioUnitario_T4E${index}`];      
-document.getElementById(`NombreArch_T4E${index}`).textContent= ejemplos[`NombreArch_T4E${index}`];     
-document.getElementById(`Cotizacion_T4E${index}`).textContent= ejemplos[`Cotizacion_T4E${index}`];       
-document.getElementById(`PrecioUnitario2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`];
-document.getElementById(`NombreArch2_T4E${index}`).textContent= ejemplos[`NombreArch2_T4E${index}`];  
-document.getElementById(`Cotizacion2_T4E${index}`).textContent=ejemplos[`Cotizacion2_T4E${index}`];
-
-
-document.getElementById(`ProgramaAcademico_T5E${index}`).textContent=ejemplos[`ProgramaAcademico_T5E${index}`];
-document.getElementById(`Espacio_T5E${index}`).textContent=ejemplos[`Espacio_T5E${index}`]                     ;
-document.getElementById(`Equipo_T5E${index}`).textContent=ejemplos[`Equipo_T5E${index}`]                        ;
-document.getElementById(`Especificaciones_T5E${index}`).textContent=ejemplos[`Especificaciones_T5E${index}`]  ;
-document.getElementById(`MalEstado_T5E${index}`).textContent=ejemplos[`MalEstado_T5E${index}`]               ;
-document.getElementById(`BuenEstado_T5E${index}`).textContent=ejemplos[`BuenEstado_T5E${index}`]                ;
-document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`EstadoRegular_T5E${index}`]            ;
-
-
-
-
-}    
-*/                             
-                             
-                             
-                             
-                             
-                             
-                             
-                             
-                             
-
-
-    document.getElementById("UsuariosHAnio1").value = encabezados.encabezado1;
-    document.getElementById("UsuariosMAnio1").value = encabezados.encabezado2;
-    document.getElementById("UsuariosHAnio2").value = encabezados.encabezado3;
-    document.getElementById("UsuariosMAnio2").value = encabezados.encabezado4;
-    document.getElementById("UsuariosHAnio3").value = encabezados.encabezado5;
-    document.getElementById("UsuariosMAnio3").value = encabezados.encabezado6;
-    document.getElementById("UsuariosHAnio1Obs").value = encabezados.encabezado1;
-    document.getElementById("UsuariosMAnio1Obs").value = encabezados.encabezado2;
-    document.getElementById("UsuariosHAnio2Obs").value = encabezados.encabezado3;
-    document.getElementById("UsuariosMAnio2Obs").value = encabezados.encabezado4;
-    document.getElementById("UsuariosHAnio3Obs").value = encabezados.encabezado5;
-    document.getElementById("UsuariosMAnio3Obs").value = encabezados.encabezado6;
+    document.getElementById("UsuariosHAnio1").textContent = encabezados.encabezado1;
+    document.getElementById("UsuariosMAnio1").textContent = encabezados.encabezado2;
+    document.getElementById("UsuariosHAnio2").textContent = encabezados.encabezado3;
+    document.getElementById("UsuariosMAnio2").textContent = encabezados.encabezado4;
+    document.getElementById("UsuariosHAnio3").textContent = encabezados.encabezado5;
+    document.getElementById("UsuariosMAnio3").textContent = encabezados.encabezado6;
+    document.getElementById("UsuariosHAnio1Obs").textContent = encabezados.encabezado1;
+    document.getElementById("UsuariosMAnio1Obs").textContent = encabezados.encabezado2;
+    document.getElementById("UsuariosHAnio2Obs").textContent = encabezados.encabezado3;
+    document.getElementById("UsuariosMAnio2Obs").textContent = encabezados.encabezado4;
+    document.getElementById("UsuariosHAnio3Obs").textContent = encabezados.encabezado5;
+    document.getElementById("UsuariosMAnio3Obs").textContent = encabezados.encabezado6;
     
 
 
-    document.getElementById("UsuariosHAnio4").value = encabezados.encabezado13;
-    document.getElementById("UsuariosMAnio4").value = encabezados.encabezado14;
-    document.getElementById("UsuariosHAnio5").value = encabezados.encabezado15;
-    document.getElementById("UsuariosMAnio5").value = encabezados.encabezado16;
+    document.getElementById("UsuariosHAnio4").textContent = encabezados.encabezado13;
+    document.getElementById("UsuariosMAnio4").textContent = encabezados.encabezado14;
+    document.getElementById("UsuariosHAnio5").textContent = encabezados.encabezado15;
+    document.getElementById("UsuariosMAnio5").textContent = encabezados.encabezado16;
     
-    document.getElementById("UsuariosHAnio4Obs").value = encabezados.encabezado13;
-    document.getElementById("UsuariosMAnio4Obs").value = encabezados.encabezado14;
-    document.getElementById("UsuariosHAnio5Obs").value = encabezados.encabezado15;
-    document.getElementById("UsuariosMAnio5Obs").value = encabezados.encabezado16;
+    document.getElementById("UsuariosHAnio4Obs").textContent = encabezados.encabezado13;
+    document.getElementById("UsuariosMAnio4Obs").textContent = encabezados.encabezado14;
+    document.getElementById("UsuariosHAnio5Obs").textContent = encabezados.encabezado15;
+    document.getElementById("UsuariosMAnio5Obs").textContent = encabezados.encabezado16;
     
 
-    document.getElementById("UsuariosAHAnio1").value = encabezados.encabezado7;
-    document.getElementById("UsuariosAMAnio1").value = encabezados.encabezado8;
-    document.getElementById("UsuariosAHAnio2").value = encabezados.encabezado9;
-    document.getElementById("UsuariosAMAnio2").value = encabezados.encabezado10;
-    document.getElementById("UsuariosAHAnio3").value = encabezados.encabezado11;
-    document.getElementById("UsuariosAMAnio3").value = encabezados.encabezado12,
+    document.getElementById("UsuariosAHAnio1").textContent = encabezados.encabezado7;
+    document.getElementById("UsuariosAMAnio1").textContent = encabezados.encabezado8;
+    document.getElementById("UsuariosAHAnio2").textContent = encabezados.encabezado9;
+    document.getElementById("UsuariosAMAnio2").textContent = encabezados.encabezado10;
+    document.getElementById("UsuariosAHAnio3").textContent = encabezados.encabezado11;
+    document.getElementById("UsuariosAMAnio3").textContent = encabezados.encabezado12,
     
-    document.getElementById("UsuariosAHAnio1Obs").value = encabezados.encabezado7;
-    document.getElementById("UsuariosAMAnio1Obs").value = encabezados.encabezado8;
-    document.getElementById("UsuariosAHAnio2Obs").value = encabezados.encabezado9;
-    document.getElementById("UsuariosAMAnio2Obs").value = encabezados.encabezado10;
-    document.getElementById("UsuariosAHAnio3Obs").value = encabezados.encabezado11;
-    document.getElementById("UsuariosAMAnio3Obs").value = encabezados.encabezado12;
+    document.getElementById("UsuariosAHAnio1Obs").textContent = encabezados.encabezado7;
+    document.getElementById("UsuariosAMAnio1Obs").textContent = encabezados.encabezado8;
+    document.getElementById("UsuariosAHAnio2Obs").textContent = encabezados.encabezado9;
+    document.getElementById("UsuariosAMAnio2Obs").textContent = encabezados.encabezado10;
+    document.getElementById("UsuariosAHAnio3Obs").textContent = encabezados.encabezado11;
+    document.getElementById("UsuariosAMAnio3Obs").textContent = encabezados.encabezado12;
 
 
-    document.getElementById("UsuariosAHAnio4").value = encabezados.encabezado17;
-    document.getElementById("UsuariosAMAnio4").value = encabezados.encabezado18;
-    document.getElementById("UsuariosAHAnio5").value = encabezados.encabezado19;
-    document.getElementById("UsuariosAMAnio5").value = encabezados.encabezado20;
+    document.getElementById("UsuariosAHAnio4").textContent = encabezados.encabezado17;
+    document.getElementById("UsuariosAMAnio4").textContent = encabezados.encabezado18;
+    document.getElementById("UsuariosAHAnio5").textContent = encabezados.encabezado19;
+    document.getElementById("UsuariosAMAnio5").textContent = encabezados.encabezado20;
     
-    document.getElementById("UsuariosAHAnio4Obs").value = encabezados.encabezado17;
-    document.getElementById("UsuariosAMAnio4Obs").value = encabezados.encabezado18;
-    document.getElementById("UsuariosAHAnio5Obs").value = encabezados.encabezado19;
-    document.getElementById("UsuariosAMAnio5Obs").value = encabezados.encabezado20;
+    document.getElementById("UsuariosAHAnio4Obs").textContent = encabezados.encabezado17;
+    document.getElementById("UsuariosAMAnio4Obs").textContent = encabezados.encabezado18;
+    document.getElementById("UsuariosAHAnio5Obs").textContent = encabezados.encabezado19;
+    document.getElementById("UsuariosAMAnio5Obs").textContent = encabezados.encabezado20;
 
+    
 };
+
 
 
 const formulario = document.getElementById("miFormulario");
@@ -8713,18 +7340,6 @@ document.addEventListener("mouseup", function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 function dividirData(data, partes = 8) {
 
     const json = JSON.stringify(data);
@@ -8742,112 +7357,420 @@ function dividirData(data, partes = 8) {
     return resultado;
 }
 
+document.getElementById("convertirSolicitudes").addEventListener("click", async () => {
 
-document.addEventListener("click", function (event) {
+    if (!confirm("¿Deseas convertir las solicitudes en borradores?")) {
+        return;
+    }
 
-    const boton = event.target.closest(".borrar-fila");
-    if (!boton) return;
+    try {
 
-    const fila = boton.closest("tr");
-    if (!fila) return;
+        const res = await fetch(direccionEnlace,{
+            method:"POST",
+            body: JSON.stringify({
+                action:"convertirSolicitudes"
+            })
+        });
 
-    // Obtener tbody ANTES de borrar
-    const tbody = fila.closest("tbody");
+        const json = await res.json();
 
-    // Prueba del name
-    const campo = fila.querySelector("[name]");
+        if(json.success){
+            alert("✅ " + json.message);
+        }else{
+            alert("⚠️ " + json.message);
+        }
 
-    //  if (campo) {
-    //    alert("Nombre antes de borrar: " + campo.name);
-    //  }
+    }catch(e){
 
-    // Ahora sí borrar
-    fila.remove();
+        console.error(e);
+        alert("Error: "+e.message);
 
-    renumerarFilas(tbody);
+    }
+
 });
 
 
 
 
+const filtrosActivos = new WeakMap();
 
-function renumerarFilas(tbody) {
+function activarFiltrosExcel(tabla) {
 
-    const filas = tbody.querySelectorAll("tr");
+    if (!filtrosActivos.has(tabla)) {
+        filtrosActivos.set(tabla, {});
+    }
 
-    let nuevoNumero = 1;
+    const encabezados = tabla.querySelectorAll("thead th");
 
-    filas.forEach(fila => {
+    encabezados.forEach((th, indiceColumna) => {
 
-        // Si es fila de ejemplo, NO cuenta
-        if (fila.querySelector(".ejemplo")) {
-            return;
-        }
+        if (th.querySelector(".boton-filtro")) return;
 
-        // Si es la fila TOTAL, tampoco cuenta
-        if (fila.id === "filaTotalTabla4") {
-            return;
-        }
+        th.classList.add("filtro-th");
 
-        const celdaNumero = fila.cells[0];
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.className = "boton-filtro";
+        boton.textContent = "▼";
 
-        if (celdaNumero) {
-            celdaNumero.textContent = nuevoNumero;
-        }
+        const menu = document.createElement("div");
+        menu.className = "menu-filtro";
 
-        fila.querySelectorAll("[name], [id]").forEach(elemento => {
+        menu.innerHTML = `
+            <input
+                type="text"
+                class="buscar-filtro"
+                placeholder="Buscar..."
+            >
 
-            if (elemento.classList.contains("ejemplo")) return;
+            <label>
+                <input
+                    type="checkbox"
+                    class="seleccionar-todo"
+                    checked
+                >
+                Seleccionar todo
+            </label>
 
-            if (elemento.name) {
-                elemento.name = elemento.name.replace(
-                    /R\d+/,
-                    `R${nuevoNumero}`
-                );
-            }
+            <div class="lista-valores-filtro"></div>
 
-            if (elemento.id) {
-                elemento.id = elemento.id.replace(
-                    /R\d+/,
-                    `R${nuevoNumero}`
-                );
-            }
+            <div class="acciones-filtro">
+                <button type="button" class="aplicar-filtro">
+                    Aplicar
+                </button>
+
+                <button type="button" class="limpiar-filtro">
+                    Limpiar
+                </button>
+            </div>
+        `;
+
+        th.appendChild(boton);
+        th.appendChild(menu);
+
+        boton.addEventListener("click", e => {
+
+            e.stopPropagation();
+
+            document.querySelectorAll(".menu-filtro")
+                .forEach(m => {
+                    if (m !== menu) {
+                        m.style.display = "none";
+                    }
+                });
+
+            cargarValoresFiltro(
+                tabla,
+                indiceColumna,
+                menu
+            );
+
+            menu.style.display =
+                menu.style.display === "block"
+                    ? "none"
+                    : "block";
         });
 
-        fila.querySelectorAll("[data-campo]").forEach(elemento => {
-            elemento.dataset.campo =
-                elemento.dataset.campo.replace(
-                    /R\d+/,
-                    `R${nuevoNumero}`
-                );
+        menu.addEventListener("click", e => {
+            e.stopPropagation();
         });
 
-        fila.querySelectorAll("[data-precio]").forEach(elemento => {
-            elemento.dataset.precio =
-                elemento.dataset.precio.replace(
-                    /R\d+/,
-                    `R${nuevoNumero}`
-                );
+        const buscador =
+            menu.querySelector(".buscar-filtro");
+
+        buscador.addEventListener("input", () => {
+
+            const texto =
+                buscador.value
+                    .toLowerCase()
+                    .trim();
+
+            menu.querySelectorAll(".item-filtro")
+                .forEach(item => {
+
+                    item.style.display =
+                        item.textContent
+                            .toLowerCase()
+                            .includes(texto)
+                            ? "block"
+                            : "none";
+                });
         });
 
-        fila.querySelectorAll("[data-cant]").forEach(elemento => {
-            elemento.dataset.cant =
-                elemento.dataset.cant.replace(
-                    /R\d+/,
-                    `R${nuevoNumero}`
-                );
+        const seleccionarTodo =
+            menu.querySelector(".seleccionar-todo");
+
+        seleccionarTodo.addEventListener("change", () => {
+
+            menu.querySelectorAll(".valor-filtro")
+                .forEach(check => {
+                    check.checked =
+                        seleccionarTodo.checked;
+                });
         });
 
-        // SOLO aumenta si fue una fila real
-        nuevoNumero++;
+        menu.querySelector(".aplicar-filtro")
+            .addEventListener("click", () => {
+
+                guardarFiltroColumna(
+                    tabla,
+                    indiceColumna,
+                    menu
+                );
+
+                aplicarTodosLosFiltros(tabla);
+
+                menu.style.display = "none";
+            });
+
+        menu.querySelector(".limpiar-filtro")
+            .addEventListener("click", () => {
+
+                const filtros =
+                    filtrosActivos.get(tabla);
+
+                delete filtros[indiceColumna];
+
+                boton.classList.remove("filtro-activo");
+
+                aplicarTodosLosFiltros(tabla);
+
+                menu.style.display = "none";
+            });
     });
+}
+
+
+function cargarValoresFiltro(
+    tabla,
+    indiceColumna,
+    menu
+) {
+
+    const valores = new Set();
+
+    tabla.querySelectorAll("tbody tr:not(.fila-total)")
+        .forEach(fila => {
+
+            const valor =
+                obtenerValorCelda(
+                    fila,
+                    indiceColumna
+                );
+
+            if (valor !== "") {
+                valores.add(valor);
+            }
+        });
+
+    const lista =
+        menu.querySelector(
+            ".lista-valores-filtro"
+        );
+
+    lista.innerHTML = "";
+
+    const filtros =
+        filtrosActivos.get(tabla);
+
+    const filtroActual =
+        filtros[indiceColumna];
+
+    [...valores]
+        .sort((a, b) =>
+            a.localeCompare(
+                b,
+                "es",
+                { numeric: true }
+            )
+        )
+        .forEach(valor => {
+
+            const label =
+                document.createElement("label");
+
+            label.className =
+                "item-filtro";
+
+            const check =
+                document.createElement("input");
+
+            check.type = "checkbox";
+            check.className = "valor-filtro";
+            check.value = valor;
+
+            if (filtroActual) {
+
+                check.checked =
+                    filtroActual.has(valor);
+
+            } else {
+
+                check.checked = true;
+            }
+
+            label.appendChild(check);
+
+            label.appendChild(
+                document.createTextNode(
+                    " " + valor
+                )
+            );
+
+            lista.appendChild(label);
+        });
+
+    menu.querySelector(".buscar-filtro")
+        .value = "";
+}
+
+
+function guardarFiltroColumna(
+    tabla,
+    indiceColumna,
+    menu
+) {
+
+    const seleccionados =
+        new Set(
+            [...menu.querySelectorAll(
+                ".valor-filtro:checked"
+            )].map(check => check.value)
+        );
+
+    const total =
+        menu.querySelectorAll(
+            ".valor-filtro"
+        ).length;
+
+    const filtros =
+        filtrosActivos.get(tabla);
+
+    const boton =
+        menu.parentElement
+            .querySelector(".boton-filtro");
+
+    if (
+        seleccionados.size === total
+    ) {
+
+        delete filtros[indiceColumna];
+
+        boton.classList.remove(
+            "filtro-activo"
+        );
+
+    } else {
+
+        filtros[indiceColumna] =
+            seleccionados;
+
+        boton.classList.add(
+            "filtro-activo"
+        );
+    }
+}
+
+
+function aplicarTodosLosFiltros(tabla) {
+
+    const filtros =
+        filtrosActivos.get(tabla);
+
+    tabla.querySelectorAll("tbody tr:not(.fila-total)")
+        .forEach(fila => {
+
+            let mostrar = true;
+
+            for (
+                const [indice, valores]
+                of Object.entries(filtros)
+            ) {
+
+                const valor =
+                    obtenerValorCelda(
+                        fila,
+                        Number(indice)
+                    );
+
+                if (!valores.has(valor)) {
+
+                    mostrar = false;
+                    break;
+                }
+            }
+
+            fila.style.display =
+                mostrar
+                    ? ""
+                    : "none";
+        });
+
+         if (tabla.classList.contains("Tabla4")) {
+        actualizarTotalesTabla4();
+    }
+}
+
+
+function obtenerValorCelda(
+    fila,
+    indiceColumna
+) {
+
+    const celda =
+        fila.children[indiceColumna];
+
+    if (!celda) return "";
+
+    const campo =
+        celda.querySelector(
+            "input, textarea, select"
+        );
+
+    if (campo) {
+
+        if (campo.tagName === "SELECT") {
+
+            const opcion =
+                campo.options[
+                    campo.selectedIndex
+                ];
+
+            return opcion
+                ? opcion.text.trim()
+                : "";
+        }
+
+        return campo.value.trim();
+    }
+
+    return celda.textContent.trim();
 }
 
 
 
 
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        document.querySelectorAll(
+            ".Tabla1, " +
+            ".Tabla2, " +
+            ".Tabla3, " +
+            ".Tabla4, " +
+            ".Tabla5, " +
+            ".TablaCotizaciones"
+        )
+        .forEach(tabla => {
+            activarFiltrosExcel(tabla);
+        });
+    }
+);
 
 /*
+// -----------------------corregir ---------------------------------------------------------------------
+
 document.addEventListener("click", function (e) {
 
     
@@ -8876,19 +7799,13 @@ const boton = e.target.closest(".abrir-observaciones");
 
     // Aquí haces lo que ya tienes para abrirlos
 
-
-    Obs.contenedorOriginal = Obs.parentElement;
-    Obs.siguienteOriginal = Obs.nextSibling;
-
-    Duda.contenedorOriginal = Duda.parentElement;
-    Duda.siguienteOriginal = Duda.nextSibling;
     // Sacarlos del contenedor oculto
     document.body.appendChild(Obs);
     document.body.appendChild(Duda);
 
     // Mostrar
-    Obs.classList.remove("paso");
-    Duda.classList.remove("paso");
+    Obs.classList.remove("ventanaFormulario");
+    Duda.classList.remove("ventanaFormulario");
 
     Obs.classList.add("campo-ampliadoO");
     Duda.classList.add("campo-ampliadoD");
@@ -8906,27 +7823,21 @@ const boton = e.target.closest(".abrir-observaciones");
 
 });
 
-*/
-
-
-/*
-
 document.addEventListener("click", function (e) {
 
     // Buscar Duda y Observación actualmente ampliadas
     const Duda = document.querySelector(".campo-ampliadoD");
     const Obs  = document.querySelector(".campo-ampliadoO");
-    const info  = document.querySelector(".campo-ampliadoI");
     const boton = e.target.closest(".abrir-observaciones");
 
     // Si no hay ninguna abierta, no hacer nada
-    if (!Duda && !Obs && !info) return;
+    if (!Duda && !Obs) return;
 
     // Si el click fue dentro de Duda o de Observación,
     // no cerrar nada
     if (
         (Duda && Duda.contains(e.target)) ||
-        (Obs && Obs.contains(e.target)) || (boton && boton.contains(e.target)|| (info && info.contains(e.target))) 
+        (Obs && Obs.contains(e.target)) || (boton && boton.contains(e.target)) 
     ) {
         return;
     }
@@ -8934,50 +7845,20 @@ document.addEventListener("click", function (e) {
     // Cerrar Observación
     if (Obs) {
         Obs.classList.remove("campo-ampliadoO");
-     Obs.classList.add("paso");
+        Obs.classList.add("ventanaFormulario");
 
         Obs.style.left = "";
         Obs.style.top = "";
-      
-        Obs.contenedorOriginal.insertBefore(
-        Obs,
-        Obs.siguienteOriginal
-    );
     }
-
-    
 
     // Cerrar Duda
     if (Duda) {
         Duda.classList.remove("campo-ampliadoD");
-         Duda.classList.add("paso");
+        Duda.classList.add("ventanaFormulario");
 
         Duda.style.left = "";
         Duda.style.top = "";
-        
-         Duda.contenedorOriginal.insertBefore(
-        Duda,
-        Duda.siguienteOriginal
-    );
     }
-
-
-        
-
-    // Cerrar Duda
-    if (info) {
-        info.classList.add("paso");
-        info.classList.remove("campo-ampliadoI");
-        info.classList.add("ventanaFormulario");
-
-        info.style.left = "";
-        info.style.top = "";
-    }
-
-
-
-
-
 
     // Borrar leyendas
     document.querySelectorAll(".leyenda-textarea")
@@ -8987,103 +7868,48 @@ document.addEventListener("click", function (e) {
 
 });
 
-*/
+
 
 
 function crearLeyenda(campo) {
     
     
-    let campo1;
-     
-        if(campo.classList.contains("informacion")){
-            campo1=document.getElementById(campo.dataset.info);    
-        }else{
-            campo1=campo;
-        }
-
-    let leyenda    
-    if(campo.classList.contains("informacion")){
-            leyenda = document.querySelector(
-        `.leyenda-textarea[data-campo="${campo1.id}"]`
+    let leyenda = document.querySelector(
+        `.leyenda-textarea[data-campo="${campo.name}"]`
     );
-    }else{
-            leyenda = document.querySelector(
-        `.leyenda-textarea[data-campo="${campo1.name}"]`
-    );
-        }
-        
 
     if (!leyenda) {
 
         leyenda = document.createElement("div");
         leyenda.className = "leyenda-textarea";
-        leyenda.dataset.campo = campo1.name;
-        
-        
+        leyenda.dataset.campo = campo.name;
 
         leyenda.textContent =
             campo.getAttribute("aria-label") || "Campo";
-        
-            
+
         document.body.appendChild(leyenda);
 
-        const rect = campo1.getBoundingClientRect();
+        const rect = campo.getBoundingClientRect();
 
-        leyenda.style.left =
-                           (rect.left + window.scrollX) + "px";
-
-        leyenda.style.top =
-            (rect.top + window.scrollY - 32) + "px";
-
-
-
-        /*
         leyenda.style.left = rect.left + "px";
         leyenda.style.top = (rect.top - 32) + "px";
-*/
+
 
     
 
         }
 }
+*/
+
+//------------------------------------------------Test Observaciones---------------------------------------------------
+
+//********************
 
 
-/*
+//******************* 
 
 
-document.addEventListener("click", function (e) {
-
-    
-const boton = e.target.closest(".informacion");
-
-
-    if (!boton) return;
-
-
-    const texto=boton.dataset.info;
-    
-    const recuadro=document.getElementById(texto);
-
-
-    
-    // Mostrar
-    recuadro.classList.remove("paso");
-    
-    recuadro.classList.add("campo-ampliadoI");
-
-   // Uno al lado del otro
-    recuadro.style.left = "10vw";
-    
-    recuadro.style.top = "25vh";
-    
-    // Leyendas
-    crearLeyenda(boton);
-    
-});
- 
-  */      
-
-
+//******************** 
 
 function crearFieldsetObservacion(campo, tipo) {
 
@@ -9276,216 +8102,89 @@ document.addEventListener("click", function (e) {
 
 });
 
-function abrirInformacion(boton) {
 
-    const recuadro =
-        document.getElementById(
-            boton.dataset.info
-        );
 
-    if (!recuadro) return;
 
 
-    // Si ya había una ventana de información abierta,
-    // la cerramos primero
-    cerrarInformacion();
 
 
-    // Guardamos exactamente dónde estaba el textarea
-    recuadro.infoOriginal = {
 
-        padre: recuadro.parentElement,
 
-        siguiente: recuadro.nextSibling,
 
-        teniaPaso:
-            recuadro.classList.contains("paso"),
 
-        teniaVentana:
-            recuadro.classList.contains(
-                "ventanaFormulario"
-            )
+//-----------------------------------------------------------------------------------------------------------------
 
-    };
 
 
-    // Crear fieldset temporal
-    const fieldset =
-        document.createElement("fieldset");
 
-    fieldset.classList.add(
-        "fieldset-informacion"
-    );
 
+document
+    .getElementById("exportarExcel")
+    .addEventListener("click", async function () {
 
-    // Crear legend
-    const legend =
-        document.createElement("legend");
+        const folio =
+            document
+                .getElementById("folioInput")
+                .value
+                .trim();
+        const dependencia =
+            document
+                .getElementById("dependencia")
+                .value
+                .trim();        
+         const numerodeEnvio =
+            document
+                .getElementById("Envio")
+                .value
+                .trim();       
 
-
-    // IMPORTANTE:
-    // el nombre viene del BOTÓN
-    legend.textContent =
-        boton.getAttribute("aria-label")
-        || "Información";
-
-
-    fieldset.appendChild(legend);
-
-
-    // Mostrar el textarea
-    recuadro.classList.remove(
-        "paso",
-        "ventanaFormulario",
-        "campo-ampliadoI"
-    );
-
-
-    recuadro.classList.add(
-        "contenido-informacion"
-    );
-
-
-    // Meter contenido en el nuevo fieldset
-    fieldset.appendChild(recuadro);
-
-
-    // Mostrar fieldset
-    document.body.appendChild(fieldset);
-}
-
-function cerrarInformacion() {
-
-    const fieldset =
-        document.querySelector(
-            ".fieldset-informacion"
-        );
-
-    if (!fieldset) return;
-
-
-    const recuadro =
-        fieldset.querySelector(
-            ".contenido-informacion"
-        );
-
-
-    if (!recuadro) {
-
-        fieldset.remove();
-
-        return;
-    }
-
-
-    const original =
-        recuadro.infoOriginal;
-
-
-    recuadro.classList.remove(
-        "contenido-informacion"
-    );
-
-
-    if (original) {
-
-        // Restaurar las clases originales
-        if (original.teniaPaso) {
-
-            recuadro.classList.add("paso");
-
-        } else {
-
-            recuadro.classList.remove("paso");
-
-        }
-
-
-        if (original.teniaVentana) {
-
-            recuadro.classList.add(
-                "ventanaFormulario"
-            );
-
-        } else {
-
-            recuadro.classList.remove(
-                "ventanaFormulario"
-            );
-
-        }
-
-
-        // Regresarlo exactamente al lugar donde estaba
-        if (
-            original.siguiente &&
-            original.siguiente.parentNode ===
-                original.padre
-        ) {
-
-            original.padre.insertBefore(
-                recuadro,
-                original.siguiente
-            );
-
-        } else {
-
-            original.padre.appendChild(
-                recuadro
-            );
-
-        }
-
-
-        delete recuadro.infoOriginal;
-    }
-
-
-    fieldset.remove();
-}
-
-
-document.addEventListener(
-    "click",
-    function (e) {
-
-        const boton =
-            e.target.closest(".informacion");
-
-        if (!boton) return;
-
-
-        abrirInformacion(boton);
-
-    }
-);
-
-document.addEventListener(
-    "click",
-    function (e) {
-
-        // Si fue el botón ℹ️,
-        // no cerrar
-        if (
-            e.target.closest(".informacion")
-        ) {
+        if (!folio||!dependencia || !numerodeEnvio) {
+            alert("Favor de cargar el folio de la dependencia a la que se le requiere su formato final de excel");
             return;
         }
 
+        try {
 
-        // Si el click fue dentro del fieldset,
-        // tampoco cerrar
-        if (
-            e.target.closest(
-                ".fieldset-informacion"
-            )
-        ) {
-            return;
+            const respuesta = await fetch(direccionEnlace, {
+
+                method: "POST",
+
+                body: JSON.stringify({
+                    action: "exportarExcel",
+                    folio: folio,
+                    dependencia:dependencia,
+                    numerodeEnvio:numerodeEnvio,
+
+                })
+
+            });
+
+            const resultado =
+                await respuesta.json();
+
+
+            if (!resultado.success) {
+                throw new Error(
+                    resultado.message ||
+                    "No se pudo crear el Excel."
+                );
+            }
+
+
+            window.open(
+                resultado.data.url,
+                "_blank"
+            );
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(
+                "Error al crear el Excel:\n" +
+                error.message
+            );
         }
 
-
-        cerrarInformacion();
-
-    }
-);
+    });
 
