@@ -5941,7 +5941,7 @@ function precioTotalMasIVA(precioInput) {
 
 let folioActual=null;
 let edicionActual=null;
-let numerodeEnvio=1;
+let numerodeEnvio=0;
 let ExistenciaDeCotizaciones=false;
 let ExistenciaDeCotizaciones_T4=false;
 let folioCargado = false;
@@ -6003,8 +6003,10 @@ const data =json.data;
   
       folioActual = folio;
       edicionActual=data.edicion;
+if(data.numeroEnvio>=0){      
       numerodeEnvio=data.numeroEnvio;
-// Restaurar selects encadenados
+}
+      // Restaurar selects encadenados
 /*setSelectValue("secretaria", data.secretaria);
 
 setTimeout(() => {
@@ -6015,13 +6017,13 @@ setTimeout(() => {
 
     setTimeout(() => {
 */
-if(!numerodeEnvio){
-    numerodeEnvio=0;
-}
+
 // folioValor.value=data.folio;
 setSelectValue("dependencia", data.dependencia);
 document.getElementById("folioInput").value=folioActual;
+
 document.getElementById("Envio").value=numerodeEnvio;
+
 Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
                           if (name.includes("R")) return; //quitamos los campos de la tabla
@@ -6054,7 +6056,7 @@ Object.keys(data).forEach(name => {
 
       restaurarSeleccionCotizaciones(data);
 
-
+      
 
       document
     .querySelectorAll(".Tabla4 .unitario")
@@ -6088,6 +6090,7 @@ Object.keys(data).forEach(name => {
       document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
+      
 /*
       document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
@@ -6097,6 +6100,7 @@ Object.keys(data).forEach(name => {
 //  }, 0);
 //  }, 0);
   alert("📂 Datos cargados correctamente");
+  folioCargado=true;
 } catch (e) {
     alert("⚠️ Error de conexión al cargar los Datos");
 }
@@ -6149,8 +6153,9 @@ async function guardarBorradorAutomatico(mostrarAlerta = false) {
   data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
   data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
   data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
-
-
+  data.numeroEnvio=numerodeEnvio; 
+//  data.__folio = folioActual;
+  data.__envioDependencia = false;
 document.querySelectorAll(".check-verificacion").forEach(check => {
 
     data[check.name] = check.checked;
@@ -6929,9 +6934,11 @@ data.dependenciaT = document.getElementById("dependencia").options[
 /*
   data.__filas6 = document.querySelectorAll("#tablaBody6 tr").length;
   */
+/*
   if(folioActual==null){
       folioActual = generarFolio();
   }
+*/
   data.__folio = folioActual;
   data.__envioDependencia = false;
   data.edicion=true;
@@ -8187,4 +8194,6 @@ document
         }
 
     });
+
+
 
