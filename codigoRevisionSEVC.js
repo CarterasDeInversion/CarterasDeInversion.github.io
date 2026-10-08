@@ -5,9 +5,6 @@ const tbody3 = document.getElementById("tablaBody3");
 const tbody4 = document.getElementById("tablaBody4");
 const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
-/*
-const tbody6 = document.getElementById("tablaBody6");
-*/
 const tbody7 = document.getElementById("tablaBody7");
 
 function agregarFila(){
@@ -416,7 +413,7 @@ fila1.innerHTML = `
     activarAutoExpand(fila1);
 }
 
-//*-----------------------Agregar fila tabla 2*
+//*-----------------------Agregar fila tabla 3/Cambio de nombre visualmente*
 
 function agregarFila2() {
 
@@ -432,12 +429,17 @@ function agregarFila2() {
         </td>
 
         <td>
-            <input
+            <select
+                id="Edificio_T2R${i}"
                 name="Edificio_T2R${i}"
-                class="input_tabla"
-                aria-label="Edificio"
-            >
+                class="tabla_select"
+                aria-label="Edificio">
 
+                <option value="">
+                    -- Selecciona un espacio--
+                </option>
+
+            </select>
             <input
                 name="Edificio_T2R${i}RO"
                 type="checkbox"
@@ -454,7 +456,6 @@ function agregarFila2() {
                 aria-label="Nivel"
             >
                 <option value="">-- Selecciona un nivel --</option>
-                <option value="Planta Baja">Planta Baja</option>
                 <option value="Nivel 1">Nivel 1</option>
                 <option value="Nivel 2">Nivel 2</option>
                 <option value="Nivel 3">Nivel 3</option>
@@ -1210,13 +1211,15 @@ function agregarFila5() {
 
 
         <td>
+            
             <textarea
+                id="Especificaciones_T5R${i}"
                 name="especificaciones_T5R${i}"
-                class="auto-expand input_tabla"
+                class="auto-expand input_tabla expandible"
                 rows="1"
                 style="resize:none;"
-                aria-label="Especificaciones"
-            ></textarea>
+                aria-label="Especificaciones">
+            </textarea>
 
             <input
                 name="especificaciones_T5R${i}RO"
@@ -1680,7 +1683,7 @@ tbodyC.addEventListener("change", e => {
     actualizarOpcionesCotizacion2();
 });
 
-
+/*
 function restaurarSeleccionCotizaciones(data) {
 
     // ---------------- COTIZACIÓN 1 ----------------
@@ -1715,7 +1718,21 @@ function restaurarSeleccionCotizaciones(data) {
     });
 }
 
+*/
+function actualizarSelects(data){
+    document.querySelectorAll(
+    '#tablaBody4 select[name^="ProgramaAcademico_T4R"], ' +
+    '#tablaBody4 select[name^="Espacio_T4R"],'+
+    '#tablaBody4 select[name^="nombreCotizacion_T4R"],'+
+    '#tablaBody4 select[name^="nombreCotizacion2_T4R"]'
+).forEach(select => {
 
+    if (data.hasOwnProperty(select.name)) {
+        select.value = data[select.name];
+    }
+
+});   
+}
 
 
 
@@ -5931,12 +5948,12 @@ function precioTotalMasIVA(precioInput) {
 });
 */
 //V6
-// 
- const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+// const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 
 // V7 
-// const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+//
+ const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 
 let folioActual=null;
@@ -6054,7 +6071,7 @@ Object.keys(data).forEach(name => {
       actualizarOpcionesCotizacion1();
       actualizarOpcionesCotizacion2();
 
-      restaurarSeleccionCotizaciones(data);
+      actualizarSelects(data);
 
       
 
@@ -6069,7 +6086,7 @@ Object.keys(data).forEach(name => {
       document.querySelectorAll(".check-verificacion").forEach(check => {
 
     if (data.hasOwnProperty(check.name)) {
-        check.checked = data[check.name] === true;
+        check.checked = (data[check.name] === true)||(data[check.name] === "true");
     }
 
 });
@@ -6090,6 +6107,22 @@ Object.keys(data).forEach(name => {
       document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
+
+     /* document.querySelectorAll(
+    '#tablaBody5 textarea[name^="ProgramaAcademico_T5R"],' +
+    '#tablaBody5 textarea[name^="Espacio_T5R"],'+'#tablaBody5 textarea[name^="nombredelEquipo_T5R"]').forEach(campo=>{
+                  const origen = document.getElementById(campo.dataset.relleno);
+                  campo.value=origen.value;
+    });
+
+*/
+      document.querySelectorAll(
+    "#tablaBody5 [data-relleno]").forEach(campo=>{
+                  
+                  const origen = document.getElementById(campo.dataset.relleno);
+                  if (!origen) return;
+                  campo.value=origen.value;
+    });
       
 /*
       document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
@@ -7022,7 +7055,7 @@ const res = await fetch(direccionEnlace, {
 
 
     if (json.success) {
-
+        folioCargado = false;
         if(numerodeEnvio==2){
         alert(`✅ Tus observaciones han sido correctamente Enviadas. Tu folio es: ${folioActual}`);
 
@@ -8194,6 +8227,5 @@ document
         }
 
     });
-
 
 
