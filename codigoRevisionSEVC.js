@@ -2169,7 +2169,7 @@ tipoDeSolicitudInput.addEventListener("change", actualizarEncabezado);
 
 
 
-
+      
 
 
 
@@ -2193,6 +2193,7 @@ document.getElementById("tablaBody2").addEventListener("change", e => {
 
   if (ultimaFila.contains(e.target)) {
     agregarFila2();
+    actualizarOpcionesEdificio();
   }
 });
 document.getElementById("tablaBody3").addEventListener("change", e => {
@@ -2238,7 +2239,11 @@ document
     if (ultimaFila.contains(e.target)) {
 
       agregarFila4();
-      agregarFila5();  
+      agregarFila5();
+      actualizarOpcionesProgramas();
+      actualizarOpcionesEspacios();
+      actualizarOpcionesCotizacion1();
+      actualizarOpcionesCotizacion2();  
       actualizarTotalesTabla4();
     }
   });
@@ -4453,12 +4458,11 @@ document.querySelector(".Tabla4").addEventListener("change",function (event){
 });
 */
 //V6
-// const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+// 
+const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 
-// V7 
-//
- const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+// V7 const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 
 let folioActual=null;
@@ -4687,13 +4691,51 @@ async function guardarBorradorAutomatico(mostrarAlerta = false) {
  
   
     // Guardamos también el número de filas actuales
+data.__filas1 =
+    document.querySelectorAll(
+        "#tablaBody tr:not(.ejemplo)"
+    ).length;
+
+data.__filas2 =
+    document.querySelectorAll(
+        "#tablaBody2 tr:not(.ejemplo)"
+    ).length;
+
+data.__filas3 =
+    document.querySelectorAll(
+        "#tablaBody3 tr:not(.ejemplo)"
+    ).length;
+
+data.__filasC =
+    document.querySelectorAll(
+        "#tablaCotizaciones tr:not(.ejemplo)"
+    ).length;
+
+data.__filas4 =
+    document.querySelectorAll(
+        "#tablaBody4 tr:not(.ejemplo):not(#filaTotalTabla4)"
+    ).length;
+
+data.__filas5 =
+    document.querySelectorAll(
+        "#tablaBody5 tr:not(.ejemplo)"
+    ).length;
+/*
   data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
   data.__filas2 = document.querySelectorAll("#tablaBody2 tr").length;
   data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
   data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
   data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
+
+*/
+
+
+
   data.numeroEnvio=numerodeEnvio; 
-//  data.__folio = folioActual;
+
+
+
+  //  data.__folio = folioActual;
   data.__envioDependencia = false;
 document.querySelectorAll(".check-verificacion").forEach(check => {
 
@@ -4882,16 +4924,14 @@ function restaurarTabla(data) {
  
 
 
-  const filas1 = data.__filas1 || 10;
-  const filas2 = data.__filas2 || 10;
-  const filas3 = data.__filas3 || 10;
-  const filasP = data.__filasP || 10;
-  const filasC = data.__filasC || 10;
-  const filas4 = data.__filas4 || 10;
-  const filas5 = data.__filas5 || 10;
-  /*
-  const filas6 = data.__filas6 || 10;
-  */
+  const filas1 = data.__filas1 || 5;
+  const filas2 = data.__filas2 || 5;
+  const filas3 = data.__filas3 || 5;
+  const filasP = data.__filasP || 5;
+  const filasC = data.__filasC || 5;
+  const filas4 = data.__filas4 || 5;
+  const filas5 = data.__filas5 || 5;
+  
   
   const tbody = document.getElementById("tablaBody");
   const tbody1 = document.getElementById("tablaBody1_1"); 
@@ -5015,7 +5055,7 @@ actualizarTotalesTabla4();
 }
 
 
-
+/*
 
 
 //----------------------------------------------------------------------------------------------
@@ -5039,13 +5079,7 @@ document.getElementById("cargarBorrador").addEventListener("click", async () => 
 
 
 
-/*
-  const folio = document.getElementById("folioInput").value.trim();
-  if (!folio) {
-    alert("⚠️ Ingresa un folio válido");
-    return;
-  }
-*/
+
 try {
     const res = await fetch(direccionEnlace, {
       method: "POST",
@@ -5087,19 +5121,16 @@ try {
   const tbodyC = document.getElementById("tablaCotizaciones");
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
-/*
-  const tbody6 = document.getElementById("tablaBody6");
-*/
+
+
   tbody.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
-/*  tbody6.innerHTML = "";
 
-*/
-// Reconstruir filas
+  // Reconstruir filas
 //  const filas = data.__filas || 10;
 //  for (let i = 1; i <= filas; i++) {
 //    agregarFila();
@@ -5108,16 +5139,7 @@ try {
       folioActual = folio;
       edicionActual=data.edicion;
 // Restaurar selects encadenados
-/*setSelectValue("secretaria", data.secretaria);
 
-setTimeout(() => {
-  setSelectValue("direccion", data.direccion);
-
-  setTimeout(() => {
-    setSelectValue("nivel", data.nivel);
-
-    setTimeout(() => {
-*/
 
 // folioValor.value=data.folio;
 setSelectValue("dependencia", data.dependencia);
@@ -5171,12 +5193,8 @@ Object.keys(data).forEach(name => {
       document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
-/*
-      document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
-                           actualizarObligatoriedadFila(fila);
-      });
-*/
-//    }, 0);
+
+      //    }, 0);
 //  }, 0);
 //  }, 0);
   alert("📂 Borrador cargado correctamente");
@@ -5204,13 +5222,8 @@ document.getElementById("cargarRespuesta").addEventListener("click", async () =>
    }
 
   //-------------------------------------------------------------
-  /*
-  if (!folio) {
-    alert("⚠️ Ingresa un folio válido");
-    return;
-  }
-*/
-try {
+
+  try {
     const res = await fetch(direccionEnlace, {
       method: "POST",
       body: JSON.stringify({action: "cargarRespuesta", dependencia,tipoDeEquipamento})
@@ -5251,18 +5264,13 @@ try {
   const tbodyC = document.getElementById("tablaCotizaciones");
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
-/*
-  const tbody6 = document.getElementById("tablaBody6");
-*/  
 tbody.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
-/*
-  tbody6.innerHTML = "";
-*/
+
   // Reconstruir filas
 //  const filas = data.__filas || 10;
 //  for (let i = 1; i <= filas; i++) {
@@ -5272,27 +5280,13 @@ tbody.innerHTML = "";
 folioActual=folio;
 edicionActual=data.edicion;
 numerodeEnvio=data.numeroEnvio;
-/*
-alert("En la revision Existen cotizaciones Generales para la primera alternativa cargadas:"+ ExistenciaDeCotizaciones);
-alert("En la revision la existencia de cotizaciones Generales para la segunda alternativa cargadas:"+ ExistenciaDeCotizacionesA2);
-alert("En la revision Existen cotizaciones para la tabla 4 para la primera alternativa cargadas:"+ ExistenciaDeCotizaciones_T4);
-alert("En la revision Existen cotizaciones para la tabla 4 para la segunda alternativa cargadas:"+ ExistenciaDeCotizacionesA2_T4);
-*/
 
 
 // Restaurar selects encadenados
-/* 
-  setSelectValue("secretaria", data.secretaria);
+ 
 
-setTimeout(() => {
-  setSelectValue("direccion", data.direccion);
+//     setSelectValue("dependencia", data.dependencia);
 
-  setTimeout(() => {
-    setSelectValue("nivel", data.nivel);
-
-    setTimeout(() => {
-*/
- //     setSelectValue("dependencia", data.dependencia);
 
 Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
@@ -5343,12 +5337,9 @@ Object.keys(data).forEach(name => {
       document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
-/*
-      document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
-                           actualizarObligatoriedadFila(fila);
-      });
-*/
-//    }, 0);
+
+
+      //    }, 0);
 //  }, 0);
 // }, 0);
   alert("📂 Respuesta cargada correctamente");
@@ -5357,6 +5348,9 @@ Object.keys(data).forEach(name => {
 }
   
 });
+
+
+*/
 
 //----------------------------------------------------------------------------------------------
 
@@ -5446,38 +5440,52 @@ const selectsTexto = [
 
 
 
-/*
-data.secretariaT = document.getElementById("secretaria").options[
-    document.getElementById("secretaria").selectedIndex
-].text;
-
-data.direccionT = document.getElementById("direccion").options[
-    document.getElementById("direccion").selectedIndex
-].text;
-
-data.nivelT = document.getElementById("nivel").options[
-    document.getElementById("nivel").selectedIndex
-].text;
-*/
 data.dependenciaT = document.getElementById("dependencia").options[
     document.getElementById("dependencia").selectedIndex
 ].text;
 
   // Guardamos también el número de filas actuales
-  data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
-  data.__filas2 = document.querySelectorAll("#tablaBody2 tr").length;
-  data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
-  data.__filasC = document.querySelectorAll("#tablaCotizaciones tr").length;
-  data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
-  data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
-/*
-  data.__filas6 = document.querySelectorAll("#tablaBody6 tr").length;
-  */
-/*
-  if(folioActual==null){
-      folioActual = generarFolio();
-  }
-*/
+
+data.__filas1 =
+    document.querySelectorAll(
+        "#tablaBody tr:not(.ejemplo)"
+    ).length;
+
+data.__filas2 =
+    document.querySelectorAll(
+        "#tablaBody2 tr:not(.ejemplo)"
+    ).length;
+
+data.__filas3 =
+    document.querySelectorAll(
+        "#tablaBody3 tr:not(.ejemplo)"
+    ).length;
+
+data.__filasC =
+    document.querySelectorAll(
+        "#tablaCotizaciones tr:not(.ejemplo)"
+    ).length;
+
+data.__filas4 =
+    document.querySelectorAll(
+        "#tablaBody4 tr:not(.ejemplo):not(#filaTotalTabla4)"
+    ).length;
+
+data.__filas5 =
+    document.querySelectorAll(
+        "#tablaBody5 tr:not(.ejemplo)"
+    ).length;
+
+
+//  data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
+//  data.__filas2 = document.querySelectorAll("#tablaBody2 tr").length;
+//  data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
+//  data.__filasC = document.querySelectorAll("#tablaCotizaciones tr").length;
+//  data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
+//  data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
+
+
+
   data.__folio = folioActual;
   data.__envioDependencia = false;
   data.edicion=true;
@@ -6602,6 +6610,7 @@ document
         }
 
     });
+
 
 
 
