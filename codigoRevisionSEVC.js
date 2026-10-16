@@ -4461,7 +4461,7 @@ document.querySelector(".Tabla4").addEventListener("change",function (event){
 // const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 
-// 
+//
 V7 const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 
@@ -4618,6 +4618,19 @@ Object.keys(data).forEach(name => {
                            actualizarObligatoriedadFila(fila);
       });
 
+      tbody4.addEventListener("change",function (e) {
+
+    if (
+        !e.target.name?.startsWith("precio_T4R") &&
+  //      !e.target.id?.startsWith("ProgramaAcademico_Select_T4R")&&
+        !e.target.name?.startsWith("precio2_T4R")
+    ) return;
+    
+
+    let precioInputF=e.target;
+    precioTotalMasIVA(precioInputF);
+
+});
      /* document.querySelectorAll(
     '#tablaBody5 textarea[name^="ProgramaAcademico_T5R"],' +
     '#tablaBody5 textarea[name^="Espacio_T5R"],'+'#tablaBody5 textarea[name^="nombredelEquipo_T5R"]').forEach(campo=>{
@@ -6610,7 +6623,6 @@ document
         }
 
     });
-
 
 
 
