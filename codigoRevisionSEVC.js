@@ -630,11 +630,32 @@ function agregarFilaP(){
 
     const fila = document.createElement("tr");
 
-    fila.innerHTML = `<td>
+    fila.innerHTML = `
+     <td class="paso">
+            <input
+                name="nombrePlanos_T3R${i}"
+                id="nombrePlanos_T3R${i}"
+
+                class="input_tabla "
+                aria-label="Nombre del Plano"
+                readonly
+            >
+
+        </td>
+    
+    <td>
+            <span
+                   id="nombreArchivoPlanos_T3R${i}" 
+                   class="nombreArchivo"
+                   data-compa="urlPlanos_T3R${i}"
+                   data-compa3="nombrePlanos_T3R${i}"
+                    >
+                </span>
+
             <textarea
                 id="urlPlanos_T3R${i}"
                 name="urlPlanos_T3R${i}"
-                class="auto-expand input_tabla"
+                class="auto-expand input_tabla paso"
                 rows="1"
                 style="resize:none;"
                 aria-label="Url de los planos recibidos"
@@ -665,7 +686,9 @@ function agregarFilaC() {
         <td class="paso">
             <textarea
                 name="nombreCotizacion_TCR${i}"
+                id="nombreCotizacion_TCR${i}"
                 class="auto-expand input_tabla "
+                
                 rows="1"
                 style="resize:none;"
                 aria-label="Nombre de la Cotizacion"
@@ -673,9 +696,16 @@ function agregarFilaC() {
         </td>
 
         <td>
-            <textarea
+        
+        <span id="nombrearchivo_TC${i}$"
+              class="nombreArchivo"
+              data-compa="urlCotizacionAdquisicionG1_TCR${i}"
+              data-compa3="nombreCotizacion_TCR${i}"
+              ></span>
+        
+        <textarea
                 name="urlCotizacionAdquisicionG1_TCR${i}"
-                class="auto-expand input_tabla"
+                class="auto-expand input_tabla paso"
                 rows="1"
                 style="resize:none;"
                 aria-label="Url de las Cotizaciones"
@@ -705,6 +735,7 @@ function agregarFilaC() {
         <td class="paso">
             <textarea
                 name="nombreCotizacion2_TCR${i}"
+                  id="nombreCotizacion2_TCR${i}"
                 class="auto-expand input_tabla class="paso""
                 rows="1"
                 style="resize:none;"
@@ -713,9 +744,15 @@ function agregarFilaC() {
         </td>
 
         <td>
+            <span id="nombrearchivo2_TC${i}$"
+              class="nombreArchivo"
+              data-compa="urlCotizacionAdquisicionG2_TCR${i}"
+              data-compa3="nombreCotizacion2_TCR${i}"
+              ></span>
+
             <textarea
                 name="urlCotizacionAdquisicionG2_TCR${i}"
-                class="auto-expand input_tabla"
+                class=" paso auto-expand input_tabla"
                 rows="1"
                 style="resize:none;"
                 aria-label="Url de las Cotizaciones"
@@ -2074,7 +2111,6 @@ function copiarCampoT4aT5(origen) {
 
 
 //----------------------------------------Archivos y su mecanismo-----------------------------------------------------
-
 
 
 document.addEventListener("change", (e) => {
@@ -4458,12 +4494,12 @@ document.querySelector(".Tabla4").addEventListener("change",function (event){
 });
 */
 //V6
-// const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+// 
+const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 
 // V7 
-// 
-const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+// const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 
 let folioActual=null;
@@ -4781,7 +4817,19 @@ const res = await fetch(direccionEnlace, {
            json5: partes[4],   
            json6: partes[5],
            json7: partes[6],
-           json8:partes[7]
+           json8:partes[7],
+           json9:partes[8],
+           json10:partes[9],
+           json11: partes[10],
+           json12: partes[11],
+           json13: partes[12],
+           json14: partes[13],
+           json15: partes[14],   
+           json16: partes[15],
+           json17: partes[16],
+           json18:partes[17],
+           json19:partes[18],
+           json20:partes[19]
     })
 });
 
@@ -5039,6 +5087,74 @@ function restaurarTabla(data) {
       campo.style.height = campo.scrollHeight + "px";
     }
   });
+
+
+
+
+   document.querySelectorAll('[id^="nombrearchivo_TC"]').forEach(campo => {
+         const url  = campo.dataset.compa;
+         const name = campo.dataset.compa3;
+         const nombre        =document.getElementById(name);
+          
+         
+         campo.innerHTML = `
+                   <a href="${data[url]}" target="_blank">
+                             ${nombre.value}
+                    </a>
+`;     
+   
+
+});
+document.querySelectorAll('[id^="nombrearchivo2_TC"]').forEach(campo => {
+         const url  = campo.dataset.compa;
+         const name = campo.dataset.compa3;
+         const nombre        =document.getElementById(name);
+          
+         
+         campo.innerHTML = `
+                   <a href="${data[url]}" target="_blank">
+                             ${nombre.value}
+                    </a>
+`;     
+   
+
+});
+
+
+
+
+document
+    .querySelectorAll(
+        '[id^="nombreArchivoPlanos_T3R"]').forEach(campo => {
+        const claveUrl =campo.dataset.compa;
+        const claveNombre =campo.dataset.compa3;;
+        const campoNombre =document.getElementById(claveNombre);
+        if (!campo ||!campoNombre) {
+            return;
+        }
+        const url =data[claveUrl] || "";
+
+        const nombre =campoNombre.value || "";
+
+
+        if (!url ||!nombre) {
+            return;
+        }
+
+
+        campo.innerHTML = `
+            <a
+                href="${url}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ${nombre}
+            </a>
+        `;
+    });
+
+
+
   // generarNivel();
   // generarDependencia();
        
@@ -5552,14 +5668,26 @@ const res = await fetch(direccionEnlace, {
     method: "POST",
     body: JSON.stringify({
         action: "EnviarFormulario",
-        json1: partes[0],
+           json1: partes[0],
            json2: partes[1],
            json3: partes[2],
            json4: partes[3],
            json5: partes[4],   
            json6: partes[5],
            json7: partes[6],
-           json8:partes[7]
+           json8:partes[7],
+           json9:partes[8],
+           json10:partes[9],
+           json11: partes[10],
+           json12: partes[11],
+           json13: partes[12],
+           json14: partes[13],
+           json15: partes[14],   
+           json16: partes[15],
+           json17: partes[16],
+           json18:partes[17],
+           json19:partes[18],
+           json20:partes[19]
     })
 });
 /*
