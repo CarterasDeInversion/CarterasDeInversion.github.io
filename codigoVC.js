@@ -24,15 +24,17 @@ let nombresCotizacionesActuales = {};
 function agregarFila(){
 
     const tbody = document.getElementById("tablaBody");
-    const tbody1 = document.getElementById("tablaBody1_1");
+    
 
     const i = obtenerNumeroFila1();
-    const j = obtenerNumeroFila1_1();
+    
+    
     
 
 
     const fila = document.createElement("tr");
-    const fila1 = document.createElement("tr");
+    
+    
 
     fila.innerHTML = `
         <td>
@@ -227,8 +229,24 @@ function agregarFila(){
 
     `;
 
+     
+    tbody.appendChild(fila);
+    activarAutoExpand(fila);
+    
+}
 
-    fila1.innerHTML = `
+
+
+
+
+
+function agregarFila1_1(){
+
+const tbody = document.getElementById("tablaBody1_1");
+    const i = obtenerNumeroFila1_1();
+    const fila = document.createElement("tr");
+    
+    fila.innerHTML = `
         <td>
             ${i}
         </td>
@@ -419,13 +437,15 @@ function agregarFila(){
         ✕
     </button>
         </td>
-    `; 
+    `;
     tbody.appendChild(fila);
-    tbody1.appendChild(fila1);
-
     activarAutoExpand(fila);
-    activarAutoExpand(fila1);
 }
+
+
+
+
+
 
 
 // -----------------------Agregar fila tabla 3(cambiaron de nombre solo visualmente)
@@ -476,7 +496,7 @@ function agregarFila2(){
 
         <td>
 
-<select
+        <select
                    id="Nivel_Select_T2R${i}"
                    class="input_tabla"
                    data-select="Nivel_T2R${i}"
@@ -857,7 +877,9 @@ function agregarFilaC(){
                 >
 
                 <span id="nombrearchivo_TC${i}$" class="nombreArchivo"></span>
-                 
+                
+
+
                 <textarea
                 id="urlCotizacionAdquisicionG1_TCR${i}"
                 name="urlCotizacionAdquisicionG1_TCR${i}"
@@ -920,7 +942,6 @@ function agregarFilaC(){
                 id="nombrearchivo2_TC${i}$"
                 class="nombreArchivo"></span>
 
-                <span class="nombreArchivo"></span>
                  
                 <textarea
                 id="urlCotizacionAdquisicionG2_TCR${i}"
@@ -995,8 +1016,6 @@ function agregarFila4(){
         </td>
         
 
-
-
         <td>
              <button
         type="button"
@@ -1020,7 +1039,7 @@ function agregarFila4(){
             <textarea
                       id="ProgramaAcademico_T4R${i}"
                       name="ProgramaAcademico_T4R${i}"
-                      class="input_tabla"
+                      class="input_tabla programasAcademicosM auto-expand"
                       rows="3"
                       readonly
             ></textarea>
@@ -1224,7 +1243,7 @@ function agregarFila4(){
             >
 
             </div>
-</td>
+      </td>
             
 
 
@@ -1470,7 +1489,7 @@ function agregarFila5(){
             <textarea
                 name="ProgramaAcademico_T5R${i}"
                 id="ProgramaAcademico_T5R${i}"
-                class="auto-expand input_tabla obligatorio"
+                class="auto-expand input_tabla obligatorio programasAcademicosM"
                 rows="1"
                 style="resize:none;"
                 aria-label="Programa Académico"
@@ -1598,8 +1617,9 @@ function agregarFila5(){
                 //-------------------------Construccion de la Tabla
 
 
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 5; i++) {
   agregarFila();
+  agregarFila1_1();
   agregarFila2();
   agregarFila3();
   agregarFilaC();
@@ -1892,8 +1912,8 @@ function actualizarOpcionesEdificio() {
         const valor = input.value.trim();
 
         if (!valor) return;
-
-        edificios.push(valor);
+                edificios.push(valor);
+        
     });
 
 
@@ -1963,8 +1983,10 @@ function actualizarOpcionesEspacios() {
         const valor = input.value.trim();
         
         if (!valor) return;
-
-        espacios.push(valor);
+        if(!espacios.includes(valor)){
+            espacios.push(valor);
+        }
+             
     });
 
 
@@ -2253,6 +2275,9 @@ document.addEventListener("click", function(e) {
 
 
 //----------------------------------------------Programas tabla 4
+
+/*
+
 document.addEventListener("click", function(e) {
 
     const boton =
@@ -2322,6 +2347,284 @@ document.addEventListener("click", function(e) {
         });
 
 });
+*/
+
+
+
+// MENÚ MÚLTIPLE DE PROGRAMAS
+// =====================================================
+
+function cerrarMenusProgramas() {
+
+    document
+        .querySelectorAll(".programa-menu")
+        .forEach(menu => {
+
+            menu.style.display = "none";
+            menu.style.visibility = "";
+
+        });
+
+
+    document
+        .querySelectorAll(".programa-multiple-btn")
+        .forEach(boton => {
+
+            boton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        });
+}
+
+
+
+function posicionarMenuProgramas(
+    boton,
+    menu
+) {
+
+    const margen = 6;
+
+    const rect =
+        boton.getBoundingClientRect();
+
+
+    // -------------------------------------------------
+    // Primero lo mostramos invisible
+    // para poder medir su altura real.
+    // -------------------------------------------------
+
+    menu.style.display = "block";
+    menu.style.visibility = "hidden";
+
+    menu.style.width =
+        rect.width + "px";
+
+    menu.style.minWidth =
+        rect.width + "px";
+
+    menu.style.maxHeight =
+        "300px";
+
+
+    const altoMenu =
+        Math.min(
+            menu.scrollHeight,
+            300
+        );
+
+
+    const espacioAbajo =
+        window.innerHeight -
+        rect.bottom -
+        margen;
+
+
+    const espacioArriba =
+        rect.top -
+        margen;
+
+
+    // -------------------------------------------------
+    // Si abajo no cabe,
+    // pero arriba tenemos más espacio,
+    // abrimos hacia arriba.
+    // -------------------------------------------------
+
+    const abrirArriba =
+        espacioAbajo < altoMenu &&
+        espacioArriba > espacioAbajo;
+
+
+    const espacioDisponible =
+        abrirArriba
+            ? espacioArriba
+            : espacioAbajo;
+
+
+    menu.style.maxHeight =
+        Math.max(
+            60,
+            Math.min(
+                300,
+                espacioDisponible - 4
+            )
+        ) + "px";
+
+
+    // -------------------------------------------------
+    // Evitar que se salga lateralmente de la pantalla
+    // -------------------------------------------------
+
+    let izquierda =
+        rect.left;
+
+
+    const anchoMenu =
+        rect.width;
+
+
+    if (
+        izquierda +
+        anchoMenu >
+        window.innerWidth -
+        margen
+    ) {
+
+        izquierda =
+            window.innerWidth -
+            anchoMenu -
+            margen;
+    }
+
+
+    if (izquierda < margen) {
+
+        izquierda =
+            margen;
+    }
+
+
+    menu.style.left =
+        izquierda + "px";
+
+
+    // -------------------------------------------------
+    // Arriba / abajo
+    // -------------------------------------------------
+
+    if (abrirArriba) {
+
+        menu.style.top = "auto";
+
+        menu.style.bottom =
+            (
+                window.innerHeight -
+                rect.top +
+                4
+            ) + "px";
+
+    } else {
+
+        menu.style.bottom = "auto";
+
+        menu.style.top =
+            (rect.bottom + 4) +
+            "px";
+    }
+
+
+    menu.style.visibility =
+        "visible";
+}
+
+
+
+document.addEventListener(
+    "click",
+    function(e) {
+
+        const boton =
+            e.target.closest(
+                ".programa-multiple-btn"
+            );
+
+
+        // =============================================
+        // ABRIR / CERRAR
+        // =============================================
+
+        if (boton) {
+
+            e.stopPropagation();
+
+
+            const menu =
+                document.getElementById(
+                    boton.dataset.menu
+                );
+
+
+            if (!menu) return;
+
+
+            const estabaAbierto =
+                menu.style.display ===
+                "block";
+
+
+            cerrarMenusProgramas();
+
+
+            // Si ya estaba abierto,
+            // solamente lo cerramos.
+            if (estabaAbierto) {
+                return;
+            }
+
+
+            // Sacarlo físicamente de la tabla.
+            // Esto evita que el overflow
+            // de la tabla lo recorte.
+            if (
+                menu.parentElement !==
+                document.body
+            ) {
+
+                document.body.appendChild(
+                    menu
+                );
+            }
+
+
+            posicionarMenuProgramas(
+                boton,
+                menu
+            );
+
+
+            boton.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+
+
+            return;
+        }
+
+
+        // =============================================
+        // CLIC DENTRO DEL MENÚ
+        // NO LO CERRAMOS
+        // =============================================
+
+        if (
+            e.target.closest(
+                ".programa-menu"
+            )
+        ) {
+            return;
+        }
+
+
+        // =============================================
+        // CLIC FUERA
+        // =============================================
+
+        cerrarMenusProgramas();
+
+    }
+);
+
+
+
+
+
+
+
+
 
                               //----------------------------Guadar valores-----------------------------------------------------
 
@@ -2363,6 +2666,14 @@ document.addEventListener("change", function(e) {
 
     destino.value =
     seleccionados.join("\n");
+    destino.dispatchEvent(
+    new Event(
+        "input",
+        {
+            bubbles: true
+        }
+    )
+);
 
     copiarCampoT4aT5(destino);
 
@@ -2419,6 +2730,207 @@ tbody4.addEventListener(
         );
     }
 );
+
+
+
+
+
+
+function mostrarVistaPreviaGlobal(input) {
+
+    const file =
+        input.files[0];
+
+    if (!file) return;
+
+
+    const vista =
+        document.getElementById(
+            "vistaPrevia"
+        );
+
+    if (!vista) return;
+
+
+    // Si ya había una vista abierta
+    cerrarVistaPrevia();
+
+
+    // Recordamos dónde estaba originalmente
+    vista.previewOriginal = {
+
+        padre:
+            vista.parentElement,
+
+        siguiente:
+            vista.nextSibling
+    };
+
+
+    const fieldset =
+        document.createElement(
+            "fieldset"
+        );
+
+
+    fieldset.classList.add(
+        "fieldset-vista-previa"
+    );
+
+
+    const legend =
+        document.createElement(
+            "legend"
+        );
+
+
+    legend.textContent =
+        file.name;
+
+
+    fieldset.appendChild(
+        legend
+    );
+
+
+    // Mostrar nuestra vista
+    vista.classList.remove(
+        "paso"
+    );
+
+    vista.innerHTML = "";
+
+
+    const urlTemporal =
+        URL.createObjectURL(
+            file
+        );
+
+
+    if (
+        file.type.startsWith(
+            "image/"
+        )
+    ) {
+
+        vista.innerHTML = `
+            <img
+                src="${urlTemporal}"
+                class="previewImagen"
+                alt="Vista previa"
+            >
+        `;
+
+    } else if (
+        file.type ===
+        "application/pdf"
+    ) {
+
+        vista.innerHTML = `
+            <iframe
+                src="${urlTemporal}"
+                class="previewPDF"
+            ></iframe>
+        `;
+
+    } else {
+
+        vista.innerHTML = `
+            <div class="previewInfo">
+
+                <strong>
+                    ${file.name}
+                </strong>
+
+                <br><br>
+
+                No existe vista previa
+                para este tipo de archivo.
+
+            </div>
+        `;
+    }
+
+
+    fieldset.appendChild(
+        vista
+    );
+
+
+    // Igual que tus observaciones:
+    // lo sacamos del formulario
+    // y lo ponemos encima de todo.
+    document.body.appendChild(
+        fieldset
+    );
+}
+
+
+
+
+
+
+
+
+function cerrarVistaPrevia() {
+
+    const vista =
+        document.getElementById(
+            "vistaPrevia"
+        );
+
+    if (!vista) return;
+
+
+    const fieldset =
+        vista.closest(
+            ".fieldset-vista-previa"
+        );
+
+    if (!fieldset) return;
+
+
+    const original =
+        vista.previewOriginal;
+
+
+    vista.innerHTML = "";
+
+    vista.classList.add(
+        "paso"
+    );
+
+
+    if (original) {
+
+        if (
+            original.siguiente &&
+            original.siguiente.parentNode ===
+                original.padre
+        ) {
+
+            original.padre.insertBefore(
+                vista,
+                original.siguiente
+            );
+
+        } else {
+
+            original.padre.appendChild(
+                vista
+            );
+        }
+
+
+        delete vista.previewOriginal;
+    }
+
+
+    fieldset.remove();
+}
+
+
+
 
 
 
@@ -2527,6 +3039,15 @@ document.addEventListener("change", (e) => {
             >
                 ❌
             </button>
+            
+            
+            <button
+            type="button"
+            class="verArchivo"
+        >
+            👁 Vista previa
+        </button>
+
 
         </div>
     `;
@@ -2646,6 +3167,19 @@ mensaje.textContent =
             <button type="button" class="borrarArchivo">
                 ❌
             </button>
+
+            
+
+            <button
+            type="button"
+            class="verArchivo"
+            >
+            👁 Vista previa
+        </button>
+
+
+
+
         </div>
     `;
 
@@ -2897,6 +3431,77 @@ if (
 
 });
 
+//-----------------------------Vista previa ---------------------------------------------------------------------
+
+document.addEventListener("click", e => {
+
+    const boton =
+        e.target.closest(
+            ".verArchivo"
+        );
+
+    if (!boton) return;
+
+
+    const item =
+        boton.closest(
+            ".archivoItem"
+        );
+
+    if (!item) return;
+
+
+    const input =
+        item.inputArchivo;
+
+    if (!input) return;
+
+
+    mostrarVistaPreviaGlobal(
+        input
+    );
+});
+
+
+
+
+document.addEventListener(
+    "click",
+    e => {
+
+
+        // Si presionaste Vista previa,
+        // no la cierres.
+        if (
+            e.target.closest(
+                ".verArchivo"
+            )
+        ) {
+            return;
+        }
+
+
+        // Si estás interactuando
+        // dentro de la vista previa,
+        // tampoco.
+        if (
+            e.target.closest(
+                ".fieldset-vista-previa"
+            )
+        ) {
+            return;
+        }
+
+
+        cerrarVistaPrevia();
+    }
+);
+
+
+
+
+
+
 
 
 
@@ -2955,6 +3560,21 @@ document.getElementById("tablaBody").addEventListener("change", e => {
     agregarFila();
   }
 });
+
+
+
+
+document.getElementById("tablaBody1_1").addEventListener("change", e => {
+  if (!e.target.name?.startsWith("Programa_T1_1R")) return;
+
+  const filas = document.querySelectorAll("#tablaBody1_1 tr");
+  const ultimaFila = filas[filas.length - 1];
+
+  if (ultimaFila.contains(e.target)) {
+    agregarFila1_1();
+  }
+});
+
 document.getElementById("tablaBody2").addEventListener("change", e => {
   if (!e.target.id?.startsWith("Edificio_Select_T2R")) return;
 
@@ -3061,18 +3681,6 @@ document
 
 
 
-/*
-document.getElementById("tablaBody5").addEventListener("change", e => {
-  if (!e.target.name?.startsWith("nombredelEquipo_T5R")) return;
-
-  const filas = document.querySelectorAll("#tablaBody5 tr");
-  const ultimaFila = filas[filas.length - 1];
-
-  if (ultimaFila.contains(e.target)) {
-    agregarFila5();
-  }
-});
-*/
 
 //Recuerda agregar esta misma funcion para cada tabla en caso de que las 4 tablas queden en la misma pagina cosa que aun no decido
 
@@ -4806,6 +5414,15 @@ document.getElementById("tablaBody").addEventListener("input", function (e) {
 
 
 
+document.getElementById("tablaBody1_1").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+
 document.getElementById("tablaBody2").addEventListener("input", function (e) {
   if (!e.target.classList.contains("obligatorio")) return;
 
@@ -5231,7 +5848,7 @@ function actualizarTotalesTabla4() {
 
 
 
-
+/*
 function activarAutoExpand(fila){
   const textareas = fila.querySelectorAll(".auto-expand");
   textareas.forEach(textarea => {
@@ -5241,6 +5858,65 @@ function activarAutoExpand(fila){
     });
   });
 }
+*/
+function ajustarAlturaTextarea(textarea) {
+
+    if (!textarea) return;
+
+    textarea.style.height = "auto";
+
+    textarea.style.height =
+        textarea.scrollHeight + "px";
+}
+
+function activarAutoExpand(fila) {
+
+    const textareas =
+        fila.querySelectorAll(
+            ".auto-expand"
+        );
+
+    textareas.forEach(textarea => {
+
+        textarea.addEventListener(
+            "input",
+            () => {
+
+                ajustarAlturaTextarea(
+                    textarea
+                );
+
+            }
+        );
+
+    });
+}
+
+function recalcularAutoExpand() {
+
+    document
+        .querySelectorAll(
+            "textarea.auto-expand"
+        )
+        .forEach(textarea => {
+
+            // Solo calcular los visibles
+            if (
+                textarea.offsetParent === null
+            ) {
+                return;
+            }
+
+            ajustarAlturaTextarea(
+                textarea
+            );
+
+        });
+}
+
+
+
+
 
 
 
@@ -5282,6 +5958,11 @@ function siguiente(numero,numeroActivar){
   document
     .getElementById(`paso${numeroActivar}`)
     .classList.add("activo");
+     requestAnimationFrame(() => {
+
+        recalcularAutoExpand();
+
+    }); 
 }
 
 
@@ -5397,12 +6078,16 @@ document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
 
 // V6  
-//
-const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+//const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 // V7 
 
 //const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+
+//V8 
+// 
+const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
+
 
 
 let folioActual=null;
@@ -5424,7 +6109,7 @@ let ExistenciaDeCotizacionesA2_T4=false;
 //--------------------------------------Cargar UltimaVersion
 
 async function cargarDatosPorFolio() {
-
+    mostrarEstadoCarga("Cargando solicitud por folio");
     const folio = document
         .getElementById("folioInput")
         .value
@@ -5453,9 +6138,7 @@ setSelectValue(
         datos.tipoDeBien
     );
 
-let formularioVisible=document.getElementById("tablasFrame");
 
-formularioVisible.classList.remove("paso");
 
 
 try {    
@@ -5477,6 +6160,7 @@ const data =json.data;
 
   // Limpiar tabla
   const tbody = document.getElementById("tablaBody");
+  const tbody1 = document.getElementById("tablaBody1_1");  
   const tbody2 = document.getElementById("tablaBody2");
   const tbody3 = document.getElementById("tablaBody3");
   const tbodyP = document.getElementById("tablaBodyP");
@@ -5487,7 +6171,8 @@ const data =json.data;
   /*
   const tbody6 = document.getElementById("tablaBody6");
   */
-  tbody.innerHTML = "";
+  tbody.innerHTML  = "";
+  tbody1.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
   tbodyP.innerHTML = "";
@@ -5779,31 +6464,16 @@ document.querySelectorAll(
                   campo.value=origen.value;
     });
 
-
-    alert(
-    "Programa T5: " +
-    document.getElementById("ProgramaAcademico_T5R1").value +
-    "\nEspacio T4: " +
-    document.getElementById("Espacio_T5R1").value +
-    "\nEquipo T4: " +
-    document.getElementById("nombredelEquipo_T5R1").value
-);
-
-/*                
-               document
-            .querySelectorAll(`[data-relleno="${origen.id}"]`)
-            .forEach(destino => {
-                destino.value = origen.value;
-            });
-                
-*/            
+            
                
 
       
 
-
+  terminarEstadoCarga("Cargando solicitud por folio");
   alert("📂  datos de la solicitud cargados correctamente");
+  let formularioVisible=document.getElementById("tablasFrame");
 
+  formularioVisible.classList.remove("paso");
   folioActual = folio;
   folioCargado = true;
 
@@ -5863,8 +6533,13 @@ const form = document.getElementById("miFormulario");
     document.querySelectorAll(
         "#tablaBody tr:not(.ejemplo)"
     ).length;
+  data.__filas1_1 =
+    document.querySelectorAll(
+        "#tablaBody1_1 tr:not(.ejemplo)"
+    ).length;
+    
 
-data.__filas2 =
+  data.__filas2 =
     document.querySelectorAll(
         "#tablaBody2 tr:not(.ejemplo)"
     ).length;
@@ -5915,7 +6590,7 @@ data.__filas5 =
  //            folioActual = generarFolio();
  // }
   data.__folio = folioActual;
-
+  data.edicion=edicionActual;
 
 const borradorActual = JSON.stringify(data);
 if (!mostrarAlerta && borradorActual === ultimoBorradorGuardado) {
@@ -6010,6 +6685,21 @@ function mostrarEstadoGuardado(mensaje) {
     temporizadorToast = setTimeout(() => {
         toast.classList.remove("mostrar");
     }, 2500);
+}
+
+function mostrarEstadoCarga(mensaje) {
+
+    const toast = document.getElementById("estadoGuardado");
+
+    toast.textContent = mensaje;
+    toast.classList.add("mostrar");
+}
+
+function terminarEstadoCarga(mensaje) {
+
+    const toast = document.getElementById("estadoGuardado");
+
+        toast.classList.remove("mostrar");
 }
 
 
@@ -6179,7 +6869,8 @@ function restaurarTabla(data) {
                                                                              </td>
 
                                                                          </tr>` ;
-                                                         tbody1.innerHTML = `<tr class="ejemplo">
+
+tbody1.innerHTML = `<tr class="ejemplo">
                                                                               <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                               </td>
@@ -6616,6 +7307,9 @@ function restaurarTabla(data) {
   for (let i = 1; i <= filas1; i++) {
     agregarFila();
   }
+  for (let i = 1; i <= filas1_1; i++) {
+    agregarFila1_1();
+  }
   for (let i = 1; i <= filas2; i++) {
     agregarFila2();
   }
@@ -6630,18 +7324,17 @@ function restaurarTabla(data) {
   }
   for (let i = 1; i <= filas4; i++) {
     agregarFila4();
-  }
-  for (let i = 1; i <= filas5; i++) {
     agregarFila5();
   }
 
-
-
-  /*
-  for (let i = 1; i <= filas6; i++) {
-    agregarFila6();
+/* 
+  for (let i = 1; i <= filas5; i++) {
+    
   }
 */
+
+
+  
 
   Object.keys(data).forEach(name => {
     if (name.includes("__filas")) return;
@@ -7257,7 +7950,7 @@ document.getElementById("Enviar").addEventListener("click", async () => {
                   return;
                 }
        //**
-       
+mostrarEstadoCarga("Enviando solicitud, gracias por la espera");       
 
 
 
@@ -7350,25 +8043,25 @@ const selectsTexto = [
 
 
 /*
-const archivosPlanos = formData.getAll("Planos_T3");
-data.planos = [];
+    const archivosPlanos = formData.getAll("Planos_T3"); 
+    data.planos = [];
 
-for (const archivo of archivosPlanos) {
+    for (const archivo of archivosPlanos) {
 
-  if (archivo.size === 0) continue;
+        if (archivo.size === 0) continue;
 
-  const base64 = await new Promise(resolve => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.readAsDataURL(archivo);
-  });
+             const base64 = await new Promise(resolve => {
+             const reader = new FileReader();
+             reader.onload = () => resolve(reader.result);
+             reader.readAsDataURL(archivo);
+        });
 
-  data.planos.push({
-    nombre: archivo.name,
-    tipo: archivo.type,
-    contenido: base64
-  });
-}
+        data.planos.push({
+        nombre: archivo.name,
+         tipo: archivo.type,
+        contenido: base64
+       });
+   }
 
 */
 
@@ -7404,6 +8097,10 @@ data.__filas1 =
     document.querySelectorAll(
         "#tablaBody tr:not(.ejemplo)"
     ).length;
+data.__filas1_1 =
+    document.querySelectorAll(
+        "#tablaBody1_1 tr:not(.ejemplo)"
+    ).length;    
 
 data.__filas2 =
     document.querySelectorAll(
@@ -7528,6 +8225,7 @@ const json = await res.json();
 
     if (json.success) {
        folioCargado = false; 
+       terminarEstadoCarga("Enviando solicitud");
        if(numerodeEnvio==1){
         alert(`✅ Registro de solicitud correctamente Enviada del formato de detección correctamente capturado. Tu folio es: ${folioActual}`);
 
@@ -7914,6 +8612,8 @@ document.addEventListener("click", function (event) {
 
     // Obtener tbody ANTES de borrar
     const tbody = fila.closest("tbody");
+    
+    if (!tbody) return;
 
     // Prueba del name
     const campo = fila.querySelector("[name]");
@@ -7921,11 +8621,56 @@ document.addEventListener("click", function (event) {
     //  if (campo) {
     //    alert("Nombre antes de borrar: " + campo.name);
     //  }
+     let indiceTabla4 = -1;
+
+    if (tbody.id === "tablaBody4") {
+
+        const filasTabla4 = [
+            ...tbody.querySelectorAll(
+                "tr:not(#filaTotalTabla4)"
+            )
+        ];
+
+        indiceTabla4 =
+            filasTabla4.indexOf(fila);
+    }
+
 
     // Ahora sí borrar
     fila.remove();
 
+     if (
+        tbody.id === "tablaBody4" &&
+        indiceTabla4 !== -1
+    ) {
+
+        const filasTabla5 =
+            document.querySelectorAll(
+                "#tablaBody5 tr"
+            );
+
+
+        const filaTabla5 =
+            filasTabla5[indiceTabla4];
+
+
+        if (filaTabla5) {
+
+            filaTabla5.remove();
+
+            renumerarFilas(
+                document.getElementById(
+                    "tablaBody5"
+                )
+            );
+        }
+    }
+
+
     renumerarFilas(tbody);
+    if(tbody.name=== "tablaBody4"){
+            fila
+    }
 });
 
 function actualizarNumeroReferencia(valor, nuevoNumero) {
@@ -8294,40 +9039,7 @@ function crearLeyenda(campo) {
 }
 
 
-/*
-
-
-document.addEventListener("click", function (e) {
-
-    
-const boton = e.target.closest(".informacion");
-
-
-    if (!boton) return;
-
-
-    const texto=boton.dataset.info;
-    
-    const recuadro=document.getElementById(texto);
-
-
-    
-    // Mostrar
-    recuadro.classList.remove("paso");
-    
-    recuadro.classList.add("campo-ampliadoI");
-
-   // Uno al lado del otro
-    recuadro.style.left = "10vw";
-    
-    recuadro.style.top = "25vh";
-    
-    // Leyendas
-    crearLeyenda(boton);
-    
-});
- 
-  */      
+      
 
 
 
@@ -8734,8 +9446,6 @@ document.addEventListener(
 
     }
 );
-
-
  
         
 
