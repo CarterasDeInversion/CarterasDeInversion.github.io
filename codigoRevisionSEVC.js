@@ -2,6 +2,7 @@ const tbody  = document.getElementById("tablaBody");
 const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
 const tbody3 = document.getElementById("tablaBody3");
+const tbodyP = document.getElementById("tablaBodyP");
 const tbody4 = document.getElementById("tablaBody4");
 const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
@@ -9,13 +10,8 @@ const tbody7 = document.getElementById("tablaBody7");
 
 function agregarFila(){
   const tbody = document.getElementById("tablaBody");
-  const tbody1 = document.getElementById("tablaBody1_1");
   const i = obtenerNumeroFila1();
-  const j = obtenerNumeroFila1_1();
-
   const fila = document.createElement("tr");
-  const fila1 = document.createElement("tr");
-  
 fila.innerHTML = `
 
     <td>
@@ -211,7 +207,26 @@ fila.innerHTML = `
     </td>
 `;
 
-fila1.innerHTML = `
+
+
+    tbody.appendChild(fila);
+    
+    activarAutoExpand(fila);
+}
+
+
+
+
+
+
+
+function agregarFila1_1(){
+
+const tbody = document.getElementById("tablaBody1_1");
+    const i = obtenerNumeroFila1_1();
+    const fila = document.createElement("tr");
+    
+    fila.innerHTML = `
 
     <td>
         ${i}
@@ -405,13 +420,18 @@ fila1.innerHTML = `
         >
     </td>
 `;
-
     tbody.appendChild(fila);
-    tbody1.appendChild(fila1);
-    
     activarAutoExpand(fila);
-    activarAutoExpand(fila1);
 }
+
+
+
+
+
+
+
+
+
 
 //*-----------------------Agregar fila tabla 3/Cambio de nombre visualmente*
 
@@ -837,7 +857,7 @@ function agregarFila4() {
             <textarea
                       id="ProgramaAcademico_T4R${i}"
                       name="ProgramaAcademico_T4R${i}"
-                      class="input_tabla"
+                      class="input_tabla programasAcademicosM auto-expand "
                       rows="3"
                       readonly
             ></textarea>
@@ -1244,7 +1264,7 @@ function agregarFila5() {
 <td>
             <textarea
                 name="ProgramaAcademico_T5R${i}"
-                class="auto-expand input_tabla obligatorio"
+                class="auto-expand input_tabla obligatorio programasAcademicosM"
                 rows="1"
                 style="resize:none;"
                 aria-label="Programa Académico"
@@ -1378,9 +1398,10 @@ function agregarFila5() {
 //------------------------------------Construccion de tabla--------------------------
 
 
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 5; i++) {
 
   agregarFila();
+  agregarFila1_1();
   agregarFila2();
   agregarFila3();
   agregarFilaC();
@@ -1530,7 +1551,7 @@ tbody.addEventListener("change", e => {
 
 
 
-
+/*
 tbody.addEventListener("change", e => {
 
     if (!e.target.name?.startsWith("Programa_T1R")) return;
@@ -1538,6 +1559,7 @@ tbody.addEventListener("change", e => {
     actualizarOpcionesProgramas();
 });
 
+*/
 
 function actualizarOpcionesEdificio() {
 
@@ -1608,7 +1630,9 @@ function actualizarOpcionesEspacios() {
 
         if (!valor) return;
 
-        espacios.push(valor);
+        if(!espacios.includes(valor)){
+            espacios.push(valor);
+        }
     });
     tbody4.querySelectorAll(
         'select[name^="Espacio_T4R"]'
@@ -1952,6 +1976,8 @@ function actualizarSelects(data){
 }
 
 
+
+/*
 document.addEventListener("click", function(e) {
 
     const boton =
@@ -2021,6 +2047,275 @@ document.addEventListener("click", function(e) {
         });
 
 });
+*/
+
+function cerrarMenusProgramas() {
+
+    document
+        .querySelectorAll(".programa-menu")
+        .forEach(menu => {
+
+            menu.style.display = "none";
+            menu.style.visibility = "";
+
+        });
+
+
+    document
+        .querySelectorAll(".programa-multiple-btn")
+        .forEach(boton => {
+
+            boton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        });
+}
+
+
+
+function posicionarMenuProgramas(
+    boton,
+    menu
+) {
+
+    const margen = 6;
+
+    const rect =
+        boton.getBoundingClientRect();
+
+
+    // -------------------------------------------------
+    // Primero lo mostramos invisible
+    // para poder medir su altura real.
+    // -------------------------------------------------
+
+    menu.style.display = "block";
+    menu.style.visibility = "hidden";
+
+    menu.style.width =
+        rect.width + "px";
+
+    menu.style.minWidth =
+        rect.width + "px";
+
+    menu.style.maxHeight =
+        "300px";
+
+
+    const altoMenu =
+        Math.min(
+            menu.scrollHeight,
+            300
+        );
+
+
+    const espacioAbajo =
+        window.innerHeight -
+        rect.bottom -
+        margen;
+
+
+    const espacioArriba =
+        rect.top -
+        margen;
+
+
+    // -------------------------------------------------
+    // Si abajo no cabe,
+    // pero arriba tenemos más espacio,
+    // abrimos hacia arriba.
+    // -------------------------------------------------
+
+    const abrirArriba =
+        espacioAbajo < altoMenu &&
+        espacioArriba > espacioAbajo;
+
+
+    const espacioDisponible =
+        abrirArriba
+            ? espacioArriba
+            : espacioAbajo;
+
+
+    menu.style.maxHeight =
+        Math.max(
+            60,
+            Math.min(
+                300,
+                espacioDisponible - 4
+            )
+        ) + "px";
+
+
+    // -------------------------------------------------
+    // Evitar que se salga lateralmente de la pantalla
+    // -------------------------------------------------
+
+    let izquierda =
+        rect.left;
+
+
+    const anchoMenu =
+        rect.width;
+
+
+    if (
+        izquierda +
+        anchoMenu >
+        window.innerWidth -
+        margen
+    ) {
+
+        izquierda =
+            window.innerWidth -
+            anchoMenu -
+            margen;
+    }
+
+
+    if (izquierda < margen) {
+
+        izquierda =
+            margen;
+    }
+
+
+    menu.style.left =
+        izquierda + "px";
+
+
+    // -------------------------------------------------
+    // Arriba / abajo
+    // -------------------------------------------------
+
+    if (abrirArriba) {
+
+        menu.style.top = "auto";
+
+        menu.style.bottom =
+            (
+                window.innerHeight -
+                rect.top +
+                4
+            ) + "px";
+
+    } else {
+
+        menu.style.bottom = "auto";
+
+        menu.style.top =
+            (rect.bottom + 4) +
+            "px";
+    }
+
+
+    menu.style.visibility =
+        "visible";
+}
+
+
+
+document.addEventListener(
+    "click",
+    function(e) {
+
+        const boton =
+            e.target.closest(
+                ".programa-multiple-btn"
+            );
+
+
+        // =============================================
+        // ABRIR / CERRAR
+        // =============================================
+
+        if (boton) {
+
+            e.stopPropagation();
+
+
+            const menu =
+                document.getElementById(
+                    boton.dataset.menu
+                );
+
+
+            if (!menu) return;
+
+
+            const estabaAbierto =
+                menu.style.display ===
+                "block";
+
+
+            cerrarMenusProgramas();
+
+
+            // Si ya estaba abierto,
+            // solamente lo cerramos.
+            if (estabaAbierto) {
+                return;
+            }
+
+
+            // Sacarlo físicamente de la tabla.
+            // Esto evita que el overflow
+            // de la tabla lo recorte.
+            if (
+                menu.parentElement !==
+                document.body
+            ) {
+
+                document.body.appendChild(
+                    menu
+                );
+            }
+
+
+            posicionarMenuProgramas(
+                boton,
+                menu
+            );
+
+
+            boton.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+
+
+            return;
+        }
+
+
+        // =============================================
+        // CLIC DENTRO DEL MENÚ
+        // NO LO CERRAMOS
+        // =============================================
+
+        if (
+            e.target.closest(
+                ".programa-menu"
+            )
+        ) {
+            return;
+        }
+
+
+        // =============================================
+        // CLIC FUERA
+        // =============================================
+
+        cerrarMenusProgramas();
+
+    }
+);
+
+
+
+
 
                               //----------------------------Guadar valores-----------------------------------------------------
 
@@ -2062,6 +2357,14 @@ document.addEventListener("change", function(e) {
 
     destino.value =
     seleccionados.join("\n");
+    destino.dispatchEvent(
+    new Event(
+        "input",
+        {
+            bubbles: true
+        }
+    )
+);
     copiarCampoT4aT5(destino);
  //   destino.value =
  //       seleccionados.join(" | ");
@@ -2221,6 +2524,22 @@ document.getElementById("tablaBody").addEventListener("change", e => {
     agregarFila();
   }
 });
+document.getElementById("tablaBody1_1").addEventListener("change", e => {
+
+        if (!e.target.name?.startsWith("Programa_T1_1R")) return;
+
+        const filas =document.querySelectorAll("#tablaBody1_1 tr");
+
+        const ultimaFila =filas[filas.length - 1];
+
+        if (ultimaFila.contains(e.target)
+        ) {
+            agregarFila1_1();
+        }
+    });
+
+
+
 document.getElementById("tablaBody2").addEventListener("change", e => {
   if (!e.target.name?.startsWith("Edificio_T2R")) return;
 
@@ -2255,12 +2574,19 @@ document.getElementById("tablaCotizaciones").addEventListener("change", e => {
     agregarFilaC();
   }
 });
+document.getElementById("tablaBodyP").addEventListener("change", e => {
+    if (!e.target.name?.startsWith("Planos_T3R")) return;
+  const filas = document.querySelectorAll("#tablaBodyP tr");
+  const ultimaFila = filas[filas.length - 1];
+
+  if (ultimaFila.contains(e.target)) {
+    agregarFilaP();
+  }
+});
 
 
 
-document
-  .getElementById("tablaBody4")
-  .addEventListener("change", e => {
+document.getElementById("tablaBody4").addEventListener("change", e => {
 
     if (!e.target.name?.startsWith("nombredelEquipo_T4R")) {
       return;
@@ -4366,11 +4692,11 @@ function actualizarTotalesTabla4() {
 
 
 
+//------------------------------ajuste automatico de textarea grandes-----------------------------------------------------------
 
 
 
-
-
+/*
 function activarAutoExpand(fila){
   const textareas = fila.querySelectorAll(".auto-expand");
   textareas.forEach(textarea => {
@@ -4380,6 +4706,70 @@ function activarAutoExpand(fila){
     });
   });
 }
+*/
+
+
+
+function ajustarAlturaTextarea(textarea) {
+
+    if (!textarea) return;
+
+    textarea.style.height = "auto";
+
+    textarea.style.height =
+        textarea.scrollHeight + "px";
+}
+
+function activarAutoExpand(fila) {
+
+    const textareas =
+        fila.querySelectorAll(
+            ".auto-expand"
+        );
+
+    textareas.forEach(textarea => {
+
+        textarea.addEventListener(
+            "input",
+            () => {
+
+                ajustarAlturaTextarea(
+                    textarea
+                );
+
+            }
+        );
+
+    });
+}
+
+function recalcularAutoExpand() {
+
+    document
+        .querySelectorAll(
+            "textarea.auto-expand"
+        )
+        .forEach(textarea => {
+
+            // Solo calcular los visibles
+            if (
+                textarea.offsetParent === null
+            ) {
+                return;
+            }
+
+            ajustarAlturaTextarea(
+                textarea
+            );
+
+        });
+}
+
+
+
+
+
+
 
 
 
@@ -4418,6 +4808,12 @@ function siguiente(numero,numeroActivar){
   document
     .getElementById(`paso${numeroActivar}`)
     .classList.add("activo");
+
+     requestAnimationFrame(() => {
+
+        recalcularAutoExpand();
+
+    }); 
 }
 
 
@@ -4494,12 +4890,16 @@ document.querySelector(".Tabla4").addEventListener("change",function (event){
 });
 */
 //V6
-// 
-const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+// const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 
 // V7 
 // const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+
+
+//V8 
+// 
+const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
 
 
 let folioActual=null;
@@ -4517,7 +4917,7 @@ let ExistenciaDeCotizacionesA2_T4=false;
 
 
 document.getElementById("cargarFolio").addEventListener("click", async function () {   
-    
+    mostrarEstadoCarga("Cargando solicitud por folio");
     const folio = document.getElementById("folioInput").value.trim();
 
     const dependencia = document.getElementById("dependencia").value.trim();
@@ -4541,8 +4941,10 @@ const data =json.data;
 
   // Limpiar tabla
   const tbody = document.getElementById("tablaBody");
+  const tbody1 = document.getElementById("tablaBody1_1");
   const tbody2 = document.getElementById("tablaBody2");
   const tbody3 = document.getElementById("tablaBody3");
+   const tbodyP = document.getElementById("tablaBodyP");
   const tbodyC = document.getElementById("tablaCotizaciones");
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
@@ -4550,8 +4952,10 @@ const data =json.data;
   const tbody6 = document.getElementById("tablaBody6");
 */
   tbody.innerHTML = "";
+  tbody1.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
+  tbodyP.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
@@ -4692,6 +5096,7 @@ Object.keys(data).forEach(name => {
 //    }, 0);
 //  }, 0);
 //  }, 0);
+terminarEstadoCarga("Cargando solicitud por folio");
   alert("📂 Datos cargados correctamente");
   folioCargado=true;
 } catch (e) {
@@ -4745,6 +5150,10 @@ data.__filas1 =
     document.querySelectorAll(
         "#tablaBody tr:not(.ejemplo)"
     ).length;
+data.__filas1_1 =
+    document.querySelectorAll(
+        "#tablaBody1_1 tr:not(.ejemplo)"
+    ).length;    
 
 data.__filas2 =
     document.querySelectorAll(
@@ -4756,10 +5165,18 @@ data.__filas3 =
         "#tablaBody3 tr:not(.ejemplo)"
     ).length;
 
+data.__filasP =
+    document.querySelectorAll(
+        "#tablaBodyP tr:not(.ejemplo)"
+    ).length;
+
+
 data.__filasC =
     document.querySelectorAll(
         "#tablaCotizaciones tr:not(.ejemplo)"
     ).length;
+
+
 
 data.__filas4 =
     document.querySelectorAll(
@@ -4895,6 +5312,26 @@ function mostrarEstadoGuardado(mensaje) {
     }, 2500);
 }
 
+function mostrarEstadoCarga(mensaje) {
+
+    const toast = document.getElementById("estadoGuardado");
+
+    toast.textContent = mensaje;
+    toast.classList.add("mostrar");
+}
+
+function terminarEstadoCarga(mensaje) {
+
+    const toast = document.getElementById("estadoGuardado");
+
+        toast.classList.remove("mostrar");
+}
+
+
+
+
+
+
 
 
 
@@ -4987,6 +5424,7 @@ function restaurarTabla(data) {
 
 
   const filas1 = data.__filas1 || 5;
+  const filas1_1 = data.__filas1_1 || 5;
   const filas2 = data.__filas2 || 5;
   const filas3 = data.__filas3 || 5;
   const filasP = data.__filasP || 5;
@@ -5022,6 +5460,9 @@ function restaurarTabla(data) {
   */
   for (let i = 1; i <= filas1; i++) {
     agregarFila();
+  }
+  for (let i = 1; i <= filas1_1; i++) {
+    agregarFila1_1();
   }
   for (let i = 1; i <= filas2; i++) {
     agregarFila2();
@@ -5516,7 +5957,7 @@ document.getElementById("Enviar").addEventListener("click", async function(e) {
                 }
        //**
        
-
+mostrarEstadoCarga("Enviando las observaciones de la solicitud GRACIAS POR ESPERAR...");
 
 
 //const formData = new FormData(this);
@@ -5581,6 +6022,11 @@ data.__filas1 =
         "#tablaBody tr:not(.ejemplo)"
     ).length;
 
+data.__filas1_1 =
+    document.querySelectorAll(
+        "#tablaBody1_1 tr:not(.ejemplo)"
+    ).length;
+
 data.__filas2 =
     document.querySelectorAll(
         "#tablaBody2 tr:not(.ejemplo)"
@@ -5594,6 +6040,11 @@ data.__filas3 =
 data.__filasC =
     document.querySelectorAll(
         "#tablaCotizaciones tr:not(.ejemplo)"
+    ).length;
+
+data.__filasP =
+    document.querySelectorAll(
+        "#tablaBodyP tr:not(.ejemplo)"
     ).length;
 
 data.__filas4 =
@@ -5711,6 +6162,7 @@ const res = await fetch(direccionEnlace, {
 
 
     if (json.success) {
+        terminarEstadoCarga("Cargando solicitud por folio");
         folioCargado = false;
         if(numerodeEnvio==2){
         alert(`✅ Tus observaciones han sido correctamente Enviadas. Tu folio es: ${folioActual}`);
@@ -6752,5 +7204,6 @@ document
         }
 
     });
+
 
 
