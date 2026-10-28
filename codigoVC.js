@@ -1,4 +1,4 @@
-﻿const tbody  = document.getElementById("tablaBody");
+const tbody  = document.getElementById("tablaBody");
 const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
 const tbody3 = document.getElementById("tablaBody3");
@@ -463,6 +463,16 @@ function agregarFila2(){
         </td>
 
         <td>
+            <input
+                name="LOC_Edificio_T2R${i}"
+                id="LOC_Edificio_T2R${i}"
+                class="tabla_select"
+                data-completar="LOCEdificioS_T2R${i}"
+                aria-label="LOC_Edificio"
+                >
+        </td>
+
+        <td>
             <select
                 id="Edificio_Select_T2R${i}"
                 class="tabla_select"
@@ -500,20 +510,21 @@ function agregarFila2(){
                    id="Nivel_Select_T2R${i}"
                    class="input_tabla"
                    data-select="Nivel_T2R${i}"
+                   data-completar="LOCNivelS_T2R${i}"
                    aria-label="Nivel"
             >
                 <option value="">-- Selecciona un nivel --</option>
-                <option value="Nivel 1">Nivel 1</option>
-                <option value="Nivel 2">Nivel 2</option>
-                <option value="Nivel 3">Nivel 3</option>
-                <option value="Nivel 4">Nivel 4</option>
-                <option value="Nivel 5">Nivel 5</option>
-                <option value="Nivel 6">Nivel 6</option>
-                <option value="Nivel 7">Nivel 7</option>
-                <option value="Nivel 8">Nivel 8</option>
-                <option value="Nivel 9">Nivel 9</option>
-                 <option value="Nivel 10">Nivel 10</option>
-                 <option value="Nivel 11">Nivel 11</option>
+                <option value="Nivel 1" data-Valor2="N1">Nivel 1</option>
+                <option value="Nivel 2" data-Valor2="N2">Nivel 2</option>
+                <option value="Nivel 3" data-Valor2="N3">Nivel 3</option>
+                <option value="Nivel 4" data-Valor2="N4">Nivel 4</option>
+                <option value="Nivel 5" data-Valor2="N5">Nivel 5</option>
+                <option value="Nivel 6" data-Valor2="N6">Nivel 6</option>
+                <option value="Nivel 7" data-Valor2="N7">Nivel 7</option>
+                <option value="Nivel 8" data-Valor2="N8">Nivel 8</option>
+                <option value="Nivel 9" data-Valor2="N9">Nivel 9</option>
+                 <option value="Nivel 10" data-Valor2="N10">Nivel 10</option>
+                 <option value="Nivel 11" data-Valor2="N11">Nivel 11</option>
              </select>
              <input
                    id="Nivel_T2R${i}"
@@ -536,8 +547,46 @@ function agregarFila2(){
         
         <td>
             <input
-                name="Espacio_T2R${i}"
+                name="LOCEspacio_T2R${i}"
+                id="LOCEspacio_T2R${i}"
                 class="input_tabla"
+                data-completar="LOCEspacioS_T2R${i}"
+                aria-label="LOCEspacio"
+            >
+
+            <input
+                name="LOCEspacio_T2R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="LOCEspacio_T2R${i}RO"
+                data-campo="LOCEspacio_T2R${i}"
+            >
+        </td>
+
+
+
+
+        <td>
+            <span class="claves" id="LOCEdificioS_T2R${i}"></span>
+            <span class="claves" >-</span>
+            <span class="claves" id="LOCNivelS_T2R${i}"></span>
+            <span class="claves" >-</span>
+            <span class="claves" id="LOCEspacioS_T2R${i}"></span>
+            <input
+                name="Espacio_Visible_T2R${i}"
+                id="Espacio_Visible_T2R${i}"
+                class="input_tabla "
+                data-edificio="LOCEdificioS_T2R${i}"
+                data-nivel="LOCNivelS_T2R${i}"
+                data-espacio="LOCEspacioS_T2R${i}"
+                data-espacio2="Espacio_T2R${i}"
+                aria-label="Espacio"
+            >
+            
+            <input
+                id="Espacio_T2R${i}"
+                name="Espacio_T2R${i}"
+                class="input_tabla "
                 aria-label="Espacio"
             >
 
@@ -1536,7 +1585,7 @@ function agregarFila5(){
         <td>                                                                                                                                                            
             <textarea
                 id="Especificaciones_T5R${i}"
-                name="especificaciones_T5R${i}"
+                name="Especificaciones_T5R${i}"
                 class="auto-expand input_tabla expandible"
                 rows="1"
                 style="resize:none;"
@@ -1544,11 +1593,11 @@ function agregarFila5(){
             </textarea>
 
             <input
-                name="especificaciones_T5R${i}RO"
+                name="Especificaciones_T5R${i}RO"
                 readonly
                 class="paso check-verificacion"
-                id="especificaciones_T5R${i}RO"
-                data-campo="especificaciones_T5R${i}"
+                id="Especificaciones_T5R${i}RO"
+                data-campo="Especificaciones_T5R${i}"
             >
         </td>
 
@@ -1569,22 +1618,7 @@ function agregarFila5(){
             >
         </td>
 
-        <td class="cantidadCol">
-            <input
-                type="number"
-                name="cantidadBuen_estado_T5R${i}"
-                class="input_tabla"
-                aria-label="Cantidad en buen estado"
-            >
-
-            <input
-                name="cantidadBuen_estado_T5R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="cantidadBuen_estado_T5R${i}RO"
-                data-campo="cantidadBuen_estado_T5R${i}"
-            >
-        </td>
+        
 
         <td class="cantidadCol">
             <input
@@ -1600,6 +1634,22 @@ function agregarFila5(){
                 class="paso check-verificacion"
                 id="cantidadRegular_estado_T5R${i}RO"
                 data-campo="cantidadRegular_estado_T5R${i}"
+            >
+        </td>
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="cantidadBuen_estado_T5R${i}"
+                class="input_tabla"
+                aria-label="Cantidad en buen estado"
+            >
+
+            <input
+                name="cantidadBuen_estado_T5R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="cantidadBuen_estado_T5R${i}RO"
+                data-campo="cantidadBuen_estado_T5R${i}"
             >
         </td>
     `;
@@ -1707,6 +1757,127 @@ function compartirValoresinputToSelects(){
 
     
 }
+
+
+
+//-------------------------------------------completar las claves de Espacio----------------------------------------------------
+
+document.addEventListener("change", e => {
+
+    if (!e.target.id?.startsWith("LOC_Edificio_T2R") && !e.target.id?.startsWith("LOCEspacio_T2R")) return;
+     let campo=e.target;
+     let campoLLenar=e.target.dataset.completar;
+     let inputxLLenar=document.getElementById(campoLLenar);
+     inputxLLenar.textContent=campo.value;
+     
+
+});
+document.addEventListener("change", e => {
+
+    if (!e.target.id?.startsWith("Nivel_Select_T2R")) return;
+     let campo=e.target;
+     let campoLLenar=e.target.dataset.completar;
+     let inputxLLenar=document.getElementById(campoLLenar);
+     inputxLLenar.textContent=campo.selectedOptions[0].dataset.valor2;
+     
+
+});
+
+document.addEventListener("change", e => {
+
+    if (!e.target.id?.startsWith("Espacio_Visible_T2R")) return;
+     let campo=e.target;
+     
+     let edificioI=campo.dataset.edificio;
+     let nivelI=campo.dataset.nivel;
+     let espacioI=campo.dataset.espacio;
+     let espacioInput=campo.dataset.espacio2;
+     let inputEdificioS=document.getElementById(edificioI);
+     let inputNivelS   =document.getElementById(nivelI);   
+     let inputEspacioS =document.getElementById(espacioI);
+     let inputEspacioI =document.getElementById(espacioInput);  
+     inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+campo.value;
+
+});
+
+
+function restaurarClavesTabla2(data = {}) {
+
+    document.querySelectorAll(
+        "#tablaBody2 tr:not(.ejemplo)"
+    ).forEach(fila => {
+
+        // Campo que conserva el nivel guardado
+        const nivelGuardado = fila.querySelector(
+            '[name^="Nivel_T2R"]:not(.check-verificacion)'
+        );
+
+        if (!nivelGuardado) return;
+
+        const valorNivel = String(
+            data[nivelGuardado.name] ?? nivelGuardado.value ?? ""
+        ).trim();
+
+        // Compatible con Registro y Revisión
+        const selectorNivel = fila.querySelector(
+            'select[id^="Nivel_Select_T2R"], select[id^="Nivel_T2R"]'
+        );
+
+        if (selectorNivel) {
+            selectorNivel.value = valorNivel;
+        }
+
+        // Buscar data-valor2 en la opción correspondiente
+        const opcion = Array.from(
+            selectorNivel?.options ?? []
+        ).find(option => option.value === valorNivel);
+
+        const coincidencia = valorNivel.match(/^Nivel\s*(\d+)$/i);
+
+        const claveNivel =
+            opcion?.dataset.valor2 ??
+            (coincidencia ? `N${coincidencia[1]}` : "");
+
+        // Recuperar los tres spans
+        const spanEdificio = fila.querySelector(
+            '[id^="LOCEdificioS_T2R"]'
+        );
+
+        const spanNivel = fila.querySelector(
+            '[id^="LOCNivelS_T2R"]'
+        );
+
+        const spanEspacio = fila.querySelector(
+            '[id^="LOCEspacioS_T2R"]'
+        );
+
+        // Recuperar los campos originales
+        const campoEdificio = fila.querySelector(
+            'input[id^="LOC_Edificio_T2R"]:not(.check-verificacion)'
+        );
+
+        const campoEspacio = fila.querySelector(
+            'input[id^="LOCEspacio_T2R"]:not(.check-verificacion)'
+        );
+
+        if (spanEdificio) {
+            spanEdificio.textContent =
+                campoEdificio?.value ?? "";
+        }
+
+        if (spanNivel) {
+            spanNivel.textContent = claveNivel;
+        }
+
+        if (spanEspacio) {
+            spanEspacio.textContent =
+                campoEspacio?.value ?? "";
+        }
+
+    });
+}
+
+
 
 
 
@@ -2806,6 +2977,9 @@ function mostrarVistaPreviaGlobal(input) {
             file
         );
 
+    vista.previewUrl = urlTemporal;
+
+
 
     if (
         file.type.startsWith(
@@ -2833,7 +3007,63 @@ function mostrarVistaPreviaGlobal(input) {
             ></iframe>
         `;
 
+
+
+
+
+
+         } else if (/\.docx$/i.test(file.name)) {
+
+        vista.textContent = "Cargando documento Word...";
+
+        if (!window.mammoth || !window.DOMPurify) {
+            vista.textContent =
+                "No se pudieron cargar las bibliotecas para visualizar Word.";
+        } else {
+
+            file.arrayBuffer()
+                .then(buffer => {
+                    return mammoth.convertToHtml({
+                        arrayBuffer: buffer
+                    });
+                })
+                .then(resultado => {
+
+                    // Evitar modificar una vista que ya fue cerrada
+                    if (!vista.isConnected ||
+                        vista.closest(".fieldset-vista-previa") !== fieldset) {
+                        return;
+                    }
+
+                    vista.innerHTML =
+                        DOMPurify.sanitize(resultado.value);
+
+                })
+                .catch(error => {
+
+                    console.error("Error leyendo Word:", error);
+
+                    if (vista.isConnected) {
+                        vista.textContent =
+                            "No fue posible visualizar este documento Word.";
+                    }
+
+                });
+        }
+
     } else {
+
+        vista.textContent =
+            "No existe vista previa para este tipo de archivo.";
+
+    }
+
+
+
+
+
+
+/*    } else {
 
         vista.innerHTML = `
             <div class="previewInfo">
@@ -2850,7 +3080,7 @@ function mostrarVistaPreviaGlobal(input) {
             </div>
         `;
     }
-
+*/
 
     fieldset.appendChild(
         vista
@@ -2863,6 +3093,25 @@ function mostrarVistaPreviaGlobal(input) {
     document.body.appendChild(
         fieldset
     );
+    
+    const botonCerrar = document.createElement("button");
+
+botonCerrar.type = "button";
+botonCerrar.className = "cerrar-vista-previa";
+botonCerrar.textContent = "✕";
+botonCerrar.title = "Cerrar vista previa";
+botonCerrar.setAttribute("aria-label", "Cerrar vista previa");
+
+botonCerrar.addEventListener("click", () => {
+    cerrarVistaPrevia();
+});
+
+fieldset.appendChild(botonCerrar);
+
+
+
+
+
 }
 
 
@@ -2892,7 +3141,10 @@ function cerrarVistaPrevia() {
 
     const original =
         vista.previewOriginal;
-
+    if (vista.previewUrl) {
+    URL.revokeObjectURL(vista.previewUrl);
+    delete vista.previewUrl;
+    }
 
     vista.innerHTML = "";
 
@@ -5385,6 +5637,7 @@ const opciones = [
 
 
 function actualizarObligatoriedadFila(fila) {
+  /*¨
   const equipo = fila.querySelector(".obligatorio");
   if (!equipo) return;
 
@@ -5398,6 +5651,7 @@ function actualizarObligatoriedadFila(fila) {
       campo.removeAttribute("required");
     }
   });
+  */
 }
 
 
@@ -6078,15 +6332,15 @@ document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
 
 // V6  
-//const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+//
+const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 // V7 
 
 //const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 //V8 
-// 
-const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
+// const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
 
 
 
@@ -6109,6 +6363,8 @@ let ExistenciaDeCotizacionesA2_T4=false;
 //--------------------------------------Cargar UltimaVersion
 
 async function cargarDatosPorFolio() {
+    urlCotizacionesActuales = {};
+    nombresCotizacionesActuales = {};
     mostrarEstadoCarga("Cargando solicitud por folio");
     const folio = document
         .getElementById("folioInput")
@@ -6253,7 +6509,7 @@ actualizarOpcionesCotizacion2();
 actualizarOpcionesEdificio();
 actualizarSelects(data);
 compartirValoresinputToSelects();
-
+restaurarClavesTabla2(data);
 // compartirValoresSelects();
 
 
@@ -6478,6 +6734,7 @@ document.querySelectorAll(
   folioCargado = true;
 
 } catch (e) {
+    terminarEstadoCarga("Cargando solicitud por folio");
     alert("⚠️ Error de conexión al cargar los datos");
 }
   
@@ -6522,8 +6779,102 @@ const form = document.getElementById("miFormulario");
 
   const data = {};
 
+
+  //------------------------------separar cotizaciones----------------------------
+
+const nombresConfirmados = {
+    1: new Set(),
+    2: new Set()
+};
+
+// Reconocer las cotizaciones previamente confirmadas
+Object.entries(nombresCotizacionesActuales).forEach(
+    ([claveNombre, nombre]) => {
+
+        const match = claveNombre.match(
+            /^nombreCotizacion(2)?_TCR(\d+)$/
+        );
+
+        if (!match) return;
+
+        const grupo = match[1] ? 2 : 1;
+        const fila = match[2];
+
+        const claveURL =
+            `urlCotizacionAdquisicionG${grupo}_TCR${fila}`;
+
+        const urlConfirmada =
+            urlCotizacionesActuales[claveURL];
+
+        if (urlConfirmada && nombre) {
+            nombresConfirmados[grupo].add(
+                String(nombre).trim()
+            );
+        }
+    }
+);
+
+
+//-------------------------------------------------------------------------------------------
+
+
+
   formData.forEach((value, key) => {
-    if (value instanceof File) return;
+      
+     if (value instanceof File) return;
+
+    // Nombres de la tabla de cotizaciones
+    const match = key.match(
+        /^nombreCotizacion(2)?_TCR(\d+)$/
+    );
+
+    if (match) {
+
+        const grupo = match[1] ? 2 : 1;
+        const fila = match[2];
+
+        const claveURL =
+            `urlCotizacionAdquisicionG${grupo}_TCR${fila}`;
+
+        const urlAnterior =
+            urlCotizacionesActuales[claveURL] || "";
+
+        const nombreAnterior =
+            nombresCotizacionesActuales[key] || "";
+
+        data[key] =
+            urlAnterior && nombreAnterior
+                ? nombreAnterior
+                : "";
+
+        return;
+    }
+
+    // Asociaciones de cotizaciones en Tabla 4
+    const matchT4 = key.match(
+        /^nombreCotizacion(2)?_T4R\d+$/
+    );
+
+    if (matchT4) {
+
+        const grupo = matchT4[1] ? 2 : 1;
+        const nombre = String(value).trim();
+
+        data[key] = nombresConfirmados[grupo].has(nombre)
+            ? nombre
+            : "";
+
+        return;
+    }
+    
+
+
+
+    
+
+
+
+    
     data[key] = value;
   });
 
@@ -6673,6 +7024,8 @@ if (json.success) {
 
    let temporizadorToast;
 
+   let temporizadorEspera;
+   
 function mostrarEstadoGuardado(mensaje) {
 
     const toast = document.getElementById("estadoGuardado");
@@ -6680,6 +7033,7 @@ function mostrarEstadoGuardado(mensaje) {
     clearTimeout(temporizadorToast);
 
     toast.textContent = mensaje;
+
     toast.classList.add("mostrar");
 
     temporizadorToast = setTimeout(() => {
@@ -6689,17 +7043,36 @@ function mostrarEstadoGuardado(mensaje) {
 
 function mostrarEstadoCarga(mensaje) {
 
-    const toast = document.getElementById("estadoGuardado");
+    const toast =
+        document.getElementById("estadoCarga");
 
     toast.textContent = mensaje;
+
     toast.classList.add("mostrar");
+
+    let puntos = 0;
+
+    clearInterval(temporizadorEspera);
+
+    temporizadorEspera =
+        setInterval(() => {
+
+            puntos =
+                (puntos + 1) % 4;
+
+            toast.textContent =
+                mensaje +
+                ".".repeat(puntos);
+
+        }, 500);
 }
 
 function terminarEstadoCarga(mensaje) {
 
-    const toast = document.getElementById("estadoGuardado");
+    const toast = document.getElementById("estadoCarga");
 
-        toast.classList.remove("mostrar");
+    toast.classList.remove("mostrar");
+               
 }
 
 
@@ -6735,9 +7108,9 @@ setInterval(() => {
 
 
 document.getElementById("guardarBorrador").addEventListener("click", () => {
-
+        mostrarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
         guardarBorradorAutomatico(true);
-
+        terminarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
     });
 
 
@@ -6947,10 +7320,14 @@ tbody1.innerHTML = `<tr class="ejemplo">
                                                                               <td  id="UsuariosAMAnio5E2" title="Número de Profesores y Administrativos Mujeres 5" class="ejemplo">
                                                                                   
                                                                              </td>
-                                                                             <tr>
+                                                                             </tr>
                                                                              `;
   tbody2.innerHTML = `<tr class="ejemplo">
-                                                                   <td title="Numero de Fila" class="ejemplo">
+                                                                   <td title="Numero de Fila" >
+                                                                   Ej.                                                     
+                                                                   </td>
+
+                                                                   <td title="LOC" id="LOC_Edificio_T2E1" class="ejemplo">
                                                                                                                         
                                                                    </td>
 
@@ -6961,7 +7338,12 @@ tbody1.innerHTML = `<tr class="ejemplo">
                                                                    <td title="Nivel" id="Nivel_T2E1" class="ejemplo">
                                                                       
                                                                    </td>   
-                               
+                                                                   
+                                                                   
+                                                                   <td title="LOC" id="LOC_Espacio_T2E2" class="ejemplo">
+                                                                                                                        
+                                                                   </td>
+
                                                                    <td title="Espacio" id="Espacio_T2E1" class="ejemplo">
                                                                    </td>
                                                                    <td title="Largo" id="Largo_T2E1" class="ejemplo">
@@ -6979,9 +7361,13 @@ tbody1.innerHTML = `<tr class="ejemplo">
                                                               </tr>
                                
                                                               <tr class="ejemplo">
-                                                                 <td title="Numero de Fila" class="ejemplo">
+                                                                 <td title="Numero de Fila" >
+                                                                   Ej.                                                     
+                                                                   </td>
+
+                                                                   <td title="LOC" id="LOC_Edificio_T2E2" class="ejemplo">
                                                                                                                         
-                                                                              </td>
+                                                                   </td>
                                                                    <td title="Edificio" id="Edificio_T2E2" class="ejemplo">
                                                                           
                                                                    </td>
@@ -6989,7 +7375,11 @@ tbody1.innerHTML = `<tr class="ejemplo">
                                                                    <td title="Nivel" id="Nivel_T2E2" class="ejemplo">
                                                                         
                                                                    </td>   
-                               
+                                                                   
+                                                                   <td title="LOC" id="LOC_Espacio_T2E2" class="ejemplo">
+                                                                                                                        
+                                                                   </td>
+
                                                                    <td title="Espacio" id="Espacio_T2E2" class="ejemplo">
                                                                         
                                                                    </td>
@@ -7065,7 +7455,7 @@ tbody1.innerHTML = `<tr class="ejemplo">
                                                                                       <textarea
                                                                                                            id="Especificaciones_T4E1"
                                                                                                            name="especificaciones_T4E1"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           class="input_tabla expandible ejemplo"
                                                                                                            rows="1"
                                                                                                            style="resize:none;"
                                                                                                            aria-label="Especificaciones"
@@ -7079,7 +7469,7 @@ tbody1.innerHTML = `<tr class="ejemplo">
                                                                                    <textarea
                                                                                                            id="Justificacion_T4E1"
                                                                                                            name="Justificacion_T4E1"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           class="input_tabla expandible ejemplo"
                                                                                                            rows="1"
                                                                                                            style="resize:none;"
                                                                                                            aria-label="Justificacion Ejemplo"
@@ -7153,7 +7543,7 @@ tbody1.innerHTML = `<tr class="ejemplo">
                                                                                            <textarea
                                                                                                             id="Especificaciones_T4E2"
                                                                                                            name="especificaciones_T4E2"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           class=" input_tabla expandible ejemplo"
                                                                                                            rows="1"
                                                                                                            style="resize:none;"
                                                                                                            aria-label="Especificaciones"
@@ -7167,7 +7557,7 @@ tbody1.innerHTML = `<tr class="ejemplo">
                                                                                                     <textarea
                                                                                                            id="Justificacion_T4E2"
                                                                                                            name="Justificacion_T4E2"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           class="input_tabla expandible ejemplo"
                                                                                                            rows="1"
                                                                                                            style="resize:none;"
                                                                                                            aria-label="Justificacion Ejemplo"
@@ -7234,7 +7624,7 @@ tbody1.innerHTML = `<tr class="ejemplo">
                                                                                             <textarea
                                                                                                             id="Especificaciones_T5E1"
                                                                                                            name="Especificaciones_T5E1"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           class="input_tabla expandible ejemplo"
                                                                                                            rows="1"
                                                                                                            style="resize:none;"
                                                                                                            aria-label="Especificaciones"
@@ -7278,7 +7668,7 @@ tbody1.innerHTML = `<tr class="ejemplo">
                                                                                         <textarea
                                                                                                             id="Especificaciones_T5E2"
                                                                                                            name="Especificaciones_T5E2"
-                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           class="input_tabla expandible ejemplo"
                                                                                                            rows="1"
                                                                                                            style="resize:none;"
                                                                                                            aria-label="Especificaciones"
@@ -7441,7 +7831,7 @@ document
 
 crearFilaTotalTabla4();
 actualizarTotalesTabla4();
-
+restaurarClavesTabla2(data);
 
 }
 
@@ -8244,13 +8634,13 @@ const json = await res.json();
 
         formularioVisible.classList.add("paso");
     } else {
-
+        terminarEstadoCarga("Cargando solicitud por folio");
         alert("⚠️ Error al enviar los datos: " + json.message);
 
     }
 
 } catch (e) {
-
+    terminarEstadoCarga("Cargando solicitud por folio");
     console.error(e);
     alert("⚠️ Error de conexión: " + e.message);
 
