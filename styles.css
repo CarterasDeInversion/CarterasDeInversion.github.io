@@ -569,33 +569,31 @@ a {
     background-color: transparent;
     border:none;
 }
-
 .Tabla2 th:nth-child(2),
 .Tabla2 td:nth-child(2){
-    width: 20%;
-    min-width: 188px;
+    width: 4.7%;
+    min-width: 12px;
 }
 .Tabla2 th:nth-child(3),
 .Tabla2 td:nth-child(3){
-    width: 15%;
-    min-width: 100px;
-}
-.Tabla2 th:nth-child(4),
-.Tabla2 td:nth-child(4){
     width: 20%;
     min-width: 188px;
 }
+.Tabla2 th:nth-child(4),
+.Tabla2 td:nth-child(4){
+    width: 15%;
+    min-width: 100px;
+}
 .Tabla2 th:nth-child(5),
 .Tabla2 td:nth-child(5){
-    width: 8.7%;
-    min-width: 82px;
+    width: 4.7%;
+    min-width: 12px;
 }
 .Tabla2 th:nth-child(6),
 .Tabla2 td:nth-child(6){
-    width: 8.7%;
-    min-width: 82px;
+    width: 20%;
+    min-width: 188px;
 }
-
 .Tabla2 th:nth-child(7),
 .Tabla2 td:nth-child(7){
     width: 8.7%;
@@ -606,8 +604,19 @@ a {
     width: 8.7%;
     min-width: 82px;
 }
+
 .Tabla2 th:nth-child(9),
 .Tabla2 td:nth-child(9){
+    width: 8.7%;
+    min-width: 82px;
+}
+.Tabla2 th:nth-child(10),
+.Tabla2 td:nth-child(10){
+    width: 8.7%;
+    min-width: 82px;
+}
+.Tabla2 th:nth-child(11),
+.Tabla2 td:nth-child(11){
     width: 2%;
     min-width: 8px;    
     background-color: transparent;
@@ -2308,4 +2317,52 @@ button.programa-multiple-btn::after {
 }
 .programasAcademicosM{
     min-height: 40px !important;
+}
+
+
+
+.fieldset-vista-previa {
+    position: fixed !important;
+}
+
+.cerrar-vista-previa {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+
+    width: 38px !important;
+    height: 38px !important;
+    margin: 0 !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #611232;
+    color: white;
+    border: none;
+    border-radius: 50%;
+
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.cerrar-vista-previa:hover {
+    background-color: #9d2449;
+}
+
+.fieldset-vista-previa legend {
+    max-width: calc(100% - 60px);
+    overflow-wrap: anywhere;
+}
+
+.fieldset-vista-previa .vistaPreviaArchivo {
+    height: calc(100% - 32px);
+}
+
+.vistaPreviaArchivo {
+    padding: 12px;
+    color: #000;
 }
