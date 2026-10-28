@@ -447,6 +447,24 @@ function agregarFila2() {
         <td>
             ${i}
         </td>
+        
+        <td>
+            <input
+                name="LOC_Edificio_T2R${i}"
+                id="LOC_Edificio_T2R${i}"
+                class="tabla_select"
+                data-completar="LOCEdificioS_T2R${i}"
+                aria-label="LOC_Edificio"
+                >
+            <input
+                name="LOC_Edificio_T2R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="LOC_Edificio_T2R${i}RO"
+                data-campo="LOC_Edificio_T2R${i}"
+            >    
+        </td>
+
 
         <td>
             <select
@@ -471,22 +489,24 @@ function agregarFila2() {
 
         <td>
             <select
+                id  ="Nivel_T2R${i}"
                 name="Nivel_T2R${i}"
                 class="input_tabla"
+                data-completar="LOCNivelS_T2R${i}"
                 aria-label="Nivel"
             >
                 <option value="">-- Selecciona un nivel --</option>
-                <option value="Nivel 1">Nivel 1</option>
-                <option value="Nivel 2">Nivel 2</option>
-                <option value="Nivel 3">Nivel 3</option>
-                <option value="Nivel 4">Nivel 4</option>
-                <option value="Nivel 5">Nivel 5</option>
-                <option value="Nivel 6">Nivel 6</option>
-                <option value="Nivel 7">Nivel 7</option>
-                <option value="Nivel 8">Nivel 8</option>
-                <option value="Nivel 9">Nivel 9</option>
-                <option value="Nivel 10">Nivel 10</option>
-                <option value="Nivel 11">Nivel 11</option>
+                <option value="Nivel 1" data-Valor2="N1">Nivel 1</option>
+                <option value="Nivel 2" data-Valor2="N2">Nivel 2</option>
+                <option value="Nivel 3" data-Valor2="N3">Nivel 3</option>
+                <option value="Nivel 4" data-Valor2="N4">Nivel 4</option>
+                <option value="Nivel 5" data-Valor2="N5">Nivel 5</option>
+                <option value="Nivel 6" data-Valor2="N6">Nivel 6</option>
+                <option value="Nivel 7" data-Valor2="N7">Nivel 7</option>
+                <option value="Nivel 8" data-Valor2="N8">Nivel 8</option>
+                <option value="Nivel 9" data-Valor2="N9">Nivel 9</option>
+                <option value="Nivel 10" data-Valor2="N10" >Nivel 10</option>
+                <option value="Nivel 11" data-Valor2="N11" >Nivel 11</option>
             </select>
 
             <input
@@ -497,9 +517,44 @@ function agregarFila2() {
                 data-campo="Nivel_Select_T2R${i}"
             >
         </td>
-
         <td>
             <input
+                id="LOCEspacio_T2R${i}"
+                name="LOCEspacio_T2R${i}"
+                class="input_tabla"
+                data-completar="LOCEspacioS_T2R${i}"
+                aria-label="LOCEspacio"
+            >
+
+            <input
+                name="LOCEspacio_T2R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="LOCEspacio_T2R${i}RO"
+                data-campo="LOCEspacio_T2R${i}"
+            >
+        </td>
+
+
+
+        <td>
+             <span class="claves" id="LOCEdificioS_T2R${i}"></span>
+            <span class="claves" >-</span>
+            <span class="claves" id="LOCNivelS_T2R${i}"></span>
+            <span class="claves" >-</span>
+            <span class="claves" id="LOCEspacioS_T2R${i}"></span>
+            <input
+                name="Espacio_Visible_T2R${i}"
+                id="Espacio_Visible_T2R${i}"
+                class="input_tabla "
+                data-edificio="LOCEdificioS_T2R${i}"
+                data-nivel="LOCNivelS_T2R${i}"
+                data-espacio="LOCEspacioS_T2R${i}"
+                data-espacio2="Espacio_T2R${i}"
+                aria-label="Espacio"
+            >
+            <input
+                id="Espacio_T2R${i}"
                 name="Espacio_T2R${i}"
                 class="input_tabla"
                 aria-label="Espacio"
@@ -1310,7 +1365,7 @@ function agregarFila5() {
             
             <textarea
                 id="Especificaciones_T5R${i}"
-                name="especificaciones_T5R${i}"
+                name="Especificaciones_T5R${i}"
                 class="auto-expand input_tabla expandible"
                 rows="1"
                 style="resize:none;"
@@ -1318,11 +1373,11 @@ function agregarFila5() {
             </textarea>
 
             <input
-                name="especificaciones_T5R${i}RO"
+                name="Especificaciones_T5R${i}RO"
                 type="checkbox"
                 class="check-verificacion"
-                id="especificaciones_T5R${i}RO"
-                data-campo="especificaciones_T5R${i}"
+                id="Especificaciones_T5R${i}RO"
+                data-campo="Especificaciones_T5R${i}"
             >
         </td>
 
@@ -1345,24 +1400,7 @@ function agregarFila5() {
 
         </td>
 
-        <td class="cantidadCol">
-
-            <input
-                type="number"
-                name="cantidadBuen_estado_T5R${i}"
-                class="input_tabla"
-                aria-label="Cantidad en buen estado"
-            >
-
-            <input
-                name="cantidadBuen_estado_T5R${i}RO"
-                type="checkbox"
-                class="check-verificacion"
-                id="cantidadBuen_estado_T5R${i}RO"
-                data-campo="cantidadBuen_estado_T5R${i}"
-            >
-
-        </td>
+        
 
         <td class="cantidadCol">
 
@@ -1379,6 +1417,24 @@ function agregarFila5() {
                 class="check-verificacion"
                 id="cantidadRegular_estado_T5R${i}RO"
                 data-campo="cantidadRegular_estado_T5R${i}"
+            >
+
+        </td>
+        <td class="cantidadCol">
+
+            <input
+                type="number"
+                name="cantidadBuen_estado_T5R${i}"
+                class="input_tabla"
+                aria-label="Cantidad en buen estado"
+            >
+
+            <input
+                name="cantidadBuen_estado_T5R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="cantidadBuen_estado_T5R${i}RO"
+                data-campo="cantidadBuen_estado_T5R${i}"
             >
 
         </td>
@@ -1413,9 +1469,123 @@ for (let i = 1; i <= 5; i++) {
 
 crearFilaTotalTabla4();
 
+//--------------------------------------------generacion de nombres con claves de edificio, nivel y espacio(LOC) 
+
+document.addEventListener("change", e => {
+
+    if (!e.target.id?.startsWith("LOC_Edificio_T2R") && !e.target.id?.startsWith("LOCEspacio_T2R")) return;
+     let campo=e.target;
+     let campoLLenar=e.target.dataset.completar;
+     let inputxLLenar=document.getElementById(campoLLenar);
+     inputxLLenar.textContent=campo.value;
+     
+
+});
+document.addEventListener("change", e => {
+
+    if (!e.target.id?.startsWith("Nivel_T2R")) return;
+     let campo=e.target;
+     let campoLLenar=e.target.dataset.completar;
+     let inputxLLenar=document.getElementById(campoLLenar);
+     inputxLLenar.textContent=campo.selectedOptions[0].dataset.valor2;
+     
+
+});
+
+document.addEventListener("change", e => {
+
+    if (!e.target.id?.startsWith("Espacio_Visible_T2R")) return;
+     let campo=e.target;
+     
+     let edificioI=campo.dataset.edificio;
+     let nivelI=campo.dataset.nivel;
+     let espacioI=campo.dataset.espacio;
+     let espacioInput=campo.dataset.espacio2;
+     let inputEdificioS=document.getElementById(edificioI);
+     let inputNivelS   =document.getElementById(nivelI);   
+     let inputEspacioS =document.getElementById(espacioI);
+     let inputEspacioI =document.getElementById(espacioInput);  
+     inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+campo.value;
+
+});
 
 
 
+function restaurarClavesTabla2(data = {}) {
+
+    document.querySelectorAll(
+        "#tablaBody2 tr:not(.ejemplo)"
+    ).forEach(fila => {
+
+        // Campo que conserva el nivel guardado
+        const nivelGuardado = fila.querySelector(
+            '[name^="Nivel_T2R"]:not(.check-verificacion)'
+        );
+
+        if (!nivelGuardado) return;
+
+        const valorNivel = String(
+            data[nivelGuardado.name] ?? nivelGuardado.value ?? ""
+        ).trim();
+
+        // Compatible con Registro y Revisión
+        const selectorNivel = fila.querySelector(
+            'select[id^="Nivel_Select_T2R"], select[id^="Nivel_T2R"]'
+        );
+
+        if (selectorNivel) {
+            selectorNivel.value = valorNivel;
+        }
+
+        // Buscar data-valor2 en la opción correspondiente
+        const opcion = Array.from(
+            selectorNivel?.options ?? []
+        ).find(option => option.value === valorNivel);
+
+        const coincidencia = valorNivel.match(/^Nivel\s*(\d+)$/i);
+
+        const claveNivel =
+            opcion?.dataset.valor2 ??
+            (coincidencia ? `N${coincidencia[1]}` : "");
+
+        // Recuperar los tres spans
+        const spanEdificio = fila.querySelector(
+            '[id^="LOCEdificioS_T2R"]'
+        );
+
+        const spanNivel = fila.querySelector(
+            '[id^="LOCNivelS_T2R"]'
+        );
+
+        const spanEspacio = fila.querySelector(
+            '[id^="LOCEspacioS_T2R"]'
+        );
+
+        // Recuperar los campos originales
+        const campoEdificio = fila.querySelector(
+            'input[id^="LOC_Edificio_T2R"]:not(.check-verificacion)'
+        );
+
+        const campoEspacio = fila.querySelector(
+            'input[id^="LOCEspacio_T2R"]:not(.check-verificacion)'
+        );
+
+        if (spanEdificio) {
+            spanEdificio.textContent =
+                campoEdificio?.value ?? "";
+        }
+
+        if (spanNivel) {
+            spanNivel.textContent = claveNivel;
+        }
+
+        if (spanEspacio) {
+            spanEspacio.textContent =
+                campoEspacio?.value ?? "";
+        }
+
+    });
+}
 
 
 
@@ -4394,7 +4564,7 @@ document
 
 
 function actualizarObligatoriedadFila(fila) {
-  const equipo = fila.querySelector(".obligatorio");
+ /*const equipo = fila.querySelector(".obligatorio");
   if (!equipo) return;
 
   const tieneEquipo = equipo.value.trim() !== "";
@@ -4407,6 +4577,7 @@ function actualizarObligatoriedadFila(fila) {
       campo.removeAttribute("required");
     }
   });
+*/  
 }
 
 
@@ -4890,7 +5061,8 @@ document.querySelector(".Tabla4").addEventListener("change",function (event){
 });
 */
 //V6
-// const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+// 
+const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 
 // V7 
@@ -4898,8 +5070,7 @@ document.querySelector(".Tabla4").addEventListener("change",function (event){
 
 
 //V8 
-// 
-const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
+// const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
 
 
 let folioActual=null;
@@ -5023,7 +5194,7 @@ Object.keys(data).forEach(name => {
       actualizarOpcionesCotizacion2();
 
       actualizarSelects(data);
-
+      restaurarClavesTabla2(data);
       
 
       document
@@ -5100,6 +5271,7 @@ terminarEstadoCarga("Cargando solicitud por folio");
   alert("📂 Datos cargados correctamente");
   folioCargado=true;
 } catch (e) {
+    terminarEstadoCarga("Cargando solicitud por folio");
     alert("⚠️ Error de conexión al cargar los Datos");
 }
 
@@ -5124,7 +5296,7 @@ let temporizadorAutoguardado ;
 
 
 async function guardarBorradorAutomatico(mostrarAlerta = false) {
-  
+    
     if (!folioCargado) {
         return;
     }
@@ -5311,21 +5483,59 @@ function mostrarEstadoGuardado(mensaje) {
         toast.classList.remove("mostrar");
     }, 2500);
 }
+let temporizadorEspera;
 
 function mostrarEstadoCarga(mensaje) {
+
+    const toast =
+        document.getElementById("estadoCarga");
+
+    toast.textContent = mensaje;
+
+    toast.classList.add("mostrar");
+
+    let puntos = 0;
+
+    clearInterval(temporizadorEspera);
+
+    temporizadorEspera =
+        setInterval(() => {
+
+            puntos =
+                (puntos + 1) % 4;
+
+            toast.textContent =
+                mensaje +
+                ".".repeat(puntos);
+
+        }, 500);
+}
+/*function mostrarEstadoCarga(mensaje) {
 
     const toast = document.getElementById("estadoGuardado");
 
     toast.textContent = mensaje;
     toast.classList.add("mostrar");
 }
+*/
+
 
 function terminarEstadoCarga(mensaje) {
 
-    const toast = document.getElementById("estadoGuardado");
+    const toast = document.getElementById("estadoCarga");
 
-        toast.classList.remove("mostrar");
+    toast.classList.remove("mostrar");
+               
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5399,8 +5609,9 @@ setInterval(() => {
 
 
   document.getElementById("guardarBorrador").addEventListener("click", () => {
-
+        mostrarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
         guardarBorradorAutomatico(true);
+        terminarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
 
     });
 
@@ -5620,7 +5831,7 @@ document
 crearFilaTotalTabla4();
 actualizarTotalesTabla4();
 
-
+restaurarClavesTabla2(data);
 
 
 }
@@ -6167,7 +6378,7 @@ const res = await fetch(direccionEnlace, {
         if(numerodeEnvio==2){
         alert(`✅ Tus observaciones han sido correctamente Enviadas. Tu folio es: ${folioActual}`);
 
-        }else{
+        }else{ 
           alert(`✅ Las observaciones han sido actualizadas. Te recordamos que el folio es: ${folioActual}`);
 
         }
@@ -6177,13 +6388,13 @@ const res = await fetch(direccionEnlace, {
         form.reset();
 
     } else {
-
+        terminarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
         alert("⚠️ Error al enviar los datos: " + json.message);
 
     }
 
 } catch (e) {
-
+    terminarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
     console.error(e);
     alert("⚠️ Error de conexión: " + e.message);
 
@@ -6196,7 +6407,9 @@ const res = await fetch(direccionEnlace, {
 
 document.getElementById("cargarAnio").addEventListener("click", async () => {
    
-
+  mostrarEstadoCarga("cargando el año de los encabezados de la tabla de matricula, GRACIAS POR ESPERAR");
+        
+        
   const data = {};
 
 
@@ -6228,7 +6441,7 @@ const res = await fetch(direccionEnlace, {
 
 
         if (json.success) {
-            
+                           terminarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
                            alert("✅ Año actualizado correctamente");
 
         } else {
@@ -6506,7 +6719,7 @@ function dividirData(data, partes = 8) {
 }
 
 document.getElementById("convertirSolicitudes").addEventListener("click", async () => {
-
+    mostrarEstadoCarga("cargando la base de solicitudes del PIDN a la base de borradores, GRACIAS POR ESPERAR");
     if (!confirm("¿Deseas convertir las solicitudes en borradores?")) {
         return;
     }
@@ -6523,6 +6736,7 @@ document.getElementById("convertirSolicitudes").addEventListener("click", async 
         const json = await res.json();
 
         if(json.success){
+            terminarEstadoCarga("cargando el año de los encabezados de la tabla de matricula, GRACIAS POR ESPERAR");
             alert("✅ " + json.message);
         }else{
             alert("⚠️ " + json.message);
@@ -7138,7 +7352,7 @@ document.addEventListener("click", function (e) {
 document
     .getElementById("exportarExcel")
     .addEventListener("click", async function () {
-
+        mostrarEstadoCarga("Creando FDN a su version de excel, GRACIAS POR ESPERAR");
         const folio =
             document
                 .getElementById("folioInput")
@@ -7152,6 +7366,10 @@ document
          const numerodeEnvio =
             document
                 .getElementById("Envio")
+                .value
+                .trim();
+        const equipamento =document
+                .getElementById("tipoDeSolicitud")
                 .value
                 .trim();       
 
@@ -7186,12 +7404,26 @@ document
                     "No se pudo crear el Excel."
                 );
             }
+            terminarEstadoCarga("cargando el año de los encabezados de la tabla de matricula, GRACIAS POR ESPERAR");
+             const linkExcel =
+                 document.getElementById("FDN_EXCEL");
+             
+             linkExcel.href =
+                 resultado.data.url;
+             
+             /*linkExcel.target =
+                 "_blank";
+             
+             linkExcel.rel =
+                 "noopener noreferrer";
+             */
+             linkExcel.textContent =
+                 `FDN-${dependencia}_${equipamento}`;
 
-
-            window.open(
-                resultado.data.url,
-                "_blank"
-            );
+//            window.open(
+//                resultado.data.url,
+//                "_blank"
+//            );
 
         } catch (error) {
 
@@ -7204,6 +7436,4 @@ document
         }
 
     });
-
-
 
