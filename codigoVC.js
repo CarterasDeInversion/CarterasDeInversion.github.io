@@ -10,6 +10,8 @@ const tbody7 = document.getElementById("tablaBody7");
 
 //--------------------------------------------------Para el Guardado de las URL-------------------------------------------------------
 
+
+
 let urlCotizacionesActuales={};
 let nombresCotizacionesActuales = {};
 
@@ -488,7 +490,7 @@ function agregarFila2(){
             <input
                 name="Edificio_T2R${i}"
                 id="Edificio_T2R${i}"
-                class=""
+                class="pruebaSelect"
                 aria-label="Edificio"
                 readonly
                 >
@@ -529,7 +531,7 @@ function agregarFila2(){
              <input
                    id="Nivel_T2R${i}"
                    name="Nivel_T2R${i}"
-                   class="input_tabla"
+                   class="input_tabla pruebaSelect"
                    aria-label="Nivel"
                    readonly
             >
@@ -567,10 +569,11 @@ function agregarFila2(){
 
 
         <td>
+        <div class="espacioVisible">
             <span class="claves" id="LOCEdificioS_T2R${i}"></span>
-            <span class="claves" >-</span>
+            <span  >-</span>
             <span class="claves" id="LOCNivelS_T2R${i}"></span>
-            <span class="claves" >-</span>
+            <span  >-</span>
             <span class="claves" id="LOCEspacioS_T2R${i}"></span>
             <input
                 name="Espacio_Visible_T2R${i}"
@@ -582,11 +585,11 @@ function agregarFila2(){
                 data-espacio2="Espacio_T2R${i}"
                 aria-label="Espacio"
             >
-            
+        </div>    
             <input
                 id="Espacio_T2R${i}"
                 name="Espacio_T2R${i}"
-                class="input_tabla "
+                class="input_tabla pruebaSelect"
                 aria-label="Espacio"
             >
 
@@ -1116,6 +1119,17 @@ function agregarFila4(){
         
 
         <td>
+            
+           <div class="espacio-eleccion-t4">
+
+            <input
+                   type="text"
+                   id="ClaveEspacio_Visible_T4R${i}"
+                   class="input_tabla clave-espacio-t4"
+                   placeholder="Clave"
+                   aria-label="Clave del espacio"
+                   readonly
+            >
             <select
                 id="Espacio_Select_T4R${i}"
                 class="tabla_select"
@@ -1129,10 +1143,15 @@ function agregarFila4(){
 
             </select>
 
-            <input
+
+             </div>
+            
+            
+            
+             <input
                 id="Espacio_T4R${i}"
                 name="Espacio_T4R${i}"
-                class=""
+                class="pruebaSelect"
                 aria-label="Espacio">
 
             <input
@@ -1770,6 +1789,27 @@ document.addEventListener("change", e => {
      let inputxLLenar=document.getElementById(campoLLenar);
      inputxLLenar.textContent=campo.value;
      
+     let elemento;
+     if(inputxLLenar.id?.startsWith("LOCEdificioS_T2R")){
+        elemento = document.querySelector(`[data-edificio="${inputxLLenar.id}"]`);
+     }
+     if(inputxLLenar.id?.startsWith("LOCEspacioS_T2R")){
+        elemento = document.querySelector(`[data-espacio="${inputxLLenar.id}"]`);
+     }
+     
+     
+     let edificioI=elemento.dataset.edificio;
+     let nivelI=elemento.dataset.nivel;
+     let espacioI=elemento.dataset.espacio;
+     let espacioInput=elemento.dataset.espacio2;
+     let inputEdificioS=document.getElementById(edificioI);
+     let inputNivelS   =document.getElementById(nivelI);   
+     let inputEspacioS =document.getElementById(espacioI);
+     let inputEspacioI =document.getElementById(espacioInput);  
+     inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+elemento.value;
+
+     actualizarOpcionesEspacios();
+
 
 });
 document.addEventListener("change", e => {
@@ -1779,8 +1819,19 @@ document.addEventListener("change", e => {
      let campoLLenar=e.target.dataset.completar;
      let inputxLLenar=document.getElementById(campoLLenar);
      inputxLLenar.textContent=campo.selectedOptions[0].dataset.valor2;
-     
 
+       let elemento = document.querySelector(`[data-nivel="${inputxLLenar.id}"]`);
+
+     let edificioI=elemento.dataset.edificio;
+     let nivelI=elemento.dataset.nivel;
+     let espacioI=elemento.dataset.espacio;
+     let espacioInput=elemento.dataset.espacio2;
+     let inputEdificioS=document.getElementById(edificioI);
+     let inputNivelS   =document.getElementById(nivelI);   
+     let inputEspacioS =document.getElementById(espacioI);
+     let inputEspacioI =document.getElementById(espacioInput);  
+     inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+elemento.value;
+     actualizarOpcionesEspacios();
 });
 
 document.addEventListener("change", e => {
@@ -1797,7 +1848,7 @@ document.addEventListener("change", e => {
      let inputEspacioS =document.getElementById(espacioI);
      let inputEspacioI =document.getElementById(espacioInput);  
      inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+campo.value;
-
+     actualizarOpcionesEspacios();
 });
 
 
@@ -1851,6 +1902,41 @@ function restaurarClavesTabla2(data = {}) {
             '[id^="LOCEspacioS_T2R"]'
         );
 
+//---------------------------------------------------------------------
+const nombreEspacio = fila.querySelector(
+    '[id^="Espacio_Visible_T2R"]'
+)?.value.trim() ?? "";
+
+const espacioCompleto = fila.querySelector(
+    'input[id^="Espacio_T2R"]'
+);
+
+const claves = [
+    spanEdificio?.textContent.trim(),
+    spanNivel?.textContent.trim(),
+    spanEspacio?.textContent.trim()
+];
+
+const clave = claves.every(Boolean)
+    ? claves.join("-")
+    : "";
+
+if (espacioCompleto) {
+    espacioCompleto.value = nombreEspacio
+        ? `${clave ? clave + " " : ""}${nombreEspacio}`
+        : "";
+}
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------------
         // Recuperar los campos originales
         const campoEdificio = fila.querySelector(
             'input[id^="LOC_Edificio_T2R"]:not(.check-verificacion)'
@@ -1908,17 +1994,62 @@ document.addEventListener("change", function (e) {
 
     if (destino) {
         destino.value = campo.value;
-         if (
-            destino.id.startsWith(
-                "Espacio_T4R"
-            )
-        ) {
+        
+        
+        /* if (destino.id.startsWith("Espacio_T4R")
+            
+          ) {
+              
+             }
+        */
+       if (campo.id.startsWith("Espacio_Select_T4R")) {
 
-            copiarCampoT4aT5(
-                destino
-            );
-        }
+    campo.setCustomValidity("");
+
+    const clave = campo.selectedOptions[0]?.dataset.clave ?? "";
+
+    if (campo.value && !clave) {
+
+        campo.setCustomValidity(
+            "⚠️ Completa las claves LOC del edificio, nivel y espacio en la Tabla 2."
+        );
+
+        campo.reportValidity();
     }
+}
+/*       if (e.target.id?.startsWith("Espacio_Select_T4R")){
+              const fila=campo.closest("tr");
+              const LocEdificio = fila.querySelector(`[id^="LOCEdificioS_T2R"]`);
+              const LocNivel = fila.querySelector(`[id^="LOCNivelS_T2R"]`);
+              const LocEspacio = fila.querySelector(`[id^="LOCEspacioS_T2R"]`);
+       
+               if (
+                            !LocEdificio?.textContent.trim() ||
+                            !LocNivel?.textContent.trim() ||
+                            !LocEspacio?.textContent.trim()) {
+                            campo.setCustomValidity(
+                            "⚠️ Completa los rubros de LOC del edificio,nivel y LOC-espacio."
+                            );
+
+                            campo.reportValidity();
+                            return;
+               }
+            }      
+*/        
+        if (campo.id.startsWith("Espacio_Select_T4R")) {
+ 
+        const campoClave = campo.closest("td").querySelector(
+            ".clave-espacio-t4"
+        );
+
+        if (campoClave) {
+            campoClave.value =
+                campo.selectedOptions[0]?.dataset.clave ?? "";
+        }
+        copiarCampoT4aT5(destino);
+    }
+
+   }
 
 });
 
@@ -2143,11 +2274,17 @@ tbody3.addEventListener("change", e => {
 
 
 
+
 //-----------------------------------------selects- tabla 4.Espacio-------------------------------------------------
 
+
+
+
+/* V oldie
 function actualizarOpcionesEspacios() {
 
     const espacios = [];
+
 
     tbody2.querySelectorAll('[name^="Espacio_T2R"]').forEach(input => {
          if (input.classList.contains("check-verificacion")) return;
@@ -2159,6 +2296,7 @@ function actualizarOpcionesEspacios() {
         }
              
     });
+
 
 
     tbody4.querySelectorAll(
@@ -2181,6 +2319,127 @@ function actualizarOpcionesEspacios() {
         });
 
         select.value = valorActual;
+    });
+}
+*/
+
+//----------------------------------------Nueva funcion----------------------------------
+
+function actualizarOpcionesEspacios(data = null) {
+
+    const espacios = [];
+
+    // Leer espacios reales de Tabla 2
+    tbody2.querySelectorAll("tr").forEach(fila => {
+
+        const nombre = fila.querySelector(
+            'input[id^="Espacio_Visible_T2R"]:not([id$="RO"])'
+        );
+
+        const completo = fila.querySelector(
+            'input[id^="Espacio_T2R"]:not([id$="RO"])'
+        );
+
+        if (!nombre || !completo) return;
+
+        const texto = nombre.value.trim();
+        const valor = completo.value.trim();
+
+        if (!texto || !valor) return;
+
+        // Recuperar la clave que ya muestran tus spans
+        const edificio = fila.querySelector(
+            '[id^="LOCEdificioS_T2R"]'
+        )?.textContent.trim() ?? "";
+
+        const nivel = fila.querySelector(
+            '[id^="LOCNivelS_T2R"]'
+        )?.textContent.trim() ?? "";
+
+        const espacio = fila.querySelector(
+            '[id^="LOCEspacioS_T2R"]'
+        )?.textContent.trim() ?? "";
+
+        const clave =
+            edificio && nivel && espacio
+                ? `${edificio}-${nivel}-${espacio}`
+                : "";
+
+        espacios.push({
+            origen: completo.id,
+            nombre: texto,
+            valor: valor,
+            clave: clave
+        });
+    });
+
+    // Actualizar selectores de Tabla 4
+    tbody4.querySelectorAll(
+        'select[id^="Espacio_Select_T4R"], ' +   'select[name^="Espacio_T4R"]'
+    ).forEach(select => {
+
+        // En Registro existe un input auxiliar.
+        // En Revisión el propio select guarda el valor.
+        const campoReal = select.dataset.select
+            ? document.getElementById(select.dataset.select)
+            : select;
+
+        if (!campoReal) return;
+
+        // Identificar el espacio que estaba seleccionado
+        const origenAnterior =
+            select.selectedOptions[0]?.dataset.origen ?? "";
+
+        const valorGuardado =
+            data?.[campoReal.name] ?? campoReal.value;
+
+        // Reconstruir las opciones
+        select.innerHTML =
+            '<option value="">-- Selecciona un espacio --</option>';
+
+        espacios.forEach(espacio => {
+
+            const option = document.createElement("option");
+
+            // Se muestra solo el nombre
+            option.textContent = espacio.nombre;
+
+            // Se conserva el valor completo
+            option.value = espacio.valor;
+
+            // Identifica la fila de Tabla 2
+            option.dataset.origen = espacio.origen;
+
+            // Clave para el campo contiguo
+            option.dataset.clave = espacio.clave;
+
+            select.appendChild(option);
+        });
+
+        // Priorizar la misma fila aunque cambie su clave
+        const elegido =
+            espacios.find(e => e.origen === origenAnterior) ??
+            espacios.find(e => e.valor === valorGuardado);
+
+        select.value = elegido?.valor ?? "";
+
+        // Mostrar la clave junto al selector
+        const campoClave = select.closest("td")?.querySelector(
+            ".clave-espacio-t4"
+        );
+
+        if (campoClave) {
+            campoClave.value = elegido?.clave ?? "";
+        }
+
+        // Sincronizar el campo de envío en Registro
+        if (campoReal !== select) {
+            campoReal.value = select.value;
+        }
+
+        // Sincronizar Tabla 5
+        copiarCampoT4aT5(campoReal);
+
     });
 }
 
@@ -6332,15 +6591,15 @@ document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
 
 // V6  
-//
-const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+//const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 // V7 
 
 //const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 //V8 
-// const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
+//
+ const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
 
 
 
@@ -6502,14 +6761,30 @@ let folioValor = document.getElementById("folioInput");
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
+document.querySelectorAll('[id^="Espacio_Visible_T2R"]').forEach(campo=>{
+     let edificioI=campo.dataset.edificio;
+     let nivelI=campo.dataset.nivel;
+     let espacioI=campo.dataset.espacio;
+     let espacioInput=campo.dataset.espacio2;
+     let inputEdificioS=document.getElementById(edificioI);
+     let inputNivelS   =document.getElementById(nivelI);   
+     let inputEspacioS =document.getElementById(espacioI);
+     let inputEspacioI =document.getElementById(espacioInput);  
+     inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+campo.value;
+
+});
+      
 actualizarOpcionesProgramas();
-actualizarOpcionesEspacios();
+
 actualizarOpcionesCotizacion1();
 actualizarOpcionesCotizacion2();
 actualizarOpcionesEdificio();
 actualizarSelects(data);
 compartirValoresinputToSelects();
 restaurarClavesTabla2(data);
+
+actualizarOpcionesEspacios();
+
 // compartirValoresSelects();
 
 
@@ -6587,17 +6862,17 @@ const ejemplos = json.ejemplos;
    document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
    document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
 
- document.getElementById(`NumProfE${index}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
- document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`]
- document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`]
- document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`]
- document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`]
- document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`]
- document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`]
- document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`]
- document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`]
- document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`]
- document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`]
+ document.getElementById(`NumProfE${index}`         ).textContent=ejemplos[`NumProfE${index}`];
+ document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`];
+ document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`];
+ document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`];
+ document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`];
+ document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`];
+ document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`];
+ document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`];
+ document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`];
+ document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`];
+ document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`];
 
 document.getElementById(`Edificio_T2E${index}`).textContent= ejemplos[`Edificio_T2E${index}`];
 document.getElementById(`Nivel_T2E${index}`   ).textContent= ejemplos[`Nivel_T2E${index}`   ];
@@ -6702,12 +6977,19 @@ tbody4.addEventListener("change",function (e) {
     if (
         !e.target.name?.startsWith("precio_T4R") &&
   //      !e.target.id?.startsWith("ProgramaAcademico_Select_T4R")&&
-        !e.target.name?.startsWith("precio2_T4R")
+        !e.target.name?.startsWith("precio2_T4R")&&
+        !e.target.name?.startsWith("cantidad_T4R")
+
     ) return;
     
-
+    
     let precioInputF=e.target;
-    precioTotalMasIVA(precioInputF);
+           precioTotalMasIVA(precioInputF);
+    const precios = document.querySelectorAll(`[data-cant="${precioInputF.id}"]`);    
+    precios.forEach(element => {
+                                   precioTotalMasIVA(element);
+                               });
+
 
 });
 
@@ -6719,6 +7001,9 @@ document.querySelectorAll(
                   if (!origen) return;
                   campo.value=origen.value;
     });
+
+
+
 
             
                
@@ -7832,7 +8117,7 @@ document
 crearFilaTotalTabla4();
 actualizarTotalesTabla4();
 restaurarClavesTabla2(data);
-
+actualizarOpcionesEspacios(data);
 }
 
 
@@ -9836,6 +10121,5 @@ document.addEventListener(
 
     }
 );
- 
         
 
