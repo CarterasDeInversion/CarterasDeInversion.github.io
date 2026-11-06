@@ -474,7 +474,7 @@ function agregarFila2() {
                 aria-label="Edificio">
 
                 <option value="">
-                    -- Selecciona un espacio--
+                    -- Selecciona un edificio--
                 </option>
 
             </select>
@@ -538,7 +538,8 @@ function agregarFila2() {
 
 
         <td>
-             <span class="claves" id="LOCEdificioS_T2R${i}"></span>
+            <div class="espacioVisible">
+            <span class="claves" id="LOCEdificioS_T2R${i}"></span>
             <span class="claves" >-</span>
             <span class="claves" id="LOCNivelS_T2R${i}"></span>
             <span class="claves" >-</span>
@@ -553,6 +554,7 @@ function agregarFila2() {
                 data-espacio2="Espacio_T2R${i}"
                 aria-label="Espacio"
             >
+            </div>
             <input
                 id="Espacio_T2R${i}"
                 name="Espacio_T2R${i}"
@@ -939,7 +941,15 @@ function agregarFila4() {
 
 
         <td>
-            
+            <div class="espacio-eleccion-t4">
+            <input
+                 type="text"
+                 id="ClaveEspacio_Visible_T4R${i}"
+                 class="input_tabla clave-espacio-t4"
+                 placeholder="Clave"
+                 aria-label="Clave del espacio"
+                 readonly
+            >            
             <select
                 id="Espacio_T4R${i}"
                 name="Espacio_T4R${i}"
@@ -947,11 +957,12 @@ function agregarFila4() {
                 aria-label="Espacio">
 
                 <option value="">
-                    -- Selecciona un programa--
+                    -- Selecciona un espacio--
                 </option>
 
             </select>
             
+            </div>
 
             <input
                 name="Espacio_T4R${i}RO"
@@ -1473,22 +1484,61 @@ crearFilaTotalTabla4();
 
 document.addEventListener("change", e => {
 
-    if (!e.target.id?.startsWith("LOC_Edificio_T2R") && !e.target.id?.startsWith("LOCEspacio_T2R")) return;
-     let campo=e.target;
+//    if (!e.target.id?.startsWith("LOC_Edificio_T2R") && !e.target.id?.startsWith("LOCEspacio_T2R")) return;
+    
+    if (!e.target.matches(
+           'input[id^="LOC_Edificio_T2R"]:not([id$="RO"]), ' +
+           'input[id^="LOCEspacio_T2R"]:not([id$="RO"])'
+     )) return;
+
+
+    let campo=e.target;
      let campoLLenar=e.target.dataset.completar;
      let inputxLLenar=document.getElementById(campoLLenar);
      inputxLLenar.textContent=campo.value;
-     
+     let elemento;
 
+       if(inputxLLenar.id?.startsWith("LOCEdificioS_T2R")){
+        elemento = document.querySelector(`[data-edificio="${inputxLLenar.id}"]`);
+     }
+     if(inputxLLenar.id?.startsWith("LOCEspacioS_T2R")){
+        elemento = document.querySelector(`[data-espacio="${inputxLLenar.id}"]`);
+     }
+     
+     
+     let edificioI=elemento.dataset.edificio;
+     let nivelI=elemento.dataset.nivel;
+     let espacioI=elemento.dataset.espacio;
+     let espacioInput=elemento.dataset.espacio2;
+     let inputEdificioS=document.getElementById(edificioI);
+     let inputNivelS   =document.getElementById(nivelI);   
+     let inputEspacioS =document.getElementById(espacioI);
+     let inputEspacioI =document.getElementById(espacioInput);  
+     inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+elemento.value;
+     actualizarOpcionesEspacios();
 });
 document.addEventListener("change", e => {
 
-    if (!e.target.id?.startsWith("Nivel_T2R")) return;
+//    if (!e.target.id?.startsWith("Nivel_T2R")) return;
+     if (!e.target.matches('select[id^="Nivel_T2R"]')) return;
+  
      let campo=e.target;
      let campoLLenar=e.target.dataset.completar;
      let inputxLLenar=document.getElementById(campoLLenar);
      inputxLLenar.textContent=campo.selectedOptions[0].dataset.valor2;
      
+    let elemento = document.querySelector(`[data-nivel="${inputxLLenar.id}"]`);
+
+     let edificioI=elemento.dataset.edificio;
+     let nivelI=elemento.dataset.nivel;
+     let espacioI=elemento.dataset.espacio;
+     let espacioInput=elemento.dataset.espacio2;
+     let inputEdificioS=document.getElementById(edificioI);
+     let inputNivelS   =document.getElementById(nivelI);   
+     let inputEspacioS =document.getElementById(espacioI);
+     let inputEspacioI =document.getElementById(espacioInput);  
+     inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+elemento.value;
+     actualizarOpcionesEspacios();
 
 });
 
@@ -1506,7 +1556,7 @@ document.addEventListener("change", e => {
      let inputEspacioS =document.getElementById(espacioI);
      let inputEspacioI =document.getElementById(espacioInput);  
      inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+campo.value;
-
+     actualizarOpcionesEspacios();
 });
 
 
@@ -1789,7 +1839,7 @@ tbody3.addEventListener("change", e => {
 
 
 //-----------------------------------------selects- tabla 4.Espacio-------------------------------------------------
-
+/*
 function actualizarOpcionesEspacios() {
 
     const espacios = [];
@@ -1826,6 +1876,188 @@ function actualizarOpcionesEspacios() {
         select.value = valorActual;
     });
 }
+
+*/
+//------------------------New function---------------------------
+
+function actualizarOpcionesEspacios(data = null) {
+
+    const espacios = [];
+
+    // Leer espacios reales de Tabla 2
+    tbody2.querySelectorAll("tr").forEach(fila => {
+
+        const nombre = fila.querySelector(
+            'input[id^="Espacio_Visible_T2R"]:not([id$="RO"])'
+        );
+
+        const completo = fila.querySelector(
+            'input[id^="Espacio_T2R"]:not([id$="RO"])'
+        );
+
+        if (!nombre || !completo) return;
+
+        const texto = nombre.value.trim();
+        const valor = completo.value.trim();
+
+        if (!texto || !valor) return;
+
+        // Recuperar la clave que ya muestran tus spans
+        const edificio = fila.querySelector(
+            '[id^="LOCEdificioS_T2R"]'
+        )?.textContent.trim() ?? "";
+
+        const nivel = fila.querySelector(
+            '[id^="LOCNivelS_T2R"]'
+        )?.textContent.trim() ?? "";
+
+        const espacio = fila.querySelector(
+            '[id^="LOCEspacioS_T2R"]'
+        )?.textContent.trim() ?? "";
+
+        const clave =
+            edificio && nivel && espacio
+                ? `${edificio}-${nivel}-${espacio}`
+                : "";
+
+        espacios.push({
+            origen: completo.id,
+            nombre: texto,
+            valor: valor,
+            clave: clave
+        });
+    });
+
+    // Actualizar selectores de Tabla 4
+    tbody4.querySelectorAll(
+        'select[id^="Espacio_Select_T4R"], ' +
+        'select[name^="Espacio_T4R"]'
+    ).forEach(select => {
+
+        // En Registro existe un input auxiliar.
+        // En Revisión el propio select guarda el valor.
+        const campoReal = select.dataset.select
+            ? document.getElementById(select.dataset.select)
+            : select;
+
+        if (!campoReal) return;
+
+        // Identificar el espacio que estaba seleccionado
+        const origenAnterior =
+            select.selectedOptions[0]?.dataset.origen ?? "";
+
+        const valorGuardado =
+            data?.[campoReal.name] ?? campoReal.value;
+
+        // Reconstruir las opciones
+        select.innerHTML =
+            '<option value="">-- Selecciona un espacio --</option>';
+
+        espacios.forEach(espacio => {
+
+            const option = document.createElement("option");
+
+            // Se muestra solo el nombre
+            option.textContent = espacio.nombre;
+
+            // Se conserva el valor completo
+            option.value = espacio.valor;
+
+            // Identifica la fila de Tabla 2
+            option.dataset.origen = espacio.origen;
+
+            // Clave para el campo contiguo
+            option.dataset.clave = espacio.clave;
+
+            select.appendChild(option);
+        });
+
+        // Priorizar la misma fila aunque cambie su clave
+        const elegido =
+            espacios.find(e => e.origen === origenAnterior) ??
+            espacios.find(e => e.valor === valorGuardado);
+
+        select.value = elegido?.valor ?? "";
+
+        // Mostrar la clave junto al selector
+        const campoClave = select.closest("td")?.querySelector(
+            ".clave-espacio-t4"
+        );
+
+        if (campoClave) {
+            campoClave.value = elegido?.clave ?? "";
+        }
+
+        // Sincronizar el campo de envío en Registro
+        if (campoReal !== select) {
+            campoReal.value = select.value;
+        }
+
+        // Sincronizar Tabla 5
+        copiarCampoT4aT5(campoReal);
+
+    });
+}
+
+/*
+document.addEventListener("change", e => {
+
+    if (!e.target.matches(
+        'select[id^="Espacio_Select_T4R"], ' +
+        'select[name^="Espacio_T4R"]'
+    )) return;
+
+    const select = e.target;
+
+    const campoClave = select.closest("td").querySelector(
+        ".clave-espacio-t4"
+    );
+
+    if (campoClave) {
+        campoClave.value =
+            select.selectedOptions[0]?.dataset.clave ?? "";
+    }
+
+    // Revisión: el select es también el campo de envío
+    // y debemos actualizar Tabla 5.
+    if (!select.dataset.select) {
+        copiarCampoT4aT5(select);
+    }
+
+});
+
+*/
+
+
+
+
+tbody4.addEventListener("change", function(e) {
+
+    const select = e.target;
+
+    if (!select.matches(
+        'select[name^="Espacio_T4R"]'
+    )) return;
+
+    const campoClave = select.closest("td").querySelector(
+        ".clave-espacio-t4"
+    );
+
+    if (campoClave) {
+        campoClave.value =
+            select.selectedOptions[0]?.dataset.clave ?? "";
+    }
+
+    copiarCampoT4aT5(select);
+});
+
+
+
+
+
+
+//------------------------------------------
+
 
 
 tbody2.addEventListener("change", e => {
@@ -2133,7 +2365,7 @@ function actualizarSelects(data){
     document.querySelectorAll(
     '#tablaBody4 select[name^="ProgramaAcademico_T4R"],'+
     '#tablaBody2 select[name^="Edificio_T2R"],' +
-    '#tablaBody4 select[name^="Espacio_T4R"],'+
+    //'#tablaBody4 select[name^="Espacio_T4R"],'+
     '#tablaBody4 select[name^="nombreCotizacion_T4R"],'+
     '#tablaBody4 select[name^="nombreCotizacion2_T4R"]'
 ).forEach(select => {
@@ -5041,13 +5273,23 @@ function precioTotalMasIVA(precioInput) {
             }
     
 document.querySelector(".Tabla4").addEventListener("change",function (event){
-                           const origen = event.target;    
-               document
-            .querySelectorAll(`[data-relleno="${origen.id}"]`)
-            .forEach(destino => {
+    
+                           const origen = event.target; 
+                           const precios = document.querySelectorAll(`[data-cant="${origen.id}"]`);   
+            document.querySelectorAll(`[data-relleno="${origen.id}"]`).forEach(destino => {
                 destino.value = origen.value;
-            });
-                           precioTotalMasIVA(event.target)
+            }); 
+                           
+                           if(precios){
+                               precios.forEach(element => {
+                                   precioTotalMasIVA(element);
+                               });
+                               
+                           }
+                           if(!origen.dataset.cant){
+                                    return;
+                               }
+                           precioTotalMasIVA(event.target);
                });
 
 
@@ -5061,8 +5303,7 @@ document.querySelector(".Tabla4").addEventListener("change",function (event){
 });
 */
 //V6
-// 
-const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+// const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 
 // V7 
@@ -5070,7 +5311,8 @@ const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcF
 
 
 //V8 
-// const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
+// 
+const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
 
 
 let folioActual=null;
@@ -5079,6 +5321,7 @@ let numerodeEnvio=0;
 let ExistenciaDeCotizaciones=false;
 let ExistenciaDeCotizaciones_T4=false;
 let folioCargado = false;
+let objetoFDNCargado = null;
 
 let ExistenciaDeCotizacionesA2=false;
 let ExistenciaDeCotizacionesA2_T4=false;
@@ -5106,6 +5349,12 @@ try{
 
 const json = await res.json();
 const data =json.data;
+
+objetoFDNCargado = JSON.parse(JSON.stringify(data));
+
+
+
+
 
 // alert(data.dependencia + "  su funcion y accion funcionan bien.Hora de la actualizacion:" + data.fechaModificacion +". el Origen es un" + json.origen );
  const form = document.getElementById("miFormulario");
@@ -5832,7 +6081,7 @@ crearFilaTotalTabla4();
 actualizarTotalesTabla4();
 
 restaurarClavesTabla2(data);
-
+actualizarOpcionesEspacios(data);
 
 }
 
@@ -7378,20 +7627,32 @@ document
             return;
         }
 
+        if (!objetoFDNCargado) {
+                        alert("Primero carga una solicitud para generar el FDN.");
+                        return;
+        }
+
         try {
 
             const respuesta = await fetch(direccionEnlace, {
 
                 method: "POST",
 
-                body: JSON.stringify({
+               /* body: JSON.stringify({
                     action: "exportarExcel",
                     folio: folio,
                     dependencia:dependencia,
                     numerodeEnvio:numerodeEnvio,
 
                 })
-
+              */
+             body: JSON.stringify({
+                       action: "exportarExcel",
+                       folio: folio,
+                       dependencia: dependencia, 
+                       numerodeEnvio: numerodeEnvio,
+                       data: objetoFDNCargado
+                 })
             });
 
             const resultado =
@@ -7436,4 +7697,3 @@ document
         }
 
     });
-
