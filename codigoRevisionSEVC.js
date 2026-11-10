@@ -558,7 +558,7 @@ function agregarFila2() {
             <input
                 id="Espacio_T2R${i}"
                 name="Espacio_T2R${i}"
-                class="input_tabla"
+                class="input_tabla pruebaSelect"
                 aria-label="Espacio"
             >
 
@@ -5264,11 +5264,16 @@ function precioTotalMasIVA(precioInput) {
        let valorUnitario = Number(
                 precioInput.value.replace(/,/g, "")
               );
-                 precioTotal=valorUnitario*cantidadInput.value*1.16;
-                
-                precioTotalinput.value=precioTotal;    
 
-            formatearMiles(precioTotalinput);
+              precioTotal = valorUnitario * cantidadInput.value * 1.16;
+
+                precioTotalinput.value = formatoMilesNumero(precioTotal);
+
+              //   precioTotal=valorUnitario*cantidadInput.value*1.16;
+                
+             //   precioTotalinput.value=precioTotal;    
+
+//            formatearMiles(precioTotalinput);
             actualizarTotalesTabla4();    
             }
     
@@ -5282,14 +5287,17 @@ document.querySelector(".Tabla4").addEventListener("change",function (event){
                            
                            if(precios){
                                precios.forEach(element => {
-                                   precioTotalMasIVA(element);
+                              
+                                precioTotalMasIVA(element);
                                });
                                
                            }
                            if(!origen.dataset.cant){
                                     return;
                                }
+
                            precioTotalMasIVA(event.target);
+
                });
 
 
