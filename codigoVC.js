@@ -6527,11 +6527,17 @@ function precioTotalMasIVA(precioInput) {
        let valorUnitario = Number(
                 precioInput.value.replace(/,/g, "")
               );
-                 precioTotal=valorUnitario*cantidadInput.value*1.16;
+                // precioTotal=valorUnitario*cantidadInput.value*1.16;
                 
-                precioTotalinput.value=precioTotal;
-                formatearMiles(precioTotalinput);
-                actualizarTotalesTabla4();    
+                //precioTotalinput.value=precioTotal;
+                //formatearMiles(precioTotalinput);
+                precioTotal = valorUnitario * cantidadInput.value * 1.16;
+
+                precioTotalinput.value = formatoMilesNumero(precioTotal);
+                
+                actualizarTotalesTabla4();
+
+
             }
 
 document.querySelectorAll(
@@ -6914,13 +6920,32 @@ const total = precio * cantidad * 1.16;
 //  alert(precio);
 document.getElementById(
     `PrecioTotal_T4E${index}`
-).textContent = total;
+).textContent = formatoMilesNumero(total);
 
 document.getElementById(`NombreArch_T4E${index}`).textContent= ejemplos[`NombreArch_T4E${index}`];     
 
 document.getElementById(`Cotizacion_T4E${index}`).textContent= ejemplos[`Cotizacion_T4E${index}`];       
 document.getElementById(`PrecioUnitario2_T4E${index}`).textContent=formatoMilesNumero(ejemplos[`PrecioUnitario2_T4E${index}`]);
-document.getElementById(`PrecioTotal2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`]*ejemplos[`Cantidad_T4E${index}`]*1.16
+
+
+const precio2 = numeroSinFormato(ejemplos[`PrecioUnitario2_T4E${index}`]
+);
+
+//document.getElementById(`PrecioTotal2_T4E${index}`).textContent = formatoMilesNumero(precio2 * cantidad * 1.16);
+
+const total2 = precio2 * cantidad * 1.16;
+//  alert(precio);
+document.getElementById(`PrecioTotal2_T4E${index}`).textContent = formatoMilesNumero(total2);
+
+
+
+
+
+
+// document.getElementById(`PrecioTotal2_T4E${index}`).textContent= numeroSinFormato(ejemplos[`PrecioUnitario2_T4E${index}`])*numeroSinFormato(ejemplos[`Cantidad_T4E${index}`])*1.16
+
+
+
 document.getElementById(`NombreArch2_T4E${index}`).textContent= ejemplos[`NombreArch2_T4E${index}`];  
 document.getElementById(`Cotizacion2_T4E${index}`).textContent=ejemplos[`Cotizacion2_T4E${index}`];
 
@@ -10121,5 +10146,5 @@ document.addEventListener(
 
     }
 );
-        
+
 
